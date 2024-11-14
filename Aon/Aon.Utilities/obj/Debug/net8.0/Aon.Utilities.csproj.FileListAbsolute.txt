@@ -1,0 +1,12 @@
+D:\Project Aon\Code\Aon\Aon.Utilities\bin\Debug\net8.0\Aon.Utilities.deps.json
+D:\Project Aon\Code\Aon\Aon.Utilities\bin\Debug\net8.0\Aon.Utilities.dll
+D:\Project Aon\Code\Aon\Aon.Utilities\bin\Debug\net8.0\Aon.Utilities.pdb
+D:\Project Aon\Code\Aon\Aon.Utilities\obj\Debug\net8.0\Aon.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project Aon\Code\Aon\Aon.Utilities\obj\Debug\net8.0\Aon.Utilities.AssemblyInfoInputs.cache
+D:\Project Aon\Code\Aon\Aon.Utilities\obj\Debug\net8.0\Aon.Utilities.AssemblyInfo.cs
+D:\Project Aon\Code\Aon\Aon.Utilities\obj\Debug\net8.0\Aon.Utilities.csproj.CoreCompileInputs.cache
+D:\Project Aon\Code\Aon\Aon.Utilities\obj\Debug\net8.0\Aon.Utilities.sourcelink.json
+D:\Project Aon\Code\Aon\Aon.Utilities\obj\Debug\net8.0\Aon.Utilities.dll
+D:\Project Aon\Code\Aon\Aon.Utilities\obj\Debug\net8.0\refint\Aon.Utilities.dll
+D:\Project Aon\Code\Aon\Aon.Utilities\obj\Debug\net8.0\Aon.Utilities.pdb
+D:\Project Aon\Code\Aon\Aon.Utilities\obj\Debug\net8.0\ref\Aon.Utilities.dll

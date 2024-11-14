@@ -1,7 +1,64 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Project Aon\\Code\\Aon\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|d:\\project aon\\code\\aon\\aon.consoleapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|solutionrelative:aon.consoleapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44E4127B-E6F8-43BA-929D-F341FDDEFD31}|Aon.Utilities\\Aon.Utilities.csproj|d:\\project aon\\code\\aon\\aon.utilities\\combatresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44E4127B-E6F8-43BA-929D-F341FDDEFD31}|Aon.Utilities\\Aon.Utilities.csproj|solutionrelative:aon.utilities\\combatresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44E4127B-E6F8-43BA-929D-F341FDDEFD31}|Aon.Utilities\\Aon.Utilities.csproj|d:\\project aon\\code\\aon\\aon.utilities\\randomnumbertable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44E4127B-E6F8-43BA-929D-F341FDDEFD31}|Aon.Utilities\\Aon.Utilities.csproj|solutionrelative:aon.utilities\\randomnumbertable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1B722DC-6CA1-4DB1-95E3-E638B7F4F1FC}|Aon.Models\\Aon.Models.csproj|d:\\project aon\\code\\aon\\aon.models\\frontmatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1B722DC-6CA1-4DB1-95E3-E638B7F4F1FC}|Aon.Models\\Aon.Models.csproj|solutionrelative:aon.models\\frontmatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1B722DC-6CA1-4DB1-95E3-E638B7F4F1FC}|Aon.Models\\Aon.Models.csproj|d:\\project aon\\code\\aon\\aon.models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1B722DC-6CA1-4DB1-95E3-E638B7F4F1FC}|Aon.Models\\Aon.Models.csproj|solutionrelative:aon.models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|d:\\project aon\\code\\aon\\aon.consoleapp\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|solutionrelative:aon.consoleapp\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|d:\\project aon\\code\\aon\\aon.consoleapp\\frontmatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|solutionrelative:aon.consoleapp\\frontmatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1B722DC-6CA1-4DB1-95E3-E638B7F4F1FC}|Aon.Models\\Aon.Models.csproj|d:\\project aon\\code\\aon\\aon.models\\choice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1B722DC-6CA1-4DB1-95E3-E638B7F4F1FC}|Aon.Models\\Aon.Models.csproj|solutionrelative:aon.models\\choice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1B722DC-6CA1-4DB1-95E3-E638B7F4F1FC}|Aon.Models\\Aon.Models.csproj|d:\\project aon\\code\\aon\\aon.models\\section.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1B722DC-6CA1-4DB1-95E3-E638B7F4F1FC}|Aon.Models\\Aon.Models.csproj|solutionrelative:aon.models\\section.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|d:\\project aon\\code\\aon\\aon.consoleapp\\section.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|solutionrelative:aon.consoleapp\\section.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|d:\\project aon\\code\\aon\\aon.consoleapp\\choice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|solutionrelative:aon.consoleapp\\choice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|d:\\project aon\\code\\aon\\aon.consoleapp\\bookloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|solutionrelative:aon.consoleapp\\bookloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|d:\\project aon\\code\\aon\\aon.consoleapp\\01hh.htm||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56DEED3D-5B28-4AE6-8AF1-F2A719AABEF9}|Aon.ConsoleApp\\Aon.ConsoleApp.csproj|solutionrelative:aon.consoleapp\\01hh.htm||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Project Aon\\Code\\Aon\\BookSource\\all-books-simple\\en\\xhtml-simple\\fw\\01hh.htm||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookSource\\all-books-simple\\en\\xhtml-simple\\fw\\01hh.htm||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,15 +66,197 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CombatResult.cs",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.Utilities\\CombatResult.cs",
+              "RelativeDocumentMoniker": "Aon.Utilities\\CombatResult.cs",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.Utilities\\CombatResult.cs",
+              "RelativeToolTip": "Aon.Utilities\\CombatResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T12:28:33.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RandomNumberTable.cs",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.Utilities\\RandomNumberTable.cs",
+              "RelativeDocumentMoniker": "Aon.Utilities\\RandomNumberTable.cs",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.Utilities\\RandomNumberTable.cs",
+              "RelativeToolTip": "Aon.Utilities\\RandomNumberTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T11:43:32.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Book.cs",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.Models\\Book.cs",
+              "RelativeDocumentMoniker": "Aon.Models\\Book.cs",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.Models\\Book.cs",
+              "RelativeToolTip": "Aon.Models\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T11:42:35.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrontMatter.cs",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.Models\\FrontMatter.cs",
+              "RelativeDocumentMoniker": "Aon.Models\\FrontMatter.cs",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.Models\\FrontMatter.cs",
+              "RelativeToolTip": "Aon.Models\\FrontMatter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T11:41:59.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Section.cs",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.Models\\Section.cs",
+              "RelativeDocumentMoniker": "Aon.Models\\Section.cs",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.Models\\Section.cs",
+              "RelativeToolTip": "Aon.Models\\Section.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T11:41:32.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Choice.cs",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.Models\\Choice.cs",
+              "RelativeDocumentMoniker": "Aon.Models\\Choice.cs",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.Models\\Choice.cs",
+              "RelativeToolTip": "Aon.Models\\Choice.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T11:40:54.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "01hh.htm",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\01hh.htm",
+              "RelativeDocumentMoniker": "Aon.ConsoleApp\\01hh.htm",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\01hh.htm",
+              "RelativeToolTip": "Aon.ConsoleApp\\01hh.htm",
+              "ViewState": "AgIAAMgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-11-14T10:30:14.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\Program.cs",
+              "RelativeDocumentMoniker": "Aon.ConsoleApp\\Program.cs",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\Program.cs",
+              "RelativeToolTip": "Aon.ConsoleApp\\Program.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T10:25:43.663Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Book.cs",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\Book.cs",
+              "RelativeDocumentMoniker": "Aon.ConsoleApp\\Book.cs",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\Book.cs",
+              "RelativeToolTip": "Aon.ConsoleApp\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T10:27:28.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FrontMatter.cs",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\FrontMatter.cs",
+              "RelativeDocumentMoniker": "Aon.ConsoleApp\\FrontMatter.cs",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\FrontMatter.cs",
+              "RelativeToolTip": "Aon.ConsoleApp\\FrontMatter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T10:27:13.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Section.cs",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\Section.cs",
+              "RelativeDocumentMoniker": "Aon.ConsoleApp\\Section.cs",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\Section.cs",
+              "RelativeToolTip": "Aon.ConsoleApp\\Section.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T10:26:48.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BookLoader.cs",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\BookLoader.cs",
+              "RelativeDocumentMoniker": "Aon.ConsoleApp\\BookLoader.cs",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\BookLoader.cs",
+              "RelativeToolTip": "Aon.ConsoleApp\\BookLoader.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAowA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T10:29:12.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Choice.cs",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\Choice.cs",
+              "RelativeDocumentMoniker": "Aon.ConsoleApp\\Choice.cs",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\Aon.ConsoleApp\\Choice.cs",
+              "RelativeToolTip": "Aon.ConsoleApp\\Choice.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T10:26:26.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "01hh.htm",
+              "DocumentMoniker": "D:\\Project Aon\\Code\\Aon\\BookSource\\all-books-simple\\en\\xhtml-simple\\fw\\01hh.htm",
+              "RelativeDocumentMoniker": "BookSource\\all-books-simple\\en\\xhtml-simple\\fw\\01hh.htm",
+              "ToolTip": "D:\\Project Aon\\Code\\Aon\\BookSource\\all-books-simple\\en\\xhtml-simple\\fw\\01hh.htm",
+              "RelativeToolTip": "BookSource\\all-books-simple\\en\\xhtml-simple\\fw\\01hh.htm",
+              "ViewState": "AgIAAJMAAAAAAAAAAAAAAKsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-11-14T09:57:39.778Z",
+              "EditorCaption": ""
             }
           ]
         }
