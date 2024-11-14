@@ -1,0 +1,5 @@
+/* Hidden from old implementations of CSS */
+
+#navbar {
+ line-height: 0;
+}

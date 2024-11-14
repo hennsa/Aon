@@ -1,0 +1,76 @@
+@import url(more.css);
+
+html {
+ /* scrollbar properties are currently IE specific (24 Aug 2002) */
+ scrollbar-base-color: #333300;
+ scrollbar-track-color: #cccc99;
+ scrollbar-arrow-color: #cccc99;
+}
+
+body {
+ background-color: #cccc99;
+ color: #333300;
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+p, dl, blockquote { text-align: justify }
+
+h1 {
+ margin-top: 0px;
+ border: 0px none;
+ padding: 0px;
+ text-align: left;
+}
+
+h2 {
+ margin-top: 1.5em;
+ border: 0px none;
+ padding: 0px;
+ text-align: left;
+}
+
+h3, h4, h5, h6 {
+ margin-top: 1em;
+ border: 0px none;
+ padding: 0px;
+ text-align: left;
+}
+
+h1 { font-size: 1.4em; }
+h2 { font-size: 1.2em; }
+h3 { font-size: 1.1em; }
+
+:link:focus, :visited:focus { 
+}
+
+:link, :visited {
+ background-color: transparent;
+ color: #e64f20;
+ text-decoration: none;
+ font-weight: bold;
+}
+
+:link:hover, :visited:hover {
+ background-color: #ffe6cc;
+ color: #e64f20;
+ text-decoration: none;
+ font-weight: bold;
+}
+
+.img:link:hover, .img:visited:hover {
+ background-color: transparent;
+ color: #e64f20;
+ text-decoration: none;
+ font-weight: bold;
+}
+
+:link:active, :visited:active {
+ background-color: transparent;
+ color: #ff0000;
+ text-decoration: none;
+ font-weight: bold;
+}
+
+dt {
+ font-weight: bold;
+}
