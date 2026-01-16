@@ -122,7 +122,13 @@ public sealed class MainViewModel : ViewModelBase
 
     private async Task LoadBookAsync(string bookId)
     {
-        _book = await _bookRepository.GetBookAsync(bookId);
+        var book = await _bookRepository.GetBookAsync(bookId);
+        if (!string.Equals(SelectedBook?.Id, bookId, StringComparison.Ordinal))
+        {
+            return;
+        }
+
+        _book = book;
         _state.BookId = _book.Id;
         _state.SectionId = _book.Sections.FirstOrDefault()?.Id ?? string.Empty;
         BookTitle = _book.Title;
