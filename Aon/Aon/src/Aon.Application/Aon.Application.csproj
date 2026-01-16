@@ -8,7 +8,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Aon.Content\Aon.Content.csproj" />
     <ProjectReference Include="..\Aon.Core\Aon.Core.csproj" />
-    <ProjectReference Include="..\Aon.Persistence\Aon.Persistence.csproj" />
     <ProjectReference Include="..\Aon.Rules\Aon.Rules.csproj" />
   </ItemGroup>
 </Project>
