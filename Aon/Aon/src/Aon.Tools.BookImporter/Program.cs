@@ -213,7 +213,7 @@ static List<Choice> ExtractChoices(IEnumerable<INode> nodes)
             continue;
         }
 
-        var link = element.QuerySelector("a[href^=\"#sect\"]");
+        var link = element.QuerySelector("a[href]");
         if (link is null)
         {
             continue;
