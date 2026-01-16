@@ -1,0 +1,12 @@
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Persistence\bin\Debug\net8.0\Aon.Persistence.deps.json
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Persistence\bin\Debug\net8.0\Aon.Persistence.dll
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Persistence\bin\Debug\net8.0\Aon.Persistence.pdb
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Persistence\obj\Debug\net8.0\Aon.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Persistence\obj\Debug\net8.0\Aon.Persistence.AssemblyInfoInputs.cache
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Persistence\obj\Debug\net8.0\Aon.Persistence.AssemblyInfo.cs
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Persistence\obj\Debug\net8.0\Aon.Persistence.csproj.CoreCompileInputs.cache
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Persistence\obj\Debug\net8.0\Aon.Persistence.sourcelink.json
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Persistence\obj\Debug\net8.0\Aon.Persistence.dll
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Persistence\obj\Debug\net8.0\refint\Aon.Persistence.dll
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Persistence\obj\Debug\net8.0\Aon.Persistence.pdb
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Persistence\obj\Debug\net8.0\ref\Aon.Persistence.dll
