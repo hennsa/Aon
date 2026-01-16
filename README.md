@@ -1,20 +1,22 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Project Aon Companion
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Project Aon Companion aims to turn the Lone Wolf game books by Joe Dever into a standalone, interactive application inspired by the online editions published by Project Aon (https://www.projectaon.org/en/Main/Home). The goal is to deliver the same sense of adventure as the classic “choose your own path” books, while providing modern conveniences like built-in character management and digital dice.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## Vision
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+The application will simulate the experience of reading and playing Lone Wolf books in a self-contained app. It will:
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+- Present the story as navigable sections, mirroring the structure of the original game books.
+- Track character stats, skills, weapons, items, and other equipment automatically.
+- Provide random number generation to handle combat, chance, and other game mechanics.
+- Maintain a clear, intuitive flow between story sections so readers can focus on the adventure.
+
+Project Aon’s web editions make these books easily readable online, and this project extends that experience into a dedicated app that feels like a modern, immersive game book companion.
+
+## Status
+
+This project is in its early stages. The README and design will evolve as features are planned and implemented.
+
+## Contributing
+
+Contributions, ideas, and feedback are welcome as the project grows. If you would like to help, please open an issue or submit a pull request with your suggestions.
