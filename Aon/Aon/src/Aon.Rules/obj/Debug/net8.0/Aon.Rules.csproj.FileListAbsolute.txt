@@ -1,0 +1,12 @@
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Rules\bin\Debug\net8.0\Aon.Rules.deps.json
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Rules\bin\Debug\net8.0\Aon.Rules.dll
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Rules\bin\Debug\net8.0\Aon.Rules.pdb
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Rules\obj\Debug\net8.0\Aon.Rules.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Rules\obj\Debug\net8.0\Aon.Rules.AssemblyInfoInputs.cache
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Rules\obj\Debug\net8.0\Aon.Rules.AssemblyInfo.cs
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Rules\obj\Debug\net8.0\Aon.Rules.csproj.CoreCompileInputs.cache
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Rules\obj\Debug\net8.0\Aon.Rules.sourcelink.json
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Rules\obj\Debug\net8.0\Aon.Rules.dll
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Rules\obj\Debug\net8.0\refint\Aon.Rules.dll
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Rules\obj\Debug\net8.0\Aon.Rules.pdb
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Rules\obj\Debug\net8.0\ref\Aon.Rules.dll
