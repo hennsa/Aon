@@ -64,10 +64,10 @@ static string BuildBookId(string rootDirectory, string filePath)
 {
     var relativePath = Path.GetRelativePath(rootDirectory, filePath);
     var withoutExtension = Path.ChangeExtension(relativePath, null) ?? relativePath;
-    var sanitized = withoutExtension
-        .Replace(Path.DirectorySeparatorChar, '-')
-        .Replace(Path.AltDirectorySeparatorChar, '-');
-    return sanitized;
+    var segments = withoutExtension
+        .Split(new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries)
+        .Select(Uri.EscapeDataString);
+    return string.Join("__", segments);
 }
 
 static List<FrontMatterSection> ExtractFrontMatter(IDocument document)
