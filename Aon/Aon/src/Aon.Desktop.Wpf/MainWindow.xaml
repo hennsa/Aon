@@ -6,14 +6,20 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="{Binding BookTitle}" FontSize="22" FontWeight="SemiBold" />
-        <TextBlock Grid.Row="1" Text="{Binding SectionTitle}" FontSize="16" Margin="0,8,0,16" />
+        <ComboBox ItemsSource="{Binding Books}"
+                  SelectedItem="{Binding SelectedBook}"
+                  DisplayMemberPath="DisplayName"
+                  MinWidth="260"
+                  Margin="0,0,0,12" />
+        <TextBlock Grid.Row="1" Text="{Binding BookTitle}" FontSize="22" FontWeight="SemiBold" />
+        <TextBlock Grid.Row="2" Text="{Binding SectionTitle}" FontSize="16" Margin="0,8,0,16" />
 
-        <ItemsControl Grid.Row="2" ItemsSource="{Binding Blocks}">
+        <ItemsControl Grid.Row="3" ItemsSource="{Binding Blocks}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Html}" TextWrapping="Wrap" Margin="0,0,0,12" />
@@ -21,7 +27,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <ItemsControl Grid.Row="3" ItemsSource="{Binding Choices}">
+        <ItemsControl Grid.Row="4" ItemsSource="{Binding Choices}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Text}" Command="{Binding Command}" Margin="0,4,0,0" />
