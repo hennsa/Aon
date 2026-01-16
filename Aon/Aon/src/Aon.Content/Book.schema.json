@@ -61,8 +61,8 @@
       "required": [
         "id",
         "title",
-        "html",
-        "links"
+        "blocks",
+        "choices"
       ],
       "properties": {
         "id": {
@@ -73,18 +73,38 @@
           "type": "string",
           "minLength": 1
         },
-        "html": {
-          "type": "string"
-        },
-        "links": {
+        "blocks": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/sectionLink"
+            "$ref": "#/$defs/contentBlock"
+          }
+        },
+        "choices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/choice"
           }
         }
       }
     },
-    "sectionLink": {
+    "contentBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "html"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "html": {
+          "type": "string"
+        }
+      }
+    },
+    "choice": {
       "type": "object",
       "additionalProperties": false,
       "required": [
