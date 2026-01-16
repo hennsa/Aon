@@ -29,7 +29,8 @@ foreach (var file in Directory.EnumerateFiles(inputDirectory, "*.htm", SearchOpt
 {
     var html = await File.ReadAllTextAsync(file);
     var document = await context.OpenAsync(request => request.Content(html));
-    var book = ExtractBook(document, Path.GetFileNameWithoutExtension(file));
+    var bookId = BuildBookId(inputDirectory, file);
+    var book = ExtractBook(document, bookId);
 
     var outputPath = Path.Combine(outputDirectory, $"{book.Id}.json");
     var json = JsonSerializer.Serialize(book, jsonOptions);
@@ -57,6 +58,16 @@ static Book ExtractBook(IDocument document, string fallbackId)
         FrontMatter = frontMatterSections,
         Sections = sections
     };
+}
+
+static string BuildBookId(string rootDirectory, string filePath)
+{
+    var relativePath = Path.GetRelativePath(rootDirectory, filePath);
+    var withoutExtension = Path.ChangeExtension(relativePath, null) ?? relativePath;
+    var segments = withoutExtension
+        .Split(new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries)
+        .Select(Uri.EscapeDataString);
+    return string.Join("__", segments);
 }
 
 static List<FrontMatterSection> ExtractFrontMatter(IDocument document)
@@ -113,6 +124,11 @@ static List<BookSection> ExtractSections(IDocument document)
                 {
                     break;
                 }
+            }
+
+            if (node is IElement frontMatterElement && frontMatterElement.ClassList.Contains("frontmatter"))
+            {
+                break;
             }
 
             nodes.Add(node);
