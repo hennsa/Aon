@@ -220,9 +220,7 @@ static List<Choice> ExtractChoices(IEnumerable<INode> nodes)
         }
 
         var href = link.GetAttribute("href") ?? string.Empty;
-        var targetId = href.StartsWith("#sect", StringComparison.OrdinalIgnoreCase)
-            ? href["#sect".Length..]
-            : href;
+        var targetId = GetTargetIdFromHref(href);
 
         if (string.IsNullOrWhiteSpace(targetId))
         {
@@ -237,6 +235,25 @@ static List<Choice> ExtractChoices(IEnumerable<INode> nodes)
     }
 
     return choices;
+}
+
+static string? GetTargetIdFromHref(string href)
+{
+    if (href.StartsWith("#sect", StringComparison.OrdinalIgnoreCase))
+    {
+        return href["#sect".Length..];
+    }
+
+    if (href.StartsWith("sect", StringComparison.OrdinalIgnoreCase) && href.EndsWith(".htm", StringComparison.OrdinalIgnoreCase))
+    {
+        var fileName = Path.GetFileNameWithoutExtension(href);
+        if (fileName.StartsWith("sect", StringComparison.OrdinalIgnoreCase))
+        {
+            return fileName["sect".Length..];
+        }
+    }
+
+    return null;
 }
 
 static List<string> ValidateBook(Book book)
@@ -275,15 +292,16 @@ static List<string> ValidateBook(Book book)
 static string? GetSectionId(IElement heading)
 {
     var anchor = heading.QuerySelector("a[name]")?.GetAttribute("name")?.Trim();
-    if (string.IsNullOrWhiteSpace(anchor))
+    if (!string.IsNullOrWhiteSpace(anchor) && anchor.StartsWith("sect", StringComparison.OrdinalIgnoreCase))
+    {
+        return anchor["sect".Length..];
+    }
+
+    var headingText = heading.TextContent?.Trim();
+    if (string.IsNullOrWhiteSpace(headingText))
     {
         return null;
     }
 
-    if (!anchor.StartsWith("sect", StringComparison.OrdinalIgnoreCase))
-    {
-        return null;
-    }
-
-    return anchor["sect".Length..];
+    return headingText.All(char.IsDigit) ? headingText : null;
 }
