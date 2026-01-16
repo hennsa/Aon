@@ -1,5 +1,6 @@
 using Aon.Content;
 using Aon.Core;
+using Aon.Rules;
 
 namespace Aon.Application;
 
@@ -7,11 +8,16 @@ public sealed class GameService
 {
     private readonly IBookRepository _bookRepository;
     private readonly IGameStateRepository _gameStateRepository;
+    private readonly IRulesEngine _rulesEngine;
 
-    public GameService(IBookRepository bookRepository, IGameStateRepository gameStateRepository)
+    public GameService(
+        IBookRepository bookRepository,
+        IGameStateRepository gameStateRepository,
+        IRulesEngine rulesEngine)
     {
         _bookRepository = bookRepository;
         _gameStateRepository = gameStateRepository;
+        _rulesEngine = rulesEngine;
     }
 
     public async Task<GameState> StartNewGameAsync(string bookId, CancellationToken cancellationToken = default)
@@ -47,5 +53,19 @@ public sealed class GameService
 
         state.SectionId = section.Id;
         return section;
+    }
+
+    public int RollRandomNumber()
+    {
+        return _rulesEngine.RollRandomNumber();
+    }
+
+    public CombatResult ResolveCombatRound(
+        Character player,
+        int enemyCombatSkill,
+        int enemyEndurance,
+        int randomNumber)
+    {
+        return _rulesEngine.ResolveCombatRound(player, enemyCombatSkill, enemyEndurance, randomNumber);
     }
 }
