@@ -6,13 +6,12 @@ namespace Aon.Persistence;
 
 public sealed class JsonGameStateRepository : IGameStateRepository
 {
-    private readonly string _rootDirectory;
-    private readonly JsonSerializerOptions _serializerOptions;
+    private readonly string _saveDirectory;
+    private readonly JsonSerializerOptions _options = new() { WriteIndented = true };
 
-    public JsonGameStateRepository(string rootDirectory, JsonSerializerOptions? serializerOptions = null)
+    public JsonGameStateRepository(string saveDirectory)
     {
-        _rootDirectory = rootDirectory;
-        _serializerOptions = serializerOptions ?? new JsonSerializerOptions { WriteIndented = true };
+        _saveDirectory = saveDirectory;
     }
 
     public async Task<GameState?> LoadAsync(string slot, CancellationToken cancellationToken = default)
@@ -23,23 +22,41 @@ public sealed class JsonGameStateRepository : IGameStateRepository
             return null;
         }
 
-        var json = await File.ReadAllTextAsync(path, cancellationToken);
-        return JsonSerializer.Deserialize<GameState>(json, _serializerOptions);
+        await using var stream = File.OpenRead(path);
+        return await JsonSerializer.DeserializeAsync<GameState>(stream, _options, cancellationToken);
     }
 
     public async Task SaveAsync(string slot, GameState state, CancellationToken cancellationToken = default)
     {
-        Directory.CreateDirectory(_rootDirectory);
         var path = GetSlotPath(slot);
-        var json = JsonSerializer.Serialize(state, _serializerOptions);
-        await File.WriteAllTextAsync(path, json, cancellationToken);
+        Directory.CreateDirectory(_saveDirectory);
+
+        await using var stream = File.Create(path);
+        await JsonSerializer.SerializeAsync(stream, state, _options, cancellationToken);
     }
 
     private string GetSlotPath(string slot)
     {
-        var sanitized = new string(slot.Select(ch => InvalidFileNameChars.Contains(ch) ? '_' : ch).ToArray());
-        return Path.Combine(_rootDirectory, $"{sanitized}.json");
+        var safeSlot = SanitizeSlot(slot);
+        return Path.Combine(_saveDirectory, $"{safeSlot}.json");
     }
 
-    private static readonly HashSet<char> InvalidFileNameChars = new(Path.GetInvalidFileNameChars());
+    private static string SanitizeSlot(string slot)
+    {
+        if (string.IsNullOrWhiteSpace(slot))
+        {
+            return "default";
+        }
+
+        var invalidChars = Path.GetInvalidFileNameChars();
+        var sanitized = new char[slot.Length];
+        for (var i = 0; i < slot.Length; i++)
+        {
+            var character = slot[i];
+            sanitized[i] = invalidChars.Contains(character) ? '_' : character;
+        }
+
+        var result = new string(sanitized).Trim();
+        return string.IsNullOrWhiteSpace(result) ? "default" : result;
+    }
 }

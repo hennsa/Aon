@@ -6,28 +6,31 @@ namespace Aon.Persistence;
 
 public sealed class JsonBookRepository : IBookRepository
 {
-    private readonly string _rootDirectory;
-    private readonly JsonSerializerOptions _serializerOptions;
+    private readonly string _booksDirectory;
+    private readonly JsonSerializerOptions _options;
 
-    public JsonBookRepository(string rootDirectory, JsonSerializerOptions? serializerOptions = null)
+    public JsonBookRepository(string booksDirectory)
     {
-        _rootDirectory = rootDirectory;
-        _serializerOptions = serializerOptions ?? new JsonSerializerOptions();
+        _booksDirectory = booksDirectory;
+        _options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
     }
 
     public async Task<Book> GetBookAsync(string bookId, CancellationToken cancellationToken = default)
     {
-        var path = Path.Combine(_rootDirectory, $"{bookId}.json");
+        var path = Path.Combine(_booksDirectory, $"{bookId}.json");
         if (!File.Exists(path))
         {
-            throw new FileNotFoundException($"Book JSON not found for id '{bookId}'.", path);
+            throw new FileNotFoundException($"Book file not found: {path}", path);
         }
 
-        var json = await File.ReadAllTextAsync(path, cancellationToken);
-        var book = JsonSerializer.Deserialize<Book>(json, _serializerOptions);
+        await using var stream = File.OpenRead(path);
+        var book = await JsonSerializer.DeserializeAsync<Book>(stream, _options, cancellationToken);
         if (book is null)
         {
-            throw new InvalidOperationException($"Failed to deserialize book '{bookId}'.");
+            throw new InvalidOperationException($"Unable to deserialize book data from {path}.");
         }
 
         return book;

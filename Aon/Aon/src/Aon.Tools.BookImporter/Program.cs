@@ -22,7 +22,11 @@ Directory.CreateDirectory(outputDirectory);
 
 var config = Configuration.Default;
 var context = BrowsingContext.New(config);
-var jsonOptions = new JsonSerializerOptions { WriteIndented = true };
+var jsonOptions = new JsonSerializerOptions
+{
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+    WriteIndented = true
+};
 var importedCount = 0;
 var hadValidationErrors = false;
 
@@ -213,15 +217,9 @@ static List<Choice> ExtractChoices(IEnumerable<INode> nodes)
             continue;
         }
 
-        var link = element.QuerySelector("a[href]");
-        if (link is null)
-        {
-            continue;
-        }
-
-        var href = link.GetAttribute("href") ?? string.Empty;
-        var targetId = GetTargetIdFromHref(href);
-
+        var targetId = element.QuerySelectorAll("a[href]")
+            .Select(anchor => GetChoiceTargetId(anchor.GetAttribute("href") ?? string.Empty))
+            .FirstOrDefault(candidate => !string.IsNullOrWhiteSpace(candidate));
         if (string.IsNullOrWhiteSpace(targetId))
         {
             continue;
@@ -304,4 +302,74 @@ static string? GetSectionId(IElement heading)
     }
 
     return headingText.All(char.IsDigit) ? headingText : null;
+}
+
+static string? GetChoiceTargetId(string href)
+{
+    if (string.IsNullOrWhiteSpace(href))
+    {
+        return null;
+    }
+
+    var trimmed = href.Trim();
+    if (trimmed.StartsWith("#", StringComparison.OrdinalIgnoreCase))
+    {
+        return GetFragmentTargetId(trimmed);
+    }
+
+    var fragmentIndex = trimmed.IndexOf('#', StringComparison.Ordinal);
+    if (fragmentIndex >= 0)
+    {
+        var fragmentId = GetFragmentTargetId(trimmed[fragmentIndex..]);
+        if (!string.IsNullOrWhiteSpace(fragmentId))
+        {
+            return fragmentId;
+        }
+
+        trimmed = trimmed[..fragmentIndex];
+    }
+
+    var fileName = GetFileName(trimmed);
+    if (fileName.StartsWith("sect", StringComparison.OrdinalIgnoreCase)
+        && fileName.EndsWith(".htm", StringComparison.OrdinalIgnoreCase))
+    {
+        var id = fileName["sect".Length..^".htm".Length];
+        return IsDigitsOnly(id) ? id : null;
+    }
+
+    if (fileName.StartsWith("sect", StringComparison.OrdinalIgnoreCase)
+        && fileName.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
+    {
+        var id = fileName["sect".Length..^".html".Length];
+        return IsDigitsOnly(id) ? id : null;
+    }
+
+    return null;
+}
+
+static string? GetFragmentTargetId(string fragment)
+{
+    if (!fragment.StartsWith("#sect", StringComparison.OrdinalIgnoreCase))
+    {
+        return null;
+    }
+
+    var id = fragment["#sect".Length..];
+    return IsDigitsOnly(id) ? id : null;
+}
+
+static string GetFileName(string value)
+{
+    var lastSlash = value.LastIndexOfAny(new[] { '/', '\\' });
+    return lastSlash >= 0 ? value[(lastSlash + 1)..] : value;
+}
+
+static bool IsDigitsOnly(string? value)
+{
+    if (string.IsNullOrWhiteSpace(value))
+    {
+        return false;
+    }
+
+    return value.All(char.IsDigit);
 }
