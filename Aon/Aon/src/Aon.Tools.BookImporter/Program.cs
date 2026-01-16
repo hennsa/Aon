@@ -177,8 +177,11 @@ static List<ContentBlock> ExtractBlocks(IEnumerable<INode> nodes)
             continue;
         }
 
-        var html = node.ToHtml();
-        if (string.IsNullOrWhiteSpace(html))
+        var text = node is IElement elementNode
+            ? elementNode.TextContent
+            : node.TextContent;
+
+        if (string.IsNullOrWhiteSpace(text))
         {
             continue;
         }
@@ -192,7 +195,7 @@ static List<ContentBlock> ExtractBlocks(IEnumerable<INode> nodes)
         blocks.Add(new ContentBlock
         {
             Kind = kind,
-            Html = html.Trim()
+            Text = text.Trim()
         });
     }
 

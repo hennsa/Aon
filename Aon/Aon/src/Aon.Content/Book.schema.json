@@ -92,14 +92,14 @@
       "additionalProperties": false,
       "required": [
         "kind",
-        "html"
+        "text"
       ],
       "properties": {
         "kind": {
           "type": "string",
           "minLength": 1
         },
-        "html": {
+        "text": {
           "type": "string"
         }
       }
