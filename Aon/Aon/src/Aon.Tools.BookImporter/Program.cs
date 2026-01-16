@@ -181,8 +181,11 @@ static List<ContentBlock> ExtractBlocks(IEnumerable<INode> nodes)
             continue;
         }
 
-        var html = node.ToHtml();
-        if (string.IsNullOrWhiteSpace(html))
+        var text = node is IElement elementNode
+            ? elementNode.TextContent
+            : node.TextContent;
+
+        if (string.IsNullOrWhiteSpace(text))
         {
             continue;
         }
@@ -196,7 +199,7 @@ static List<ContentBlock> ExtractBlocks(IEnumerable<INode> nodes)
         blocks.Add(new ContentBlock
         {
             Kind = kind,
-            Html = html.Trim()
+            Text = text.Trim()
         });
     }
 
@@ -230,6 +233,25 @@ static List<Choice> ExtractChoices(IEnumerable<INode> nodes)
     }
 
     return choices;
+}
+
+static string? GetTargetIdFromHref(string href)
+{
+    if (href.StartsWith("#sect", StringComparison.OrdinalIgnoreCase))
+    {
+        return href["#sect".Length..];
+    }
+
+    if (href.StartsWith("sect", StringComparison.OrdinalIgnoreCase) && href.EndsWith(".htm", StringComparison.OrdinalIgnoreCase))
+    {
+        var fileName = Path.GetFileNameWithoutExtension(href);
+        if (fileName.StartsWith("sect", StringComparison.OrdinalIgnoreCase))
+        {
+            return fileName["sect".Length..];
+        }
+    }
+
+    return null;
 }
 
 static List<string> ValidateBook(Book book)
@@ -268,17 +290,18 @@ static List<string> ValidateBook(Book book)
 static string? GetSectionId(IElement heading)
 {
     var anchor = heading.QuerySelector("a[name]")?.GetAttribute("name")?.Trim();
-    if (string.IsNullOrWhiteSpace(anchor))
+    if (!string.IsNullOrWhiteSpace(anchor) && anchor.StartsWith("sect", StringComparison.OrdinalIgnoreCase))
+    {
+        return anchor["sect".Length..];
+    }
+
+    var headingText = heading.TextContent?.Trim();
+    if (string.IsNullOrWhiteSpace(headingText))
     {
         return null;
     }
 
-    if (!anchor.StartsWith("sect", StringComparison.OrdinalIgnoreCase))
-    {
-        return null;
-    }
-
-    return anchor["sect".Length..];
+    return headingText.All(char.IsDigit) ? headingText : null;
 }
 
 static string? GetChoiceTargetId(string href)

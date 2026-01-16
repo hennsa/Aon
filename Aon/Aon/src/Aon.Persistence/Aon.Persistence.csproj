@@ -4,4 +4,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aon.Application\Aon.Application.csproj" />
+    <ProjectReference Include="..\Aon.Content\Aon.Content.csproj" />
+    <ProjectReference Include="..\Aon.Core\Aon.Core.csproj" />
+  </ItemGroup>
 </Project>

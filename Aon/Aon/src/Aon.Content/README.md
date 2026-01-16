@@ -9,6 +9,6 @@ This folder contains the initial JSON Schema for book exports produced by `Aon.T
 
 ### Notes
 - This schema mirrors the current importer output: `id`, `title`, `frontMatter`, and `sections`.
-- Sections include `blocks` (raw HTML grouped by kind) and `choices` for section links.
+- Sections include `blocks` (normalized text grouped by kind) and `choices` for section links.
 - `frontMatter` remains raw HTML for now; it can be refined later into structured blocks.
 - Use this schema to validate importer outputs before loading them into the application layer.
