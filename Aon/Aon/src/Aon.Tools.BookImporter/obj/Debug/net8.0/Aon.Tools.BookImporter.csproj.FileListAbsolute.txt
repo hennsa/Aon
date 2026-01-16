@@ -17,3 +17,4 @@ D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Tools.BookImporter\obj\Debug\net8.0\refi
 D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Tools.BookImporter\obj\Debug\net8.0\Aon.Tools.BookImporter.pdb
 D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Tools.BookImporter\obj\Debug\net8.0\Aon.Tools.BookImporter.genruntimeconfig.cache
 D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Tools.BookImporter\obj\Debug\net8.0\ref\Aon.Tools.BookImporter.dll
+D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Tools.BookImporter\bin\Debug\net8.0\AngleSharp.dll
