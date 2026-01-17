@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.IO;
 using Aon.Application;
 using Aon.Content;
 using Aon.Core;
@@ -168,7 +169,7 @@ public sealed class MainViewModel : ViewModelBase
         Blocks.Clear();
         foreach (var block in section.Blocks)
         {
-            Blocks.Add(new ContentBlockViewModel(block.Kind, block.Html));
+            Blocks.Add(new ContentBlockViewModel(block.Kind, block.Text));
         }
 
         Choices.Clear();

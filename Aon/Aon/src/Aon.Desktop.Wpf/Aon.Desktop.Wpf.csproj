@@ -9,5 +9,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Aon.Application\Aon.Application.csproj" />
+    <ProjectReference Include="..\Aon.Persistence\Aon.Persistence.csproj" />
   </ItemGroup>
 </Project>
