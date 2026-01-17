@@ -1,4 +1,6 @@
 using System.Collections.ObjectModel;
+using System.Net;
+using System.Text.RegularExpressions;
 using System.IO;
 using Aon.Application;
 using Aon.Content;
@@ -131,11 +133,11 @@ public sealed class MainViewModel : ViewModelBase
 
         _book = book;
         _state.BookId = _book.Id;
-        _state.SectionId = _book.Sections.FirstOrDefault()?.Id ?? string.Empty;
+        var firstSection = _book.Sections.FirstOrDefault();
+        _state.SectionId = firstSection?.Id ?? string.Empty;
         BookTitle = _book.Title;
 
-        var section = _book.Sections.FirstOrDefault(item => item.Id == _state.SectionId);
-        if (section is null)
+        if (firstSection is null)
         {
             SectionTitle = "No sections found";
             Blocks.Clear();
@@ -144,7 +146,17 @@ public sealed class MainViewModel : ViewModelBase
             return;
         }
 
-        UpdateSection(section);
+        var frontMatter = _book.FrontMatter
+            .FirstOrDefault(item => string.Equals(item.Id, "frontmatter-2", StringComparison.OrdinalIgnoreCase))
+            ?? _book.FrontMatter.FirstOrDefault();
+
+        if (frontMatter is not null)
+        {
+            ShowFrontMatter(frontMatter, firstSection);
+            return;
+        }
+
+        UpdateSection(firstSection);
     }
 
     private async Task ApplyChoiceAsync(Choice choice)
@@ -178,6 +190,42 @@ public sealed class MainViewModel : ViewModelBase
             var command = new RelayCommand(() => _ = ApplyChoiceAsync(choice));
             Choices.Add(new ChoiceViewModel(choice.Text, command));
         }
+    }
+
+    private void ShowFrontMatter(FrontMatterSection frontMatter, BookSection firstSection)
+    {
+        SectionTitle = frontMatter.Title;
+        Blocks.Clear();
+        foreach (var paragraph in ExtractFrontMatterParagraphs(frontMatter.Html))
+        {
+            Blocks.Add(new ContentBlockViewModel("p", paragraph));
+        }
+
+        Choices.Clear();
+        var command = new RelayCommand(() => UpdateSection(firstSection));
+        Choices.Add(new ChoiceViewModel("Continue", command));
+    }
+
+    private static IEnumerable<string> ExtractFrontMatterParagraphs(string html)
+    {
+        if (string.IsNullOrWhiteSpace(html))
+        {
+            return Array.Empty<string>();
+        }
+
+        var normalized = Regex.Replace(html, @"<\s*br\s*/?\s*>", "\n", RegexOptions.IgnoreCase);
+        normalized = Regex.Replace(normalized, @"</\s*p\s*>", "\n\n", RegexOptions.IgnoreCase);
+        normalized = Regex.Replace(normalized, @"<\s*p[^>]*>", string.Empty, RegexOptions.IgnoreCase);
+        normalized = Regex.Replace(normalized, @"<\s*li[^>]*>", "• ", RegexOptions.IgnoreCase);
+        normalized = Regex.Replace(normalized, @"</\s*li\s*>", "\n", RegexOptions.IgnoreCase);
+        normalized = Regex.Replace(normalized, @"<[^>]+>", string.Empty);
+        normalized = WebUtility.HtmlDecode(normalized);
+
+        return normalized
+            .Split(new[] { "\n\n", "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries)
+            .Select(paragraph => paragraph.Replace("\r", string.Empty).Replace("\n", " ").Trim())
+            .Where(paragraph => paragraph.Length > 0)
+            .ToList();
     }
 
     private static string FindBooksDirectory()
