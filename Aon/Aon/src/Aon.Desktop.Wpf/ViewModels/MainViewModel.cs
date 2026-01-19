@@ -22,6 +22,7 @@ public sealed class MainViewModel : ViewModelBase
     private readonly RelayCommand _showRandomNumberTableCommand;
     private readonly RelayCommand _saveGameCommand;
     private readonly RelayCommand _loadGameCommand;
+    private readonly RelayCommand _newSaveSlotCommand;
     private readonly RelayCommand _addSkillCommand;
     private readonly RelayCommand _removeSkillCommand;
     private readonly RelayCommand _addItemCommand;
@@ -31,6 +32,7 @@ public sealed class MainViewModel : ViewModelBase
     private readonly List<Choice> _pendingRandomChoices = new();
     private readonly List<RandomNumberChoice> _randomNumberChoices = new();
     private readonly Queue<int> _recentRolls = new();
+    private readonly string _saveDirectory;
     private ISeriesProfile _currentProfile = SeriesProfiles.LoneWolf;
     private Book? _book;
     private BookSection? _firstSectionForFrontMatter;
@@ -59,10 +61,11 @@ public sealed class MainViewModel : ViewModelBase
     public MainViewModel()
     {
         var booksDirectory = FindBooksDirectory();
+        _saveDirectory = GetSaveDirectory();
         _bookRepository = new JsonBookRepository(booksDirectory);
         _gameService = new GameService(
             _bookRepository,
-            new JsonGameStateRepository(GetSaveDirectory()),
+            new JsonGameStateRepository(_saveDirectory),
             new RulesEngine());
 
         Blocks = new ObservableCollection<ContentBlockViewModel>
@@ -77,6 +80,7 @@ public sealed class MainViewModel : ViewModelBase
         _showRandomNumberTableCommand = new RelayCommand(ShowRandomNumberTable);
         _saveGameCommand = new RelayCommand(() => _ = SaveGameAsync());
         _loadGameCommand = new RelayCommand(() => _ = LoadGameAsync());
+        _newSaveSlotCommand = new RelayCommand(CreateNewSaveSlot);
         _addSkillCommand = new RelayCommand(AddSkill, () => !string.IsNullOrWhiteSpace(SelectedAvailableSkill));
         _removeSkillCommand = new RelayCommand(RemoveSkill, () => SelectedSkill is not null);
         _addItemCommand = new RelayCommand(AddItem, () => !string.IsNullOrWhiteSpace(NewItemName));
@@ -84,6 +88,7 @@ public sealed class MainViewModel : ViewModelBase
         _upsertCounterCommand = new RelayCommand(UpsertCounter, () => !string.IsNullOrWhiteSpace(CounterNameInput));
         _removeCounterCommand = new RelayCommand(RemoveCounter, () => SelectedCounter is not null);
         LoadBooks(booksDirectory);
+        LoadSaveSlots();
     }
 
     public string BookTitle
@@ -122,6 +127,7 @@ public sealed class MainViewModel : ViewModelBase
     public ObservableCollection<StatEntryViewModel> CoreStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> AttributeStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> InventoryCounters { get; } = new();
+    public ObservableCollection<string> SaveSlots { get; } = new();
     public ObservableCollection<string> AvailableSkills { get; } = new();
     public ObservableCollection<string> CharacterSkills { get; } = new();
     public ObservableCollection<ItemEntryViewModel> InventoryItems { get; } = new();
@@ -131,6 +137,7 @@ public sealed class MainViewModel : ViewModelBase
     public RelayCommand ShowRandomNumberTableCommand => _showRandomNumberTableCommand;
     public RelayCommand SaveGameCommand => _saveGameCommand;
     public RelayCommand LoadGameCommand => _loadGameCommand;
+    public RelayCommand NewSaveSlotCommand => _newSaveSlotCommand;
     public RelayCommand AddSkillCommand => _addSkillCommand;
     public RelayCommand RemoveSkillCommand => _removeSkillCommand;
     public RelayCommand AddItemCommand => _addItemCommand;
@@ -740,7 +747,11 @@ public sealed class MainViewModel : ViewModelBase
         InventoryCounters.Clear();
         foreach (var entry in _state.Character.Inventory.Counters.OrderBy(item => item.Key, StringComparer.OrdinalIgnoreCase))
         {
-            InventoryCounters.Add(new StatEntryViewModel(entry.Key, entry.Value));
+            InventoryCounters.Add(new StatEntryViewModel(
+                entry.Key,
+                entry.Value,
+                () => AdjustCounter(entry.Key, 1),
+                () => AdjustCounter(entry.Key, -1)));
         }
 
         CharacterSkills.Clear();
@@ -820,16 +831,20 @@ public sealed class MainViewModel : ViewModelBase
             return;
         }
 
-        await _gameService.SaveGameAsync(SaveSlot, _state);
-        MessageBox.Show($"Saved to slot '{SaveSlot}'.", "Save Game", MessageBoxButton.OK, MessageBoxImage.Information);
+        var slot = NormalizeSaveSlot();
+        await _gameService.SaveGameAsync(slot, _state);
+        LoadSaveSlots();
+        SaveSlot = slot;
+        MessageBox.Show($"Saved to slot '{slot}'.", "Save Game", MessageBoxButton.OK, MessageBoxImage.Information);
     }
 
     private async Task LoadGameAsync()
     {
-        var loaded = await _gameService.LoadGameAsync(SaveSlot);
+        var slot = NormalizeSaveSlot();
+        var loaded = await _gameService.LoadGameAsync(slot);
         if (loaded is null)
         {
-            MessageBox.Show($"No save found for slot '{SaveSlot}'.", "Load Game", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show($"No save found for slot '{slot}'.", "Load Game", MessageBoxButton.OK, MessageBoxImage.Information);
             return;
         }
 
@@ -976,6 +991,18 @@ public sealed class MainViewModel : ViewModelBase
         SelectedCounter = null;
         RefreshCharacterPanels();
         _removeCounterCommand.RaiseCanExecuteChanged();
+    }
+
+    private void AdjustCounter(string name, int delta)
+    {
+        if (!_state.Character.Inventory.Counters.TryGetValue(name, out var current))
+        {
+            return;
+        }
+
+        var updated = Math.Max(0, current + delta);
+        _state.Character.Inventory.Counters[name] = updated;
+        RefreshCharacterPanels();
     }
 
     private void UpdateSuggestedActions(BookSection section)
@@ -1338,6 +1365,55 @@ public sealed class MainViewModel : ViewModelBase
     {
         var basePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         return Path.Combine(basePath, "Aon", "Saves");
+    }
+
+    private void LoadSaveSlots()
+    {
+        SaveSlots.Clear();
+        if (!Directory.Exists(_saveDirectory))
+        {
+            return;
+        }
+
+        var slots = Directory.EnumerateFiles(_saveDirectory, "*.json")
+            .Select(path => Path.GetFileNameWithoutExtension(path))
+            .Where(name => !string.IsNullOrWhiteSpace(name))
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .OrderBy(name => name, StringComparer.OrdinalIgnoreCase);
+
+        foreach (var slot in slots)
+        {
+            SaveSlots.Add(slot);
+        }
+    }
+
+    private string NormalizeSaveSlot()
+    {
+        var slot = string.IsNullOrWhiteSpace(SaveSlot) ? "default" : SaveSlot.Trim();
+        return string.IsNullOrWhiteSpace(slot) ? "default" : slot;
+    }
+
+    private void CreateNewSaveSlot()
+    {
+        var nextSlot = GetNextSaveSlotName();
+        SaveSlot = nextSlot;
+        if (!SaveSlots.Any(slot => string.Equals(slot, nextSlot, StringComparison.OrdinalIgnoreCase)))
+        {
+            SaveSlots.Add(nextSlot);
+        }
+    }
+
+    private string GetNextSaveSlotName()
+    {
+        const string prefix = "save-";
+        var existing = new HashSet<string>(SaveSlots, StringComparer.OrdinalIgnoreCase);
+        var index = 1;
+        while (existing.Contains($"{prefix}{index}"))
+        {
+            index++;
+        }
+
+        return $"{prefix}{index}";
     }
 
     private sealed class RandomNumberChoice
