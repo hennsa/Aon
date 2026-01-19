@@ -3,6 +3,7 @@ namespace Aon.Core;
 public interface ISeriesProfile
 {
     string Name { get; }
+    IReadOnlyDictionary<string, int> CoreSkills { get; }
     IReadOnlyList<string> SkillNames { get; }
     IReadOnlyList<string> CounterNames { get; }
 }
@@ -17,6 +18,7 @@ public static class SeriesProfiles
 internal sealed class LoneWolfProfile : ISeriesProfile
 {
     public string Name => "Lone Wolf";
+    public IReadOnlyDictionary<string, int> CoreSkills { get; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
     public IReadOnlyList<string> SkillNames { get; } = new[]
     {
         "Camouflage",
@@ -41,6 +43,7 @@ internal sealed class LoneWolfProfile : ISeriesProfile
 internal sealed class GreyStarProfile : ISeriesProfile
 {
     public string Name => "Grey Star";
+    public IReadOnlyDictionary<string, int> CoreSkills { get; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
     public IReadOnlyList<string> SkillNames { get; } = new[]
     {
         "Alether",
@@ -69,20 +72,16 @@ internal sealed class GreyStarProfile : ISeriesProfile
 internal sealed class FreewayWarriorProfile : ISeriesProfile
 {
     public string Name => "Freeway Warrior";
-    public IReadOnlyList<string> SkillNames { get; } = new[]
+    public IReadOnlyDictionary<string, int> CoreSkills { get; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
     {
-        "Battle",
-        "Chronicle",
-        "Drive",
-        "Heal",
-        "Hunt",
-        "Pit Fighting",
-        "Repair",
-        "Shoot",
-        "Stealth",
-        "Survival",
-        "Throw"
+        ["Driving"] = 3,
+        ["Shooting"] = 3,
+        ["Field Craft"] = 3,
+        ["Stealth"] = 3,
+        ["Perception"] = 3
     };
+
+    public IReadOnlyList<string> SkillNames { get; } = Array.Empty<string>();
 
     public IReadOnlyList<string> CounterNames { get; } = new[]
     {

@@ -8,6 +8,7 @@ public sealed class Character
     public int Endurance { get; set; }
     public List<string> Disciplines { get; set; } = new();
     public Dictionary<string, int> Attributes { get; set; } = new(StringComparer.OrdinalIgnoreCase);
+    public Dictionary<string, int> CoreSkills { get; set; } = new(StringComparer.OrdinalIgnoreCase);
     public Inventory Inventory { get; set; } = new();
 
     public int GetEffectiveCombatSkill()

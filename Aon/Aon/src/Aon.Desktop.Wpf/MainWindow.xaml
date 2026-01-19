@@ -150,6 +150,9 @@
                         <Button Content="Save" Command="{Binding SaveGameCommand}" Margin="0,0,4,0" />
                         <Button Content="Load" Command="{Binding LoadGameCommand}" />
                     </StackPanel>
+                    <Button Content="New Profile"
+                            Command="{Binding NewProfileCommand}"
+                            Margin="0,0,0,12" />
 
                     <TextBlock Text="Core Stats" FontWeight="SemiBold" />
                     <ItemsControl ItemsSource="{Binding CoreStats}" Margin="0,4,0,12">
@@ -165,6 +168,22 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
+
+                    <StackPanel Visibility="{Binding HasCoreSkills, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <TextBlock Text="Core Skills" FontWeight="SemiBold" />
+                        <ItemsControl ItemsSource="{Binding CoreSkills}" Margin="0,4,0,12">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                                        <TextBlock Text="{Binding Label}" Width="140" VerticalAlignment="Center" />
+                                        <Button Content="-" Command="{Binding DecreaseCommand}" Width="24" Margin="0,0,6,0" />
+                                        <TextBlock Text="{Binding Value}" Width="40" TextAlignment="Center" VerticalAlignment="Center" />
+                                        <Button Content="+" Command="{Binding IncreaseCommand}" Width="24" Margin="6,0,0,0" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
 
                     <TextBlock Text="Attributes" FontWeight="SemiBold" />
                     <ItemsControl ItemsSource="{Binding AttributeStats}" Margin="0,4,0,12">
