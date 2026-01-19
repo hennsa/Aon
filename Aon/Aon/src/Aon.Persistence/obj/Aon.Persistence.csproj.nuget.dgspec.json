@@ -316,7 +316,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Repos\\Github\\Aon\\Aon\\Aon\\Aon\\src\\Aon.Core\\Aon.Core.csproj": {
+                "projectPath": "D:\\Repos\\Github\\Aon\\Aon\\Aon\\Aon\\src\\Aon.Core\\Aon.Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
