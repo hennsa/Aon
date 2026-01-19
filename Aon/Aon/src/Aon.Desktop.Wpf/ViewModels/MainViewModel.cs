@@ -160,6 +160,25 @@ public sealed class MainViewModel : ViewModelBase
 
             _isProfileReady = value;
             OnPropertyChanged();
+            OnPropertyChanged(nameof(CharacterPanelTitle));
+        }
+    }
+
+    public string CharacterPanelTitle
+    {
+        get
+        {
+            if (!IsProfileReady)
+            {
+                return "Character";
+            }
+
+            if (!string.IsNullOrWhiteSpace(_state.Character.Name))
+            {
+                return _state.Character.Name;
+            }
+
+            return _currentProfile.DefaultCharacterName;
         }
     }
 
@@ -545,7 +564,7 @@ public sealed class MainViewModel : ViewModelBase
 
         Choices.Clear();
         var command = new RelayCommand(continueAction);
-        Choices.Add(new ChoiceViewModel("Continue", command));
+        Choices.Add(new ChoiceViewModel("Continue", command, true));
         SuggestedActions.Clear();
         ResetRandomNumberState();
         AreChoicesVisible = true;
@@ -765,6 +784,7 @@ public sealed class MainViewModel : ViewModelBase
 
         SelectedSkill = null;
         SelectedInventoryItem = null;
+        OnPropertyChanged(nameof(CharacterPanelTitle));
     }
 
     private void EnsureSeriesProfile(string seriesId)
@@ -1366,10 +1386,57 @@ public sealed class MainViewModel : ViewModelBase
         foreach (var choice in choices)
         {
             var command = new RelayCommand(() => _ = ApplyChoiceAsync(choice));
-            Choices.Add(new ChoiceViewModel(ReplaceCharacterTokens(choice.Text), command));
+            var isEnabled = IsChoiceAvailable(choice);
+            Choices.Add(new ChoiceViewModel(ReplaceCharacterTokens(choice.Text), command, isEnabled));
         }
 
         AreChoicesVisible = Choices.Count > 0;
+    }
+
+    private bool IsChoiceAvailable(Choice choice)
+    {
+        if (string.IsNullOrWhiteSpace(choice.Text))
+        {
+            return true;
+        }
+
+        if (!TryGetRequiredSkill(choice.Text, out var requiredSkill))
+        {
+            return true;
+        }
+
+        return _state.Character.Disciplines.Contains(requiredSkill, StringComparer.OrdinalIgnoreCase);
+    }
+
+    private bool TryGetRequiredSkill(string text, out string requiredSkill)
+    {
+        requiredSkill = string.Empty;
+        if (_currentProfile.SkillNames.Count == 0)
+        {
+            return false;
+        }
+
+        var requiresKaiDiscipline = _state.SeriesId.Equals("lw", StringComparison.OrdinalIgnoreCase)
+            && text.Contains("Kai Discipline", StringComparison.OrdinalIgnoreCase);
+        var requiresMagicalPower = _state.SeriesId.Equals("gs", StringComparison.OrdinalIgnoreCase)
+            && (text.Contains("Magical Power", StringComparison.OrdinalIgnoreCase)
+                || text.Contains("Power of", StringComparison.OrdinalIgnoreCase));
+
+        if (!requiresKaiDiscipline && !requiresMagicalPower)
+        {
+            return false;
+        }
+
+        foreach (var skill in _currentProfile.SkillNames)
+        {
+            if (text.Contains(skill, StringComparison.OrdinalIgnoreCase))
+            {
+                requiredSkill = skill;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void RollRandomNumber()
