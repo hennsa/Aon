@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Aon.Desktop.Wpf")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eba2594457af3c4f85cceda096414ea2d5513093")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd81d244798dac999a155de5f28c74ae4b19b9a2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Aon.Desktop.Wpf")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Aon.Desktop.Wpf")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
