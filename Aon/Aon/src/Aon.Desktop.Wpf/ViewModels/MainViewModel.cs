@@ -1,7 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Net;
 using System.Text.RegularExpressions;
-using System.IO;
 using Aon.Application;
 using Aon.Content;
 using Aon.Core;
@@ -16,11 +15,24 @@ public sealed class MainViewModel : ViewModelBase
     private readonly IBookRepository _bookRepository;
     private readonly GameState _state = new();
     private readonly Queue<FrontMatterSection> _frontMatterQueue = new();
+    private readonly RelayCommand _rollRandomNumberCommand;
+    private readonly RelayCommand _confirmRandomNumberCommand;
+    private readonly RelayCommand _showRandomNumberTableCommand;
+    private readonly List<Choice> _pendingRandomChoices = new();
+    private readonly List<RandomNumberChoice> _randomNumberChoices = new();
+    private readonly Queue<int> _recentRolls = new();
     private Book? _book;
     private BookSection? _firstSectionForFrontMatter;
     private string _bookTitle = "Aon Companion";
     private string _sectionTitle = "Select a book";
+    private string _randomNumberStatus = string.Empty;
+    private string _rollHistoryText = string.Empty;
     private BookListItemViewModel? _selectedBook;
+    private bool _isRandomNumberVisible;
+    private bool _areChoicesVisible = true;
+    private int? _randomNumberResult;
+    private Choice? _resolvedRandomChoice;
+    private bool _isManualRandomMode;
 
     public MainViewModel()
     {
@@ -38,6 +50,9 @@ public sealed class MainViewModel : ViewModelBase
 
         Choices = new ObservableCollection<ChoiceViewModel>();
         Books = new ObservableCollection<BookListItemViewModel>();
+        _rollRandomNumberCommand = new RelayCommand(RollRandomNumber);
+        _confirmRandomNumberCommand = new RelayCommand(ConfirmRandomNumber, () => _resolvedRandomChoice is not null);
+        _showRandomNumberTableCommand = new RelayCommand(ShowRandomNumberTable);
         LoadBooks(booksDirectory);
     }
 
@@ -74,6 +89,86 @@ public sealed class MainViewModel : ViewModelBase
     public ObservableCollection<ContentBlockViewModel> Blocks { get; }
     public ObservableCollection<ChoiceViewModel> Choices { get; }
     public ObservableCollection<BookListItemViewModel> Books { get; }
+    public RelayCommand RollRandomNumberCommand => _rollRandomNumberCommand;
+    public RelayCommand ConfirmRandomNumberCommand => _confirmRandomNumberCommand;
+    public RelayCommand ShowRandomNumberTableCommand => _showRandomNumberTableCommand;
+
+    public bool IsRandomNumberVisible
+    {
+        get => _isRandomNumberVisible;
+        private set
+        {
+            if (_isRandomNumberVisible == value)
+            {
+                return;
+            }
+
+            _isRandomNumberVisible = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public bool AreChoicesVisible
+    {
+        get => _areChoicesVisible;
+        private set
+        {
+            if (_areChoicesVisible == value)
+            {
+                return;
+            }
+
+            _areChoicesVisible = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public bool IsRandomNumberConfirmVisible => _resolvedRandomChoice is not null;
+
+    public string RandomNumberStatus
+    {
+        get => _randomNumberStatus;
+        private set
+        {
+            if (_randomNumberStatus == value)
+            {
+                return;
+            }
+
+            _randomNumberStatus = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string RollHistoryText
+    {
+        get => _rollHistoryText;
+        private set
+        {
+            if (_rollHistoryText == value)
+            {
+                return;
+            }
+
+            _rollHistoryText = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public bool IsManualRandomMode
+    {
+        get => _isManualRandomMode;
+        set
+        {
+            if (_isManualRandomMode == value)
+            {
+                return;
+            }
+
+            _isManualRandomMode = value;
+            OnPropertyChanged();
+        }
+    }
 
     public BookListItemViewModel? SelectedBook
     {
@@ -145,6 +240,7 @@ public sealed class MainViewModel : ViewModelBase
             Blocks.Clear();
             Blocks.Add(new ContentBlockViewModel("p", "This book has no sections."));
             Choices.Clear();
+            ResetRandomNumberState();
             return;
         }
 
@@ -191,12 +287,14 @@ public sealed class MainViewModel : ViewModelBase
             Blocks.Add(new ContentBlockViewModel(block.Kind, block.Text));
         }
 
-        Choices.Clear();
-        foreach (var choice in section.Choices)
+        ResetRandomNumberState();
+        if (RequiresRandomNumber(section))
         {
-            var command = new RelayCommand(() => _ = ApplyChoiceAsync(choice));
-            Choices.Add(new ChoiceViewModel(choice.Text, command));
+            PrepareRandomNumberSection(section);
+            return;
         }
+
+        ShowChoices(section.Choices);
     }
 
     private void ShowNextFrontMatterOrSection()
@@ -234,6 +332,8 @@ public sealed class MainViewModel : ViewModelBase
         Choices.Clear();
         var command = new RelayCommand(continueAction);
         Choices.Add(new ChoiceViewModel("Continue", command));
+        ResetRandomNumberState();
+        AreChoicesVisible = true;
     }
 
     private static readonly string[] RecapIdPriority =
@@ -389,6 +489,262 @@ public sealed class MainViewModel : ViewModelBase
             .ToList();
     }
 
+    private void ResetRandomNumberState()
+    {
+        _pendingRandomChoices.Clear();
+        _randomNumberChoices.Clear();
+        _randomNumberResult = null;
+        _resolvedRandomChoice = null;
+        RandomNumberStatus = string.Empty;
+        IsRandomNumberVisible = false;
+        AreChoicesVisible = true;
+        OnPropertyChanged(nameof(IsRandomNumberConfirmVisible));
+        _confirmRandomNumberCommand.RaiseCanExecuteChanged();
+    }
+
+    private void PrepareRandomNumberSection(BookSection section)
+    {
+        _pendingRandomChoices.Clear();
+        _pendingRandomChoices.AddRange(section.Choices);
+        _randomNumberChoices.Clear();
+        _randomNumberChoices.AddRange(BuildRandomNumberChoices(section.Choices));
+        _randomNumberResult = null;
+        _resolvedRandomChoice = null;
+        ResetRollHistory();
+        RandomNumberStatus = "Roll a number from the Random Number Table (0–9).";
+        IsRandomNumberVisible = true;
+        AreChoicesVisible = false;
+        Choices.Clear();
+        OnPropertyChanged(nameof(IsRandomNumberConfirmVisible));
+        _confirmRandomNumberCommand.RaiseCanExecuteChanged();
+    }
+
+    private void ShowChoices(IEnumerable<Choice> choices)
+    {
+        Choices.Clear();
+        foreach (var choice in choices)
+        {
+            var command = new RelayCommand(() => _ = ApplyChoiceAsync(choice));
+            Choices.Add(new ChoiceViewModel(choice.Text, command));
+        }
+
+        AreChoicesVisible = Choices.Count > 0;
+    }
+
+    private void RollRandomNumber()
+    {
+        if (_book is null)
+        {
+            return;
+        }
+
+        var roll = _gameService.RollRandomNumber();
+        _randomNumberResult = roll;
+        TrackRoll(roll);
+
+        if (IsManualRandomMode)
+        {
+            _resolvedRandomChoice = null;
+            RandomNumberStatus = $"You rolled {roll}. Select the correct outcome below.";
+            ShowChoices(_pendingRandomChoices);
+            OnPropertyChanged(nameof(IsRandomNumberConfirmVisible));
+            _confirmRandomNumberCommand.RaiseCanExecuteChanged();
+            return;
+        }
+
+        var matches = _randomNumberChoices
+            .Where(choice => choice.IsMatch(roll))
+            .Select(choice => choice.Choice)
+            .Distinct()
+            .ToList();
+
+        if (matches.Count == 1)
+        {
+            _resolvedRandomChoice = matches[0];
+            RandomNumberStatus = $"You rolled {roll}. This directs you to section {_resolvedRandomChoice.TargetId}.";
+            AreChoicesVisible = false;
+        }
+        else if (matches.Count > 1)
+        {
+            _resolvedRandomChoice = null;
+            RandomNumberStatus = $"You rolled {roll}. Multiple outcomes match—choose the correct option below.";
+            ShowChoices(matches);
+        }
+        else
+        {
+            _resolvedRandomChoice = null;
+            RandomNumberStatus = $"You rolled {roll}. Choose the correct option below.";
+            ShowChoices(_pendingRandomChoices);
+        }
+
+        OnPropertyChanged(nameof(IsRandomNumberConfirmVisible));
+        _confirmRandomNumberCommand.RaiseCanExecuteChanged();
+    }
+
+    private void ConfirmRandomNumber()
+    {
+        if (_resolvedRandomChoice is null)
+        {
+            return;
+        }
+
+        _ = ApplyChoiceAsync(_resolvedRandomChoice);
+    }
+
+    private void ShowRandomNumberTable()
+    {
+        const string tableText = "0  1  2  3  4  5  6  7  8  9";
+        MessageBox.Show($"Random Number Table\n\n{tableText}", "Random Number Table", MessageBoxButton.OK, MessageBoxImage.Information);
+    }
+
+    private static bool RequiresRandomNumber(BookSection section)
+    {
+        return section.Blocks.Any(block => block.Text.Contains("random number table", StringComparison.OrdinalIgnoreCase)
+            || block.Text.Contains("pick a number", StringComparison.OrdinalIgnoreCase));
+    }
+
+    private static IEnumerable<RandomNumberChoice> BuildRandomNumberChoices(IEnumerable<Choice> choices)
+    {
+        foreach (var choice in choices)
+        {
+            var ranges = ParseRandomNumberRanges(choice.Text);
+            if (ranges.Count == 0)
+            {
+                continue;
+            }
+
+            yield return new RandomNumberChoice(choice, ranges);
+        }
+    }
+
+    private static List<RandomNumberRange> ParseRandomNumberRanges(string text)
+    {
+        var sanitized = StripTargetReferences(text);
+        if (Regex.Matches(sanitized, "\\bif\\b", RegexOptions.IgnoreCase).Count > 1)
+        {
+            return new List<RandomNumberRange>();
+        }
+
+        var exceptMatch = Regex.Match(sanitized, "\\bexcept(?:\\s+a)?\\s+(?<value>[0-9])\\b", RegexOptions.IgnoreCase);
+        if (exceptMatch.Success)
+        {
+            if (!TryParseDigit(exceptMatch.Groups["value"].Value, out var exceptValue))
+            {
+                return new List<RandomNumberRange>();
+            }
+
+            return BuildExceptRanges(exceptValue);
+        }
+
+        var rangeMatches = RangeRegex.Matches(sanitized);
+        if (rangeMatches.Count > 1)
+        {
+            return new List<RandomNumberRange>();
+        }
+
+        if (rangeMatches.Count == 1)
+        {
+            var minText = rangeMatches[0].Groups["min"].Value;
+            var maxText = rangeMatches[0].Groups["max"].Value;
+            if (!TryParseDigit(minText, out var min) || !TryParseDigit(maxText, out var max))
+            {
+                return new List<RandomNumberRange>();
+            }
+
+            return new List<RandomNumberRange> { RandomNumberRange.From(min, max) };
+        }
+
+        if (TryMatchComparison(sanitized, BelowRegex, out var belowValue))
+        {
+            return new List<RandomNumberRange> { RandomNumberRange.From(0, belowValue - 1) };
+        }
+
+        if (TryMatchComparison(sanitized, AtMostRegex, out var atMostValue))
+        {
+            return new List<RandomNumberRange> { RandomNumberRange.From(0, atMostValue) };
+        }
+
+        if (TryMatchComparison(sanitized, AtLeastRegex, out var atLeastValue))
+        {
+            return new List<RandomNumberRange> { RandomNumberRange.From(atLeastValue, 9) };
+        }
+
+        if (TryMatchComparison(sanitized, AboveRegex, out var aboveValue))
+        {
+            return new List<RandomNumberRange> { RandomNumberRange.From(aboveValue + 1, 9) };
+        }
+
+        var exactMatch = Regex.Match(sanitized, "\\b(?:number|pick|picked|roll|rolled|score)\\s+(?:is\\s+|a\\s+)?(?<value>[0-9])\\b", RegexOptions.IgnoreCase);
+        if (exactMatch.Success && TryParseDigit(exactMatch.Groups["value"].Value, out var exactValue))
+        {
+            return new List<RandomNumberRange> { RandomNumberRange.From(exactValue, exactValue) };
+        }
+
+        return new List<RandomNumberRange>();
+    }
+
+    private static List<RandomNumberRange> BuildExceptRanges(int value)
+    {
+        var ranges = new List<RandomNumberRange>();
+        if (value > 0)
+        {
+            ranges.Add(RandomNumberRange.From(0, value - 1));
+        }
+
+        if (value < 9)
+        {
+            ranges.Add(RandomNumberRange.From(value + 1, 9));
+        }
+
+        return ranges;
+    }
+
+    private static bool TryMatchComparison(string text, Regex regex, out int value)
+    {
+        value = 0;
+        var match = regex.Match(text);
+        if (!match.Success)
+        {
+            return false;
+        }
+
+        return TryParseDigit(match.Groups["value"].Value, out value);
+    }
+
+    private static bool TryParseDigit(string value, out int parsed)
+    {
+        parsed = 0;
+        if (!int.TryParse(value, out parsed))
+        {
+            return false;
+        }
+
+        return parsed is >= 0 and <= 9;
+    }
+
+    private static string StripTargetReferences(string text)
+    {
+        return Regex.Replace(text, "\\b(turn to|turning to|go to)\\s+\\d+\\b", string.Empty, RegexOptions.IgnoreCase);
+    }
+
+    private void TrackRoll(int roll)
+    {
+        _recentRolls.Enqueue(roll);
+        while (_recentRolls.Count > 3)
+        {
+            _recentRolls.Dequeue();
+        }
+
+        var rolls = _recentRolls.Select(value => value.ToString());
+        RollHistoryText = $"Recent rolls: {string.Join(", ", rolls)}";
+    }
+
+    private void ResetRollHistory()
+    {
+        _recentRolls.Clear();
+        RollHistoryText = "Recent rolls: —";
+    }
+
     private static string FindBooksDirectory()
     {
         var baseDirectory = AppContext.BaseDirectory;
@@ -418,4 +774,50 @@ public sealed class MainViewModel : ViewModelBase
         var basePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         return Path.Combine(basePath, "Aon", "Saves");
     }
+
+    private sealed class RandomNumberChoice
+    {
+        public RandomNumberChoice(Choice choice, IReadOnlyList<RandomNumberRange> ranges)
+        {
+            Choice = choice;
+            Ranges = ranges;
+        }
+
+        public Choice Choice { get; }
+        public IReadOnlyList<RandomNumberRange> Ranges { get; }
+
+        public bool IsMatch(int value) => Ranges.Any(range => range.Contains(value));
+    }
+
+    private readonly struct RandomNumberRange
+    {
+        private RandomNumberRange(int min, int max)
+        {
+            Min = min;
+            Max = max;
+        }
+
+        public int Min { get; }
+        public int Max { get; }
+
+        public bool Contains(int value) => value >= Min && value <= Max;
+
+        public static RandomNumberRange From(int min, int max)
+        {
+            if (min > max)
+            {
+                (min, max) = (max, min);
+            }
+
+            min = Math.Clamp(min, 0, 9);
+            max = Math.Clamp(max, 0, 9);
+            return new RandomNumberRange(min, max);
+        }
+    }
+
+    private static readonly Regex RangeRegex = new("\\b(?<min>[0-9])\\s*(?:-|–|—|to)\\s*(?<max>[0-9])\\b", RegexOptions.IgnoreCase);
+    private static readonly Regex BelowRegex = new("\\b(?:below|under|less than)\\s+(?<value>[0-9])\\b", RegexOptions.IgnoreCase);
+    private static readonly Regex AtMostRegex = new("\\b(?:at most|or less|or lower)\\s+(?<value>[0-9])\\b", RegexOptions.IgnoreCase);
+    private static readonly Regex AtLeastRegex = new("\\b(?:at least|or above|or higher)\\s+(?<value>[0-9])\\b", RegexOptions.IgnoreCase);
+    private static readonly Regex AboveRegex = new("\\b(?:above|over|greater than)\\s+(?<value>[0-9])\\b", RegexOptions.IgnoreCase);
 }
