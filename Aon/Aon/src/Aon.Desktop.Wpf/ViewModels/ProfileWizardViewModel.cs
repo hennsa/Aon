@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Linq;
 using Aon.Core;
 
 namespace Aon.Desktop.Wpf.ViewModels;
@@ -15,8 +16,14 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     private int _bonusSkillPoints = 4;
     private int _selectedSkillCount;
     private string _selectionStatus = string.Empty;
+    private ProfileOptionViewModel? _selectedExistingProfile;
+    private CharacterOptionViewModel? _selectedExistingCharacter;
 
-    public ProfileWizardViewModel(string seriesId, ISeriesProfile seriesProfile, Func<int> rollRandomNumber)
+    public ProfileWizardViewModel(
+        string seriesId,
+        ISeriesProfile seriesProfile,
+        Func<int> rollRandomNumber,
+        IEnumerable<PlayerProfile> existingProfiles)
     {
         SeriesId = seriesId;
         SeriesName = seriesProfile.Name;
@@ -24,6 +31,15 @@ public sealed class ProfileWizardViewModel : ViewModelBase
         Skills = new ObservableCollection<SelectableSkillViewModel>();
         CoreSkills = new ObservableCollection<CoreSkillEntryViewModel>();
         Counters = new ObservableCollection<CounterEntryViewModel>();
+        ExistingProfiles = new ObservableCollection<ProfileOptionViewModel>();
+        ExistingCharacters = new ObservableCollection<CharacterOptionViewModel>();
+
+        foreach (var profile in existingProfiles
+                     .Where(profile => !string.IsNullOrWhiteSpace(profile.Name))
+                     .DistinctBy(profile => profile.Name, StringComparer.OrdinalIgnoreCase))
+        {
+            ExistingProfiles.Add(new ProfileOptionViewModel(profile));
+        }
 
         foreach (var entry in seriesProfile.DefaultCounters)
         {
@@ -70,6 +86,8 @@ public sealed class ProfileWizardViewModel : ViewModelBase
         {
             UpdateSelectionStatus();
         }
+
+        LoadExistingCharacters(null);
     }
 
     public string SeriesId { get; }
@@ -79,6 +97,8 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     public ObservableCollection<SelectableSkillViewModel> Skills { get; }
     public ObservableCollection<CoreSkillEntryViewModel> CoreSkills { get; }
     public ObservableCollection<CounterEntryViewModel> Counters { get; }
+    public ObservableCollection<ProfileOptionViewModel> ExistingProfiles { get; }
+    public ObservableCollection<CharacterOptionViewModel> ExistingCharacters { get; }
     public List<Item> DefaultItems { get; } = new();
     public RelayCommand RollCombatSkillCommand { get; }
     public RelayCommand RollEnduranceCommand { get; }
@@ -87,6 +107,55 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     public bool HasCoreSkills => CoreSkills.Count > 0;
     public bool HasCounters => Counters.Count > 0;
     public bool IsWillpowerAvailable => SeriesId is "gs";
+    public bool HasExistingProfiles => ExistingProfiles.Count > 0;
+    public bool HasExistingCharacters => ExistingCharacters.Count > 1;
+    public bool IsCharacterCreationEnabled => SelectedExistingCharacter?.IsNew ?? true;
+
+    public ProfileOptionViewModel? SelectedExistingProfile
+    {
+        get => _selectedExistingProfile;
+        set
+        {
+            if (_selectedExistingProfile == value)
+            {
+                return;
+            }
+
+            _selectedExistingProfile = value;
+            OnPropertyChanged();
+            if (_selectedExistingProfile is not null)
+            {
+                ProfileName = _selectedExistingProfile.Name;
+            }
+
+            LoadExistingCharacters(_selectedExistingProfile?.Profile);
+            OnPropertyChanged(nameof(IsValid));
+        }
+    }
+
+    public CharacterOptionViewModel? SelectedExistingCharacter
+    {
+        get => _selectedExistingCharacter;
+        set
+        {
+            if (_selectedExistingCharacter == value)
+            {
+                return;
+            }
+
+            _selectedExistingCharacter = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(IsCharacterCreationEnabled));
+            OnPropertyChanged(nameof(IsValid));
+
+            if (_selectedExistingCharacter is null || _selectedExistingCharacter.IsNew)
+            {
+                return;
+            }
+
+            ApplyExistingCharacter(_selectedExistingCharacter.CharacterState);
+        }
+    }
 
     public string ProfileName
     {
@@ -227,6 +296,11 @@ public sealed class ProfileWizardViewModel : ViewModelBase
                 return false;
             }
 
+            if (!IsCharacterCreationEnabled)
+            {
+                return true;
+            }
+
             if (CombatSkill <= 0 || Endurance <= 0)
             {
                 return false;
@@ -306,6 +380,67 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     {
         OnPropertyChanged(nameof(RemainingCoreSkillPoints));
         OnPropertyChanged(nameof(IsValid));
+    }
+
+    private void LoadExistingCharacters(PlayerProfile? profile)
+    {
+        ExistingCharacters.Clear();
+        ExistingCharacters.Add(CharacterOptionViewModel.CreateNew());
+
+        if (profile is not null
+            && profile.SeriesStates.TryGetValue(SeriesId, out var seriesState))
+        {
+            foreach (var entry in seriesState.Characters.Values
+                         .Where(state => !string.IsNullOrWhiteSpace(state.Character.Name))
+                         .OrderBy(state => state.Character.Name, StringComparer.OrdinalIgnoreCase))
+            {
+                ExistingCharacters.Add(new CharacterOptionViewModel(entry.Character.Name, entry));
+            }
+        }
+
+        SelectedExistingCharacter = ExistingCharacters.FirstOrDefault();
+        OnPropertyChanged(nameof(HasExistingCharacters));
+    }
+
+    private void ApplyExistingCharacter(CharacterProfileState? characterState)
+    {
+        if (characterState is null)
+        {
+            return;
+        }
+
+        var character = characterState.Character;
+        CharacterName = character.Name;
+        CombatSkill = character.CombatSkill;
+        Endurance = character.Endurance;
+        Willpower = character.Attributes.TryGetValue("Willpower", out var willpower) ? willpower : 0;
+
+        if (HasSkillSelection)
+        {
+            foreach (var skill in Skills)
+            {
+                skill.IsSelected = character.Disciplines.Contains(skill.Name, StringComparer.OrdinalIgnoreCase);
+            }
+        }
+
+        if (HasCoreSkills)
+        {
+            foreach (var entry in CoreSkills)
+            {
+                entry.Value = character.CoreSkills.TryGetValue(entry.Label, out var value) ? value : entry.Value;
+            }
+
+            if (character.Attributes.TryGetValue("CoreSkillPoolTotal", out var poolTotal))
+            {
+                var minimumTotal = CoreSkills.Sum(entry => entry.Value);
+                BonusSkillPoints = Math.Max(0, poolTotal - minimumTotal);
+            }
+        }
+
+        foreach (var counter in Counters)
+        {
+            counter.Value = character.Inventory.Counters.TryGetValue(counter.Name, out var value) ? value : counter.Value;
+        }
     }
 
     private void RollCombatSkill()
@@ -475,5 +610,41 @@ public sealed class CounterEntryViewModel : ViewModelBase
             _value = Math.Max(0, value);
             OnPropertyChanged();
         }
+    }
+}
+
+public sealed class ProfileOptionViewModel
+{
+    public ProfileOptionViewModel(PlayerProfile profile)
+    {
+        Profile = profile;
+        Name = profile.Name;
+    }
+
+    public string Name { get; }
+    public PlayerProfile Profile { get; }
+}
+
+public sealed class CharacterOptionViewModel
+{
+    public CharacterOptionViewModel(string name, CharacterProfileState characterState)
+    {
+        Name = name;
+        CharacterState = characterState;
+    }
+
+    private CharacterOptionViewModel(string name)
+    {
+        Name = name;
+        IsNew = true;
+    }
+
+    public string Name { get; }
+    public bool IsNew { get; }
+    public CharacterProfileState? CharacterState { get; }
+
+    public static CharacterOptionViewModel CreateNew()
+    {
+        return new CharacterOptionViewModel("Create new character");
     }
 }
