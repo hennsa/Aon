@@ -15,6 +15,7 @@
     <Grid Margin="24">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="320" />
             <ColumnDefinition Width="260" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -124,7 +125,7 @@
                 BorderThickness="1"
                 BorderBrush="#22000000"
                 CornerRadius="6">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                 <StackPanel>
                     <TextBlock Text="Character" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,8" />
                     <TextBlock Text="{Binding CharacterSetupHint}" TextWrapping="Wrap" Foreground="#666666" Margin="0,0,0,12" />
