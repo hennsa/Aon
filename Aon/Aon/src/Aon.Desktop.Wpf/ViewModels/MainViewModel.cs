@@ -3,6 +3,7 @@ using System.Net;
 using System.IO;
 using System.Windows;
 using System.Text.RegularExpressions;
+using System.Windows;
 using Aon.Application;
 using Aon.Content;
 using Aon.Core;
@@ -20,6 +21,8 @@ public sealed class MainViewModel : ViewModelBase
     private readonly RelayCommand _rollRandomNumberCommand;
     private readonly RelayCommand _confirmRandomNumberCommand;
     private readonly RelayCommand _showRandomNumberTableCommand;
+    private readonly RelayCommand _saveGameCommand;
+    private readonly RelayCommand _loadGameCommand;
     private readonly List<Choice> _pendingRandomChoices = new();
     private readonly List<RandomNumberChoice> _randomNumberChoices = new();
     private readonly Queue<int> _recentRolls = new();
@@ -30,6 +33,8 @@ public sealed class MainViewModel : ViewModelBase
     private string _randomNumberStatus = string.Empty;
     private string _rollHistoryText = string.Empty;
     private string _rollModifierText = "0";
+    private string _saveSlot = "default";
+    private string _characterSetupHint = string.Empty;
     private BookListItemViewModel? _selectedBook;
     private bool _isRandomNumberVisible;
     private bool _areChoicesVisible = true;
@@ -56,6 +61,8 @@ public sealed class MainViewModel : ViewModelBase
         _rollRandomNumberCommand = new RelayCommand(RollRandomNumber);
         _confirmRandomNumberCommand = new RelayCommand(ConfirmRandomNumber, () => _resolvedRandomChoice is not null);
         _showRandomNumberTableCommand = new RelayCommand(ShowRandomNumberTable);
+        _saveGameCommand = new RelayCommand(() => _ = SaveGameAsync());
+        _loadGameCommand = new RelayCommand(() => _ = LoadGameAsync());
         LoadBooks(booksDirectory);
     }
 
@@ -98,6 +105,38 @@ public sealed class MainViewModel : ViewModelBase
     public RelayCommand RollRandomNumberCommand => _rollRandomNumberCommand;
     public RelayCommand ConfirmRandomNumberCommand => _confirmRandomNumberCommand;
     public RelayCommand ShowRandomNumberTableCommand => _showRandomNumberTableCommand;
+    public RelayCommand SaveGameCommand => _saveGameCommand;
+    public RelayCommand LoadGameCommand => _loadGameCommand;
+
+    public string SaveSlot
+    {
+        get => _saveSlot;
+        set
+        {
+            if (_saveSlot == value)
+            {
+                return;
+            }
+
+            _saveSlot = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string CharacterSetupHint
+    {
+        get => _characterSetupHint;
+        private set
+        {
+            if (_characterSetupHint == value)
+            {
+                return;
+            }
+
+            _characterSetupHint = value;
+            OnPropertyChanged();
+        }
+    }
 
     public bool IsRandomNumberVisible
     {
@@ -251,9 +290,11 @@ public sealed class MainViewModel : ViewModelBase
 
         _book = book;
         _state.BookId = _book.Id;
+        _state.SeriesId = ResolveSeriesId(_book.Id);
         var firstSection = _book.Sections.FirstOrDefault();
         _state.SectionId = firstSection?.Id ?? string.Empty;
         BookTitle = _book.Title;
+        InitializeCharacterForSeries(_state.SeriesId);
         RefreshCharacterPanels();
 
         if (firstSection is null)
@@ -541,6 +582,117 @@ public sealed class MainViewModel : ViewModelBase
         foreach (var entry in _state.Character.Inventory.Counters.OrderBy(item => item.Key, StringComparer.OrdinalIgnoreCase))
         {
             InventoryCounters.Add(new StatEntryViewModel(entry.Key, entry.Value));
+        }
+    }
+
+    private void InitializeCharacterForSeries(string seriesId)
+    {
+        var profile = ResolveSeriesProfile(seriesId);
+        _state.Character.Attributes.Clear();
+        _state.Character.Attributes[Character.CombatSkillBonusAttribute] = 0;
+        _state.Character.Inventory.Counters.Clear();
+        foreach (var counter in profile.CounterNames)
+        {
+            _state.Character.Inventory.Counters[counter] = 0;
+        }
+
+        _state.Character.Disciplines.Clear();
+        CharacterSetupHint = $"Use the book's character creation instructions in the main text. Series: {profile.Name}.";
+    }
+
+    private static string ResolveSeriesId(string bookId)
+    {
+        if (bookId.StartsWith("lw", StringComparison.OrdinalIgnoreCase))
+        {
+            return "lw";
+        }
+
+        if (bookId.StartsWith("gs", StringComparison.OrdinalIgnoreCase))
+        {
+            return "gs";
+        }
+
+        if (bookId.StartsWith("fw", StringComparison.OrdinalIgnoreCase))
+        {
+            return "fw";
+        }
+
+        return "unknown";
+    }
+
+    private static ISeriesProfile ResolveSeriesProfile(string seriesId)
+    {
+        return seriesId switch
+        {
+            "lw" => SeriesProfiles.LoneWolf,
+            "gs" => SeriesProfiles.GreyStar,
+            "fw" => SeriesProfiles.FreewayWarrior,
+            _ => SeriesProfiles.LoneWolf
+        };
+    }
+
+    private async Task SaveGameAsync()
+    {
+        if (_book is null)
+        {
+            return;
+        }
+
+        await _gameService.SaveGameAsync(SaveSlot, _state);
+        MessageBox.Show($"Saved to slot '{SaveSlot}'.", "Save Game", MessageBoxButton.OK, MessageBoxImage.Information);
+    }
+
+    private async Task LoadGameAsync()
+    {
+        var loaded = await _gameService.LoadGameAsync(SaveSlot);
+        if (loaded is null)
+        {
+            MessageBox.Show($"No save found for slot '{SaveSlot}'.", "Load Game", MessageBoxButton.OK, MessageBoxImage.Information);
+            return;
+        }
+
+        if (_book is not null
+            && !string.IsNullOrWhiteSpace(loaded.SeriesId)
+            && !string.Equals(loaded.SeriesId, _state.SeriesId, StringComparison.OrdinalIgnoreCase))
+        {
+            MessageBox.Show("This save belongs to a different series and cannot be loaded for this book.", "Load Game", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return;
+        }
+
+        _state.BookId = loaded.BookId;
+        _state.SectionId = loaded.SectionId;
+        _state.SeriesId = loaded.SeriesId;
+        _state.Character.Name = loaded.Character.Name;
+        _state.Character.CombatSkill = loaded.Character.CombatSkill;
+        _state.Character.Endurance = loaded.Character.Endurance;
+        _state.Character.Disciplines.Clear();
+        _state.Character.Disciplines.AddRange(loaded.Character.Disciplines);
+        _state.Character.Attributes.Clear();
+        foreach (var entry in loaded.Character.Attributes)
+        {
+            _state.Character.Attributes[entry.Key] = entry.Value;
+        }
+
+        _state.Character.Inventory.Items.Clear();
+        _state.Character.Inventory.Items.AddRange(loaded.Character.Inventory.Items);
+        _state.Character.Inventory.Counters.Clear();
+        foreach (var entry in loaded.Character.Inventory.Counters)
+        {
+            _state.Character.Inventory.Counters[entry.Key] = entry.Value;
+        }
+
+        CharacterSetupHint = $"Use the book's character creation instructions in the main text. Series: {ResolveSeriesProfile(_state.SeriesId).Name}.";
+        RefreshCharacterPanels();
+        if (_book is null || !string.Equals(_book.Id, _state.BookId, StringComparison.OrdinalIgnoreCase))
+        {
+            _book = await _bookRepository.GetBookAsync(_state.BookId);
+            BookTitle = _book.Title;
+        }
+
+        var section = _book.Sections.FirstOrDefault(item => item.Id == _state.SectionId);
+        if (section is not null)
+        {
+            UpdateSection(section);
         }
     }
 

@@ -8,6 +8,6 @@ public sealed class StatEntryViewModel
         Value = value;
     }
 
-    public string Label { get; set; }  // now writable
-    public int Value { get; set; }     // consider INotifyPropertyChanged if UI must update on change
+    public string Label { get; }
+    public int Value { get; }
 }
