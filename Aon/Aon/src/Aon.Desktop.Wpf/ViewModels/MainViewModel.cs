@@ -3,7 +3,6 @@ using System.Net;
 using System.IO;
 using System.Windows;
 using System.Text.RegularExpressions;
-using System.Windows;
 using Aon.Application;
 using Aon.Content;
 using Aon.Core;
