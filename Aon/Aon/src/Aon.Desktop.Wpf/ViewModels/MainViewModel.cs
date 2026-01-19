@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net;
 using System.IO;
@@ -26,6 +27,7 @@ public sealed class MainViewModel : ViewModelBase
     private readonly RelayCommand _loadGameCommand;
     private readonly RelayCommand _newSaveSlotCommand;
     private readonly RelayCommand _newProfileCommand;
+    private readonly RelayCommand _newCharacterCommand;
     private readonly RelayCommand _addSkillCommand;
     private readonly RelayCommand _removeSkillCommand;
     private readonly RelayCommand _addItemCommand;
@@ -53,6 +55,7 @@ public sealed class MainViewModel : ViewModelBase
     private string _newItemCategory = "general";
     private string _counterNameInput = string.Empty;
     private BookListItemViewModel? _selectedBook;
+    private CharacterOptionViewModel? _selectedCharacter;
     private ItemEntryViewModel? _selectedInventoryItem;
     private bool _isRandomNumberVisible;
     private bool _areChoicesVisible = true;
@@ -60,6 +63,8 @@ public sealed class MainViewModel : ViewModelBase
     private Choice? _resolvedRandomChoice;
     private bool _isManualRandomMode;
     private bool _isProfileReady;
+    private bool _isUpdatingCharacters;
+    private bool _isSwitchingCharacter;
 
     public MainViewModel()
     {
@@ -85,6 +90,7 @@ public sealed class MainViewModel : ViewModelBase
         _loadGameCommand = new RelayCommand(() => _ = LoadGameAsync());
         _newSaveSlotCommand = new RelayCommand(CreateNewSaveSlot);
         _newProfileCommand = new RelayCommand(StartNewProfile);
+        _newCharacterCommand = new RelayCommand(() => _ = CreateNewCharacterAsync(), () => IsProfileReady);
         _addSkillCommand = new RelayCommand(AddSkill, () => !string.IsNullOrWhiteSpace(SelectedAvailableSkill));
         _removeSkillCommand = new RelayCommand(RemoveSkill, () => SelectedSkill is not null);
         _addItemCommand = new RelayCommand(AddItem, () => !string.IsNullOrWhiteSpace(NewItemName));
@@ -127,6 +133,7 @@ public sealed class MainViewModel : ViewModelBase
     public ObservableCollection<ContentBlockViewModel> Blocks { get; }
     public ObservableCollection<ChoiceViewModel> Choices { get; }
     public ObservableCollection<BookListItemViewModel> Books { get; }
+    public ObservableCollection<CharacterOptionViewModel> Characters { get; } = new();
     public ObservableCollection<StatEntryViewModel> CoreStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> CoreSkills { get; } = new();
     public ObservableCollection<StatEntryViewModel> AttributeStats { get; } = new();
@@ -143,6 +150,7 @@ public sealed class MainViewModel : ViewModelBase
     public RelayCommand LoadGameCommand => _loadGameCommand;
     public RelayCommand NewSaveSlotCommand => _newSaveSlotCommand;
     public RelayCommand NewProfileCommand => _newProfileCommand;
+    public RelayCommand NewCharacterCommand => _newCharacterCommand;
     public RelayCommand AddSkillCommand => _addSkillCommand;
     public RelayCommand RemoveSkillCommand => _removeSkillCommand;
     public RelayCommand AddItemCommand => _addItemCommand;
@@ -163,6 +171,7 @@ public sealed class MainViewModel : ViewModelBase
             _isProfileReady = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(CharacterPanelTitle));
+            _newCharacterCommand.RaiseCanExecuteChanged();
         }
     }
 
@@ -422,6 +431,28 @@ public sealed class MainViewModel : ViewModelBase
         }
     }
 
+    public CharacterOptionViewModel? SelectedCharacter
+    {
+        get => _selectedCharacter;
+        set
+        {
+            if (_selectedCharacter == value)
+            {
+                return;
+            }
+
+            _selectedCharacter = value;
+            OnPropertyChanged();
+
+            if (_isUpdatingCharacters || _isSwitchingCharacter || _selectedCharacter is null)
+            {
+                return;
+            }
+
+            _ = SwitchCharacterAsync(_selectedCharacter);
+        }
+    }
+
     private void LoadBooks(string booksDirectory)
     {
         if (!Directory.Exists(booksDirectory))
@@ -447,7 +478,8 @@ public sealed class MainViewModel : ViewModelBase
             var id = Path.GetFileNameWithoutExtension(file);
             var title = TryReadBookTitle(file) ?? id.Replace("__", " ");
             var order = TryGetBookOrder(id);
-            Books.Add(new BookListItemViewModel(id, title, order));
+            var sectionIds = TryReadBookSectionIds(file);
+            Books.Add(new BookListItemViewModel(id, title, order, sectionIds));
         }
 
         UpdateBookProgressIndicators();
@@ -474,6 +506,48 @@ public sealed class MainViewModel : ViewModelBase
         }
 
         return null;
+    }
+
+    private static IReadOnlyList<string> TryReadBookSectionIds(string filePath)
+    {
+        try
+        {
+            using var stream = File.OpenRead(filePath);
+            using var document = JsonDocument.Parse(stream);
+            foreach (var property in document.RootElement.EnumerateObject())
+            {
+                if (string.Equals(property.Name, "sections", StringComparison.OrdinalIgnoreCase)
+                    && property.Value.ValueKind == JsonValueKind.Array)
+                {
+                    var sections = new List<string>();
+                    foreach (var section in property.Value.EnumerateArray())
+                    {
+                        if (section.ValueKind != JsonValueKind.Object)
+                        {
+                            continue;
+                        }
+
+                        if (section.TryGetProperty("id", out var idProperty)
+                            && idProperty.ValueKind == JsonValueKind.String)
+                        {
+                            var id = idProperty.GetString();
+                            if (!string.IsNullOrWhiteSpace(id))
+                            {
+                                sections.Add(id);
+                            }
+                        }
+                    }
+
+                    return sections;
+                }
+            }
+        }
+        catch (Exception)
+        {
+            return Array.Empty<string>();
+        }
+
+        return Array.Empty<string>();
     }
 
     private static int? TryGetBookOrder(string bookId)
@@ -833,6 +907,25 @@ public sealed class MainViewModel : ViewModelBase
         OnPropertyChanged(nameof(CharacterPanelTitle));
     }
 
+    private void UpdateCharacterOptions(SeriesProfileState seriesState)
+    {
+        _isUpdatingCharacters = true;
+        Characters.Clear();
+
+        foreach (var entry in seriesState.Characters.Values
+                     .Where(state => !string.IsNullOrWhiteSpace(state.Character.Name))
+                     .OrderBy(state => state.Character.Name, StringComparer.OrdinalIgnoreCase))
+        {
+            Characters.Add(new CharacterOptionViewModel(entry.Character.Name, entry));
+        }
+
+        SelectedCharacter = Characters
+            .FirstOrDefault(option => string.Equals(option.Name, seriesState.ActiveCharacterName, StringComparison.OrdinalIgnoreCase))
+            ?? Characters.FirstOrDefault();
+
+        _isUpdatingCharacters = false;
+    }
+
     private void EnsureSeriesProfile(string seriesId)
     {
         _currentProfile = ResolveSeriesProfile(seriesId);
@@ -855,7 +948,7 @@ public sealed class MainViewModel : ViewModelBase
             ApplyProfileWizardResult(seriesId, wizardResult);
             seriesState = wizardResult.SeriesState;
         }
-        else
+        else if (_currentCharacterState is null)
         {
             var shouldUseExisting = MessageBox.Show(
                 $"Use existing {_currentProfile.Name} character? Select 'No' to choose a different character.",
@@ -894,6 +987,7 @@ public sealed class MainViewModel : ViewModelBase
         ApplyProfileNameToSaveSlot();
         RefreshCharacterPanels();
         UpdateBookProgressIndicators();
+        UpdateCharacterOptions(seriesState);
     }
 
     private void EnsureSeriesDefaults(Character character)
@@ -1088,6 +1182,8 @@ public sealed class MainViewModel : ViewModelBase
         {
             SectionId = _state.SectionId
         };
+        _currentCharacterState.LastBookId = _state.BookId;
+        _currentCharacterState.LastSectionId = _state.SectionId;
         UpdateBookProgressIndicators();
     }
 
@@ -1107,18 +1203,18 @@ public sealed class MainViewModel : ViewModelBase
         {
             if (_currentCharacterState is null)
             {
-                book.SetProgressLabel(string.Empty);
+                book.SetProgress(null);
                 continue;
             }
 
             if (_currentCharacterState.BookProgress.TryGetValue(book.Id, out var progress)
                 && !string.IsNullOrWhiteSpace(progress.SectionId))
             {
-                book.SetProgressLabel($"Section {progress.SectionId}");
+                book.SetProgress(progress.SectionId);
             }
             else
             {
-                book.SetProgressLabel("New");
+                book.SetProgress(null);
             }
         }
     }
@@ -1346,6 +1442,8 @@ public sealed class MainViewModel : ViewModelBase
             {
                 Character = _state.Character
             };
+            characterState.LastBookId = _state.BookId;
+            characterState.LastSectionId = _state.SectionId;
             seriesState.Characters[characterName] = characterState;
             seriesState.ActiveCharacterName = characterName;
             seriesState.IsInitialized = true;
@@ -1365,6 +1463,11 @@ public sealed class MainViewModel : ViewModelBase
         ApplyProfileNameToSaveSlot();
         RefreshCharacterPanels();
         UpdateBookProgressIndicators();
+        if (!string.IsNullOrWhiteSpace(_state.SeriesId))
+        {
+            var seriesState = EnsureSeriesState(_state.Profile, _state.SeriesId);
+            UpdateCharacterOptions(seriesState);
+        }
     }
 
     private void ApplyProfileNameToSaveSlot()
@@ -1514,11 +1617,131 @@ public sealed class MainViewModel : ViewModelBase
         AttributeStats.Clear();
         InventoryCounters.Clear();
         InventoryItems.Clear();
+        Characters.Clear();
+        SelectedCharacter = null;
         SelectedBook = null;
         IsProfileReady = false;
         OnPropertyChanged(nameof(HasCoreSkills));
         OnPropertyChanged(nameof(HasAvailableSkills));
         UpdateBookProgressIndicators();
+    }
+
+    private async Task SwitchCharacterAsync(CharacterOptionViewModel option)
+    {
+        if (_state.Profile is null || string.IsNullOrWhiteSpace(_state.SeriesId) || option.CharacterState is null)
+        {
+            return;
+        }
+
+        if (_currentCharacterState == option.CharacterState)
+        {
+            return;
+        }
+
+        PersistActiveCharacterState();
+        _isSwitchingCharacter = true;
+        try
+        {
+            var seriesState = EnsureSeriesState(_state.Profile, _state.SeriesId);
+            seriesState.ActiveCharacterName = option.Name;
+
+            _currentCharacterState = option.CharacterState;
+            _state.Character = option.CharacterState.Character;
+            EnsureSeriesDefaults(_state.Character);
+            UpdateAvailableSkills();
+            SuggestedActions.Clear();
+            CharacterSetupHint = $"Profile ready for {_currentProfile.Name}.";
+            IsProfileReady = true;
+            RefreshCharacterPanels();
+            UpdateBookProgressIndicators();
+
+            var targetBookId = option.CharacterState.LastBookId;
+            if (string.IsNullOrWhiteSpace(targetBookId))
+            {
+                targetBookId = _book?.Id ?? _state.BookId;
+            }
+
+            if (!string.IsNullOrWhiteSpace(targetBookId))
+            {
+                var targetBook = Books.FirstOrDefault(book => string.Equals(book.Id, targetBookId, StringComparison.OrdinalIgnoreCase));
+                if (targetBook is not null)
+                {
+                    if (SelectedBook?.Id == targetBook.Id)
+                    {
+                        await LoadBookAsync(targetBook.Id);
+                    }
+                    else
+                    {
+                        SelectedBook = targetBook;
+                    }
+                }
+                else
+                {
+                    await LoadBookAsync(targetBookId);
+                }
+            }
+        }
+        finally
+        {
+            _isSwitchingCharacter = false;
+        }
+    }
+
+    private async Task CreateNewCharacterAsync()
+    {
+        if (string.IsNullOrWhiteSpace(_state.SeriesId))
+        {
+            return;
+        }
+
+        var seriesState = EnsureSeriesState(_state.Profile, _state.SeriesId);
+        if (!TryRunProfileWizard(_state.SeriesId, _currentProfile, seriesState, out var wizardResult))
+        {
+            return;
+        }
+
+        ApplyProfileWizardResult(_state.SeriesId, wizardResult);
+        seriesState = wizardResult.SeriesState;
+        if (wizardResult.CharacterState is not null)
+        {
+            _currentCharacterState = wizardResult.CharacterState;
+            _state.Character = wizardResult.CharacterState.Character;
+            EnsureSeriesDefaults(_state.Character);
+            UpdateAvailableSkills();
+            SuggestedActions.Clear();
+            CharacterSetupHint = $"Profile ready for {_currentProfile.Name}.";
+            IsProfileReady = true;
+            RefreshCharacterPanels();
+            UpdateBookProgressIndicators();
+        }
+
+        UpdateCharacterOptions(seriesState);
+
+        if (_currentCharacterState is null)
+        {
+            return;
+        }
+
+        var targetBookId = _book?.Id ?? SelectedBook?.Id;
+        if (!string.IsNullOrWhiteSpace(targetBookId))
+        {
+            var targetBook = Books.FirstOrDefault(book => string.Equals(book.Id, targetBookId, StringComparison.OrdinalIgnoreCase));
+            if (targetBook is not null)
+            {
+                if (SelectedBook?.Id == targetBook.Id)
+                {
+                    await LoadBookAsync(targetBook.Id);
+                }
+                else
+                {
+                    SelectedBook = targetBook;
+                }
+            }
+            else
+            {
+                await LoadBookAsync(targetBookId);
+            }
+        }
     }
 
     private void AdjustCoreSkill(string skillName, int delta)
