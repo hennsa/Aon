@@ -6,6 +6,10 @@
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Window.Resources>
     <Grid Margin="24">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="260" />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -15,14 +19,15 @@
         </Grid.RowDefinitions>
 
         <ComboBox ItemsSource="{Binding Books}"
+                  Grid.Column="0"
                   SelectedItem="{Binding SelectedBook}"
                   DisplayMemberPath="DisplayName"
                   MinWidth="260"
                   Margin="0,0,0,12" />
-        <TextBlock Grid.Row="1" Text="{Binding BookTitle}" FontSize="22" FontWeight="SemiBold" />
-        <TextBlock Grid.Row="2" Text="{Binding SectionTitle}" FontSize="16" Margin="0,8,0,16" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding BookTitle}" FontSize="22" FontWeight="SemiBold" />
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding SectionTitle}" FontSize="16" Margin="0,8,0,16" />
 
-        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer Grid.Row="3" Grid.Column="0" VerticalScrollBarVisibility="Auto">
             <StackPanel>
                 <ItemsControl ItemsSource="{Binding Blocks}">
                     <ItemsControl.ItemTemplate>
@@ -66,6 +71,10 @@
                         <TextBlock Text="Random Number Table" FontWeight="SemiBold" />
                         <TextBlock Text="{Binding RandomNumberStatus}" TextWrapping="Wrap" Margin="0,6,0,8" />
                         <TextBlock Text="{Binding RollHistoryText}" Foreground="#666666" Margin="0,0,0,8" />
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                            <TextBlock Text="Roll modifier:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                            <TextBox Text="{Binding RollModifierText}" Width="60" />
+                        </StackPanel>
                         <CheckBox Content="Manual mode (show choices after roll)"
                                   IsChecked="{Binding IsManualRandomMode}"
                                   Margin="0,0,0,8" />
@@ -86,6 +95,7 @@
         </ScrollViewer>
 
         <Border Grid.Row="4"
+                Grid.Column="0"
                 Padding="0,8,0,0"
                 BorderThickness="0,1,0,0"
                 BorderBrush="#22000000"
@@ -97,6 +107,66 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+        </Border>
+
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                Grid.RowSpan="4"
+                Margin="16,0,0,0"
+                Padding="12"
+                BorderThickness="1"
+                BorderBrush="#22000000"
+                CornerRadius="6">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <TextBlock Text="Character" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,8" />
+
+                    <TextBlock Text="Core Stats" FontWeight="SemiBold" />
+                    <ItemsControl ItemsSource="{Binding CoreStats}" Margin="0,4,0,12">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                            <TextBlock Margin="0,0,0,4">
+                                <TextBlock.Inlines>
+                                    <Run Text="{Binding Label}" />
+                                        <Run Text=": " />
+                                        <Run Text="{Binding Value}" />
+                                    </TextBlock.Inlines>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <TextBlock Text="Attributes" FontWeight="SemiBold" />
+                    <ItemsControl ItemsSource="{Binding AttributeStats}" Margin="0,4,0,12">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Inlines>
+                                        <Run Text="{Binding Label}" />
+                                        <Run Text=": " />
+                                        <Run Text="{Binding Value}" />
+                                    </TextBlock.Inlines>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <TextBlock Text="Inventory Counters" FontWeight="SemiBold" />
+                    <ItemsControl ItemsSource="{Binding InventoryCounters}" Margin="0,4,0,0">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Inlines>
+                                        <Run Text="{Binding Label}" />
+                                        <Run Text=": " />
+                                        <Run Text="{Binding Value}" />
+                                    </TextBlock.Inlines>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
         </Border>
     </Grid>
 </Window>

@@ -3,6 +3,7 @@ using System.Net;
 using System.IO;
 using System.Windows;
 using System.Text.RegularExpressions;
+using System.Windows;
 using Aon.Application;
 using Aon.Content;
 using Aon.Core;
@@ -29,6 +30,7 @@ public sealed class MainViewModel : ViewModelBase
     private string _sectionTitle = "Select a book";
     private string _randomNumberStatus = string.Empty;
     private string _rollHistoryText = string.Empty;
+    private string _rollModifierText = "0";
     private BookListItemViewModel? _selectedBook;
     private bool _isRandomNumberVisible;
     private bool _areChoicesVisible = true;
@@ -91,6 +93,9 @@ public sealed class MainViewModel : ViewModelBase
     public ObservableCollection<ContentBlockViewModel> Blocks { get; }
     public ObservableCollection<ChoiceViewModel> Choices { get; }
     public ObservableCollection<BookListItemViewModel> Books { get; }
+    public ObservableCollection<StatEntryViewModel> CoreStats { get; } = new();
+    public ObservableCollection<StatEntryViewModel> AttributeStats { get; } = new();
+    public ObservableCollection<StatEntryViewModel> InventoryCounters { get; } = new();
     public RelayCommand RollRandomNumberCommand => _rollRandomNumberCommand;
     public RelayCommand ConfirmRandomNumberCommand => _confirmRandomNumberCommand;
     public RelayCommand ShowRandomNumberTableCommand => _showRandomNumberTableCommand;
@@ -153,6 +158,21 @@ public sealed class MainViewModel : ViewModelBase
             }
 
             _rollHistoryText = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string RollModifierText
+    {
+        get => _rollModifierText;
+        set
+        {
+            if (_rollModifierText == value)
+            {
+                return;
+            }
+
+            _rollModifierText = value;
             OnPropertyChanged();
         }
     }
@@ -235,6 +255,7 @@ public sealed class MainViewModel : ViewModelBase
         var firstSection = _book.Sections.FirstOrDefault();
         _state.SectionId = firstSection?.Id ?? string.Empty;
         BookTitle = _book.Title;
+        RefreshCharacterPanels();
 
         if (firstSection is null)
         {
@@ -504,6 +525,26 @@ public sealed class MainViewModel : ViewModelBase
         _confirmRandomNumberCommand.RaiseCanExecuteChanged();
     }
 
+    private void RefreshCharacterPanels()
+    {
+        CoreStats.Clear();
+        CoreStats.Add(new StatEntryViewModel("Combat Skill", _state.Character.CombatSkill));
+        CoreStats.Add(new StatEntryViewModel("Effective Combat Skill", _state.Character.GetEffectiveCombatSkill()));
+        CoreStats.Add(new StatEntryViewModel("Endurance", _state.Character.Endurance));
+
+        AttributeStats.Clear();
+        foreach (var entry in _state.Character.Attributes.OrderBy(item => item.Key, StringComparer.OrdinalIgnoreCase))
+        {
+            AttributeStats.Add(new StatEntryViewModel(entry.Key, entry.Value));
+        }
+
+        InventoryCounters.Clear();
+        foreach (var entry in _state.Character.Inventory.Counters.OrderBy(item => item.Key, StringComparer.OrdinalIgnoreCase))
+        {
+            InventoryCounters.Add(new StatEntryViewModel(entry.Key, entry.Value));
+        }
+    }
+
     private void PrepareRandomNumberSection(BookSection section)
     {
         _pendingRandomChoices.Clear();
@@ -543,11 +584,13 @@ public sealed class MainViewModel : ViewModelBase
         var roll = _gameService.RollRandomNumber();
         _randomNumberResult = roll;
         TrackRoll(roll);
+        var modifier = GetRollModifier();
+        var effectiveRoll = Math.Clamp(roll + modifier, 0, 9);
 
         if (IsManualRandomMode)
         {
             _resolvedRandomChoice = null;
-            RandomNumberStatus = $"You rolled {roll}. Select the correct outcome below.";
+            RandomNumberStatus = BuildRollStatus(roll, modifier, effectiveRoll, "Select the correct outcome below.");
             ShowChoices(_pendingRandomChoices);
             OnPropertyChanged(nameof(IsRandomNumberConfirmVisible));
             _confirmRandomNumberCommand.RaiseCanExecuteChanged();
@@ -555,7 +598,7 @@ public sealed class MainViewModel : ViewModelBase
         }
 
         var matches = _randomNumberChoices
-            .Where(choice => choice.IsMatch(roll))
+            .Where(choice => choice.IsMatch(effectiveRoll))
             .Select(choice => choice.Choice)
             .Distinct()
             .ToList();
@@ -563,19 +606,19 @@ public sealed class MainViewModel : ViewModelBase
         if (matches.Count == 1)
         {
             _resolvedRandomChoice = matches[0];
-            RandomNumberStatus = $"You rolled {roll}. This directs you to section {_resolvedRandomChoice.TargetId}.";
+            RandomNumberStatus = BuildRollStatus(roll, modifier, effectiveRoll, $"This directs you to section {_resolvedRandomChoice.TargetId}.");
             AreChoicesVisible = false;
         }
         else if (matches.Count > 1)
         {
             _resolvedRandomChoice = null;
-            RandomNumberStatus = $"You rolled {roll}. Multiple outcomes match—choose the correct option below.";
+            RandomNumberStatus = BuildRollStatus(roll, modifier, effectiveRoll, "Multiple outcomes match—choose the correct option below.");
             ShowChoices(matches);
         }
         else
         {
             _resolvedRandomChoice = null;
-            RandomNumberStatus = $"You rolled {roll}. Choose the correct option below.";
+            RandomNumberStatus = BuildRollStatus(roll, modifier, effectiveRoll, "Choose the correct option below.");
             ShowChoices(_pendingRandomChoices);
         }
 
@@ -745,6 +788,24 @@ public sealed class MainViewModel : ViewModelBase
     {
         _recentRolls.Clear();
         RollHistoryText = "Recent rolls: —";
+    }
+
+    private int GetRollModifier()
+    {
+        if (int.TryParse(RollModifierText, out var modifier))
+        {
+            return modifier;
+        }
+
+        RollModifierText = "0";
+        return 0;
+    }
+
+    private static string BuildRollStatus(int roll, int modifier, int effectiveRoll, string suffix)
+    {
+        return modifier == 0
+            ? $"You rolled {roll}. {suffix}"
+            : $"You rolled {roll} + {modifier} = {effectiveRoll}. {suffix}";
     }
 
     private static string FindBooksDirectory()
