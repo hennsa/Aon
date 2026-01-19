@@ -223,9 +223,9 @@ public sealed class MainViewModel : ViewModelBase
     {
         SectionTitle = GetFrontMatterTitle(frontMatter);
         Blocks.Clear();
-        foreach (var paragraph in ExtractFrontMatterParagraphs(frontMatter.Html))
+        foreach (var block in ExtractFrontMatterBlocks(frontMatter.Html))
         {
-            Blocks.Add(new ContentBlockViewModel("p", paragraph));
+            Blocks.Add(block);
         }
 
         Choices.Clear();
@@ -347,14 +347,16 @@ public sealed class MainViewModel : ViewModelBase
         return section.Title;
     }
 
-    private static IEnumerable<string> ExtractFrontMatterParagraphs(string html)
+    private static IEnumerable<ContentBlockViewModel> ExtractFrontMatterBlocks(string html)
     {
         if (string.IsNullOrWhiteSpace(html))
         {
-            return Array.Empty<string>();
+            return Array.Empty<ContentBlockViewModel>();
         }
 
-        var normalized = Regex.Replace(html, @"<\s*br\s*/?\s*>", "\n", RegexOptions.IgnoreCase);
+        var normalized = Regex.Replace(html, @"<\s*h(?<level>[1-3])[^>]*>", "\n\n[[h${level}]]", RegexOptions.IgnoreCase);
+        normalized = Regex.Replace(normalized, @"</\s*h[1-3]\s*>", "[[/h]]\n\n", RegexOptions.IgnoreCase);
+        normalized = Regex.Replace(normalized, @"<\s*br\s*/?\s*>", "\n", RegexOptions.IgnoreCase);
         normalized = Regex.Replace(normalized, @"</\s*p\s*>", "\n\n", RegexOptions.IgnoreCase);
         normalized = Regex.Replace(normalized, @"<\s*p[^>]*>", string.Empty, RegexOptions.IgnoreCase);
         normalized = Regex.Replace(normalized, @"<\s*li[^>]*>", "• ", RegexOptions.IgnoreCase);
@@ -366,6 +368,21 @@ public sealed class MainViewModel : ViewModelBase
             .Split(new[] { "\n\n", "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries)
             .Select(paragraph => paragraph.Replace("\r", string.Empty).Replace("\n", " ").Trim())
             .Where(paragraph => paragraph.Length > 0)
+            .Select(paragraph =>
+            {
+                var headingMatch = Regex.Match(paragraph, @"^\[\[h(?<level>[1-3])\]\](?<text>.*)\[\[/h\]\]$");
+                if (headingMatch.Success)
+                {
+                    var level = headingMatch.Groups["level"].Value;
+                    var text = headingMatch.Groups["text"].Value.Trim();
+                    if (!string.IsNullOrWhiteSpace(text))
+                    {
+                        return new ContentBlockViewModel($"h{level}", text);
+                    }
+                }
+
+                return new ContentBlockViewModel("p", paragraph);
+            })
             .ToList();
     }
 
