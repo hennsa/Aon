@@ -173,6 +173,64 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
+
+                    <TextBlock Text="Skills" FontWeight="SemiBold" Margin="0,12,0,0" />
+                    <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                        <ComboBox ItemsSource="{Binding AvailableSkills}"
+                                  SelectedItem="{Binding SelectedAvailableSkill}"
+                                  MinWidth="150"
+                                  Margin="0,0,8,0" />
+                        <Button Content="Add" Command="{Binding AddSkillCommand}" />
+                    </StackPanel>
+                    <ListBox ItemsSource="{Binding CharacterSkills}"
+                             SelectedItem="{Binding SelectedSkill}"
+                             Height="80"
+                             Margin="0,0,0,8" />
+                    <Button Content="Remove Selected Skill" Command="{Binding RemoveSkillCommand}" Margin="0,0,0,12" />
+
+                    <TextBlock Text="Inventory Items" FontWeight="SemiBold" />
+                    <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                        <TextBox Text="{Binding NewItemName}" Width="120" Margin="0,0,8,0" />
+                        <TextBox Text="{Binding NewItemCategory}" Width="80" Margin="0,0,8,0" />
+                        <Button Content="Add" Command="{Binding AddItemCommand}" />
+                    </StackPanel>
+                    <ListBox ItemsSource="{Binding InventoryItems}"
+                             SelectedItem="{Binding SelectedInventoryItem}"
+                             Height="80"
+                             Margin="0,0,0,8">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <Run Text="{Binding Name}" />
+                                    <Run Text=" (" />
+                                    <Run Text="{Binding Category}" />
+                                    <Run Text=")" />
+                                </TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button Content="Remove Selected Item" Command="{Binding RemoveItemCommand}" Margin="0,0,0,12" />
+
+                    <TextBlock Text="Counters" FontWeight="SemiBold" />
+                    <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                        <TextBox Text="{Binding CounterNameInput}" Width="100" Margin="0,0,8,0" />
+                        <TextBox Text="{Binding CounterValueInput}" Width="60" Margin="0,0,8,0" />
+                        <Button Content="Set" Command="{Binding UpsertCounterCommand}" Margin="0,0,4,0" />
+                        <Button Content="Remove" Command="{Binding RemoveCounterCommand}" />
+                    </StackPanel>
+                    <ListBox ItemsSource="{Binding InventoryCounters}"
+                             SelectedItem="{Binding SelectedCounter}"
+                             Height="80">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <Run Text="{Binding Label}" />
+                                    <Run Text=": " />
+                                    <Run Text="{Binding Value}" />
+                                </TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </StackPanel>
             </ScrollViewer>
         </Border>

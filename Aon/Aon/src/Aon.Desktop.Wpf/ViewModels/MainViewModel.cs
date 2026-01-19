@@ -23,9 +23,16 @@ public sealed class MainViewModel : ViewModelBase
     private readonly RelayCommand _showRandomNumberTableCommand;
     private readonly RelayCommand _saveGameCommand;
     private readonly RelayCommand _loadGameCommand;
+    private readonly RelayCommand _addSkillCommand;
+    private readonly RelayCommand _removeSkillCommand;
+    private readonly RelayCommand _addItemCommand;
+    private readonly RelayCommand _removeItemCommand;
+    private readonly RelayCommand _upsertCounterCommand;
+    private readonly RelayCommand _removeCounterCommand;
     private readonly List<Choice> _pendingRandomChoices = new();
     private readonly List<RandomNumberChoice> _randomNumberChoices = new();
     private readonly Queue<int> _recentRolls = new();
+    private ISeriesProfile _currentProfile = SeriesProfiles.LoneWolf;
     private Book? _book;
     private BookSection? _firstSectionForFrontMatter;
     private string _bookTitle = "Aon Companion";
@@ -35,7 +42,15 @@ public sealed class MainViewModel : ViewModelBase
     private string _rollModifierText = "0";
     private string _saveSlot = "default";
     private string _characterSetupHint = string.Empty;
+    private string _selectedAvailableSkill = string.Empty;
+    private string? _selectedSkill;
+    private string _newItemName = string.Empty;
+    private string _newItemCategory = "general";
+    private string _counterNameInput = string.Empty;
+    private string _counterValueInput = "0";
     private BookListItemViewModel? _selectedBook;
+    private ItemEntryViewModel? _selectedInventoryItem;
+    private StatEntryViewModel? _selectedCounter;
     private bool _isRandomNumberVisible;
     private bool _areChoicesVisible = true;
     private int? _randomNumberResult;
@@ -63,6 +78,12 @@ public sealed class MainViewModel : ViewModelBase
         _showRandomNumberTableCommand = new RelayCommand(ShowRandomNumberTable);
         _saveGameCommand = new RelayCommand(() => _ = SaveGameAsync());
         _loadGameCommand = new RelayCommand(() => _ = LoadGameAsync());
+        _addSkillCommand = new RelayCommand(AddSkill, () => !string.IsNullOrWhiteSpace(SelectedAvailableSkill));
+        _removeSkillCommand = new RelayCommand(RemoveSkill, () => SelectedSkill is not null);
+        _addItemCommand = new RelayCommand(AddItem, () => !string.IsNullOrWhiteSpace(NewItemName));
+        _removeItemCommand = new RelayCommand(RemoveItem, () => SelectedInventoryItem is not null);
+        _upsertCounterCommand = new RelayCommand(UpsertCounter, () => !string.IsNullOrWhiteSpace(CounterNameInput));
+        _removeCounterCommand = new RelayCommand(RemoveCounter, () => SelectedCounter is not null);
         LoadBooks(booksDirectory);
     }
 
@@ -102,11 +123,20 @@ public sealed class MainViewModel : ViewModelBase
     public ObservableCollection<StatEntryViewModel> CoreStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> AttributeStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> InventoryCounters { get; } = new();
+    public ObservableCollection<string> AvailableSkills { get; } = new();
+    public ObservableCollection<string> CharacterSkills { get; } = new();
+    public ObservableCollection<ItemEntryViewModel> InventoryItems { get; } = new();
     public RelayCommand RollRandomNumberCommand => _rollRandomNumberCommand;
     public RelayCommand ConfirmRandomNumberCommand => _confirmRandomNumberCommand;
     public RelayCommand ShowRandomNumberTableCommand => _showRandomNumberTableCommand;
     public RelayCommand SaveGameCommand => _saveGameCommand;
     public RelayCommand LoadGameCommand => _loadGameCommand;
+    public RelayCommand AddSkillCommand => _addSkillCommand;
+    public RelayCommand RemoveSkillCommand => _removeSkillCommand;
+    public RelayCommand AddItemCommand => _addItemCommand;
+    public RelayCommand RemoveItemCommand => _removeItemCommand;
+    public RelayCommand UpsertCounterCommand => _upsertCounterCommand;
+    public RelayCommand RemoveCounterCommand => _removeCounterCommand;
 
     public string SaveSlot
     {
@@ -135,6 +165,133 @@ public sealed class MainViewModel : ViewModelBase
 
             _characterSetupHint = value;
             OnPropertyChanged();
+        }
+    }
+
+    public string SelectedAvailableSkill
+    {
+        get => _selectedAvailableSkill;
+        set
+        {
+            if (_selectedAvailableSkill == value)
+            {
+                return;
+            }
+
+            _selectedAvailableSkill = value;
+            OnPropertyChanged();
+            _addSkillCommand.RaiseCanExecuteChanged();
+        }
+    }
+
+    public string? SelectedSkill
+    {
+        get => _selectedSkill;
+        set
+        {
+            if (_selectedSkill == value)
+            {
+                return;
+            }
+
+            _selectedSkill = value;
+            OnPropertyChanged();
+            _removeSkillCommand.RaiseCanExecuteChanged();
+        }
+    }
+
+
+    public string NewItemName
+    {
+        get => _newItemName;
+        set
+        {
+            if (_newItemName == value)
+            {
+                return;
+            }
+
+            _newItemName = value;
+            OnPropertyChanged();
+            _addItemCommand.RaiseCanExecuteChanged();
+        }
+    }
+
+    public string NewItemCategory
+    {
+        get => _newItemCategory;
+        set
+        {
+            if (_newItemCategory == value)
+            {
+                return;
+            }
+
+            _newItemCategory = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string CounterNameInput
+    {
+        get => _counterNameInput;
+        set
+        {
+            if (_counterNameInput == value)
+            {
+                return;
+            }
+
+            _counterNameInput = value;
+            OnPropertyChanged();
+            _upsertCounterCommand.RaiseCanExecuteChanged();
+        }
+    }
+
+    public string CounterValueInput
+    {
+        get => _counterValueInput;
+        set
+        {
+            if (_counterValueInput == value)
+            {
+                return;
+            }
+
+            _counterValueInput = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public ItemEntryViewModel? SelectedInventoryItem
+    {
+        get => _selectedInventoryItem;
+        set
+        {
+            if (_selectedInventoryItem == value)
+            {
+                return;
+            }
+
+            _selectedInventoryItem = value;
+            OnPropertyChanged();
+            _removeItemCommand.RaiseCanExecuteChanged();
+        }
+    }
+
+    public StatEntryViewModel? SelectedCounter
+    {
+        get => _selectedCounter;
+        set
+        {
+            if (_selectedCounter == value)
+            {
+                return;
+            }
+
+            _selectedCounter = value;
+            OnPropertyChanged();
+            _removeCounterCommand.RaiseCanExecuteChanged();
         }
     }
 
@@ -583,21 +740,43 @@ public sealed class MainViewModel : ViewModelBase
         {
             InventoryCounters.Add(new StatEntryViewModel(entry.Key, entry.Value));
         }
+
+        CharacterSkills.Clear();
+        foreach (var skill in _state.Character.Disciplines.OrderBy(skill => skill, StringComparer.OrdinalIgnoreCase))
+        {
+            CharacterSkills.Add(skill);
+        }
+
+        InventoryItems.Clear();
+        foreach (var item in _state.Character.Inventory.Items.OrderBy(item => item.Name, StringComparer.OrdinalIgnoreCase))
+        {
+            InventoryItems.Add(new ItemEntryViewModel(item.Name, item.Category));
+        }
+
+        SelectedSkill = null;
+        SelectedInventoryItem = null;
+        SelectedCounter = null;
     }
 
     private void InitializeCharacterForSeries(string seriesId)
     {
-        var profile = ResolveSeriesProfile(seriesId);
+        _currentProfile = ResolveSeriesProfile(seriesId);
         _state.Character.Attributes.Clear();
         _state.Character.Attributes[Character.CombatSkillBonusAttribute] = 0;
         _state.Character.Inventory.Counters.Clear();
-        foreach (var counter in profile.CounterNames)
+        foreach (var counter in _currentProfile.CounterNames)
         {
             _state.Character.Inventory.Counters[counter] = 0;
         }
 
         _state.Character.Disciplines.Clear();
-        CharacterSetupHint = $"Use the book's character creation instructions in the main text. Series: {profile.Name}.";
+        AvailableSkills.Clear();
+        foreach (var skill in _currentProfile.SkillNames)
+        {
+            AvailableSkills.Add(skill);
+        }
+
+        CharacterSetupHint = $"Use the book's character creation instructions in the main text. Series: {_currentProfile.Name}.";
     }
 
     private static string ResolveSeriesId(string bookId)
@@ -681,7 +860,14 @@ public sealed class MainViewModel : ViewModelBase
             _state.Character.Inventory.Counters[entry.Key] = entry.Value;
         }
 
-        CharacterSetupHint = $"Use the book's character creation instructions in the main text. Series: {ResolveSeriesProfile(_state.SeriesId).Name}.";
+        _currentProfile = ResolveSeriesProfile(_state.SeriesId);
+        AvailableSkills.Clear();
+        foreach (var skill in _currentProfile.SkillNames)
+        {
+            AvailableSkills.Add(skill);
+        }
+
+        CharacterSetupHint = $"Use the book's character creation instructions in the main text. Series: {_currentProfile.Name}.";
         RefreshCharacterPanels();
         if (_book is null || !string.Equals(_book.Id, _state.BookId, StringComparison.OrdinalIgnoreCase))
         {
@@ -694,6 +880,98 @@ public sealed class MainViewModel : ViewModelBase
         {
             UpdateSection(section);
         }
+    }
+
+    private void AddSkill()
+    {
+        if (string.IsNullOrWhiteSpace(SelectedAvailableSkill))
+        {
+            return;
+        }
+
+        if (!_state.Character.Disciplines.Contains(SelectedAvailableSkill, StringComparer.OrdinalIgnoreCase))
+        {
+            _state.Character.Disciplines.Add(SelectedAvailableSkill);
+        }
+
+        RefreshCharacterPanels();
+    }
+
+    private void RemoveSkill()
+    {
+        if (SelectedSkill is null)
+        {
+            return;
+        }
+
+        _state.Character.Disciplines.RemoveAll(skill => string.Equals(skill, SelectedSkill, StringComparison.OrdinalIgnoreCase));
+        SelectedSkill = null;
+        RefreshCharacterPanels();
+        _removeSkillCommand.RaiseCanExecuteChanged();
+    }
+
+    private void AddItem()
+    {
+        var name = NewItemName.Trim();
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            return;
+        }
+
+        var category = string.IsNullOrWhiteSpace(NewItemCategory) ? "general" : NewItemCategory.Trim();
+        _state.Character.Inventory.Items.Add(new Item(name, category));
+        NewItemName = string.Empty;
+        RefreshCharacterPanels();
+    }
+
+    private void RemoveItem()
+    {
+        if (SelectedInventoryItem is null)
+        {
+            return;
+        }
+
+        var item = _state.Character.Inventory.Items.FirstOrDefault(entry =>
+            string.Equals(entry.Name, SelectedInventoryItem.Name, StringComparison.OrdinalIgnoreCase)
+            && string.Equals(entry.Category, SelectedInventoryItem.Category, StringComparison.OrdinalIgnoreCase));
+
+        if (item is not null)
+        {
+            _state.Character.Inventory.Items.Remove(item);
+        }
+
+        SelectedInventoryItem = null;
+        RefreshCharacterPanels();
+    }
+
+    private void UpsertCounter()
+    {
+        var name = CounterNameInput.Trim();
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            return;
+        }
+
+        if (!int.TryParse(CounterValueInput, out var value))
+        {
+            value = 0;
+        }
+
+        _state.Character.Inventory.Counters[name] = value;
+        RefreshCharacterPanels();
+    }
+
+    private void RemoveCounter()
+    {
+        if (SelectedCounter is null)
+        {
+            return;
+        }
+
+        _state.Character.Inventory.Counters.Remove(SelectedCounter.Label);
+        SelectedCounter = null;
+        RefreshCharacterPanels();
+        _removeCounterCommand.RaiseCanExecuteChanged();
     }
 
     private void PrepareRandomNumberSection(BookSection section)
