@@ -213,8 +213,10 @@ public sealed class MainViewModel : ViewModelBase
         }
 
         var frontMatter = _frontMatterQueue.Dequeue();
-        var continueAction = _frontMatterQueue.Count > 0
-            ? ShowNextFrontMatterOrSection
+
+        // Make the delegate type explicit -- avoid mixing a method group with a lambda in the conditional operator.
+        Action continueAction = _frontMatterQueue.Count > 0
+            ? () => ShowNextFrontMatterOrSection()
             : () => UpdateSection(_firstSectionForFrontMatter);
 
         ShowFrontMatter(frontMatter, continueAction);
