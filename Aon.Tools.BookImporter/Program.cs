@@ -11,6 +11,12 @@ namespace Aon.Tools.BookImporter;
 public static class Program
 {
     private static readonly Regex WhitespaceRegex = new(@"\s+", RegexOptions.Compiled);
+    private static readonly Regex LoneWolfNameRegex = new(@"\bLone\s+Wolf\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+    private static readonly Regex GreyStarNameRegex = new(@"\bGrey\s+Star\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+    private static readonly Regex CalPhoenixNameRegex = new(@"\bCal\s+Phoenix\b", RegexOptions.Compiled);
+    private static readonly Regex CalNameRegex = new(@"\bCal\b", RegexOptions.Compiled);
+    private const string CharacterNameToken = "{{characterName}}";
+    private static string _currentSeriesId = string.Empty;
 
     public static async Task<int> Main(string[] args)
     {
@@ -52,6 +58,7 @@ public static class Program
             var html = await File.ReadAllTextAsync(filePath);
             var document = await htmlParser.ParseDocumentAsync(html);
             var bookId = Path.GetFileNameWithoutExtension(filePath);
+            _currentSeriesId = GetSeriesId(bookId);
             var title = NormalizeText(document.QuerySelector("head > title")?.TextContent
                                        ?? document.QuerySelector("h1")?.TextContent
                                        ?? bookId);
@@ -164,7 +171,7 @@ public static class Program
         foreach (var item in listElement.Children.Where(child => child.TagName.Equals("LI", StringComparison.OrdinalIgnoreCase)))
         {
             var link = item.QuerySelector(":scope > a");
-            var title = NormalizeText(link?.TextContent ?? item.TextContent);
+            var title = NormalizeDisplayText(link?.TextContent ?? item.TextContent);
             var href = link?.GetAttribute("href") ?? string.Empty;
             var target = href.StartsWith('#') ? href[1..] : null;
 
@@ -200,7 +207,7 @@ public static class Program
         {
             var div = frontMatterDivs[index];
             var heading = div.QuerySelector("h1, h2, h3, h4, h5, h6");
-            var title = NormalizeText(heading?.TextContent ?? $"Frontmatter {index + 1}");
+            var title = NormalizeDisplayText(heading?.TextContent ?? $"Frontmatter {index + 1}");
             var anchorName = heading?.QuerySelector("a[name]")?.GetAttribute("name");
             var sectionId = NormalizeId(anchorName, $"frontmatter-{index + 1}");
 
@@ -244,7 +251,7 @@ public static class Program
 
                 var anchor = node.QuerySelector("a[name]");
                 var id = NormalizeId(anchor?.GetAttribute("name"), Guid.NewGuid().ToString("N"));
-                var title = NormalizeText(node.TextContent);
+                var title = NormalizeDisplayText(node.TextContent);
                 current = new SectionOutputBuilder(id, title);
                 current.AddAnchors(node.QuerySelectorAll("a[name]"));
                 continue;
@@ -261,13 +268,13 @@ public static class Program
                 var target = link?.GetAttribute("href");
                 var targetId = target?.StartsWith('#') == true ? target[1..] : null;
 
-                current.Choices.Add(new ChoiceOutput(NormalizeText(node.TextContent), targetId));
+                current.Choices.Add(new ChoiceOutput(NormalizeDisplayText(node.TextContent), targetId));
                 continue;
             }
 
             if (node.ClassList.Contains("action"))
             {
-                current.Actions.Add(new ActionOutput(NormalizeText(node.TextContent)));
+                current.Actions.Add(new ActionOutput(NormalizeDisplayText(node.TextContent)));
                 continue;
             }
 
@@ -276,7 +283,7 @@ public static class Program
                 continue;
             }
 
-            current.Content.Add(NormalizeText(node.TextContent));
+            current.Content.Add(NormalizeDisplayText(node.TextContent));
             current.AddAnchors(node.QuerySelectorAll("a[name]"));
         }
 
@@ -303,7 +310,7 @@ public static class Program
                 continue;
             }
 
-            var text = NormalizeText(child.TextContent);
+            var text = NormalizeDisplayText(child.TextContent);
             if (!string.IsNullOrWhiteSpace(text))
             {
                 content.Add(text);
@@ -323,10 +330,52 @@ public static class Program
         return WhitespaceRegex.Replace(value.Trim(), " ");
     }
 
+    private static string NormalizeDisplayText(string? value)
+    {
+        var normalized = NormalizeText(value);
+        return ReplaceCharacterNameTokens(normalized);
+    }
+
+    private static string ReplaceCharacterNameTokens(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return value;
+        }
+
+        return _currentSeriesId switch
+        {
+            "lw" => LoneWolfNameRegex.Replace(value, CharacterNameToken),
+            "gs" => GreyStarNameRegex.Replace(value, CharacterNameToken),
+            "fw" => CalNameRegex.Replace(CalPhoenixNameRegex.Replace(value, CharacterNameToken), CharacterNameToken),
+            _ => value
+        };
+    }
+
     private static string NormalizeId(string? value, string fallback)
     {
         var normalized = NormalizeText(value);
         return string.IsNullOrWhiteSpace(normalized) ? fallback : normalized;
+    }
+
+    private static string GetSeriesId(string bookId)
+    {
+        if (bookId.StartsWith("lw", StringComparison.OrdinalIgnoreCase))
+        {
+            return "lw";
+        }
+
+        if (bookId.StartsWith("gs", StringComparison.OrdinalIgnoreCase))
+        {
+            return "gs";
+        }
+
+        if (bookId.StartsWith("fw", StringComparison.OrdinalIgnoreCase))
+        {
+            return "fw";
+        }
+
+        return "unknown";
     }
 
     private sealed class SectionOutputBuilder

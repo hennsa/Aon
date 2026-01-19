@@ -7,6 +7,7 @@ public sealed class ProfileWizardViewModel : ViewModelBase
 {
     private readonly Func<int> _rollRandomNumber;
     private readonly Dictionary<string, int> _coreSkillMinimums = new(StringComparer.OrdinalIgnoreCase);
+    private string _profileName = string.Empty;
     private string _characterName = string.Empty;
     private int _combatSkill;
     private int _endurance;
@@ -87,6 +88,22 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     public bool HasCounters => Counters.Count > 0;
     public bool IsWillpowerAvailable => SeriesId is "gs";
 
+    public string ProfileName
+    {
+        get => _profileName;
+        set
+        {
+            if (_profileName == value)
+            {
+                return;
+            }
+
+            _profileName = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(IsValid));
+        }
+    }
+
     public string CharacterName
     {
         get => _characterName;
@@ -99,7 +116,6 @@ public sealed class ProfileWizardViewModel : ViewModelBase
 
             _characterName = value;
             OnPropertyChanged();
-            OnPropertyChanged(nameof(IsValid));
         }
     }
 
@@ -206,7 +222,7 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     {
         get
         {
-            if (string.IsNullOrWhiteSpace(CharacterName))
+            if (string.IsNullOrWhiteSpace(ProfileName))
             {
                 return false;
             }
@@ -239,10 +255,14 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     {
         var character = new Character
         {
-            Name = CharacterName,
             CombatSkill = CombatSkill,
             Endurance = Endurance
         };
+
+        if (!string.IsNullOrWhiteSpace(CharacterName))
+        {
+            character.Name = CharacterName.Trim();
+        }
 
         character.Attributes[Character.CombatSkillBonusAttribute] = 0;
 
