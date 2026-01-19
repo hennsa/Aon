@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using Aon.Application;
 using Aon.Content;
 using Aon.Core;
+using Aon.Desktop.Wpf;
 using Aon.Persistence;
 using Aon.Rules;
 
@@ -58,6 +59,7 @@ public sealed class MainViewModel : ViewModelBase
     private int? _randomNumberResult;
     private Choice? _resolvedRandomChoice;
     private bool _isManualRandomMode;
+    private bool _isProfileReady;
 
     public MainViewModel()
     {
@@ -149,6 +151,20 @@ public sealed class MainViewModel : ViewModelBase
     public RelayCommand UpsertCounterCommand => _upsertCounterCommand;
     public RelayCommand RemoveCounterCommand => _removeCounterCommand;
     public bool HasCoreSkills => CoreSkills.Count > 0;
+    public bool IsProfileReady
+    {
+        get => _isProfileReady;
+        private set
+        {
+            if (_isProfileReady == value)
+            {
+                return;
+            }
+
+            _isProfileReady = value;
+            OnPropertyChanged();
+        }
+    }
 
     public string SaveSlot
     {
@@ -463,8 +479,7 @@ public sealed class MainViewModel : ViewModelBase
         var firstSection = _book.Sections.FirstOrDefault();
         _state.SectionId = firstSection?.Id ?? string.Empty;
         BookTitle = _book.Title;
-        InitializeCharacterForSeries(_state.SeriesId);
-        RefreshCharacterPanels();
+        EnsureSeriesProfile(_state.SeriesId);
 
         if (firstSection is null)
         {
@@ -787,31 +802,179 @@ public sealed class MainViewModel : ViewModelBase
         SelectedCounter = null;
     }
 
-    private void InitializeCharacterForSeries(string seriesId)
+    private void EnsureSeriesProfile(string seriesId)
     {
         _currentProfile = ResolveSeriesProfile(seriesId);
-        _state.Character.Attributes.Clear();
-        _state.Character.Attributes[Character.CombatSkillBonusAttribute] = 0;
-        _state.Character.CoreSkills.Clear();
-        foreach (var entry in _currentProfile.CoreSkills)
+        EnsureProfileContainer();
+
+        if (!_state.Profile.SeriesStates.TryGetValue(seriesId, out var seriesState) || !seriesState.IsInitialized)
         {
-            _state.Character.CoreSkills[entry.Key] = entry.Value;
+            seriesState = new SeriesProfileState();
+            if (!TryRunProfileWizard(seriesId, _currentProfile, null, out var character))
+            {
+                _state.Character = new Character();
+                IsProfileReady = false;
+                CharacterSetupHint = $"Profile setup required for {_currentProfile.Name}.";
+                RefreshCharacterPanels();
+                return;
+            }
+
+            seriesState.IsInitialized = true;
+            seriesState.Character = character;
+            _state.Profile.SeriesStates[seriesId] = seriesState;
         }
-        _state.Character.Inventory.Counters.Clear();
-        foreach (var counter in _currentProfile.CounterNames)
+        else
         {
-            _state.Character.Inventory.Counters[counter] = 0;
+            var shouldUpdate = MessageBox.Show(
+                $"Use existing {_currentProfile.Name} profile? Select 'No' to update it for this book.",
+                "Profile Setup",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+
+            if (shouldUpdate == MessageBoxResult.No)
+            {
+                if (TryRunProfileWizard(seriesId, _currentProfile, seriesState.Character, out var updatedCharacter))
+                {
+                    seriesState.Character = updatedCharacter;
+                    _state.Profile.SeriesStates[seriesId] = seriesState;
+                }
+            }
         }
 
-        _state.Character.Disciplines.Clear();
+        _state.Character = seriesState.Character;
+        EnsureSeriesDefaults(seriesState.Character);
+        UpdateAvailableSkills();
+        SuggestedActions.Clear();
+        CharacterSetupHint = $"Profile ready for {_currentProfile.Name}.";
+        IsProfileReady = true;
+        RefreshCharacterPanels();
+    }
+
+    private void EnsureSeriesDefaults(Character character)
+    {
+        if (!character.Attributes.ContainsKey(Character.CombatSkillBonusAttribute))
+        {
+            character.Attributes[Character.CombatSkillBonusAttribute] = 0;
+        }
+
+        foreach (var entry in _currentProfile.CoreSkills)
+        {
+            if (!character.CoreSkills.ContainsKey(entry.Key))
+            {
+                character.CoreSkills[entry.Key] = entry.Value;
+            }
+        }
+
+        if (_currentProfile.CoreSkills.Count > 0 && !character.Attributes.ContainsKey("CoreSkillPoolTotal"))
+        {
+            character.Attributes["CoreSkillPoolTotal"] = character.CoreSkills.Values.Sum();
+        }
+
+        foreach (var counter in _currentProfile.DefaultCounters)
+        {
+            if (!character.Inventory.Counters.ContainsKey(counter.Key))
+            {
+                character.Inventory.Counters[counter.Key] = counter.Value;
+            }
+        }
+
+        foreach (var item in _currentProfile.DefaultItems)
+        {
+            if (character.Inventory.Items.Any(existing =>
+                    string.Equals(existing.Name, item.Name, StringComparison.OrdinalIgnoreCase)
+                    && string.Equals(existing.Category, item.Category, StringComparison.OrdinalIgnoreCase)))
+            {
+                continue;
+            }
+
+            character.Inventory.Items.Add(item);
+        }
+    }
+
+    private void UpdateAvailableSkills()
+    {
         AvailableSkills.Clear();
         foreach (var skill in _currentProfile.SkillNames)
         {
             AvailableSkills.Add(skill);
         }
+    }
 
-        SuggestedActions.Clear();
-        CharacterSetupHint = $"Use the book's character creation instructions in the main text. Series: {_currentProfile.Name}.";
+    private void EnsureProfileContainer()
+    {
+        _state.Profile ??= new PlayerProfile();
+        if (_state.Profile.SeriesStates is null)
+        {
+            _state.Profile.SeriesStates = new Dictionary<string, SeriesProfileState>(StringComparer.OrdinalIgnoreCase);
+        }
+    }
+
+    private bool TryRunProfileWizard(string seriesId, ISeriesProfile profile, Character? existingCharacter, out Character character)
+    {
+        var viewModel = new ProfileWizardViewModel(seriesId, profile, _gameService.RollRandomNumber);
+        if (existingCharacter is not null)
+        {
+            viewModel.CharacterName = existingCharacter.Name;
+            viewModel.CombatSkill = existingCharacter.CombatSkill;
+            viewModel.Endurance = existingCharacter.Endurance;
+
+            if (existingCharacter.Attributes.TryGetValue("Willpower", out var willpower))
+            {
+                viewModel.Willpower = willpower;
+            }
+
+            if (viewModel.HasSkillSelection)
+            {
+                foreach (var skill in viewModel.Skills)
+                {
+                    if (existingCharacter.Disciplines.Contains(skill.Name, StringComparer.OrdinalIgnoreCase))
+                    {
+                        skill.IsSelected = true;
+                    }
+                }
+            }
+
+            if (viewModel.HasCoreSkills)
+            {
+                foreach (var coreSkill in viewModel.CoreSkills)
+                {
+                    if (existingCharacter.CoreSkills.TryGetValue(coreSkill.Label, out var value))
+                    {
+                        coreSkill.Value = value;
+                    }
+                }
+
+                if (existingCharacter.Attributes.TryGetValue("CoreSkillPoolTotal", out var poolTotal))
+                {
+                    var minimumTotal = viewModel.CoreSkills.Sum(entry => entry.Value);
+                    viewModel.BonusSkillPoints = Math.Max(0, poolTotal - minimumTotal);
+                }
+
+                viewModel.RefreshCoreSkillStatus();
+            }
+
+            foreach (var counter in viewModel.Counters)
+            {
+                if (existingCharacter.Inventory.Counters.TryGetValue(counter.Name, out var value))
+                {
+                    counter.Value = value;
+                }
+            }
+        }
+        var window = new ProfileWizardWindow(viewModel)
+        {
+            Owner = System.Windows.Application.Current?.MainWindow
+        };
+
+        var result = window.ShowDialog();
+        if (result == true && viewModel.IsValid)
+        {
+            character = viewModel.BuildCharacter();
+            return true;
+        }
+
+        character = new Character();
+        return false;
     }
 
     private static string ResolveSeriesId(string bookId)
@@ -877,44 +1040,7 @@ public sealed class MainViewModel : ViewModelBase
             return;
         }
 
-        _state.BookId = loaded.BookId;
-        _state.SectionId = loaded.SectionId;
-        _state.SeriesId = loaded.SeriesId;
-        _state.Character.Name = loaded.Character.Name;
-        _state.Character.CombatSkill = loaded.Character.CombatSkill;
-        _state.Character.Endurance = loaded.Character.Endurance;
-        _state.Character.Disciplines.Clear();
-        _state.Character.Disciplines.AddRange(loaded.Character.Disciplines);
-        _state.Character.Attributes.Clear();
-        foreach (var entry in loaded.Character.Attributes)
-        {
-            _state.Character.Attributes[entry.Key] = entry.Value;
-        }
-        _state.Character.CoreSkills.Clear();
-        foreach (var entry in loaded.Character.CoreSkills)
-        {
-            _state.Character.CoreSkills[entry.Key] = entry.Value;
-        }
-
-        _state.Character.Inventory.Items.Clear();
-        _state.Character.Inventory.Items.AddRange(loaded.Character.Inventory.Items);
-        _state.Character.Inventory.Counters.Clear();
-        foreach (var entry in loaded.Character.Inventory.Counters)
-        {
-            _state.Character.Inventory.Counters[entry.Key] = entry.Value;
-        }
-
-        _currentProfile = ResolveSeriesProfile(_state.SeriesId);
-        EnsureCoreSkillsForProfile();
-        AvailableSkills.Clear();
-        foreach (var skill in _currentProfile.SkillNames)
-        {
-            AvailableSkills.Add(skill);
-        }
-
-        SuggestedActions.Clear();
-        CharacterSetupHint = $"Use the book's character creation instructions in the main text. Series: {_currentProfile.Name}.";
-        RefreshCharacterPanels();
+        ApplyLoadedState(loaded);
         if (_book is null || !string.Equals(_book.Id, _state.BookId, StringComparison.OrdinalIgnoreCase))
         {
             _book = await _bookRepository.GetBookAsync(_state.BookId);
@@ -926,6 +1052,50 @@ public sealed class MainViewModel : ViewModelBase
         {
             UpdateSection(section);
         }
+    }
+
+    private void ApplyLoadedState(GameState loaded)
+    {
+        _state.BookId = loaded.BookId;
+        _state.SectionId = loaded.SectionId;
+        _state.SeriesId = loaded.SeriesId;
+        _state.Profile = loaded.Profile ?? new PlayerProfile();
+        EnsureProfileContainer();
+
+        if (!string.IsNullOrWhiteSpace(_state.SeriesId))
+        {
+            _currentProfile = ResolveSeriesProfile(_state.SeriesId);
+            if (_state.Profile.SeriesStates.TryGetValue(_state.SeriesId, out var seriesState) && seriesState.IsInitialized)
+            {
+                _state.Character = seriesState.Character;
+                EnsureSeriesDefaults(_state.Character);
+                UpdateAvailableSkills();
+                CharacterSetupHint = $"Profile ready for {_currentProfile.Name}.";
+                IsProfileReady = true;
+                RefreshCharacterPanels();
+                return;
+            }
+        }
+        else
+        {
+            IsProfileReady = false;
+        }
+
+        _state.Character = loaded.Character;
+        _currentProfile = ResolveSeriesProfile(_state.SeriesId);
+        if (!string.IsNullOrWhiteSpace(_state.SeriesId))
+        {
+            _state.Profile.SeriesStates[_state.SeriesId] = new SeriesProfileState
+            {
+                IsInitialized = true,
+                Character = _state.Character
+            };
+        }
+        EnsureSeriesDefaults(_state.Character);
+        UpdateAvailableSkills();
+        CharacterSetupHint = $"Use the book's character creation instructions in the main text. Series: {_currentProfile.Name}.";
+        IsProfileReady = !string.IsNullOrWhiteSpace(_state.SeriesId);
+        RefreshCharacterPanels();
     }
 
     private void AddSkill()
@@ -1032,6 +1202,7 @@ public sealed class MainViewModel : ViewModelBase
         _state.SeriesId = string.Empty;
         _state.SectionId = string.Empty;
         _state.Character = new Character();
+        _state.Profile = new PlayerProfile();
         _currentProfile = SeriesProfiles.LoneWolf;
 
         BookTitle = "Aon Companion";
@@ -1049,6 +1220,7 @@ public sealed class MainViewModel : ViewModelBase
         InventoryCounters.Clear();
         InventoryItems.Clear();
         SelectedBook = null;
+        IsProfileReady = false;
         OnPropertyChanged(nameof(HasCoreSkills));
     }
 
@@ -1059,24 +1231,29 @@ public sealed class MainViewModel : ViewModelBase
             value = 0;
         }
 
+        if (delta > 0 && TryGetCoreSkillPool(out var poolTotal))
+        {
+            var currentTotal = _state.Character.CoreSkills.Values.Sum();
+            if (currentTotal + delta > poolTotal)
+            {
+                return;
+            }
+        }
+
         _state.Character.CoreSkills[skillName] = Math.Max(0, value + delta);
         RefreshCharacterPanels();
     }
 
-    private void EnsureCoreSkillsForProfile()
+    private bool TryGetCoreSkillPool(out int poolTotal)
     {
-        if (_currentProfile.CoreSkills.Count == 0)
+        poolTotal = 0;
+        if (!_state.Character.Attributes.TryGetValue("CoreSkillPoolTotal", out var value))
         {
-            return;
+            return false;
         }
 
-        foreach (var entry in _currentProfile.CoreSkills)
-        {
-            if (!_state.Character.CoreSkills.ContainsKey(entry.Key))
-            {
-                _state.Character.CoreSkills[entry.Key] = entry.Value;
-            }
-        }
+        poolTotal = value;
+        return poolTotal > 0;
     }
 
     private void RemoveCounter()
@@ -1118,7 +1295,7 @@ public sealed class MainViewModel : ViewModelBase
             return;
         }
 
-        foreach (var counter in _currentProfile.CounterNames)
+        foreach (var counter in _currentProfile.DefaultCounters.Keys)
         {
             var amount = GetCounterAmountFromText(text, counter);
             if (amount <= 0)

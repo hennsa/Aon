@@ -147,31 +147,65 @@
                                   Width="140"
                                   Margin="0,0,8,0" />
                         <Button Content="New" Command="{Binding NewSaveSlotCommand}" Margin="0,0,4,0" />
-                        <Button Content="Save" Command="{Binding SaveGameCommand}" Margin="0,0,4,0" />
+                        <Button Content="Save"
+                                Command="{Binding SaveGameCommand}"
+                                Margin="0,0,4,0"
+                                Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
                         <Button Content="Load" Command="{Binding LoadGameCommand}" />
                     </StackPanel>
                     <Button Content="New Profile"
                             Command="{Binding NewProfileCommand}"
                             Margin="0,0,0,12" />
 
-                    <TextBlock Text="Core Stats" FontWeight="SemiBold" />
-                    <ItemsControl ItemsSource="{Binding CoreStats}" Margin="0,4,0,12">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Margin="0,0,0,4" TextWrapping="Wrap">
-                                    <TextBlock.Inlines>
-                                        <Run Text="{Binding Label}" />
-                                        <Run Text=": " />
-                                        <Run Text="{Binding Value}" />
-                                    </TextBlock.Inlines>
-                                </TextBlock>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                    <StackPanel Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <TextBlock Text="Core Stats" FontWeight="SemiBold" />
+                        <ItemsControl ItemsSource="{Binding CoreStats}" Margin="0,4,0,12">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap">
+                                        <TextBlock.Inlines>
+                                            <Run Text="{Binding Label}" />
+                                            <Run Text=": " />
+                                            <Run Text="{Binding Value}" />
+                                        </TextBlock.Inlines>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
 
-                    <StackPanel Visibility="{Binding HasCoreSkills, Converter={StaticResource BooleanToVisibilityConverter}}">
-                        <TextBlock Text="Core Skills" FontWeight="SemiBold" />
-                        <ItemsControl ItemsSource="{Binding CoreSkills}" Margin="0,4,0,12">
+                        <StackPanel Visibility="{Binding HasCoreSkills, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <TextBlock Text="Core Skills" FontWeight="SemiBold" />
+                            <ItemsControl ItemsSource="{Binding CoreSkills}" Margin="0,4,0,12">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                                            <TextBlock Text="{Binding Label}" Width="140" VerticalAlignment="Center" />
+                                            <Button Content="-" Command="{Binding DecreaseCommand}" Width="24" Margin="0,0,6,0" />
+                                            <TextBlock Text="{Binding Value}" Width="40" TextAlignment="Center" VerticalAlignment="Center" />
+                                            <Button Content="+" Command="{Binding IncreaseCommand}" Width="24" Margin="6,0,0,0" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+
+                        <TextBlock Text="Attributes" FontWeight="SemiBold" />
+                        <ItemsControl ItemsSource="{Binding AttributeStats}" Margin="0,4,0,12">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap">
+                                        <TextBlock.Inlines>
+                                            <Run Text="{Binding Label}" />
+                                            <Run Text=": " />
+                                            <Run Text="{Binding Value}" />
+                                        </TextBlock.Inlines>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <TextBlock Text="Inventory Counters" FontWeight="SemiBold" />
+                        <ItemsControl ItemsSource="{Binding InventoryCounters}" Margin="0,4,0,0">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
@@ -183,106 +217,77 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                    </StackPanel>
 
-                    <TextBlock Text="Attributes" FontWeight="SemiBold" />
-                    <ItemsControl ItemsSource="{Binding AttributeStats}" Margin="0,4,0,12">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap">
-                                    <TextBlock.Inlines>
+                        <TextBlock Text="Suggestions" FontWeight="SemiBold" Margin="0,12,0,0" />
+                        <ItemsControl ItemsSource="{Binding SuggestedActions}" Margin="0,4,0,12">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Content="{Binding Label}" Command="{Binding Command}" Margin="0,0,0,6" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <TextBlock Text="Skills" FontWeight="SemiBold" Margin="0,12,0,0" />
+                        <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                            <ComboBox ItemsSource="{Binding AvailableSkills}"
+                                      SelectedItem="{Binding SelectedAvailableSkill}"
+                                      MinWidth="150"
+                                      Margin="0,0,8,0" />
+                            <Button Content="Add" Command="{Binding AddSkillCommand}" />
+                        </StackPanel>
+                        <ListBox ItemsSource="{Binding CharacterSkills}"
+                                 SelectedItem="{Binding SelectedSkill}"
+                                 HorizontalContentAlignment="Stretch"
+                                 Height="80"
+                                 Margin="0,0,0,8" />
+                        <Button Content="Remove Selected Skill" Command="{Binding RemoveSkillCommand}" Margin="0,0,0,12" />
+
+                        <TextBlock Text="Inventory Items" FontWeight="SemiBold" />
+                        <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                            <TextBox Text="{Binding NewItemName}" Width="120" Margin="0,0,8,0" />
+                            <TextBox Text="{Binding NewItemCategory}" Width="80" Margin="0,0,8,0" />
+                            <Button Content="Add" Command="{Binding AddItemCommand}" />
+                        </StackPanel>
+                        <ListBox ItemsSource="{Binding InventoryItems}"
+                                 SelectedItem="{Binding SelectedInventoryItem}"
+                                 HorizontalContentAlignment="Stretch"
+                                 Height="80"
+                                 Margin="0,0,0,8">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap">
+                                        <Run Text="{Binding Name}" />
+                                        <Run Text=" (" />
+                                        <Run Text="{Binding Category}" />
+                                        <Run Text=")" />
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button Content="Remove Selected Item" Command="{Binding RemoveItemCommand}" Margin="0,0,0,12" />
+
+                        <TextBlock Text="Counters" FontWeight="SemiBold" />
+                        <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                            <TextBox Text="{Binding CounterNameInput}" Width="100" Margin="0,0,8,0" />
+                            <TextBox Text="{Binding CounterValueInput}" Width="60" Margin="0,0,8,0" />
+                            <Button Content="Set" Command="{Binding UpsertCounterCommand}" Margin="0,0,4,0" />
+                            <Button Content="Remove" Command="{Binding RemoveCounterCommand}" />
+                        </StackPanel>
+                        <ListBox ItemsSource="{Binding InventoryCounters}"
+                                 SelectedItem="{Binding SelectedCounter}"
+                                 HorizontalContentAlignment="Stretch"
+                                 Height="80">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap">
                                         <Run Text="{Binding Label}" />
                                         <Run Text=": " />
                                         <Run Text="{Binding Value}" />
-                                    </TextBlock.Inlines>
-                                </TextBlock>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-
-                    <TextBlock Text="Inventory Counters" FontWeight="SemiBold" />
-                    <ItemsControl ItemsSource="{Binding InventoryCounters}" Margin="0,4,0,0">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
-                                    <TextBlock Text="{Binding Label}" Width="140" VerticalAlignment="Center" />
-                                    <Button Content="-" Command="{Binding DecreaseCommand}" Width="24" Margin="0,0,6,0" />
-                                    <TextBlock Text="{Binding Value}" Width="40" TextAlignment="Center" VerticalAlignment="Center" />
-                                    <Button Content="+" Command="{Binding IncreaseCommand}" Width="24" Margin="6,0,0,0" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-
-                    <TextBlock Text="Suggestions" FontWeight="SemiBold" Margin="0,12,0,0" />
-                    <ItemsControl ItemsSource="{Binding SuggestedActions}" Margin="0,4,0,12">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Button Content="{Binding Label}" Command="{Binding Command}" Margin="0,0,0,6" />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-
-                    <TextBlock Text="Skills" FontWeight="SemiBold" Margin="0,12,0,0" />
-                    <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
-                        <ComboBox ItemsSource="{Binding AvailableSkills}"
-                                  SelectedItem="{Binding SelectedAvailableSkill}"
-                                  MinWidth="150"
-                                  Margin="0,0,8,0" />
-                        <Button Content="Add" Command="{Binding AddSkillCommand}" />
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                     </StackPanel>
-                    <ListBox ItemsSource="{Binding CharacterSkills}"
-                             SelectedItem="{Binding SelectedSkill}"
-                             HorizontalContentAlignment="Stretch"
-                             Height="80"
-                             Margin="0,0,0,8" />
-                    <Button Content="Remove Selected Skill" Command="{Binding RemoveSkillCommand}" Margin="0,0,0,12" />
-
-                    <TextBlock Text="Inventory Items" FontWeight="SemiBold" />
-                    <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
-                        <TextBox Text="{Binding NewItemName}" Width="120" Margin="0,0,8,0" />
-                        <TextBox Text="{Binding NewItemCategory}" Width="80" Margin="0,0,8,0" />
-                        <Button Content="Add" Command="{Binding AddItemCommand}" />
-                    </StackPanel>
-                    <ListBox ItemsSource="{Binding InventoryItems}"
-                             SelectedItem="{Binding SelectedInventoryItem}"
-                             HorizontalContentAlignment="Stretch"
-                             Height="80"
-                             Margin="0,0,0,8">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap">
-                                    <Run Text="{Binding Name}" />
-                                    <Run Text=" (" />
-                                    <Run Text="{Binding Category}" />
-                                    <Run Text=")" />
-                                </TextBlock>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                    <Button Content="Remove Selected Item" Command="{Binding RemoveItemCommand}" Margin="0,0,0,12" />
-
-                    <TextBlock Text="Counters" FontWeight="SemiBold" />
-                    <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
-                        <TextBox Text="{Binding CounterNameInput}" Width="100" Margin="0,0,8,0" />
-                        <TextBox Text="{Binding CounterValueInput}" Width="60" Margin="0,0,8,0" />
-                        <Button Content="Set" Command="{Binding UpsertCounterCommand}" Margin="0,0,4,0" />
-                        <Button Content="Remove" Command="{Binding RemoveCounterCommand}" />
-                    </StackPanel>
-                    <ListBox ItemsSource="{Binding InventoryCounters}"
-                             SelectedItem="{Binding SelectedCounter}"
-                             HorizontalContentAlignment="Stretch"
-                             Height="80">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap">
-                                    <Run Text="{Binding Label}" />
-                                    <Run Text=": " />
-                                    <Run Text="{Binding Value}" />
-                                </TextBlock>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
                 </StackPanel>
             </ScrollViewer>
         </Border>
