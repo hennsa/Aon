@@ -29,9 +29,25 @@
         <ComboBox ItemsSource="{Binding Books}"
                   Grid.Column="0"
                   SelectedItem="{Binding SelectedBook}"
-                  DisplayMemberPath="DisplayName"
                   MinWidth="260"
-                  Margin="0,0,0,12" />
+                  Margin="0,0,0,12">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding DisplayName}" />
+                        <StackPanel Orientation="Horizontal" Margin="0,4,0,0" VerticalAlignment="Center">
+                            <ProgressBar Value="{Binding ProgressPercentage}"
+                                         Maximum="100"
+                                         Height="6"
+                                         Width="160"
+                                         Margin="0,0,8,0" />
+                            <TextBlock Text="{Binding ProgressPercentageText}" Margin="0,0,8,0" />
+                            <TextBlock Text="{Binding ProgressLabel}" Foreground="#666666" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding BookTitle}" FontSize="22" FontWeight="SemiBold" />
         <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding SectionTitle}" FontSize="16" Margin="0,8,0,16" />
 
@@ -140,6 +156,15 @@
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                 <StackPanel>
                     <TextBlock Text="{Binding CharacterPanelTitle}" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,8" />
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBlock Text="Character:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                        <ComboBox ItemsSource="{Binding Characters}"
+                                  SelectedItem="{Binding SelectedCharacter}"
+                                  DisplayMemberPath="Name"
+                                  Width="160"
+                                  Margin="0,0,8,0" />
+                        <Button Content="New Character" Command="{Binding NewCharacterCommand}" />
+                    </StackPanel>
                     <TextBlock Text="{Binding CharacterSetupHint}" TextWrapping="Wrap" Foreground="#666666" Margin="0,0,0,12" />
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,12">

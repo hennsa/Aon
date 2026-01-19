@@ -18,6 +18,8 @@ public sealed class CharacterProfileState
 {
     public Character Character { get; set; } = new();
     public Dictionary<string, BookProgressState> BookProgress { get; set; } = new(StringComparer.OrdinalIgnoreCase);
+    public string LastBookId { get; set; } = string.Empty;
+    public string LastSectionId { get; set; } = string.Empty;
 }
 
 public sealed class BookProgressState

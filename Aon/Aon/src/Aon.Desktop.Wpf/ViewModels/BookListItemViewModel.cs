@@ -1,34 +1,118 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Aon.Desktop.Wpf.ViewModels;
 
 public sealed class BookListItemViewModel : ViewModelBase
 {
-    private string _progressLabel = string.Empty;
+    private readonly Dictionary<string, int> _sectionIndexMap;
+    private string _progressLabel = "New";
+    private double _progressPercentage;
+    private string _progressPercentageText = "0%";
 
-    public BookListItemViewModel(string id, string title, int? order)
+    public BookListItemViewModel(string id, string title, int? order, IReadOnlyList<string> sectionIds)
     {
         Id = id;
         Title = title;
         Order = order;
-        _progressLabel = string.Empty;
+        SectionCount = sectionIds.Count;
+        _sectionIndexMap = sectionIds
+            .Select((sectionId, index) => new { sectionId, index })
+            .ToDictionary(entry => entry.sectionId, entry => entry.index, StringComparer.OrdinalIgnoreCase);
     }
 
     public string Id { get; }
     public string Title { get; }
     public int? Order { get; }
+    public int SectionCount { get; }
 
     public string DisplayName
     {
         get
         {
             var prefix = Order.HasValue ? $"{Order.Value}. " : string.Empty;
-            var progress = string.IsNullOrWhiteSpace(_progressLabel) ? string.Empty : $" ({_progressLabel})";
-            return $"{prefix}{Title}{progress}";
+            return $"{prefix}{Title}";
         }
     }
 
-    public void SetProgressLabel(string? progressLabel)
+    public string ProgressLabel
     {
-        _progressLabel = progressLabel?.Trim() ?? string.Empty;
-        OnPropertyChanged(nameof(DisplayName));
+        get => _progressLabel;
+        private set
+        {
+            if (_progressLabel == value)
+            {
+                return;
+            }
+
+            _progressLabel = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public double ProgressPercentage
+    {
+        get => _progressPercentage;
+        private set
+        {
+            if (Math.Abs(_progressPercentage - value) < 0.01)
+            {
+                return;
+            }
+
+            _progressPercentage = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string ProgressPercentageText
+    {
+        get => _progressPercentageText;
+        private set
+        {
+            if (_progressPercentageText == value)
+            {
+                return;
+            }
+
+            _progressPercentageText = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public void SetProgress(string? sectionId)
+    {
+        if (string.IsNullOrWhiteSpace(sectionId) || SectionCount == 0)
+        {
+            ProgressLabel = "New";
+            UpdateProgressPercentage(0);
+            return;
+        }
+
+        var label = $"Section {sectionId}";
+        if (_sectionIndexMap.TryGetValue(sectionId, out var index))
+        {
+            var completed = index + 1;
+            var percentage = Math.Clamp(completed / (double)SectionCount * 100, 0, 100);
+            UpdateProgressPercentage(percentage);
+
+            if (completed >= SectionCount)
+            {
+                label = "Completed";
+            }
+        }
+        else
+        {
+            UpdateProgressPercentage(0);
+        }
+
+        ProgressLabel = label;
+    }
+
+    private void UpdateProgressPercentage(double percentage)
+    {
+        ProgressPercentage = percentage;
+        ProgressPercentageText = $"{Math.Round(percentage):0}%";
     }
 }
