@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v8.0": {
       "Aon.Desktop.Wpf/1.0.0": {
         "dependencies": {
-          "Aon.Application": "1.0.0"
+          "Aon.Application": "1.0.0",
+          "Aon.Persistence": "1.0.0"
         },
         "runtime": {
           "Aon.Desktop.Wpf.dll": {}
@@ -18,7 +19,6 @@
         "dependencies": {
           "Aon.Content": "1.0.0",
           "Aon.Core": "1.0.0",
-          "Aon.Persistence": "1.0.0",
           "Aon.Rules": "1.0.0"
         },
         "runtime": {
@@ -45,6 +45,11 @@
         }
       },
       "Aon.Persistence/1.0.0": {
+        "dependencies": {
+          "Aon.Application": "1.0.0",
+          "Aon.Content": "1.0.0",
+          "Aon.Core": "1.0.0"
+        },
         "runtime": {
           "Aon.Persistence.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -53,6 +58,9 @@
         }
       },
       "Aon.Rules/1.0.0": {
+        "dependencies": {
+          "Aon.Core": "1.0.0"
+        },
         "runtime": {
           "Aon.Rules.dll": {
             "assemblyVersion": "1.0.0.0",

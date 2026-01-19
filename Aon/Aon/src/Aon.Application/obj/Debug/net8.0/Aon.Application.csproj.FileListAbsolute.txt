@@ -3,11 +3,9 @@ D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Application\bin\Debug\net8.0\Aon.Applica
 D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Application\bin\Debug\net8.0\Aon.Application.pdb
 D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Application\bin\Debug\net8.0\Aon.Content.dll
 D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Application\bin\Debug\net8.0\Aon.Core.dll
-D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Application\bin\Debug\net8.0\Aon.Persistence.dll
 D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Application\bin\Debug\net8.0\Aon.Rules.dll
 D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Application\bin\Debug\net8.0\Aon.Content.pdb
 D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Application\bin\Debug\net8.0\Aon.Core.pdb
-D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Application\bin\Debug\net8.0\Aon.Persistence.pdb
 D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Application\bin\Debug\net8.0\Aon.Rules.pdb
 D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Application\obj\Debug\net8.0\Aon.Application.csproj.AssemblyReference.cache
 D:\Repos\Github\Aon\Aon\Aon\Aon\src\Aon.Application\obj\Debug\net8.0\Aon.Application.GeneratedMSBuildEditorConfig.editorconfig

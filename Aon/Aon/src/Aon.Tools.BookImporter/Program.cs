@@ -176,7 +176,7 @@ static List<ContentBlock> ExtractBlocks(IEnumerable<INode> nodes)
 
     foreach (var node in nodes)
     {
-        if (node is IElement element && element.ClassList.Contains("choice"))
+        if (node is IElement elem && elem.ClassList.Contains("choice"))
         {
             continue;
         }
@@ -210,14 +210,14 @@ static List<Choice> ExtractChoices(IEnumerable<INode> nodes)
 {
     var choices = new List<Choice>();
 
-    foreach (var element in nodes.OfType<IElement>())
+    foreach (var el in nodes.OfType<IElement>())
     {
-        if (!element.ClassList.Contains("choice"))
+        if (!el.ClassList.Contains("choice"))
         {
             continue;
         }
 
-        var targetId = element.QuerySelectorAll("a[href]")
+        var targetId = el.QuerySelectorAll("a[href]")
             .Select(anchor => GetChoiceTargetId(anchor.GetAttribute("href") ?? string.Empty))
             .FirstOrDefault(candidate => !string.IsNullOrWhiteSpace(candidate));
         if (string.IsNullOrWhiteSpace(targetId))
@@ -227,31 +227,12 @@ static List<Choice> ExtractChoices(IEnumerable<INode> nodes)
 
         choices.Add(new Choice
         {
-            Text = element.TextContent?.Trim() ?? string.Empty,
+            Text = el.TextContent?.Trim() ?? string.Empty,
             TargetId = targetId
         });
     }
 
     return choices;
-}
-
-static string? GetTargetIdFromHref(string href)
-{
-    if (href.StartsWith("#sect", StringComparison.OrdinalIgnoreCase))
-    {
-        return href["#sect".Length..];
-    }
-
-    if (href.StartsWith("sect", StringComparison.OrdinalIgnoreCase) && href.EndsWith(".htm", StringComparison.OrdinalIgnoreCase))
-    {
-        var fileName = Path.GetFileNameWithoutExtension(href);
-        if (fileName.StartsWith("sect", StringComparison.OrdinalIgnoreCase))
-        {
-            return fileName["sect".Length..];
-        }
-    }
-
-    return null;
 }
 
 static List<string> ValidateBook(Book book)
@@ -302,76 +283,6 @@ static string? GetSectionId(IElement heading)
     }
 
     return headingText.All(char.IsDigit) ? headingText : null;
-}
-
-static string? GetChoiceTargetId(string href)
-{
-    if (string.IsNullOrWhiteSpace(href))
-    {
-        return null;
-    }
-
-    var trimmed = href.Trim();
-    if (trimmed.StartsWith("#", StringComparison.OrdinalIgnoreCase))
-    {
-        return GetFragmentTargetId(trimmed);
-    }
-
-    var fragmentIndex = trimmed.IndexOf('#', StringComparison.Ordinal);
-    if (fragmentIndex >= 0)
-    {
-        var fragmentId = GetFragmentTargetId(trimmed[fragmentIndex..]);
-        if (!string.IsNullOrWhiteSpace(fragmentId))
-        {
-            return fragmentId;
-        }
-
-        trimmed = trimmed[..fragmentIndex];
-    }
-
-    var fileName = GetFileName(trimmed);
-    if (fileName.StartsWith("sect", StringComparison.OrdinalIgnoreCase)
-        && fileName.EndsWith(".htm", StringComparison.OrdinalIgnoreCase))
-    {
-        var id = fileName["sect".Length..^".htm".Length];
-        return IsDigitsOnly(id) ? id : null;
-    }
-
-    if (fileName.StartsWith("sect", StringComparison.OrdinalIgnoreCase)
-        && fileName.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
-    {
-        var id = fileName["sect".Length..^".html".Length];
-        return IsDigitsOnly(id) ? id : null;
-    }
-
-    return null;
-}
-
-static string? GetFragmentTargetId(string fragment)
-{
-    if (!fragment.StartsWith("#sect", StringComparison.OrdinalIgnoreCase))
-    {
-        return null;
-    }
-
-    var id = fragment["#sect".Length..];
-    return IsDigitsOnly(id) ? id : null;
-}
-
-static string GetFileName(string value)
-{
-    var lastSlash = value.LastIndexOfAny(new[] { '/', '\\' });
-    return lastSlash >= 0 ? value[(lastSlash + 1)..] : value;
-}
-
-static bool IsDigitsOnly(string? value)
-{
-    if (string.IsNullOrWhiteSpace(value))
-    {
-        return false;
-    }
-
-    return value.All(char.IsDigit);
 }
 
 static string? GetChoiceTargetId(string href)
