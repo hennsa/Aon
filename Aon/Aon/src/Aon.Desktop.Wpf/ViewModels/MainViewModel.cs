@@ -233,35 +233,101 @@ public sealed class MainViewModel : ViewModelBase
         Choices.Add(new ChoiceViewModel("Continue", command));
     }
 
+    private static readonly string[] RecapIdPriority =
+    {
+        "tssf",
+        "calstory"
+    };
+
+    private static readonly string[] RecapTitleKeywords =
+    {
+        "story so far",
+        "cal's story"
+    };
+
     private static IReadOnlyList<FrontMatterSection> BuildFrontMatterSequence(Book book)
     {
         var sequence = new List<FrontMatterSection>();
         var introduction = book.FrontMatter
             .FirstOrDefault(item => string.Equals(item.Id, "frontmatter-2", StringComparison.OrdinalIgnoreCase))
-            ?? book.FrontMatter.FirstOrDefault(item => !IsTableOfContents(item) && !IsStorySoFar(item));
+            ?? book.FrontMatter.FirstOrDefault(item => !IsTableOfContents(item) && !IsRecapSection(item));
 
         if (introduction is not null)
         {
             sequence.Add(introduction);
         }
 
-        var storySoFar = book.FrontMatter.FirstOrDefault(IsStorySoFar);
-        if (storySoFar is not null && !ReferenceEquals(storySoFar, introduction))
+        foreach (var recap in GetRecapSections(book))
         {
-            sequence.Add(storySoFar);
+            if (ReferenceEquals(recap, introduction))
+            {
+                continue;
+            }
+
+            sequence.Add(recap);
         }
 
         return sequence;
     }
 
-    private static bool IsStorySoFar(FrontMatterSection section)
+    private static IEnumerable<FrontMatterSection> GetRecapSections(Book book)
     {
-        if (string.Equals(section.Id, "tssf", StringComparison.OrdinalIgnoreCase))
+        var recaps = book.FrontMatter
+            .Where(IsRecapSection)
+            .Distinct()
+            .ToList();
+
+        if (recaps.Count <= 1)
         {
-            return true;
+            return recaps;
         }
 
-        return section.Title.Contains("story so far", StringComparison.OrdinalIgnoreCase);
+        return recaps
+            .OrderBy(GetRecapSortKey)
+            .ThenBy(section => section.Title, StringComparer.OrdinalIgnoreCase)
+            .ToList();
+    }
+
+    private static int GetRecapSortKey(FrontMatterSection section)
+    {
+        for (var index = 0; index < RecapIdPriority.Length; index++)
+        {
+            if (string.Equals(section.Id, RecapIdPriority[index], StringComparison.OrdinalIgnoreCase))
+            {
+                return index;
+            }
+        }
+
+        for (var index = 0; index < RecapTitleKeywords.Length; index++)
+        {
+            if (section.Title.Contains(RecapTitleKeywords[index], StringComparison.OrdinalIgnoreCase))
+            {
+                return RecapIdPriority.Length + index;
+            }
+        }
+
+        return int.MaxValue;
+    }
+
+    private static bool IsRecapSection(FrontMatterSection section)
+    {
+        foreach (var recapId in RecapIdPriority)
+        {
+            if (string.Equals(section.Id, recapId, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+
+        foreach (var keyword in RecapTitleKeywords)
+        {
+            if (section.Title.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private static bool IsTableOfContents(FrontMatterSection section)
