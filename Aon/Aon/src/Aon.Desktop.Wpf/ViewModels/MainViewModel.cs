@@ -963,7 +963,7 @@ public sealed class MainViewModel : ViewModelBase
         }
         var window = new ProfileWizardWindow(viewModel)
         {
-            Owner = Application.Current?.MainWindow
+            Owner = System.Windows.Application.Current?.MainWindow
         };
 
         var result = window.ShowDialog();
