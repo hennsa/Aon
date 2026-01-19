@@ -2,6 +2,7 @@ using System.Text.Json;
 using AngleSharp;
 using AngleSharp.Dom;
 using Aon.Content;
+using System.Text.RegularExpressions;
 
 if (args.Length < 2)
 {
@@ -69,15 +70,43 @@ static Book ExtractBook(IDocument document, string fallbackId)
         title = document.Title?.Trim();
     }
 
+    var seriesId = GetSeriesId(fallbackId);
     var frontMatterSections = ExtractFrontMatter(document);
     var sections = ExtractSections(document);
 
     return new Book
     {
         Id = fallbackId,
-        Title = title ?? fallbackId,
-        FrontMatter = frontMatterSections,
+        Title = ReplaceCharacterTokens(seriesId, title ?? fallbackId),
+        FrontMatter = frontMatterSections
+            .Select(section => new FrontMatterSection
+            {
+                Id = section.Id,
+                Title = ReplaceCharacterTokens(seriesId, section.Title),
+                Html = ReplaceCharacterTokens(seriesId, section.Html)
+            })
+            .ToList(),
         Sections = sections
+            .Select(section => new BookSection
+            {
+                Id = section.Id,
+                Title = ReplaceCharacterTokens(seriesId, section.Title),
+                Blocks = section.Blocks
+                    .Select(block => new ContentBlock
+                    {
+                        Kind = block.Kind,
+                        Text = ReplaceCharacterTokens(seriesId, block.Text)
+                    })
+                    .ToList(),
+                Choices = section.Choices
+                    .Select(choice => new Choice
+                    {
+                        Text = ReplaceCharacterTokens(seriesId, choice.Text),
+                        TargetId = choice.TargetId
+                    })
+                    .ToList()
+            })
+            .ToList()
     };
 }
 
@@ -353,4 +382,54 @@ static bool IsDigitsOnly(string? value)
     }
 
     return value.All(char.IsDigit);
+}
+
+static string GetSeriesId(string bookId)
+{
+    if (bookId.StartsWith("lw", StringComparison.OrdinalIgnoreCase))
+    {
+        return "lw";
+    }
+
+    if (bookId.StartsWith("gs", StringComparison.OrdinalIgnoreCase))
+    {
+        return "gs";
+    }
+
+    if (bookId.StartsWith("fw", StringComparison.OrdinalIgnoreCase))
+    {
+        return "fw";
+    }
+
+    return "unknown";
+}
+
+static string ReplaceCharacterTokens(string seriesId, string text)
+{
+    return CharacterTokenization.Replace(seriesId, text);
+}
+
+static class CharacterTokenization
+{
+    private const string CharacterNameToken = "{{characterName}}";
+    private static readonly Regex LoneWolfNameRegex = new(@"\bLone\s+Wolf\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+    private static readonly Regex GreyStarNameRegex = new(@"\bGrey\s+Star\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+    private static readonly Regex CalPhoenixNameRegex = new(@"\bCal\s+Phoenix\b", RegexOptions.Compiled);
+    private static readonly Regex CalNameRegex = new(@"\bCal\b", RegexOptions.Compiled);
+
+    public static string Replace(string seriesId, string text)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return text;
+        }
+
+        return seriesId switch
+        {
+            "lw" => LoneWolfNameRegex.Replace(text, CharacterNameToken),
+            "gs" => GreyStarNameRegex.Replace(text, CharacterNameToken),
+            "fw" => CalNameRegex.Replace(CalPhoenixNameRegex.Replace(text, CharacterNameToken), CharacterNameToken),
+            _ => text
+        };
+    }
 }
