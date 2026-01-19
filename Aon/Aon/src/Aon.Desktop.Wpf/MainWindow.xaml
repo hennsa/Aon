@@ -14,9 +14,9 @@
     </Window.Resources>
     <Grid Margin="24">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="6" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="320" />
-            <ColumnDefinition Width="260" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -117,15 +117,24 @@
             </ItemsControl>
         </Border>
 
+        <GridSplitter Grid.Row="0"
+                      Grid.RowSpan="5"
+                      Grid.Column="1"
+                      Width="6"
+                      Background="#22000000"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"
+                      ResizeBehavior="PreviousAndNext" />
+
         <Border Grid.Row="1"
-                Grid.Column="1"
+                Grid.Column="2"
                 Grid.RowSpan="4"
                 Margin="16,0,0,0"
                 Padding="12"
                 BorderThickness="1"
                 BorderBrush="#22000000"
                 CornerRadius="6">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                 <StackPanel>
                     <TextBlock Text="Character" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,8" />
                     <TextBlock Text="{Binding CharacterSetupHint}" TextWrapping="Wrap" Foreground="#666666" Margin="0,0,0,12" />
@@ -141,9 +150,9 @@
                     <ItemsControl ItemsSource="{Binding CoreStats}" Margin="0,4,0,12">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                            <TextBlock Margin="0,0,0,4">
-                                <TextBlock.Inlines>
-                                    <Run Text="{Binding Label}" />
+                                <TextBlock Margin="0,0,0,4" TextWrapping="Wrap">
+                                    <TextBlock.Inlines>
+                                        <Run Text="{Binding Label}" />
                                         <Run Text=": " />
                                         <Run Text="{Binding Value}" />
                                     </TextBlock.Inlines>
@@ -156,7 +165,7 @@
                     <ItemsControl ItemsSource="{Binding AttributeStats}" Margin="0,4,0,12">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock>
+                                <TextBlock TextWrapping="Wrap">
                                     <TextBlock.Inlines>
                                         <Run Text="{Binding Label}" />
                                         <Run Text=": " />
@@ -171,7 +180,7 @@
                     <ItemsControl ItemsSource="{Binding InventoryCounters}" Margin="0,4,0,0">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock>
+                                <TextBlock TextWrapping="Wrap">
                                     <TextBlock.Inlines>
                                         <Run Text="{Binding Label}" />
                                         <Run Text=": " />
@@ -201,6 +210,7 @@
                     </StackPanel>
                     <ListBox ItemsSource="{Binding CharacterSkills}"
                              SelectedItem="{Binding SelectedSkill}"
+                             HorizontalContentAlignment="Stretch"
                              Height="80"
                              Margin="0,0,0,8" />
                     <Button Content="Remove Selected Skill" Command="{Binding RemoveSkillCommand}" Margin="0,0,0,12" />
@@ -213,11 +223,12 @@
                     </StackPanel>
                     <ListBox ItemsSource="{Binding InventoryItems}"
                              SelectedItem="{Binding SelectedInventoryItem}"
+                             HorizontalContentAlignment="Stretch"
                              Height="80"
                              Margin="0,0,0,8">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock>
+                                <TextBlock TextWrapping="Wrap">
                                     <Run Text="{Binding Name}" />
                                     <Run Text=" (" />
                                     <Run Text="{Binding Category}" />
@@ -237,10 +248,11 @@
                     </StackPanel>
                     <ListBox ItemsSource="{Binding InventoryCounters}"
                              SelectedItem="{Binding SelectedCounter}"
+                             HorizontalContentAlignment="Stretch"
                              Height="80">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock>
+                                <TextBlock TextWrapping="Wrap">
                                     <Run Text="{Binding Label}" />
                                     <Run Text=": " />
                                     <Run Text="{Binding Value}" />
