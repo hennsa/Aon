@@ -14,7 +14,9 @@ public sealed class MainViewModel : ViewModelBase
     private readonly GameService _gameService;
     private readonly IBookRepository _bookRepository;
     private readonly GameState _state = new();
+    private readonly Queue<FrontMatterSection> _frontMatterQueue = new();
     private Book? _book;
+    private BookSection? _firstSectionForFrontMatter;
     private string _bookTitle = "Aon Companion";
     private string _sectionTitle = "Select a book";
     private BookListItemViewModel? _selectedBook;
@@ -145,13 +147,18 @@ public sealed class MainViewModel : ViewModelBase
             return;
         }
 
-        var frontMatter = _book.FrontMatter
-            .FirstOrDefault(item => string.Equals(item.Id, "frontmatter-2", StringComparison.OrdinalIgnoreCase))
-            ?? _book.FrontMatter.FirstOrDefault();
-
-        if (frontMatter is not null)
+        var frontMatterSequence = BuildFrontMatterSequence(_book);
+        _frontMatterQueue.Clear();
+        foreach (var frontMatter in frontMatterSequence)
         {
-            ShowFrontMatter(frontMatter, firstSection);
+            _frontMatterQueue.Enqueue(frontMatter);
+        }
+
+        _firstSectionForFrontMatter = firstSection;
+
+        if (_frontMatterQueue.Count > 0)
+        {
+            ShowNextFrontMatterOrSection();
             return;
         }
 
@@ -191,9 +198,30 @@ public sealed class MainViewModel : ViewModelBase
         }
     }
 
-    private void ShowFrontMatter(FrontMatterSection frontMatter, BookSection firstSection)
+    private void ShowNextFrontMatterOrSection()
     {
-        SectionTitle = frontMatter.Title;
+        if (_firstSectionForFrontMatter is null)
+        {
+            return;
+        }
+
+        if (_frontMatterQueue.Count == 0)
+        {
+            UpdateSection(_firstSectionForFrontMatter);
+            return;
+        }
+
+        var frontMatter = _frontMatterQueue.Dequeue();
+        var continueAction = _frontMatterQueue.Count > 0
+            ? ShowNextFrontMatterOrSection
+            : () => UpdateSection(_firstSectionForFrontMatter);
+
+        ShowFrontMatter(frontMatter, continueAction);
+    }
+
+    private void ShowFrontMatter(FrontMatterSection frontMatter, Action continueAction)
+    {
+        SectionTitle = GetFrontMatterTitle(frontMatter);
         Blocks.Clear();
         foreach (var paragraph in ExtractFrontMatterParagraphs(frontMatter.Html))
         {
@@ -201,8 +229,56 @@ public sealed class MainViewModel : ViewModelBase
         }
 
         Choices.Clear();
-        var command = new RelayCommand(() => UpdateSection(firstSection));
+        var command = new RelayCommand(continueAction);
         Choices.Add(new ChoiceViewModel("Continue", command));
+    }
+
+    private static IReadOnlyList<FrontMatterSection> BuildFrontMatterSequence(Book book)
+    {
+        var sequence = new List<FrontMatterSection>();
+        var introduction = book.FrontMatter
+            .FirstOrDefault(item => string.Equals(item.Id, "frontmatter-2", StringComparison.OrdinalIgnoreCase))
+            ?? book.FrontMatter.FirstOrDefault(item => !IsTableOfContents(item) && !IsStorySoFar(item));
+
+        if (introduction is not null)
+        {
+            sequence.Add(introduction);
+        }
+
+        var storySoFar = book.FrontMatter.FirstOrDefault(IsStorySoFar);
+        if (storySoFar is not null && !ReferenceEquals(storySoFar, introduction))
+        {
+            sequence.Add(storySoFar);
+        }
+
+        return sequence;
+    }
+
+    private static bool IsStorySoFar(FrontMatterSection section)
+    {
+        if (string.Equals(section.Id, "tssf", StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        return section.Title.Contains("story so far", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static bool IsTableOfContents(FrontMatterSection section)
+    {
+        return section.Title.Contains("table of contents", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(section.Id, "toc", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static string GetFrontMatterTitle(FrontMatterSection section)
+    {
+        if (string.Equals(section.Id, "frontmatter-2", StringComparison.OrdinalIgnoreCase)
+            && section.Title.StartsWith("frontmatter", StringComparison.OrdinalIgnoreCase))
+        {
+            return "Introduction";
+        }
+
+        return section.Title;
     }
 
     private static IEnumerable<string> ExtractFrontMatterParagraphs(string html)
