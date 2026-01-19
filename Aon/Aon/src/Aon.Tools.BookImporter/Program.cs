@@ -406,22 +406,30 @@ static string GetSeriesId(string bookId)
 
 static string ReplaceCharacterTokens(string seriesId, string text)
 {
-    if (string.IsNullOrWhiteSpace(text))
-    {
-        return text;
-    }
-
-    return seriesId switch
-    {
-        "lw" => LoneWolfNameRegex.Replace(text, CharacterNameToken),
-        "gs" => GreyStarNameRegex.Replace(text, CharacterNameToken),
-        "fw" => CalNameRegex.Replace(CalPhoenixNameRegex.Replace(text, CharacterNameToken), CharacterNameToken),
-        _ => text
-    };
+    return CharacterTokenization.Replace(seriesId, text);
 }
 
-static readonly Regex LoneWolfNameRegex = new(@"\bLone\s+Wolf\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-static readonly Regex GreyStarNameRegex = new(@"\bGrey\s+Star\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-static readonly Regex CalPhoenixNameRegex = new(@"\bCal\s+Phoenix\b", RegexOptions.Compiled);
-static readonly Regex CalNameRegex = new(@"\bCal\b", RegexOptions.Compiled);
-const string CharacterNameToken = "{{characterName}}";
+static class CharacterTokenization
+{
+    private const string CharacterNameToken = "{{characterName}}";
+    private static readonly Regex LoneWolfNameRegex = new(@"\bLone\s+Wolf\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+    private static readonly Regex GreyStarNameRegex = new(@"\bGrey\s+Star\b", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+    private static readonly Regex CalPhoenixNameRegex = new(@"\bCal\s+Phoenix\b", RegexOptions.Compiled);
+    private static readonly Regex CalNameRegex = new(@"\bCal\b", RegexOptions.Compiled);
+
+    public static string Replace(string seriesId, string text)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return text;
+        }
+
+        return seriesId switch
+        {
+            "lw" => LoneWolfNameRegex.Replace(text, CharacterNameToken),
+            "gs" => GreyStarNameRegex.Replace(text, CharacterNameToken),
+            "fw" => CalNameRegex.Replace(CalPhoenixNameRegex.Replace(text, CharacterNameToken), CharacterNameToken),
+            _ => text
+        };
+    }
+}
