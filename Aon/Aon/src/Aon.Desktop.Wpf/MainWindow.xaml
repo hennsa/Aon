@@ -141,7 +141,12 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
                         <TextBlock Text="Save slot:" VerticalAlignment="Center" Margin="0,0,8,0" />
-                        <TextBox Text="{Binding SaveSlot}" Width="120" Margin="0,0,8,0" />
+                        <ComboBox ItemsSource="{Binding SaveSlots}"
+                                  IsEditable="True"
+                                  Text="{Binding SaveSlot, UpdateSourceTrigger=PropertyChanged}"
+                                  Width="140"
+                                  Margin="0,0,8,0" />
+                        <Button Content="New" Command="{Binding NewSaveSlotCommand}" Margin="0,0,4,0" />
                         <Button Content="Save" Command="{Binding SaveGameCommand}" Margin="0,0,4,0" />
                         <Button Content="Load" Command="{Binding LoadGameCommand}" />
                     </StackPanel>
@@ -180,13 +185,12 @@
                     <ItemsControl ItemsSource="{Binding InventoryCounters}" Margin="0,4,0,0">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock TextWrapping="Wrap">
-                                    <TextBlock.Inlines>
-                                        <Run Text="{Binding Label}" />
-                                        <Run Text=": " />
-                                        <Run Text="{Binding Value}" />
-                                    </TextBlock.Inlines>
-                                </TextBlock>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                                    <TextBlock Text="{Binding Label}" Width="140" VerticalAlignment="Center" />
+                                    <Button Content="-" Command="{Binding DecreaseCommand}" Width="24" Margin="0,0,6,0" />
+                                    <TextBlock Text="{Binding Value}" Width="40" TextAlignment="Center" VerticalAlignment="Center" />
+                                    <Button Content="+" Command="{Binding IncreaseCommand}" Width="24" Margin="6,0,0,0" />
+                                </StackPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
