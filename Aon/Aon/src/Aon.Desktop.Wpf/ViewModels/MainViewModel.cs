@@ -23,6 +23,7 @@ public sealed class MainViewModel : ViewModelBase
     private readonly RelayCommand _saveGameCommand;
     private readonly RelayCommand _loadGameCommand;
     private readonly RelayCommand _newSaveSlotCommand;
+    private readonly RelayCommand _newProfileCommand;
     private readonly RelayCommand _addSkillCommand;
     private readonly RelayCommand _removeSkillCommand;
     private readonly RelayCommand _addItemCommand;
@@ -81,6 +82,7 @@ public sealed class MainViewModel : ViewModelBase
         _saveGameCommand = new RelayCommand(() => _ = SaveGameAsync());
         _loadGameCommand = new RelayCommand(() => _ = LoadGameAsync());
         _newSaveSlotCommand = new RelayCommand(CreateNewSaveSlot);
+        _newProfileCommand = new RelayCommand(StartNewProfile);
         _addSkillCommand = new RelayCommand(AddSkill, () => !string.IsNullOrWhiteSpace(SelectedAvailableSkill));
         _removeSkillCommand = new RelayCommand(RemoveSkill, () => SelectedSkill is not null);
         _addItemCommand = new RelayCommand(AddItem, () => !string.IsNullOrWhiteSpace(NewItemName));
@@ -125,6 +127,7 @@ public sealed class MainViewModel : ViewModelBase
     public ObservableCollection<ChoiceViewModel> Choices { get; }
     public ObservableCollection<BookListItemViewModel> Books { get; }
     public ObservableCollection<StatEntryViewModel> CoreStats { get; } = new();
+    public ObservableCollection<StatEntryViewModel> CoreSkills { get; } = new();
     public ObservableCollection<StatEntryViewModel> AttributeStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> InventoryCounters { get; } = new();
     public ObservableCollection<string> SaveSlots { get; } = new();
@@ -138,12 +141,14 @@ public sealed class MainViewModel : ViewModelBase
     public RelayCommand SaveGameCommand => _saveGameCommand;
     public RelayCommand LoadGameCommand => _loadGameCommand;
     public RelayCommand NewSaveSlotCommand => _newSaveSlotCommand;
+    public RelayCommand NewProfileCommand => _newProfileCommand;
     public RelayCommand AddSkillCommand => _addSkillCommand;
     public RelayCommand RemoveSkillCommand => _removeSkillCommand;
     public RelayCommand AddItemCommand => _addItemCommand;
     public RelayCommand RemoveItemCommand => _removeItemCommand;
     public RelayCommand UpsertCounterCommand => _upsertCounterCommand;
     public RelayCommand RemoveCounterCommand => _removeCounterCommand;
+    public bool HasCoreSkills => CoreSkills.Count > 0;
 
     public string SaveSlot
     {
@@ -738,6 +743,17 @@ public sealed class MainViewModel : ViewModelBase
         CoreStats.Add(new StatEntryViewModel("Effective Combat Skill", _state.Character.GetEffectiveCombatSkill()));
         CoreStats.Add(new StatEntryViewModel("Endurance", _state.Character.Endurance));
 
+        CoreSkills.Clear();
+        foreach (var entry in _state.Character.CoreSkills.OrderBy(item => item.Key, StringComparer.OrdinalIgnoreCase))
+        {
+            CoreSkills.Add(new StatEntryViewModel(
+                entry.Key,
+                entry.Value,
+                () => AdjustCoreSkill(entry.Key, 1),
+                () => AdjustCoreSkill(entry.Key, -1)));
+        }
+        OnPropertyChanged(nameof(HasCoreSkills));
+
         AttributeStats.Clear();
         foreach (var entry in _state.Character.Attributes.OrderBy(item => item.Key, StringComparer.OrdinalIgnoreCase))
         {
@@ -776,6 +792,11 @@ public sealed class MainViewModel : ViewModelBase
         _currentProfile = ResolveSeriesProfile(seriesId);
         _state.Character.Attributes.Clear();
         _state.Character.Attributes[Character.CombatSkillBonusAttribute] = 0;
+        _state.Character.CoreSkills.Clear();
+        foreach (var entry in _currentProfile.CoreSkills)
+        {
+            _state.Character.CoreSkills[entry.Key] = entry.Value;
+        }
         _state.Character.Inventory.Counters.Clear();
         foreach (var counter in _currentProfile.CounterNames)
         {
@@ -869,6 +890,11 @@ public sealed class MainViewModel : ViewModelBase
         {
             _state.Character.Attributes[entry.Key] = entry.Value;
         }
+        _state.Character.CoreSkills.Clear();
+        foreach (var entry in loaded.Character.CoreSkills)
+        {
+            _state.Character.CoreSkills[entry.Key] = entry.Value;
+        }
 
         _state.Character.Inventory.Items.Clear();
         _state.Character.Inventory.Items.AddRange(loaded.Character.Inventory.Items);
@@ -879,6 +905,7 @@ public sealed class MainViewModel : ViewModelBase
         }
 
         _currentProfile = ResolveSeriesProfile(_state.SeriesId);
+        EnsureCoreSkillsForProfile();
         AvailableSkills.Clear();
         foreach (var skill in _currentProfile.SkillNames)
         {
@@ -978,6 +1005,78 @@ public sealed class MainViewModel : ViewModelBase
 
         _state.Character.Inventory.Counters[name] = value;
         RefreshCharacterPanels();
+    }
+
+    private void StartNewProfile()
+    {
+        var result = MessageBox.Show(
+            "Starting a new profile will unload your current character and clear the story text. Continue?",
+            "New Profile",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Warning);
+
+        if (result != MessageBoxResult.Yes)
+        {
+            return;
+        }
+
+        ResetToStartState();
+    }
+
+    private void ResetToStartState()
+    {
+        _book = null;
+        _firstSectionForFrontMatter = null;
+        _frontMatterQueue.Clear();
+        _state.BookId = string.Empty;
+        _state.SeriesId = string.Empty;
+        _state.SectionId = string.Empty;
+        _state.Character = new Character();
+        _currentProfile = SeriesProfiles.LoneWolf;
+
+        BookTitle = "Aon Companion";
+        SectionTitle = "Select a book";
+        CharacterSetupHint = string.Empty;
+        Blocks.Clear();
+        Choices.Clear();
+        ResetRandomNumberState();
+        SuggestedActions.Clear();
+        AvailableSkills.Clear();
+        CharacterSkills.Clear();
+        CoreStats.Clear();
+        CoreSkills.Clear();
+        AttributeStats.Clear();
+        InventoryCounters.Clear();
+        InventoryItems.Clear();
+        SelectedBook = null;
+        OnPropertyChanged(nameof(HasCoreSkills));
+    }
+
+    private void AdjustCoreSkill(string skillName, int delta)
+    {
+        if (!_state.Character.CoreSkills.TryGetValue(skillName, out var value))
+        {
+            value = 0;
+        }
+
+        _state.Character.CoreSkills[skillName] = Math.Max(0, value + delta);
+        RefreshCharacterPanels();
+    }
+
+    private void EnsureCoreSkillsForProfile()
+    {
+        if (_currentProfile.CoreSkills.Count == 0)
+        {
+            return;
+        }
+
+        foreach (var entry in _currentProfile.CoreSkills)
+        {
+            if (!_state.Character.CoreSkills.ContainsKey(entry.Key))
+            {
+                _state.Character.CoreSkills[entry.Key] = entry.Value;
+            }
+        }
     }
 
     private void RemoveCounter()
