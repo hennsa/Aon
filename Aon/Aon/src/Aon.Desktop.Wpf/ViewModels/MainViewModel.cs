@@ -3,6 +3,7 @@ using System.Net;
 using System.IO;
 using System.Windows;
 using System.Text.RegularExpressions;
+using System.Windows;
 using Aon.Application;
 using Aon.Content;
 using Aon.Core;
@@ -125,6 +126,7 @@ public sealed class MainViewModel : ViewModelBase
     public ObservableCollection<string> AvailableSkills { get; } = new();
     public ObservableCollection<string> CharacterSkills { get; } = new();
     public ObservableCollection<ItemEntryViewModel> InventoryItems { get; } = new();
+    public ObservableCollection<QuickActionViewModel> SuggestedActions { get; } = new();
     public RelayCommand RollRandomNumberCommand => _rollRandomNumberCommand;
     public RelayCommand ConfirmRandomNumberCommand => _confirmRandomNumberCommand;
     public RelayCommand ShowRandomNumberTableCommand => _showRandomNumberTableCommand;
@@ -506,6 +508,7 @@ public sealed class MainViewModel : ViewModelBase
             Blocks.Add(new ContentBlockViewModel(block.Kind, block.Text));
         }
 
+        UpdateSuggestedActions(section);
         ResetRandomNumberState();
         if (RequiresRandomNumber(section))
         {
@@ -551,6 +554,7 @@ public sealed class MainViewModel : ViewModelBase
         Choices.Clear();
         var command = new RelayCommand(continueAction);
         Choices.Add(new ChoiceViewModel("Continue", command));
+        SuggestedActions.Clear();
         ResetRandomNumberState();
         AreChoicesVisible = true;
     }
@@ -775,6 +779,7 @@ public sealed class MainViewModel : ViewModelBase
             AvailableSkills.Add(skill);
         }
 
+        SuggestedActions.Clear();
         CharacterSetupHint = $"Use the book's character creation instructions in the main text. Series: {_currentProfile.Name}.";
     }
 
@@ -866,6 +871,7 @@ public sealed class MainViewModel : ViewModelBase
             AvailableSkills.Add(skill);
         }
 
+        SuggestedActions.Clear();
         CharacterSetupHint = $"Use the book's character creation instructions in the main text. Series: {_currentProfile.Name}.";
         RefreshCharacterPanels();
         if (_book is null || !string.Equals(_book.Id, _state.BookId, StringComparison.OrdinalIgnoreCase))
@@ -971,6 +977,75 @@ public sealed class MainViewModel : ViewModelBase
         SelectedCounter = null;
         RefreshCharacterPanels();
         _removeCounterCommand.RaiseCanExecuteChanged();
+    }
+
+    private void UpdateSuggestedActions(BookSection section)
+    {
+        SuggestedActions.Clear();
+        if (_currentProfile is null)
+        {
+            return;
+        }
+
+        var text = string.Join(" ", section.Blocks.Select(block => block.Text));
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return;
+        }
+
+        foreach (var counter in _currentProfile.CounterNames)
+        {
+            var amount = GetCounterAmountFromText(text, counter);
+            if (amount <= 0)
+            {
+                continue;
+            }
+
+            var label = $"Add {amount} {counter}";
+            SuggestedActions.Add(new QuickActionViewModel(label, () =>
+            {
+                var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
+                _state.Character.Inventory.Counters[counter] = current + amount;
+                RefreshCharacterPanels();
+            }));
+        }
+
+        foreach (var skill in _currentProfile.SkillNames)
+        {
+            if (_state.Character.Disciplines.Contains(skill, StringComparer.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            if (!IsSkillSuggested(text, skill))
+            {
+                continue;
+            }
+
+            SuggestedActions.Add(new QuickActionViewModel($"Add skill: {skill}", () =>
+            {
+                _state.Character.Disciplines.Add(skill);
+                RefreshCharacterPanels();
+            }));
+        }
+    }
+
+    private static int GetCounterAmountFromText(string text, string counterName)
+    {
+        var escaped = Regex.Escape(counterName);
+        var match = Regex.Match(text, $"(?<value>\\d+)\\s+{escaped}\\b", RegexOptions.IgnoreCase);
+        if (!match.Success)
+        {
+            return 0;
+        }
+
+        return int.TryParse(match.Groups["value"].Value, out var value) ? value : 0;
+    }
+
+    private static bool IsSkillSuggested(string text, string skillName)
+    {
+        var escaped = Regex.Escape(skillName);
+        return Regex.IsMatch(text, $"\\b(?:gain|learn|choose|acquire|pick)\\b[^.]*\\b{escaped}\\b", RegexOptions.IgnoreCase);
     }
 
     private void PrepareRandomNumberSection(BookSection section)

@@ -181,6 +181,15 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
+                    <TextBlock Text="Suggestions" FontWeight="SemiBold" Margin="0,12,0,0" />
+                    <ItemsControl ItemsSource="{Binding SuggestedActions}" Margin="0,4,0,12">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding Label}" Command="{Binding Command}" Margin="0,0,0,6" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
                     <TextBlock Text="Skills" FontWeight="SemiBold" Margin="0,12,0,0" />
                     <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
                         <ComboBox ItemsSource="{Binding AvailableSkills}"
