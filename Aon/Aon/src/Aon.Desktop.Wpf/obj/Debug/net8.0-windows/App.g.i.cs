@@ -38,9 +38,7 @@ namespace Aon.Desktop.Wpf {
     /// <summary>
     /// App
     /// </summary>
-    public partial class App : System.Windows.Application, System.Windows.Markup.IComponentConnector {
-        
-        private bool _contentLoaded;
+    public partial class App : System.Windows.Application {
         
         /// <summary>
         /// InitializeComponent
@@ -54,27 +52,18 @@ namespace Aon.Desktop.Wpf {
             
             #line default
             #line hidden
-            if (_contentLoaded) {
-                return;
-            }
-            _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Aon.Desktop.Wpf;V1.0.0.0;component/app.xaml", System.UriKind.Relative);
-            
-            #line 1 "..\..\..\App.xaml"
-            System.Windows.Application.LoadComponent(this, resourceLocater);
-            
-            #line default
-            #line hidden
         }
         
+        /// <summary>
+        /// Application Entry Point.
+        /// </summary>
+        [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "9.0.10.0")]
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-        void System.Windows.Markup.IComponentConnector.Connect(int connectionId, object target) {
-            this._contentLoaded = true;
+        public static void Main() {
+            Aon.Desktop.Wpf.App app = new Aon.Desktop.Wpf.App();
+            app.InitializeComponent();
+            app.Run();
         }
     }
 }

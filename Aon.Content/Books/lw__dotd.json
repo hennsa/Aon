@@ -1,0 +1,1720 @@
+{
+  "id": "lw__dotd",
+  "title": "Dawn of the Darklords",
+  "frontMatter": [
+    {
+      "id": "frontmatter-1",
+      "title": "Table of Contents",
+      "html": "\u003Ch2\u003ETable of Contents\u003C/h2\u003E\n\n\n\u003Cul\u003E\n\u003Cli\u003E\u003Ca href=\u0022#acknwldg\u0022\u003EAcknowledgements\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#tssf\u0022\u003EThe Story So Far\u2026\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#gamerulz\u0022\u003EThe Game Rules\u003C/a\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ca href=\u0022#powers\u0022\u003EMagical Powers\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#equipmnt\u0022\u003EEquipment\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#cmbtrulz\u0022\u003ERules for Combat\u003C/a\u003E\u003C/li\u003E\n\u003C/ul\u003E\n\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#numbered\u0022\u003ENumbered Sections\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#map\u0022\u003EMap of the Lastlands\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#crsumary\u0022\u003ECombat Rules Summary\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#crtable\u0022\u003ECombat Results Table\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#random\u0022\u003ERandom Number Table\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#errata\u0022\u003EErrata\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#footnotz\u0022\u003EFootnotes\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#illstrat\u0022\u003ETable of Illustrations\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#license\u0022\u003EProject Aon License\u003C/a\u003E\u003C/li\u003E\n\u003C/ul\u003E"
+    },
+    {
+      "id": "frontmatter-2",
+      "title": "Frontmatter 2",
+      "html": "\u003Cp\u003EThis exciting mini-adventure first appeared in \u003Ccite\u003EThe Magnamund Companion\u003C/cite\u003E. You are Banedon, a journeyman for the Brotherhood of the Crystal Star, Sommerlund\u2019s Guild of Magicians. You have been given an urgent mission\u2014to travel from the city of Toran to the Kai Monastery and deliver a letter of grave importance. Your failure could spell doom for your guild, your country, and maybe even the entire world.\u003C/p\u003E\n\n  \n      \u003Cp\u003E\u003Cstrong\u003EJoe Dever\u003C/strong\u003E, the creator of the bestselling Lone Wolf adventure books and novels, has achieved world-wide recognition in three creative fields\u2014as an award-winning author of international renown, as an acclaimed musician and composer, and as a games designer specialising in role-playing games.\u003C/p\u003E\n\n   \u003Cp\u003EOn graduating from college in 1974, Joe Dever became a professional musician, and for several years, he worked in the music industry in Europe and the United States.\u003C/p\u003E\n\n   \u003Cp\u003EWhile working in Los Angeles in 1977 he discovered a then little-known game called \u2018Dungeons \u0026amp; Dragons\u2019. Although the game was in its infancy, Joe at once realised its huge potential and began designing his own role-playing games along similar conceptual lines. These first games were to form the basis of a fantasy world called Magnamund, which later became the setting for the Lone Wolf books.\u003C/p\u003E\n\n   \u003Cp\u003EFive years later, in 1982 at the Origins Game Fair, Joe won the Advanced Dungeons \u0026amp; Dragons World Championships in Baltimore, an event held before 16,000 people. Inspired and encouraged by his success at Origins, Joe decided to quit the music business and devote his time to writing and games design.\u003C/p\u003E\n\n   \u003Cp\u003EIn 1983, after a brief spell at Games Workshop in London, he wrote \u003Ccite\u003EFlight from the Dark\u003C/cite\u003E\u2014the first Lone Wolf interactive gamebook. His manuscript immediately attracted a frenzy of interest from three major London publishing companies, all of whom bid for world rights. Joe accepted an offer of publication from Hutchinson\u2019s (later to become Century Hutchinson Ltd; now Random House UK) and \u003Ccite\u003EFlight from the Dark\u003C/cite\u003E was first published in 1984.\u003C/p\u003E\n\n   \u003Cp\u003EThis first book sold more than 100,000 copies within its first month of publication, and overseas rights were snapped up by twelve countries (including the United States, France, Germany, Japan, Italy, and Sweden). The success of Joe\u2019s first book laid the foundations for the future of the Lone Wolf series, which has sold millions of copies around the world.\u003C/p\u003E\n\n   \u003Cp\u003EThe Lone Wolf series ended after 28 books and 14 years. Joe has continued to work in the games industry as script writer and games design consultant.\u003C/p\u003E\n\n\n     \u003Cp\u003E\u003Cstrong\u003EGary Chalk\u003C/strong\u003E, the illustrator of the early Lone Wolf series, was born in 1952, grew up in Hertfordshire, England. Being interested in history, he began playing war games at the age of fifteen. When he graduated from college with a Bachelor of Arts in design, Gary spent three years training in a studio before becoming a teacher in art and design.\u003C/p\u003E\n\n  \u003Cp\u003EGary was working as a children\u2019s book illustrator when he became involved in adventure gaming, an interest which eventually led to the creation of several successful games. He is the inventor/illustrator of some of Britain\u2019s biggest-selling fantasy games including Cry Havoc, Starship Captain, and Battlecars (co-designed with Ian Livingstone). He is also known for his work on the very successful game, Talisman.\u003C/p\u003E\n\n  \u003Cp\u003EGary was working at Games Workshop when Joe Dever asked him to illustrate some of his manuscript of \u003Ccite\u003EFlight from the Dark\u003C/cite\u003E. The two teamed up after that and they continued to work together until the eighth book in the series, \u003Ccite\u003EThe Jungle of Horrors\u003C/cite\u003E.\u003C/p\u003E\n\n  \u003Cp\u003EGary has also drawn the illustrations in \u003Ccite\u003ERedwall\u003C/cite\u003E and related books, \u003Ccite\u003EThe Prince of Shadows\u003C/cite\u003E gamebook series, and several books which he also authored. Gary continues to enjoy war gaming and works as an illustrator and model maker.\u003C/p\u003E\n\n  \u003Chr\u003E\n   \u003Cp\u003EInternet Edition published by \u003Ca href=\u0022http://www.projectaon.org/\u0022\u003EProject Aon\u003C/a\u003E. This edition is intended to reflect the complete text of the original version. Where we have made minor corrections, they will be noted in the \u003Ca href=\u0022#errata\u0022\u003EErrata\u003C/a\u003E.\u003C/p\u003E\n\n  \u003Cp\u003EPublication Date: 13 April 2011\u003C/p\u003E\n   \u003Cp\u003E\n    Text copyright \u00A9 1986 Joe Dever.\u003Cbr\u003E\n    Illustrations copyright \u00A9 1986 Gary Chalk.\u003Cbr\u003E\n    Distribution of this Internet Edition is restricted under the terms of the \u003Ca href=\u0022#license\u0022\u003EProject Aon License\u003C/a\u003E.\u003Cbr\u003E\n   \u003C/p\u003E"
+    },
+    {
+      "id": "acknwldg",
+      "title": "Acknowledgements",
+      "html": "\u003Ch2\u003E\u003Ca name=\u0022acknwldg\u0022\u003EAcknowledgements\u003C/a\u003E\u003C/h2\u003E\n\n\u003Cp\u003E\u2018I would be especially pleased if my granting of the rights to distribute my books in this way was seen as my \u201Cmillennium gift\u201D to all those devoted readers who have kept the Kai flag flying high, through all the good times, and the not-so-good. It would make me very proud indeed if this enterprise laid the foundations of a lasting legacy, securing the longevity of Lone Wolf by making my creation freely and readily accessible to current and future online generations. For them, for us, for Sommerlund and the Kai.\u2026\u2019 \u003Cstrong\u003EJoe Dever\u003C/strong\u003E\u003C/p\u003E\n\u003Cp\u003EProject Aon would first like to thank Joe Dever for making this generous offering of the books that we have all loved from the beginning. We are also grateful for the generosity of Rob Adams, Paul Bonner, Gary Chalk, Melvyn Grant, Richard Hook, Peter Andrew Jones, Cyril Julien, Peter Lyon, Ian Page, Graham Round, and Brian Williams for contributing their portions of the world of Magnamund to Project Aon. We would also like to acknowledge the following members of Project Aon for their diligent work:\u003C/p\u003E\n\u003Ch3\u003E\u003Ca name=\u0022credits\u0022\u003ECredits\u003C/a\u003E\u003C/h3\u003E\n\n\u003Cdl\u003E\n\u003Cdt\u003ETranscription\u003C/dt\u003E\n\u003Cdd\u003EVito Trifilo\u003C/dd\u003E\n\u003Cdt\u003EIllustration Transcription\u003C/dt\u003E\n\u003Cdd\u003ESimon Osborne\u003C/dd\u003E\n\u003Cdt\u003EXML\u003C/dt\u003E\n\u003Cdd\u003EJonathan Blake\u003Cbr\u003ESimon Osborne\u003C/dd\u003E\n\u003Cdt\u003EAction Charts\u003C/dt\u003E\n\u003Cdd\u003EJC Alvarez\u003Cbr\u003EJonathan Blake\u003C/dd\u003E\n\u003Cdt\u003EProofreading\u003C/dt\u003E\n\u003Cdd\u003ESimon Osborne\u003C/dd\u003E\n\u003Cdt\u003EEditing\u003C/dt\u003E\n\u003Cdd\u003EDavid Davis\u003Cbr\u003EIngo Kl\u00F6cker\u003Cbr\u003ESimon Osborne\u003Cbr\u003ELaurence O\u2019Toole\u003C/dd\u003E\n\u003Cdt\u003ECoordination\u003C/dt\u003E\n\u003Cdd\u003EJonathan Blake\u003C/dd\u003E\n\u003C/dl\u003E"
+    },
+    {
+      "id": "tssf",
+      "title": "The Story So Far\u2026",
+      "html": "\u003Ch2\u003E\u003Ca name=\u0022tssf\u0022\u003EThe Story So Far\u2026\u003C/a\u003E\u003C/h2\u003E\n\n\u003Cp\u003EYou are Banedon, a young Journeyman to the Magicians\u2019 Guild of Toran in Sommerlund. In the last two weeks disturbing events have rocked the stability of your guild. A brother magician named Vonotar denounced the Guild and murdered one of the Elders. He disappeared after the crime and your Guildmaster fears that he has fled to Helgedad to aid the Darklords.\u003C/p\u003E\n\u003Cp\u003EIt is now dawn of the day before the feast of Fehmarn. You have been summoned to the Guildmaster\u2019s chamber and entrusted with an envelope that must be taken to the Monastery of the Kai. It contains an urgent message for the Kai Grand Master, and your mission is to deliver it by hand at all costs. The Guildmaster warns you to be on your guard at all times, for he fears that enemy agents are already at work within the land. \u2018Travel swiftly, my son,\u2019 he says, as you turn to leave his chamber, \u2018and may the luck of the gods go with you.\u2019\u003C/p\u003E"
+    },
+    {
+      "id": "gamerulz",
+      "title": "The Game Rules",
+      "html": "\u003Ch2\u003E\u003Ca name=\u0022gamerulz\u0022\u003EThe Game Rules\u003C/a\u003E\u003C/h2\u003E\n\n\u003Cp\u003EYou keep a record of your adventure on the \u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E.\u003C/p\u003E\n\u003Cp\u003EBefore you start you must determine your fighting prowess (\u003Csmall\u003ECOMBAT SKILL\u003C/small\u003E) and physical stamina (\u003Csmall\u003EENDURANCE\u003C/small\u003E). To do this take a pencil and, with your eyes closed, point with the blunt end of it onto the \u003Ca href=\u0022#random\u0022\u003ERandom Number Table\u003C/a\u003E on the last page of this book. If you pick 0 it counts as zero.\u003C/p\u003E\n\u003Cp\u003EThe first number that you pick in this way represents your \u003Csmall\u003ECOMBAT SKILL\u003C/small\u003E. Add 10 to this number and write the total in the \u003Csmall\u003ECOMBAT SKILL\u003C/small\u003E section of your \u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E.\u003C/p\u003E\n\u003Cp\u003EThe second number that you pick from the \u003Ca href=\u0022#random\u0022\u003ERandom Number Table\u003C/a\u003E represents your powers of \u003Csmall\u003EENDURANCE\u003C/small\u003E. Add 20 to this number and write the total in the \u003Csmall\u003EENDURANCE\u003C/small\u003E section of your \u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E.\u003C/p\u003E\n\u003Cp\u003EIf you are wounded in combat, or if you use certain spells, you will lose \u003Csmall\u003EENDURANCE\u003C/small\u003E points. If at any time your \u003Csmall\u003EENDURANCE\u003C/small\u003E points fall to zero or below, you are dead and the adventure is over.\u003C/p\u003E\n\u003Ch3\u003E\u003Ca name=\u0022powers\u0022\u003EMagical Powers\u003C/a\u003E\u003C/h3\u003E\n\n\u003Ch4\u003E\u003Ca name=\u0022mksumary\u0022\u003EMagical Powers\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EYou have mastered only \u003Cem\u003Efive\u003C/em\u003E of the ten spells that the Magicians\u2019 Guild call the \u2018Brotherhood Spells\u2019.\u003C/p\u003E\n\u003Cp\u003EWhen you have chosen your five spells, enter them in the \u2018Brotherhood Spells\u2019 section of your \u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E.\u003C/p\u003E\n\u003Ch5\u003E\u003Ca name=\u0022lightng\u0022\u003ELightning Hand\u003C/a\u003E\u003C/h5\u003E\n\n\u003Cp\u003EThis spell enables you to cast a bolt of lightning, simply by pointing a finger and concentrating upon the spell. Every time this spell is used you must deduct 3 from your \u003Csmall\u003EENDURANCE\u003C/small\u003E points total.\u003C/p\u003E\n\u003Ch5\u003E\u003Ca name=\u0022mndcharm\u0022\u003EMind Charm\u003C/a\u003E\u003C/h5\u003E\n\n\u003Cp\u003ECasting this spell upon a person (or creature) will cause that person to regard you as a trusted friend. It will not allow you to control the person, but anything you do or say will be looked on as friendly.\u003C/p\u003E\n\u003Ch5\u003E\u003Ca name=\u0022invsshld\u0022\u003EInvisible Shield\u003C/a\u003E\u003C/h5\u003E\n\n\u003Cp\u003EWhen this spell is cast, an invisible barrier will form as protection from missiles and enemies. However, it will not protect you from magical attacks, and every time it is used you must deduct 2 \u003Csmall\u003EENDURANCE\u003C/small\u003E points from your score.\u003C/p\u003E\n\u003Ch5\u003E\u003Ca name=\u0022net\u0022\u003ENet\u003C/a\u003E\u003C/h5\u003E\n\n\u003Cp\u003EThis spell enables you to cast a web-like net of magical rope at a chosen target. It can be used to ensnare an enemy, or to enable you to climb high walls or obstacles with ease.\u003C/p\u003E\n\u003Ch5\u003E\u003Ca name=\u0022vigour\u0022\u003EVigour\u003C/a\u003E\u003C/h5\u003E\n\n\u003Cp\u003ECasting this spell will increase your \u003Csmall\u003ECOMBAT SKILL\u003C/small\u003E by 3 points for the duration of one combat, at the cost of 3 \u003Csmall\u003EENDURANCE\u003C/small\u003E points. It cannot be used if your \u003Csmall\u003EENDURANCE\u003C/small\u003E points total is below 10.\u003C/p\u003E\n\u003Ch5\u003E\u003Ca name=\u0022countspl\u0022\u003ECounterspell\u003C/a\u003E\u003C/h5\u003E\n\n\u003Cp\u003EThis spell may be used to protect yourself, or another person or object of your choice, from a magical attack. Use of this spell costs 2 \u003Csmall\u003EENDURANCE\u003C/small\u003E points.\u003C/p\u003E\n\u003Ch5\u003E\u003Ca name=\u0022levitn\u0022\u003ELevitation\u003C/a\u003E\u003C/h5\u003E\n\n\u003Cp\u003EThis spell may be cast upon yourself, or upon another person or object, to cancel the effects of gravity, and thereby make the affected object rise into the air. The spell lasts no more than a few minutes and its usage costs 2 \u003Csmall\u003EENDURANCE\u003C/small\u003E points.\u003C/p\u003E\n\u003Ch5\u003E\u003Ca name=\u0022sensevil\u0022\u003ESense Evil\u003C/a\u003E\u003C/h5\u003E\n\n\u003Cp\u003EWhen this spell is cast it will enable you to detect the presence of evil in any creature or object close by. However, perils such as traps or naturally poisonous animals will not be detected through the use of this spell.\u003C/p\u003E\n\u003Ch5\u003E\u003Ca name=\u0022mend\u0022\u003EMend\u003C/a\u003E\u003C/h5\u003E\n\n\u003Cp\u003EThis spell can be used to repair damaged items or to restore lost \u003Csmall\u003EENDURANCE\u003C/small\u003E points. In order for the spell to work, you must be standing in fresh running water, such as a river or stream, when the spell is cast. Using this spell upon yourself will restore 5 \u003Csmall\u003EENDURANCE\u003C/small\u003E points.\u003C/p\u003E\n\u003Ch5\u003E\u003Ca name=\u0022silence\u0022\u003ESilence\u003C/a\u003E\u003C/h5\u003E\n\n\u003Cp\u003ECasting this spell will muffle the sound of any movement that you make.\u003C/p\u003E\n\u003Ch3\u003E\u003Ca name=\u0022equipmnt\u0022\u003EEquipment\u003C/a\u003E\u003C/h3\u003E\n\n\u003Cp\u003EYou wear a Crystal Star Pendant (Special Item). Before leaving the Guildhall, you are given an Envelope that contains the Guildmaster\u2019s message to the Kai (Special Item), and a pouch of gold. To find out how much gold is in the pouch, pick a number from the \u003Ca href=\u0022#random\u0022\u003ERandom Number Table\u003C/a\u003E. Now add 10 to this number. The total equals the number of Gold Crowns inside the pouch, and you may now enter this number in the Gold Crowns section of your \u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E. The message is carried inside your robe, and you are given a backpack in which to carry any four of the following items:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003EBlanket (Backpack Item)\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003Cli\u003EHealing potion (Backpack Item) This potion restores 2 \u003Csmall\u003EENDURANCE\u003C/small\u003E points to your total when swallowed after combat. There is enough for one dose.\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003Cli\u003ERope (Backpack Item)\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003Cli\u003ETorch (Backpack Item)\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003Cli\u003E2 Meals (Backpack Items) Each Meal takes up one space in your Backpack.\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003Cli\u003ETinderbox (Backpack Item)\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003Cli\u003EBottle of Wine (Backpack Item)\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EYou also possess a Short Sword (Weapon) which you carry in a scabbard.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022howuse\u0022\u003EUsing Your Equipment\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cdl\u003E\n\u003Cdt\u003EWeapons\u003C/dt\u003E\n\u003Cdd\u003EIf you enter a combat with no Weapons, deduct 4 points from your \u003Csmall\u003ECOMBAT SKILL\u003C/small\u003E and fight with your bare hands. If you find a Weapon during the adventure, you may pick it up and use it. The maximum number of Weapons that you may carry is two.\u003Csup\u003E\u003Ca href=\u0022#equipmnt-1-foot\u0022 name=\u0022equipmnt-1\u0022\u003E1\u003C/a\u003E\u003C/sup\u003E\u003Cbr\u003E\u003Cbr\u003E\n\u003C/dd\u003E\n\u003Cdt\u003EBackpack Items\u003C/dt\u003E\n\u003Cdd\u003EYou may discover various useful items which you may wish to keep. You may exchange or discard them at any point when you are not involved in combat. Your Backpack can carry a maximum of eight articles (including Meals).\u003Cbr\u003E\u003Cbr\u003E\n\u003C/dd\u003E\n\u003Cdt\u003ESpecial Items\u003C/dt\u003E\n\u003Cdd\u003EWhen you discover a Special Item, you will be told how to carry it.\u003Cbr\u003E\u003Cbr\u003E\n\u003C/dd\u003E\n\u003Cdt\u003EGold Crowns\u003C/dt\u003E\n\u003Cdd\u003EThese are carried in your pouch (maximum 50 Crowns).\u003Cbr\u003E\u003Cbr\u003E\n\u003C/dd\u003E\n\u003Cdt\u003EFood\u003C/dt\u003E\n\u003Cdd\u003EEach Meal counts as one backpack item. If you do not have any food when you are instructed to eat, you will lose 3 \u003Csmall\u003EENDURANCE\u003C/small\u003E points.\u003Cbr\u003E\u003Cbr\u003E\n\u003C/dd\u003E\n\u003C/dl\u003E\n\u003Ch3\u003E\u003Ca name=\u0022cmbtrulz\u0022\u003ERules for Combat\u003C/a\u003E\u003C/h3\u003E\n\n\u003Cp\u003EThere will be occasions during your adventure when you have to fight an enemy. The enemy\u2019s \u003Csmall\u003ECOMBAT SKILL\u003C/small\u003E and \u003Csmall\u003EENDURANCE\u003C/small\u003E points are given in the text. Your aim during the combat is to kill the enemy by reducing his \u003Csmall\u003EENDURANCE\u003C/small\u003E points to zero while at the same time losing as few \u003Csmall\u003EENDURANCE\u003C/small\u003E points as possible yourself.\u003C/p\u003E\n\u003Cp\u003EAt the start of a combat, enter your \u003Csmall\u003EENDURANCE\u003C/small\u003E points and the enemy\u2019s \u003Csmall\u003EENDURANCE\u003C/small\u003E points in the appropriate boxes on the Combat Record section of the \u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E.\u003C/p\u003E\n\u003Cp\u003EThe sequence for combat is as follows:\u003C/p\u003E\n\u003Col\u003E\n\u003Cli\u003EAdd any extra points gained through the use of Special Items or spells to your current \u003Csmall\u003ECOMBAT SKILL\u003C/small\u003E total.\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003Cli\u003ESubtract the \u003Csmall\u003ECOMBAT SKILL\u003C/small\u003E of your enemy from this total. The result is your Combat Ratio. Enter it on the \u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E.\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003Cli\u003EWhen you have your Combat Ratio, pick a number from the \u003Ca href=\u0022#random\u0022\u003ERandom Number Table\u003C/a\u003E.\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003Cli\u003ETurn to the \u003Ca href=\u0022#crtable\u0022\u003ECombat Results Table\u003C/a\u003E. Along the top of the chart are shown the Combat Ratio numbers. Find the number that is the same as your Combat Ratio and cross-reference it with the random number you have picked (the random numbers appear on the side of the chart). You now have the number of \u003Csmall\u003EENDURANCE\u003C/small\u003E points lost by both Banedon and his adversary in this round of combat.\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003Cli\u003EOn the \u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E, mark the changes in \u003Csmall\u003EENDURANCE\u003C/small\u003E points to both participants in the combat.\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003Cli\u003EUnless otherwise instructed, or unless you have an option to evade, the next round of combat now starts.\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003Cli\u003ERepeat the sequence from Stage 3.\u003Cbr\u003E\u003Cbr\u003E\n\u003C/li\u003E\n\u003C/ol\u003E\n\u003Cp\u003EThis process of combat continues until the \u003Csmall\u003EENDURANCE\u003C/small\u003E points of either the enemy or Banedon are reduced to zero or below, at which point that combatant is declared dead. If Banedon is dead, the adventure is over. If the enemy is dead, Banedon proceeds but with his \u003Csmall\u003EENDURANCE\u003C/small\u003E points possibly reduced.\u003C/p\u003E\n\u003Cp\u003EA \u003Ca href=\u0022#crsumary\u0022\u003Esummary of Combat Rules\u003C/a\u003E appears in the back of this book.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022evasion\u0022\u003EEvasion of Combat\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EDuring your adventure you may be given the chance to evade combat. If you have already engaged in a round of combat and decide to evade, calculate the combat for that round in the usual manner. All points lost by the enemy as a result of that round are ignored, and you make your escape. Only Banedon may lose \u003Csmall\u003EENDURANCE\u003C/small\u003E points during that round (but then that is the risk of running away!). You may evade only if the text of the particular section allows you to do so.\u003C/p\u003E"
+    },
+    {
+      "id": "map",
+      "title": "Map of the Lastlands",
+      "html": "\u003Ch2\u003E\u003Ca name=\u0022map\u0022\u003EMap of the Lastlands\u003C/a\u003E\u003C/h2\u003E"
+    },
+    {
+      "id": "action",
+      "title": "Action Chart",
+      "html": "\u003Ch2\u003E\u003Ca name=\u0022action\u0022\u003EAction Chart\u003C/a\u003E\u003C/h2\u003E\n\n\n\u003Cp\u003E\n       \u003Csmall\u003ECOMBAT SKILL\u003C/small\u003E: _______\u003Cbr\u003E\n       \u003Csmall\u003EENDURANCE\u003C/small\u003E: _______\u003Cbr\u003E\n      \u003C/p\u003E\n\u003Cp\u003EBrotherhood Spells:\u003C/p\u003E\n\u003Col\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003C/ol\u003E\n\u003Cp\u003EWeapons:\u003C/p\u003E\n\u003Col\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003C/ol\u003E\n\u003Cp\u003EBelt Pouch: _______\u003C/p\u003E\n\u003Cp\u003EMeals: _______\u003C/p\u003E\n\u003Cp\u003EBackpack Items:\u003C/p\u003E\n\u003Col\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003C/ol\u003E\n\u003Cp\u003ESpecial Items:\u003C/p\u003E\n\u003Col\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003Cli\u003E_______\u003C/li\u003E\n\u003C/ol\u003E"
+    },
+    {
+      "id": "crsumary",
+      "title": "Combat Rules Summary",
+      "html": "\u003Ch2\u003E\u003Ca name=\u0022crsumary\u0022\u003ECombat Rules Summary\u003C/a\u003E\u003C/h2\u003E\n\n\n\u003Col\u003E\n\u003Cli\u003EAdd your \u003Csmall\u003ECOMBAT SKILL\u003C/small\u003E to any extra points given to you by your Brotherhood Spells.\u003C/li\u003E\n\u003Cli\u003ESubtract the \u003Csmall\u003ECOMBAT SKILL\u003C/small\u003E of your enemy from this total. This number = Combat Ratio.\u003C/li\u003E\n\u003Cli\u003EPick number from \u003Ca href=\u0022#random\u0022\u003ERandom Number Table\u003C/a\u003E.\u003C/li\u003E\n\u003Cli\u003ETurn to \u003Ca href=\u0022#crtable\u0022\u003ECombat Results Table\u003C/a\u003E.\u003C/li\u003E\n\u003Cli\u003EFind your Combat Ratio on the top of chart and cross-reference to random number you have picked. (A indicates loss of \u003Csmall\u003EENDURANCE\u003C/small\u003E points to Enemy. B indicates loss of \u003Csmall\u003EENDURANCE\u003C/small\u003E points to Banedon.)\u003C/li\u003E\n\u003Cli\u003EContinue the combat from Stage 3 until one character is dead. This is when \u003Csmall\u003EENDURANCE\u003C/small\u003E points of either character fall to 0 or below.\u003C/li\u003E\n\u003C/ol\u003E\n\u003Ch3\u003E\u003Ca name=\u0022smevazn\u0022\u003ETo Evade Combat\u003C/a\u003E\u003C/h3\u003E\n\n\u003Col\u003E\n\u003Cli\u003EYou may only do this when the text of the adventure offers you the opportunity.\u003C/li\u003E\n\u003Cli\u003EYou undertake one round of combat in the usual way. All points lost by the enemy are ignored, only Banedon loses the \u003Csmall\u003EENDURANCE\u003C/small\u003E points.\u003C/li\u003E\n\u003Cli\u003EIf the book offers the chance of taking evasive action in place of combat, it can be taken in the first round of combat or any subsequent round.\u003C/li\u003E\n\u003C/ol\u003E"
+    },
+    {
+      "id": "crtable",
+      "title": "Combat Results Table",
+      "html": "\u003Ch2\u003E\u003Ca name=\u0022crtable\u0022\u003ECombat Results Table\u003C/a\u003E\u003C/h2\u003E\n\n\n\u003Ctable cellpadding=\u00222\u0022 cellspacing=\u00220\u0022 border=\u00221\u0022 summary=\u0022This table provides the endurance losses sustained by the hero and enemy as a result of combat.\u0022\u003E\u003Ccaption\u003ECombat Results with combined hero and enemy \u003Csmall\u003EENDURANCE\u003C/small\u003E losses\u003C/caption\u003E\u003Ctfoot\u003E\u003Ctr\u003E\u003Ctd colspan=\u002214\u0022\u003ECombat results are given enemy\u2019s \u003Csmall\u003EENDURANCE\u003C/small\u003E loss first followed by the hero\u2019s \u003Csmall\u003EENDURANCE\u003C/small\u003E loss. For example, \u201812/0\u2019 means that the enemy loses 12 endurance points while the hero loses 0 \u003Csmall\u003EENDURANCE\u003C/small\u003E points. A combat result of \u2018k\u2019 means that the combatant is killed. For example, \u20180/k\u2019 means that the enemy loses 0 endurance points while the hero is killed.\u003C/td\u003E\u003C/tr\u003E\u003C/tfoot\u003E\u003Ctbody\u003E\u003Ctr\u003E\u003Cth rowspan=\u00222\u0022 scope=\u0022col\u0022\u003ERandom Number\u003C/th\u003E\u003Cth colspan=\u002213\u0022 scope=\u0022colgroup\u0022\u003ECombat Ratio\u003C/th\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E\u221211 or lower\u003C/th\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E\u221210/ \u22129\u003C/th\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E\u22128/ \u22127\u003C/th\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E\u22126/ \u22125\u003C/th\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E\u22124/ \u22123\u003C/th\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E\u22122/ \u22121\u003C/th\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E0\u003C/th\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E1/ 2\u003C/th\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E3/ 4\u003C/th\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E5/ 6\u003C/th\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E7/ 8\u003C/th\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E9/ 10\u003C/th\u003E\u003Cth axis=\u0022combat_ratio\u0022 scope=\u0022col\u0022\u003E11 or higher\u003C/th\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Cth axis=\u0022random_number\u0022 scope=\u0022row\u0022\u003E1\u003C/th\u003E\u003Ctd\u003E0/k\u003C/td\u003E\u003Ctd\u003E0/k\u003C/td\u003E\u003Ctd\u003E0/8\u003C/td\u003E\u003Ctd\u003E0/6\u003C/td\u003E\u003Ctd\u003E1/6\u003C/td\u003E\u003Ctd\u003E2/5\u003C/td\u003E\u003Ctd\u003E3/5\u003C/td\u003E\u003Ctd\u003E4/5\u003C/td\u003E\u003Ctd\u003E5/4\u003C/td\u003E\u003Ctd\u003E6/4\u003C/td\u003E\u003Ctd\u003E7/4\u003C/td\u003E\u003Ctd\u003E8/3\u003C/td\u003E\u003Ctd\u003E9/3\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Cth axis=\u0022random_number\u0022 scope=\u0022row\u0022\u003E2\u003C/th\u003E\u003Ctd\u003E0/k\u003C/td\u003E\u003Ctd\u003E0/8\u003C/td\u003E\u003Ctd\u003E0/7\u003C/td\u003E\u003Ctd\u003E1/6\u003C/td\u003E\u003Ctd\u003E2/5\u003C/td\u003E\u003Ctd\u003E3/5\u003C/td\u003E\u003Ctd\u003E4/4\u003C/td\u003E\u003Ctd\u003E5/4\u003C/td\u003E\u003Ctd\u003E6/3\u003C/td\u003E\u003Ctd\u003E7/3\u003C/td\u003E\u003Ctd\u003E8/3\u003C/td\u003E\u003Ctd\u003E9/3\u003C/td\u003E\u003Ctd\u003E10/2\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Cth axis=\u0022random_number\u0022 scope=\u0022row\u0022\u003E3\u003C/th\u003E\u003Ctd\u003E0/8\u003C/td\u003E\u003Ctd\u003E0/7\u003C/td\u003E\u003Ctd\u003E1/6\u003C/td\u003E\u003Ctd\u003E2/5\u003C/td\u003E\u003Ctd\u003E3/5\u003C/td\u003E\u003Ctd\u003E4/4\u003C/td\u003E\u003Ctd\u003E5/4\u003C/td\u003E\u003Ctd\u003E6/3\u003C/td\u003E\u003Ctd\u003E7/3\u003C/td\u003E\u003Ctd\u003E8/3\u003C/td\u003E\u003Ctd\u003E9/2\u003C/td\u003E\u003Ctd\u003E10/2\u003C/td\u003E\u003Ctd\u003E11/2\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Cth axis=\u0022random_number\u0022 scope=\u0022row\u0022\u003E4\u003C/th\u003E\u003Ctd\u003E0/8\u003C/td\u003E\u003Ctd\u003E1/7\u003C/td\u003E\u003Ctd\u003E2/6\u003C/td\u003E\u003Ctd\u003E3/5\u003C/td\u003E\u003Ctd\u003E4/4\u003C/td\u003E\u003Ctd\u003E5/4\u003C/td\u003E\u003Ctd\u003E6/3\u003C/td\u003E\u003Ctd\u003E7/3\u003C/td\u003E\u003Ctd\u003E8/2\u003C/td\u003E\u003Ctd\u003E9/2\u003C/td\u003E\u003Ctd\u003E10/2\u003C/td\u003E\u003Ctd\u003E11/2\u003C/td\u003E\u003Ctd\u003E12/2\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Cth axis=\u0022random_number\u0022 scope=\u0022row\u0022\u003E5\u003C/th\u003E\u003Ctd\u003E1/7\u003C/td\u003E\u003Ctd\u003E2/6\u003C/td\u003E\u003Ctd\u003E3/5\u003C/td\u003E\u003Ctd\u003E4/4\u003C/td\u003E\u003Ctd\u003E5/4\u003C/td\u003E\u003Ctd\u003E6/3\u003C/td\u003E\u003Ctd\u003E7/2\u003C/td\u003E\u003Ctd\u003E8/2\u003C/td\u003E\u003Ctd\u003E9/2\u003C/td\u003E\u003Ctd\u003E10/2\u003C/td\u003E\u003Ctd\u003E11/2\u003C/td\u003E\u003Ctd\u003E12/2\u003C/td\u003E\u003Ctd\u003E14/1\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Cth axis=\u0022random_number\u0022 scope=\u0022row\u0022\u003E6\u003C/th\u003E\u003Ctd\u003E2/6\u003C/td\u003E\u003Ctd\u003E3/6\u003C/td\u003E\u003Ctd\u003E4/5\u003C/td\u003E\u003Ctd\u003E5/4\u003C/td\u003E\u003Ctd\u003E6/3\u003C/td\u003E\u003Ctd\u003E7/2\u003C/td\u003E\u003Ctd\u003E8/2\u003C/td\u003E\u003Ctd\u003E9/2\u003C/td\u003E\u003Ctd\u003E10/2\u003C/td\u003E\u003Ctd\u003E11/1\u003C/td\u003E\u003Ctd\u003E12/1\u003C/td\u003E\u003Ctd\u003E14/1\u003C/td\u003E\u003Ctd\u003E16/1\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Cth axis=\u0022random_number\u0022 scope=\u0022row\u0022\u003E7\u003C/th\u003E\u003Ctd\u003E3/5\u003C/td\u003E\u003Ctd\u003E4/5\u003C/td\u003E\u003Ctd\u003E5/4\u003C/td\u003E\u003Ctd\u003E6/3\u003C/td\u003E\u003Ctd\u003E7/2\u003C/td\u003E\u003Ctd\u003E8/2\u003C/td\u003E\u003Ctd\u003E9/1\u003C/td\u003E\u003Ctd\u003E10/1\u003C/td\u003E\u003Ctd\u003E11/1\u003C/td\u003E\u003Ctd\u003E12/0\u003C/td\u003E\u003Ctd\u003E14/0\u003C/td\u003E\u003Ctd\u003E16/0\u003C/td\u003E\u003Ctd\u003E18/0\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Cth axis=\u0022random_number\u0022 scope=\u0022row\u0022\u003E8\u003C/th\u003E\u003Ctd\u003E4/4\u003C/td\u003E\u003Ctd\u003E8/4\u003C/td\u003E\u003Ctd\u003E6/3\u003C/td\u003E\u003Ctd\u003E7/2\u003C/td\u003E\u003Ctd\u003E8/1\u003C/td\u003E\u003Ctd\u003E9/1\u003C/td\u003E\u003Ctd\u003E10/0\u003C/td\u003E\u003Ctd\u003E11/0\u003C/td\u003E\u003Ctd\u003E12/0\u003C/td\u003E\u003Ctd\u003E14/0\u003C/td\u003E\u003Ctd\u003E16/0\u003C/td\u003E\u003Ctd\u003E18/0\u003C/td\u003E\u003Ctd\u003Ek/0\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Cth axis=\u0022random_number\u0022 scope=\u0022row\u0022\u003E9\u003C/th\u003E\u003Ctd\u003E5/3\u003C/td\u003E\u003Ctd\u003E6/3\u003C/td\u003E\u003Ctd\u003E7/2\u003C/td\u003E\u003Ctd\u003E8/0\u003C/td\u003E\u003Ctd\u003E9/0\u003C/td\u003E\u003Ctd\u003E10/0\u003C/td\u003E\u003Ctd\u003E11/0\u003C/td\u003E\u003Ctd\u003E12/0\u003C/td\u003E\u003Ctd\u003E14/0\u003C/td\u003E\u003Ctd\u003E16/0\u003C/td\u003E\u003Ctd\u003E18/0\u003C/td\u003E\u003Ctd\u003Ek/0\u003C/td\u003E\u003Ctd\u003Ek/0\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Cth axis=\u0022random_number\u0022 scope=\u0022row\u0022\u003E0\u003C/th\u003E\u003Ctd\u003E6/0\u003C/td\u003E\u003Ctd\u003E7/0\u003C/td\u003E\u003Ctd\u003E8/0\u003C/td\u003E\u003Ctd\u003E9/0\u003C/td\u003E\u003Ctd\u003E10/0\u003C/td\u003E\u003Ctd\u003E11/0\u003C/td\u003E\u003Ctd\u003E12/0\u003C/td\u003E\u003Ctd\u003E14/0\u003C/td\u003E\u003Ctd\u003E16/0\u003C/td\u003E\u003Ctd\u003E18/0\u003C/td\u003E\u003Ctd\u003Ek/0\u003C/td\u003E\u003Ctd\u003Ek/0\u003C/td\u003E\u003Ctd\u003Ek/0\u003C/td\u003E\u003C/tr\u003E\u003C/tbody\u003E\u003C/table\u003E"
+    },
+    {
+      "id": "random",
+      "title": "Random Number Table",
+      "html": "\u003Ch2\u003E\u003Ca name=\u0022random\u0022\u003ERandom Number Table\u003C/a\u003E\u003C/h2\u003E\n\n\n\u003Ctable cellpadding=\u00222\u0022 cellspacing=\u00220\u0022 border=\u00221\u0022\u003E\u003Ctbody\u003E\u003Ctr\u003E\u003Ctd\u003E1\u003C/td\u003E\u003Ctd\u003E5\u003C/td\u003E\u003Ctd\u003E7\u003C/td\u003E\u003Ctd\u003E3\u003C/td\u003E\u003Ctd\u003E6\u003C/td\u003E\u003Ctd\u003E9\u003C/td\u003E\u003Ctd\u003E0\u003C/td\u003E\u003Ctd\u003E1\u003C/td\u003E\u003Ctd\u003E7\u003C/td\u003E\u003Ctd\u003E9\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd\u003E3\u003C/td\u003E\u003Ctd\u003E9\u003C/td\u003E\u003Ctd\u003E2\u003C/td\u003E\u003Ctd\u003E8\u003C/td\u003E\u003Ctd\u003E1\u003C/td\u003E\u003Ctd\u003E7\u003C/td\u003E\u003Ctd\u003E4\u003C/td\u003E\u003Ctd\u003E9\u003C/td\u003E\u003Ctd\u003E7\u003C/td\u003E\u003Ctd\u003E8\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd\u003E6\u003C/td\u003E\u003Ctd\u003E1\u003C/td\u003E\u003Ctd\u003E0\u003C/td\u003E\u003Ctd\u003E7\u003C/td\u003E\u003Ctd\u003E3\u003C/td\u003E\u003Ctd\u003E0\u003C/td\u003E\u003Ctd\u003E5\u003C/td\u003E\u003Ctd\u003E4\u003C/td\u003E\u003Ctd\u003E6\u003C/td\u003E\u003Ctd\u003E7\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd\u003E0\u003C/td\u003E\u003Ctd\u003E2\u003C/td\u003E\u003Ctd\u003E8\u003C/td\u003E\u003Ctd\u003E9\u003C/td\u003E\u003Ctd\u003E2\u003C/td\u003E\u003Ctd\u003E9\u003C/td\u003E\u003Ctd\u003E6\u003C/td\u003E\u003Ctd\u003E0\u003C/td\u003E\u003Ctd\u003E2\u003C/td\u003E\u003Ctd\u003E4\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd\u003E5\u003C/td\u003E\u003Ctd\u003E9\u003C/td\u003E\u003Ctd\u003E6\u003C/td\u003E\u003Ctd\u003E4\u003C/td\u003E\u003Ctd\u003E8\u003C/td\u003E\u003Ctd\u003E2\u003C/td\u003E\u003Ctd\u003E8\u003C/td\u003E\u003Ctd\u003E5\u003C/td\u003E\u003Ctd\u003E6\u003C/td\u003E\u003Ctd\u003E3\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd\u003E0\u003C/td\u003E\u003Ctd\u003E3\u003C/td\u003E\u003Ctd\u003E1\u003C/td\u003E\u003Ctd\u003E3\u003C/td\u003E\u003Ctd\u003E9\u003C/td\u003E\u003Ctd\u003E7\u003C/td\u003E\u003Ctd\u003E5\u003C/td\u003E\u003Ctd\u003E0\u003C/td\u003E\u003Ctd\u003E1\u003C/td\u003E\u003Ctd\u003E5\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd\u003E5\u003C/td\u003E\u003Ctd\u003E8\u003C/td\u003E\u003Ctd\u003E2\u003C/td\u003E\u003Ctd\u003E5\u003C/td\u003E\u003Ctd\u003E1\u003C/td\u003E\u003Ctd\u003E3\u003C/td\u003E\u003Ctd\u003E6\u003C/td\u003E\u003Ctd\u003E4\u003C/td\u003E\u003Ctd\u003E3\u003C/td\u003E\u003Ctd\u003E9\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd\u003E7\u003C/td\u003E\u003Ctd\u003E0\u003C/td\u003E\u003Ctd\u003E4\u003C/td\u003E\u003Ctd\u003E8\u003C/td\u003E\u003Ctd\u003E6\u003C/td\u003E\u003Ctd\u003E4\u003C/td\u003E\u003Ctd\u003E5\u003C/td\u003E\u003Ctd\u003E1\u003C/td\u003E\u003Ctd\u003E4\u003C/td\u003E\u003Ctd\u003E2\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd\u003E4\u003C/td\u003E\u003Ctd\u003E6\u003C/td\u003E\u003Ctd\u003E8\u003C/td\u003E\u003Ctd\u003E3\u003C/td\u003E\u003Ctd\u003E2\u003C/td\u003E\u003Ctd\u003E0\u003C/td\u003E\u003Ctd\u003E1\u003C/td\u003E\u003Ctd\u003E7\u003C/td\u003E\u003Ctd\u003E2\u003C/td\u003E\u003Ctd\u003E5\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd\u003E8\u003C/td\u003E\u003Ctd\u003E3\u003C/td\u003E\u003Ctd\u003E7\u003C/td\u003E\u003Ctd\u003E0\u003C/td\u003E\u003Ctd\u003E9\u003C/td\u003E\u003Ctd\u003E6\u003C/td\u003E\u003Ctd\u003E2\u003C/td\u003E\u003Ctd\u003E4\u003C/td\u003E\u003Ctd\u003E8\u003C/td\u003E\u003Ctd\u003E1\u003C/td\u003E\u003C/tr\u003E\u003C/tbody\u003E\u003C/table\u003E"
+    },
+    {
+      "id": "errata",
+      "title": "Errata",
+      "html": "\u003Ch2\u003E\u003Ca name=\u0022errata\u0022\u003EErrata\u003C/a\u003E\u003C/h2\u003E\n\n\n\u003Ch3\u003E\u003Ca name=\u0022errintro\u0022\u003EIntroduction\u003C/a\u003E\u003C/h3\u003E\n\n\u003Cp\u003EWe have taken our unique opportunity to correct errors and to enforce a standard of English usage. We list our changes here. If you see anything that needs correction, please \u003Ca href=\u0022http://www.projectaon.org/en/Main/Contact\u0022\u003Econtact\u003C/a\u003E the Project Aon Staff.\u003C/p\u003E\n\u003Ch3\u003E\u003Ca name=\u0022errerr\u0022\u003EErrata\u003C/a\u003E\u003C/h3\u003E\n\n\u003Cp\u003E(\u003Ca href=\u0022#map\u0022\u003EMap of the Lastlands\u003C/a\u003E) Added this image from \u003Ccite\u003E\u003Ca href=\u0022../lw/01fftd.htm#title\u0022\u003EFlight from the Dark\u003C/a\u003E\u003C/cite\u003E.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#tssf\u0022\u003EThe Story So Far\u003C/a\u003E) Replaced \u2018journeyman\u2019 with \u2018Journeyman\u2019. Replaced both instances of \u2018Magicians Guild\u2019 with \u2018Magicians\u2019 Guild\u2019. Replaced \u2018luck of the Gods\u2019 with \u2018luck of the gods\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#gamerulz\u0022\u003EThe Game Rules\u003C/a\u003E) Replaced \u2018To keep a record of your adventure, use the \u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E on page 96\u2019 with \u2018You keep a record of your adventure on the \u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E\u2019. Removed \u2018on the last page of this book\u2019. Replaced \u2018any of your spells\u2019 with \u2018certain spells\u2019. Replaced \u2018\u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E below\u2019 with \u2018\u003Ca href=\u0022#action\u0022\u003EAction Chart\u003C/a\u003E\u2019. Replaced \u2018to zero\u2019 with \u2018to zero or below\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#powers\u0022\u003EMagical Powers\u003C/a\u003E) Replaced \u2018the \u2018Spells\u2019 section\u2019 with \u2018the \u2018Brotherhood Spells\u2019 section\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#equipmnt\u0022\u003EEquipment\u003C/a\u003E) Replaced \u2018envelope\u2019 with \u2018Envelope\u2019. Replaced \u2018restores 2 points\u2019 with \u2018restores 2 \u003Csmall\u003EENDURANCE\u003C/small\u003E points\u2019. Replaced \u2018short sword (weapon)\u2019 with \u2018Short Sword (Weapon)\u2019. Replaced \u2018your 28\u2019 with \u2018your \u003Csmall\u003ECOMBAT SKILL\u003C/small\u003E\u2019. Replaced \u2018BLANKET\u2019 with \u2018Blanket\u2019. Replaced \u2018HEALING POTION\u2019 with \u2018Healing Potion\u2019. Replaced \u2018ROPE\u2019 with \u2018Rope\u2019. Replaced \u2018TORCH\u2019 with \u2018Torch\u2019. Replaced \u20182 MEALS\u2019 with \u20182 Meals\u2019. Replaced \u2018TINDERBOX\u2019 with \u2018Tinderbox\u2019. Replaced \u2018BOTTLE OF WINE\u2019 with \u2018Bottle of Wine\u2019. Replaced each occurrence of \u2018weapons\u2019 with \u2018Weapons\u2019. Replaced \u2018weapon\u2019 with \u2018Weapon\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#cmbtrulz\u0022\u003ERules for Combat\u003C/a\u003E) Removed \u2018 on page 95\u2019. Replaced \u2018the one with the zero score\u2019 with \u2018that combatant\u2019. Added \u2018A \u003Ca href=\u0022#crsumary\u0022\u003Esummary of Combat Rules\u003C/a\u003E appears in the back of this book.\u2019. Replaced \u2018You may only evade if the text allows you to.\u2019 with \u2018During your adventure you may be given the chance to evade combat. If you have already engaged in a round of combat and decide to evade, calculate the combat for that round in the usual manner. All points lost by the enemy as a result of that round are ignored, and you make your escape. Only Banedon may lose \u003Csmall\u003EENDURANCE\u003C/small\u003E points during that round (but then that is the risk of running away!). You may evade only if the text of the particular section allows you to do so.\u2019. Removed \u2018on page 96\u2019. Replaced \u2018to zero\u2019 with \u2018to zero or below\u2019. Replaced \u2018\u003Csmall\u003EENDURANCE\u003C/small\u003E points reduced\u2019 with \u2018\u003Csmall\u003EENDURANCE\u003C/small\u003E points possibly reduced\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect1\u0022\u003E1\u003C/a\u003E) Added the caption \u2018It is now dawn on the day before the feast of Fehmarn.\u2019 to the illustration. This text is copied from \u003Ca href=\u0022#tssf\u0022\u003EThe Story So Far\u003C/a\u003E.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect4\u0022\u003E4\u003C/a\u003E) Replaced \u2018spell of Silence\u2019 with \u2018spell \u003Ci\u003ESilence\u003C/i\u003E and wish to use it\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect11\u0022\u003E11\u003C/a\u003E) Replaced \u2018envelope\u2019 with \u2018Envelope\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect16\u0022\u003E16\u003C/a\u003E) Replaced \u2018semi-circle\u2019 with \u2018semicircle\u2019. Replaced \u2018a clutch of Kraan glide\u2019 with \u2018a clutch of Kraan glides\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect19\u0022\u003E19\u003C/a\u003E) Replaced \u2018envelope\u2019 with \u2018Envelope\u2019. Replaced \u2018Ogadak\u2019 with \u2018Orgadak\u2019. Replaced \u2018spell of Lightning Hand\u2019 with \u2018spell \u003Ci\u003ELightning Hand\u003C/i\u003E\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect23\u0022\u003E23\u003C/a\u003E) Replaced \u2018spell of Mind Charm, and\u2019 with \u2018spell \u003Ci\u003EMind Charm\u003C/i\u003E and\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect24\u0022\u003E24\u003C/a\u003E) Replaced \u2018spell of Counter Spell, and\u2019 with \u2018spell \u003Ci\u003ECounterspell\u003C/i\u003E and\u2019. Replaced \u2018spell of Invisible Shield, and\u2019 with \u2018spell \u003Ci\u003EInvisible Shield\u003C/i\u003E and\u2019. Added the caption \u2018He is a Helghast, a hellish servant of the Darklords.\u2019 to the illustration.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect27\u0022\u003E27\u003C/a\u003E) Replaced \u2018spell of Mend\u2019 with \u2018spell \u003Ci\u003EMend\u003C/i\u003E\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect33\u0022\u003E33\u003C/a\u003E) Replaced \u2018spell of Net, and\u2019 with \u2018spell \u003Ci\u003ENet\u003C/i\u003E and\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect34\u0022\u003E34\u003C/a\u003E) Replaced \u2018restore lost \u003Csmall\u003EENDURANCE\u003C/small\u003E\u2019 with \u2018restore 5 lost \u003Csmall\u003EENDURANCE\u003C/small\u003E\u2019. Replaced \u2018meal\u2019 with \u2018Meal\u2019. Replaced \u2018spell of Mend\u2019 with \u2018spell \u003Ci\u003EMend\u003C/i\u003E\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect35\u0022\u003E35\u003C/a\u003E) Replaced \u2018spell of Levitation\u2019 with \u2018spell \u003Ci\u003ELevitation\u003C/i\u003E and wish to use it\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect37\u0022\u003E37\u003C/a\u003E) Replaced \u2018spell of Lightning Hand\u2019 with \u2018spell \u003Ci\u003ELightning Hand\u003C/i\u003E and wish to use it\u2019. Replaced \u2018or do\u2019 with \u2018or if you do\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect38\u0022\u003E38\u003C/a\u003E) Replaced \u2018spell of Counter Spell, and\u2019 with \u2018spell \u003Ci\u003ECounterspell\u003C/i\u003E and\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect41\u0022\u003E41\u003C/a\u003E) Removed superfluous line-break after \u2018magical,\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect43\u0022\u003E43\u003C/a\u003E) Split the \u003Ca href=\u0022#random\u0022\u003ERandom Number Table\u003C/a\u003E choices onto separate lines. Replaced \u2018spell of Invisible Shield\u2019 with \u2018spell \u003Ci\u003EInvisible Shield\u003C/i\u003E\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect44\u0022\u003E44\u003C/a\u003E) Replaced \u2018sword blade\u2019 with \u2018Sword\u2019s blade\u2019. Replaced \u2018Old Tadeus\u2019 with \u2018Old Tadeus:\u2019. Split the option to evade combat onto its own line. Replaced \u2018spell of Vigour\u2019 with \u2018spell \u003Ci\u003EVigour\u003C/i\u003E\u2019. Replaced \u2018rounds, by\u2019 with \u2018rounds by\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect45\u0022\u003E45\u003C/a\u003E) Replaced \u2018spell of Levitation, and\u2019 with \u2018spell \u003Ci\u003ELevitation\u003C/i\u003E and\u2019. Added the caption \u2018Many Giaks and Drakkarim are being marshalled into units.\u2019 to the illustration.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect46\u0022\u003E46\u003C/a\u003E) Replaced \u2018restore lost \u003Csmall\u003EENDURANCE\u003C/small\u003E\u2019 with \u2018restore 5 lost \u003Csmall\u003EENDURANCE\u003C/small\u003E\u2019. Replaced \u2018spell of Mend\u2019 with \u2018spell \u003Ci\u003EMend\u003C/i\u003E\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect47\u0022\u003E47\u003C/a\u003E) Replaced \u2018spell of Levitation\u2019 with \u2018spell \u003Ci\u003ELevitation\u003C/i\u003E\u2019. Replaced \u2018or do\u2019 with \u2018or if you do\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect48\u0022\u003E48\u003C/a\u003E) Replaced \u2018spell of Mind Charm, and\u2019 with \u2018spell \u003Ci\u003EMind Charm\u003C/i\u003E and\u2019. Replaced \u2018Crowns, by\u2019 with \u2018Crowns by\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect49\u0022\u003E49\u003C/a\u003E) Replaced \u2018spell of Lightning Hand, and\u2019 with \u2018spell \u003Ci\u003ELightning Hand\u003C/i\u003E and\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect50\u0022\u003E50\u003C/a\u003E) Replaced \u2018Giaks\u2019 with \u2018Giaks:\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect52\u0022\u003E52\u003C/a\u003E) Split the links onto separate lines.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect53\u0022\u003E53\u003C/a\u003E) Replaced \u2018spell of Mend\u2019 with \u2018spell \u003Ci\u003EMend\u003C/i\u003E\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect55\u0022\u003E55\u003C/a\u003E) Moved the last choice (about using \u003Ci\u003ESense Evil\u003C/i\u003E) into the first position. Replaced \u2018spell of Sense Evil, and\u2019 with \u2018spell \u003Ci\u003ESense Evil\u003C/i\u003E and\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect57\u0022\u003E57\u003C/a\u003E) Replaced \u2018Road, and\u2019 with \u2018Road and\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect58\u0022\u003E58\u003C/a\u003E) Replaced \u2018counter spell\u2019 with \u2018\u003Ci\u003ECounterspell\u003C/i\u003E\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect59\u0022\u003E59\u003C/a\u003E) Replaced \u2018spell of Net, and\u2019 with \u2018spell \u003Ci\u003ENet\u003C/i\u003E and\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect60\u0022\u003E60\u003C/a\u003E) Replaced \u2018power words\u2019 with \u2018power-words\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect62\u0022\u003E62\u003C/a\u003E) Replaced \u2018envelope\u2019 with \u2018Envelope\u2019. Replaced \u2018Ogadak\u2019 with \u2018Orgadak\u2019. Replaced \u2018spell of Lightning Hand, and\u2019 with \u2018spell \u003Ci\u003ELightning Hand\u003C/i\u003E and\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect64\u0022\u003E64\u003C/a\u003E) Replaced \u2018Helghast\u2019 with \u2018Helghast:\u2019. Replaced \u2018spell of Vigour\u2019 with \u2018spell \u003Ci\u003EVigour\u003C/i\u003E\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect71\u0022\u003E71\u003C/a\u003E) Replaced \u2018spell of Mind Charm\u2019 with \u2018spell \u003Ci\u003EMind Charm\u003C/i\u003E\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect75\u0022\u003E75\u003C/a\u003E) Replaced \u2018says, \u2018please\u2019 with \u2018says. \u2018Please\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect76\u0022\u003E76\u003C/a\u003E) Replaced \u2018spell of Mind Charm, and\u2019 with \u2018spell \u003Ci\u003EMind Charm\u003C/i\u003E and\u2019. Replaced \u2018spell of Sense Evil, and\u2019 with \u2018spell \u003Ci\u003ESense Evil\u003C/i\u003E and\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect77\u0022\u003E77\u003C/a\u003E) Replaced each occurrence of \u2018the Captain\u2019 with \u2018the captain\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect78\u0022\u003E78\u003C/a\u003E) Replaced \u2018spell of Levitation\u2019 with \u2018spell \u003Ci\u003ELevitation\u003C/i\u003E\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect79\u0022\u003E79\u003C/a\u003E) Replaced \u2018blanket\u2019 with \u2018Blanket\u2019. Replaced \u2018boy, \u2018he\u2019s\u2019 with \u2018boy. \u2018He\u2019s\u2019 Moved the last choice (about using \u003Ci\u003ESense Evil\u003C/i\u003E) into the first position. Replaced \u2018spell of Sense Evil, and\u2019 with \u2018spell \u003Ci\u003ESense Evil\u003C/i\u003E and\u2019.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#sect80\u0022\u003E80\u003C/a\u003E) Added the caption \u2018\u2009\u2018I, Lone Wolf, must journey to Holmgard to warn the King.\u2019\u2009\u2019 to the illustration.\u003C/p\u003E\n\u003Cp\u003E(\u003Ca href=\u0022#crsumary\u0022\u003ECombat Rules Summary\u003C/a\u003E) Added this section.\u003C/p\u003E"
+    },
+    {
+      "id": "illstrat",
+      "title": "Table of Illustrations",
+      "html": "\u003Ch2\u003E\u003Ca name=\u0022illstrat\u0022\u003ETable of Illustrations\u003C/a\u003E\u003C/h2\u003E\n\n\n\u003Cp\u003EThe following is a list of all Sections containing illustrations found in this book:\u003C/p\u003E\n\u003Ch3\u003E\u003Ca name=\u0022primill\u0022\u003EIllustrations\u003C/a\u003E\u003C/h3\u003E\n\n\u003Cul class=\u0022unbulleted\u0022\u003E\n\u003Cli\u003E\u003Ca href=\u0022#sect1\u0022\u003ESection 1\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#sect24\u0022\u003ESection 24\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#sect45\u0022\u003ESection 45\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#sect80\u0022\u003ESection 80\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#map\u0022\u003EMap of the Lastlands\u003C/a\u003E\u003C/li\u003E\n\u003C/ul\u003E\n\u003Ch3\u003E\u003Ca name=\u0022secill\u0022\u003ESecondary Illustrations\u003C/a\u003E\u003C/h3\u003E\n\n\u003Cul class=\u0022unbulleted\u0022\u003E\n\u003Cli\u003E\u003Ca href=\u0022#tssf\u0022\u003EThe Story So Far\u2026\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#equipmnt\u0022\u003EEquipment\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#sect22\u0022\u003ESection 22\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#sect28\u0022\u003ESection 28\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022#sect56\u0022\u003ESection 56\u003C/a\u003E\u003C/li\u003E\n\u003C/ul\u003E"
+    },
+    {
+      "id": "license",
+      "title": "Project Aon License",
+      "html": "\u003Ch2\u003E\u003Ca name=\u0022license\u0022\u003EProject Aon License\u003C/a\u003E\u003C/h2\u003E\n\n\n\u003Cp\u003E21 August 2009\u003C/p\u003E\n\u003Ch3\u003E\u003Ca name=\u0022lic-pre\u0022\u003E0. Preamble\u003C/a\u003E\u003C/h3\u003E\n\n\u003Cp\u003EJoe Dever, author of the Lone Wolf game books, and Ian Page, author of the World of Lone Wolf books are providing certain of their works for free (gratis) download from the internet. Rob Adams, Paul Bonner, Gary Chalk, Melvyn Grant, Richard Hook, Peter Andrew Jones, Cyril Julien, Peter Lyon, Trevor Newton, Peter Parr, Graham Round, and Brian Williams are similarly offering the illustrations that they did for these books. This license is intended to protect the rights of the authors and the illustrators, grant rights to their readers, and preserve the quality of the books distributed in this way.\u003C/p\u003E\n\u003Cp\u003EBy viewing or downloading the books or the illustrations, you agree to refrain from redistributing them in any format for any reason. This is intended to protect readers from getting poor quality, unofficial versions or from being asked for payment in exchange for the books by someone who is redistributing them unofficially.\u003C/p\u003E\n\u003Cp\u003EAnyone who wishes to simply view or download the Internet Editions for their own personal use need not worry about running afoul of the terms of this License. These activities are within acceptable behaviour as defined by this License.\u003C/p\u003E\n\u003Cp\u003EThis section does not contain the legally binding terms of this license. Please read the precise terms and conditions of this license that follow.\u003C/p\u003E\n\u003Cp\u003EThe current version of this license can be found at the following URL:\u003C/p\u003E\n\u003Cblockquote\u003E\n\u003Cp\u003E\u003Ca href=\u0022http://www.projectaon.org/en/Main/License\u0022\u003Ehttp://www.projectaon.org/en/Main/License\u003C/a\u003E\u003C/p\u003E\n\n\u003C/blockquote\u003E\n\u003Ch3\u003E\u003Ca name=\u0022lic-1\u0022\u003E1. Definitions\u003C/a\u003E\u003C/h3\u003E\n\n\u003Ch4\u003E\u003Ca name=\u0022lic-1-0\u0022\u003E1.0\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003E\u2018License\u2019 shall hereafter refer to this document.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-1-1\u0022\u003E1.1\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003E\u2018Authors\u2019 shall hereafter refer to Joe Dever, Ian Page, and Gary Chalk, copyright holders for the literary works covered by this license. Where Joe Dever, Ian Page, or Gary Chalk is mentioned singly, they will be referred to by name.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-1-2\u0022\u003E1.2\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003E\u2018Illustrators\u2019 shall hereafter refer to Rob Adams, copyright holder of portions of \u003Ccite\u003EThe Magnamund Companion\u003C/cite\u003E; Paul Bonner, holder of the copyrights for the illustrations of the World of Lone Wolf books; Gary Chalk, holder of the copyrights for the illustrations of Lone Wolf books one through eight counted inclusively, holder of the copyrights of portions of \u003Ccite\u003EThe Magnamund Companion\u003C/cite\u003E, and holder of the copyrights for \u003Ccite\u003EThe Lone Wolf Poster Painting Book\u003C/cite\u003E; Melvyn Grant, holder of the copyrights for the illustrations of \u003Ccite\u003EFreeway Warrior 1: Highway Holocaust\u003C/cite\u003E; Richard Hook, copyright holder of portions of \u003Ccite\u003EThe Magnamund Companion\u003C/cite\u003E; Peter Andrew Jones, copyright holder for the illustrations used in the \u003Ccite\u003ELone Wolf 10th Anniversary Calendar\u003C/cite\u003E; Cyril Julien, copyright holder of portions of \u003Ccite\u003EThe Skull of Agarash\u003C/cite\u003E; Peter Lyon, copyright holder of portions of \u003Ccite\u003EThe Magnamund Companion\u003C/cite\u003E; Trevor Newton, copyright holder of the illustrations of \u003Ccite\u003EVoyage of the Moonstone\u003C/cite\u003E; Peter Parr, copyright holder of the illustrations of \u003Ccite\u003EBlack Baron\u003C/cite\u003E and \u003Ccite\u003EWhite Warlord\u003C/cite\u003E, \u003Ccite\u003EEmerald Enchanter\u003C/cite\u003E and \u003Ccite\u003EScarlet Sorcerer\u003C/cite\u003E; Graham Round, copyright holder of portions of \u003Ccite\u003EThe Magnamund Companion\u003C/cite\u003E; and Brian Williams, holder of the copyrights for the illustrations of Lone Wolf books nine through twenty-eight counted inclusively with the exception of the illustrations for book twenty-one, \u003Ccite\u003EThe Voyage of the Moonstone\u003C/cite\u003E, holder of the copyrights of portions of \u003Ccite\u003EThe Skull of Agarash\u003C/cite\u003E, and holder of the copyrights for the illustrations of books two through four, counted inclusively, of the Freeway Warrior series. Where Paul Bonner, Gary Chalk, Melvyn Grant, Richard Hook, Peter Andrew Jones, Cyril Julien, Peter Lyon, Trevor Newton, Peter Parr Graham Round, or Brian Williams is mentioned singly, they will be referred to by name.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-1-3\u0022\u003E1.3\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003E\u2018Internet\u2019 shall hereafter refer to any means of transferring information electronically between two or more \u2018Licensees\u2019. (The term \u2018Licensee\u2019 is defined in Section 1.5 of the License)\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-1-4\u0022\u003E1.4\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003E\u2018Internet Editions\u2019 shall hereafter refer to the document or documents, any parts thereof or derivative works thereof (including translations) made available to the public under the terms of this License via the Internet. The term \u2018Internet Editions\u2019 is limited to the electronic transcription of certain text and illustrations by the Authors and Illustrators respectively as listed hereafter.\u003C/p\u003E\n\u003Cp\u003EThe following are the works written by Joe Dever which are being offered in English and Spanish under the terms of this license:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EFlight from the Dark\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1984 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EFire on the Water\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1984 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Caverns of Kalte\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1984 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Chasm of Doom\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1985 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EShadow on the Sand\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1985 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Kingdoms of Terror\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1985 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003ECastle Death\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1986 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Jungle of Horrors\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1987 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Cauldron of Fear\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1987 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Dungeons of Torgar\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1987 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Prisoners of Time\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1987 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Masters of Darkness\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1988 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Plague Lords of Ruel\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1990, 1992 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Captives of Kaag\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1991 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Darke Crusade\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1991, 1993 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Legacy of Vashna\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1991, 1993 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Deathlord of Ixia\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1992, 1994 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EDawn of the Dragons\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1992 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EWolf\u2019s Bane\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1993, 1995 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Curse of Naar\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1993, 1996 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EVoyage of the Moonstone\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1994 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Buccaneers of Shadaki\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1994 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EMydnight\u2019s Hero\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1995 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003ERune War\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1995 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003ETrail of the Wolf\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1997 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Fall of Blood Mountain\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1997 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EVampirium\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1998 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Hunger of Sejanoz\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1998 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Magnamund Companion\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1986 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EFreeway Warrior 1: Highway Holocaust\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1988 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EFreeway Warrior 2: Slaughter Mountain Run\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1988 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EFreeway Warrior 3: The Omega Zone\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1989 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EFreeway Warrior 4: California Countdown\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1989 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EBlack Baron\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1986 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EWhite Warlord\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1986 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EEmerald Enchanter\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1986 Joe Dever.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EScarlet Sorcerer\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1986 Joe Dever.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe following are the works written by Ian Page which are being offered in English under the terms of this license:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EGrey Star the Wizard\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1985 Ian Page.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Forbidden City\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1986 Ian Page.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EBeyond the Nightmare Gate\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1986 Ian Page.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EWar of the Wizards\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1986 Ian Page.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe illustrations created by Rob Adams for the following book are part of the illustrations being offered under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Magnamund Companion\u003C/cite\u003E;\u003Cbr\u003ESome illustrations \u00A9 1986 Rob Adams.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe illustrations created by Paul Bonner for the following books are part of the illustrations being offered under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EGrey Star the Wizard\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1985 Paul Bonner.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Forbidden City\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1986 Paul Bonner.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EBeyond the Nightmare Gate\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1986 Paul Bonner.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EWar of the Wizards\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1986 Paul Bonner.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe illustrations created by Gary Chalk for the following books are part of the illustrations being offered under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EFlight from the Dark\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1984 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EFire on the Water\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1984 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Caverns of Kalte\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1984 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Chasm of Doom\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1985 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EShadow on the Sand\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1985 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Kingdoms of Terror\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1985 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003ECastle Death\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1986 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Jungle of Horrors\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1987 Joe Dever and Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Magnamund Companion\u003C/cite\u003E;\u003Cbr\u003ESome illustrations \u00A9 1986 Gary Chalk.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Lone Wolf Poster Painting Book\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1987 Gary Chalk.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe text written by Gary Chalk for the following book is being offered in English under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Lone Wolf Poster Painting Book\u003C/cite\u003E;\u003Cbr\u003E\u00A9 1987 Gary Chalk.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe illustrations created by Melvyn Grant for the following book are part of the illustrations being offered under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EFreeway Warrior 1: Highway Holocaust\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1988 Melvyn Grant.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe illustrations created by Richard Hook for the following book are part of the illustrations being offered under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Magnamund Companion\u003C/cite\u003E;\u003Cbr\u003ESome illustrations \u00A9 1986 Richard Hook.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe illustrations created by Peter Andrew Jones for the following book are part of the illustrations being offered under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003ELone Wolf 10th Anniversary Calendar\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1994 Peter Andrew Jones.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe illustrations created by Cyril Julien for the following book are part of the illustrations being offered under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Skull of Agarash\u003C/cite\u003E;\u003Cbr\u003ESome illustrations \u00A9 1994 Cyril Julien.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe illustrations created by Peter Lyon for the following book are part of the illustrations being offered under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Magnamund Companion\u003C/cite\u003E;\u003Cbr\u003ESome illustrations \u00A9 1986 Peter Lyon.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe illustrations created by Trevor Newton for the following book are part of the illustrations being offered under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EVoyage of the Moonstone\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1994 Trevor Newton.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe illustrations created by Peter Parr for the following books are part of the illustrations being offered under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EBlack Baron\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1986 Peter Parr.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EWhite Warlord\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1986 Peter Parr.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EEmerald Enchanter\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1986 Peter Parr.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EScarlet Sorcerer\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1986 Peter Parr.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe illustrations created by Graham Round for the following book are part of the illustrations being offered under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Magnamund Companion\u003C/cite\u003E;\u003Cbr\u003ESome illustrations \u00A9 1986 Graham Round.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe illustrations created by Brian Williams for the following books are part of the illustrations being offered under the terms of this License:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Cauldron of Fear\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1987 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Dungeons of Torgar\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1987 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Prisoners of Time\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1987 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Masters of Darkness\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1988 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Plague Lords of Ruel\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1990, 1992 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Captives of Kaag\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1990, 1992 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Darke Crusade\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1991, 1993 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Legacy of Vashna\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1991, 1993 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Deathlord of Ixia\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1992 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EDawn of the Dragons\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1992 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EWolf\u2019s Bane\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1993 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Curse of Naar\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1993 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Buccaneers of Shadaki\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1994 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EMydnight\u2019s Hero\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1995 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003ERune War\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1995 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003ETrail of the Wolf\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1997 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Fall of Blood Mountain\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1997 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EVampirium\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1998 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Hunger of Sejanoz\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1998 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EThe Skull of Agarash\u003C/cite\u003E;\u003Cbr\u003ESome illustrations \u00A9 1994 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EFreeway Warrior: Slaughter Mountain Run\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1988 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EFreeway Warrior: The Omega Zone\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1989 Brian Williams.\u003C/li\u003E\n\u003Cli\u003E\u003Ccite\u003EFreeway Warrior: California Countdown\u003C/cite\u003E;\u003Cbr\u003EIllustrations \u00A9 1989 Brian Williams.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe works distributed under the collective title \u003Ccite\u003ELone Wolf Club Newsletters\u003C/cite\u003E\u2014which are composed of, in part, portions of the above named works\u2014will also be distributed under the terms of this License.\u003C/p\u003E\n\u003Cp\u003E\u2018Internet Editions\u2019 shall not refer to any other works by the Authors, nor any other illustrations by the Illustrators unless the Authors or Illustrators amend this License. \u2018Internet Editions\u2019 shall refer solely to the text and illustrations of the above works when made available through the Internet.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-1-5\u0022\u003E1.5\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003E\u2018Licensee\u2019 shall hereafter refer to any person or electronic agent who receives some portion or all of the Internet Editions. The \u2018Licensee\u2019 shall hereinafter be referred to as \u2018Licensee\u2019 or \u2018you\u2019.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-1-6\u0022\u003E1.6\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003E\u2018Distribution Point\u2019 shall hereafter refer to the specific Internet site or sites to which the Authors and Illustrators have granted rights to distribute the Internet Editions under the terms of the License.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-1-7\u0022\u003E1.7\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003E\u2018Maintainer\u2019 shall hereafter refer to the person or persons who are responsible for the maintenance of the Distribution Point.\u003C/p\u003E\n\u003Ch3\u003E\u003Ca name=\u0022lic-2\u0022\u003E2. Terms of Distribution\u003C/a\u003E\u003C/h3\u003E\n\n\u003Ch4\u003E\u003Ca name=\u0022lic-2-0\u0022\u003E2.0\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EThe terms of this License are limited to the distribution of the Internet Editions. No other form of distribution is covered under the terms of this License.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-2-1\u0022\u003E2.1\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EThe Authors and Illustrators grant you the right to receive a copy or copies of the Internet Editions from the Distribution Point at no charge provided that you agree to all of the terms and obligations of this License. If you do not agree to all of the terms and obligations of this License, you are not granted any rights by this License.\u003C/p\u003E\n\u003Cp\u003EYou agree to be bound by the terms and obligations of this License by the act of receiving or viewing a copy of any portion of the Internet Editions even though you have not signed a written document. Indeed, you have no right to receive or view a copy or copies without first accepting this License as legally valid and binding and agreeing to the terms and obligations of this License.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-2-2\u0022\u003E2.2\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EYou agree to refrain from redistributing a significant portion of the Internet Editions in any form, electronic or otherwise, to any other person or persons for any reason by any means. You are granted the right to receive a copy or copies only for your own personal use.\u003C/p\u003E\n\u003Cp\u003EThis License does not collectively grant any rights to corporations or groups of individuals when regarded as one legal entity. This License exclusively grants rights to private individuals.\u003C/p\u003E\n\u003Cp\u003ERedistribution includes but is not limited to displaying the Internet Editions within the graphical representation of an Internet site other than the Distribution Point. This prohibition includes but is not limited to the use of HTML \u2018frames\u2019.\u003C/p\u003E\n\u003Cp\u003EAn exception to the restrictions on redistribution in this section is made in that you may send the Internet Editions or derivative works thereof to the Distribution Point by the consent of the Maintainer.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-2-4\u0022\u003E2.3\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EThe Authors and Illustrators retain all other rights to their respective portions of the Internet Editions not covered by this License. The Authors or Illustrators may, at any time, without notice and without need to show due cause, revoke the rights granted to you by this License to their respective portions of the Internet Editions.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-2-5\u0022\u003E2.4\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EIf a person is under the legal age to be able to enter into a contractual relationship as defined by the laws of the area in which that person resides, they may have a parent or legal guardian agree to be bound by the terms and obligations of this License. On condition of agreeing to be bound by the terms of the License, that same parent or legal guardian may thereafter give a copy or copies of the Internet Editions to that child. That parent or legal guardian is thereafter legally responsible to ensure that that child behaves in accordance with all of the terms and obligations of this License.\u003C/p\u003E\n\u003Cp\u003EThe authority of a parent or legal guardian to distribute the Internet Editions does not extend to the distribution of the Internet Editions to any other person or persons except his or her child or legal dependent.\u003C/p\u003E\n\u003Ch3\u003E\u003Ca name=\u0022lic-3\u0022\u003E3. Termination of the License\u003C/a\u003E\u003C/h3\u003E\n\n\u003Ch4\u003E\u003Ca name=\u0022lic-3-0\u0022\u003E3.0\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EIf for any reason you are unable to comply with any of the terms and obligations of this License, you agree to destroy all copies of the Internet Editions of which you have control within fourteen calendar days after the first violation.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-3-1\u0022\u003E3.1\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EIf any of the Authors or the Illustrators revokes your rights granted under this License, you agree to destroy all copies of the Authors\u2019 or Illustrators\u2019 work which is a part of the Internet Editions of which you have control within fourteen calendar days of receiving notification in any form.\u003C/p\u003E\n\u003Ch3\u003E\u003Ca name=\u0022lic-4\u0022\u003E4. Jurisdiction\u003C/a\u003E\u003C/h3\u003E\n\n\u003Ch4\u003E\u003Ca name=\u0022lic-4-0\u0022\u003E4.0\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EIf, in consequence of court judgement or the laws of a particular area, any portion of the License is held as invalid or unenforceable in any particular circumstance, you are no longer granted any rights under the terms of this License in that circumstance. You agree to act in accordance with section 3.0 for all copies of the Internet Editions for which the License is held as invalid or unenforceable as if you had violated the terms and obligations of the License. The License is intended to remain in force in all other circumstances.\u003C/p\u003E\n\u003Ch3\u003E\u003Ca name=\u0022lic-5\u0022\u003E5. Revision of the License\u003C/a\u003E\u003C/h3\u003E\n\n\u003Ch4\u003E\u003Ca name=\u0022lic-5-0\u0022\u003E5.0\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EThe Authors and the Illustrators may publish revisions of this License in the future to address new concerns. Any further revisions will be legally binding at the time that you receive notification in any form of the revision.\u003C/p\u003E\n\u003Ch3\u003E\u003Ca name=\u0022lic-6\u0022\u003E6. NO WARRANTY\u003C/a\u003E\u003C/h3\u003E\n\n\u003Ch4\u003E\u003Ca name=\u0022lic-6-0\u0022\u003E6.0\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EBECAUSE THE INTERNET EDITIONS ARE LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE INTERNET EDITIONS, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS OR OTHER PARTIES PROVIDE THE INTERNET EDITIONS \u0022AS IS\u0022 WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY OF THE INTERNET EDITIONS IS WITH YOU. SHOULD THE INTERNET EDITIONS PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY REPAIRS.\u003C/p\u003E\n\u003Ch4\u003E\u003Ca name=\u0022lic-6-1\u0022\u003E6.1\u003C/a\u003E\u003C/h4\u003E\n\n\u003Cp\u003EIN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER OR MAINTAINER BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE INTERNET EDITIONS (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE INTERNET EDITIONS TO OPERATE WITH ANY PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.\u003C/p\u003E"
+    }
+  ],
+  "sections": [
+    {
+      "id": "1",
+      "title": "1",
+      "blocks": [
+        {
+          "kind": "div",
+          "text": "[Illustration I]"
+        },
+        {
+          "kind": "p",
+          "text": "A sense of foreboding hangs over you as you mount your horse and head towards the city\u2019s south gate. There, a couple of tired night guards grumble wearily at your demand for the gate to be opened."
+        },
+        {
+          "kind": "p",
+          "text": "\u2018What\u2019s the hurry?\u2019 they growl. The door finally opens and you gallop through the arch."
+        },
+        {
+          "kind": "p",
+          "text": "Half a mile beyond a stone bridge you see a signpost. An arrow pointing to the south says, \u2018Meadowood \u00BD mile/Holmgard 80 miles\u2019, and the other arrow, pointing west says simply, \u2018Old Mine Road\u2019."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to continue south along the highway, turn to 7.",
+          "targetId": "7"
+        },
+        {
+          "text": "If you decide to take the road heading west, turn to 55.",
+          "targetId": "55"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "2",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Shouting your power-word, you point at the snarling Giaks. The lightning bolt breaks into several smaller energy pulses that rip into the evil warriors, sending them tumbling in all directions. Seizing the opportunity, you turn and run deeper into the ruined temple."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 32.",
+          "targetId": "32"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "3",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Reining your horse to a halt, you stare down at the two dead Rangers. Their chests are scorched as if they were both struck by lightning. A Sword and a Mace lie close by. You may take either of these weapons."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 31.",
+          "targetId": "31"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "4",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The one-roomed hut is damp and deserted. You scan the moss-covered walls for a good hiding place and your attention is caught by a large stone fireplace. You waste no time in climbing up the flue. Minutes later you hear the Giaks enter the hut in search of you. You try to keep as still as possible but you are desperate to sneeze."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Silence and wish to use it, turn to 74.",
+          "targetId": "74"
+        },
+        {
+          "text": "If you do not possess this spell, turn to 22.",
+          "targetId": "22"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "5",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "A search of the cupboards uncovers 2 Gold Crowns, enough food for one Meal, and the old man\u2019s Silver Warhammer. If you wish to take this, mark it on your Action Chart as a Special Item which you carry tucked into your belt."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 15.",
+          "targetId": "15"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "6",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "\u2018Quickly, take cover in the forest,\u2019 you shout to Daron and Thelda. But their little pony is terrified by the black-winged Kraan. It panics and gallops off into the trees on the other side of the highway. You are forced to ride deeper into the forest to avoid the black arrows of their Giak riders."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 73.",
+          "targetId": "73"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "7",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "A few minutes later you see a line of wagons on the highway ahead. A group of merchants are arguing with a patrol of Border Rangers who stand guard at a barricade. The Rangers are refusing to allow anyone to pass through the village of Meadowood. \u2018No good you trying,\u2019 calls a disgruntled coachman."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to ask the Rangers to allow you through, turn to 48.",
+          "targetId": "48"
+        },
+        {
+          "text": "If you wish to stop and talk to the coachman, turn to 57.",
+          "targetId": "57"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "8",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You cast your spell and catch all three of them by surprise. They struggle to free themselves but to no avail. The Kraan, fearing its riders have fallen into the clutches of a hideous monster, flies away to avoid a similar fate. The path is now clear and you seize your chance of escape."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 47.",
+          "targetId": "47"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "9",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Suddenly, a wave of pain makes you scream out. Two arrows have passed through your chest and back, smashing the air from your lungs. You fall from the saddle, crashing to the soft earth with a terrible jolt."
+        },
+        {
+          "kind": "p",
+          "text": "The last thing you hear are gasps of horror as the Rangers recognize your sky-blue robes."
+        },
+        {
+          "kind": "p",
+          "text": "Your life and your mission end here."
+        }
+      ],
+      "choices": []
+    },
+    {
+      "id": "10",
+      "title": "10",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "As night falls, you reach the tiny village of Oak Hill, less than twenty miles from the Monastery of the Kai. There is no tavern here, but the blacksmith is well known for his generous hospitality."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to stop at the blacksmith\u2019s house, turn to 66.",
+          "targetId": "66"
+        },
+        {
+          "text": "If you choose to sleep out in the open, turn to 79.",
+          "targetId": "79"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "11",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "For over an hour you move stealthily through the trees, straining for the sound of an approaching Giak patrol or nearby Kraan."
+        },
+        {
+          "kind": "p",
+          "text": "Gradually the trees begin to thin out and you can see the ruins of an ancient temple. You take refuge beneath a fallen pillar. As you catch your breath, you remove the Guildmaster\u2019s Envelope from your robe. Now that war has begun, it will be safer to commit its contents to memory rather than allow it to fall into enemy hands."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 42.",
+          "targetId": "42"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "12",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "As you rush into the fray, the familiar sound of Kraan wings return. Hovering above you are six of the fearsome creatures. The peasants panic and flee, leaving you to face the Kraan alone."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to stand and fight, turn to 37.",
+          "targetId": "37"
+        },
+        {
+          "text": "If you wish to try to escape, turn to 59.",
+          "targetId": "59"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "title": "13",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Hurriedly, you cast the spell, circling your palm behind your head to form the shield. An instant later, two arrows just miss your back. Your magic has saved your life, but it has not protected you from a third arrow that gouges your left leg. Lose 3 ENDURANCE points."
+        },
+        {
+          "kind": "p",
+          "text": "Wincing with pain, you press on until you have left the archers far behind."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 15.",
+          "targetId": "15"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "title": "14",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You soon learn that your companions\u2019 names are Daron and Thelda, and that their father owns a bakery at Searsby."
+        },
+        {
+          "kind": "p",
+          "text": "An hour has passed when you hear the beat of huge wings. A great cloud of black-winged creatures appears flying in a vast formation that darkens the sky. Your heart sinks. The Darklords, the ancient enemy of your people, are attacking. War has begun."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to continue along the highway, turn to 49.",
+          "targetId": "49"
+        },
+        {
+          "text": "If you decide to seek the shelter of the forest, turn to 6.",
+          "targetId": "6"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "title": "15",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The track continues for several miles down a steep wooded hillside to arrive at a little bridge spanning a deep, crystal-clear stream. A young woman dressed in padded leather armour stands there, warily watching you approach."
+        },
+        {
+          "kind": "p",
+          "text": "\u2018Where are you bound for, young wizard?\u2019 she asks."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to tell her your destination, turn to 54.",
+          "targetId": "54"
+        },
+        {
+          "text": "If you demand that she allow you across the bridge, turn to 76.",
+          "targetId": "76"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "title": "16",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The Giaks form a semicircle, holding you at bay with the points of their spears. Suddenly, a clutch of Kraan glides across the trees and drop their riders almost on top of you. Their leader screams \u2018Darg!\u2019 and, as one, the Giaks charge."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 37.",
+          "targetId": "37"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "title": "17",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "As you whisper the spell-chant, a wave of fear numbs your senses."
+        },
+        {
+          "kind": "p",
+          "text": "You are in the presence of a great and malicious evil. The woman senses your fear and a smile spreads across her face."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 54.",
+          "targetId": "54"
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "title": "18",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Your quick thinking saves you from the full impact of the lightning bolt. It passes close by your head, blistering the skin on your cheek and causing your hair to smoulder. The Helghast screams a terrible cry that claws at your mind (lose 3 ENDURANCE points), but the pain quickly fades as you gallop away from the village."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 46.",
+          "targetId": "46"
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "title": "19",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "As you leave your hiding place, a cry echoes in your ears. \u2018Orgadak\u2014Dok taag!\u2019 You thrust the Envelope back into your robes and clamber across the ruins. Giaks appear as if from nowhere; one has his arm drawn back ready to throw a spear."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Lightning Hand and wish to use it, turn to 2.",
+          "targetId": "2"
+        },
+        {
+          "text": "If you wish to try to dodge the spear, turn to 51.",
+          "targetId": "51"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "title": "20",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You whisper the spell under your breath. A shiver runs the length of your spine as you sense evil. It comes, not from the cabin, but from the wooded hills beyond. It is many miles away but you can feel it drawing closer."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to hide in the cabin, turn to 67.",
+          "targetId": "67"
+        },
+        {
+          "text": "If you wish to turn away from the approaching evil and press on through the forest, turn to 15.",
+          "targetId": "15"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "title": "21",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You arrive in time to witness a handful of peasants armed with pitchforks attacking two Giaks on Doomwolves. Although superior in numbers, they are no match for these ferocious fighters who have already killed many of their kinfolk."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to aid the peasants, turn to 12.",
+          "targetId": "12"
+        },
+        {
+          "text": "If you choose to avoid the fight, you can run back along the track by turning to 47.",
+          "targetId": "47"
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "title": "22",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You cannot hold back the sneeze. Within seconds, three ugly Giak faces are squinting up the chimney at you, prodding your feet with their spears. You hurriedly climb the flue only to find a couple of Kraan hovering above. They drop their Giak riders on the roof, and a voice shrieks: \u2018Dok ek!\u2019"
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 37.",
+          "targetId": "37"
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "title": "23",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "2The innkeeper\u2019s cheerful mood changes to a stony stare. \u2018Get out o\u2019 here!\u2019 he shouts angrily."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Mind Charm and wish to use it, turn to 75.",
+          "targetId": "75"
+        },
+        {
+          "text": "If you wish to leave the tavern, turn to 7.",
+          "targetId": "7"
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "title": "24",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "As the smiling Ranger walks nearer, your horse becomes nervous and skittish. It takes a great deal of effort to bring him under control. When you glance at the Ranger once more, your skin prickles with dread at the change that has come over him. The skin of his face is writhing. It is changing colour, growing darker and tighter on his skull. His eyes glow with a red fire and fangs sprout from his bottom lip. A wave of panic leaves you breathless as you realize he is a Helghast, a hellish agent of the Darklords. A blue flame ignites at the tip of his staff and a searing charge of energy leaps towards your chest."
+        },
+        {
+          "kind": "div",
+          "text": "[Illustration II]"
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you possess the spell Invisible Shield and wish to use it, turn to 41.",
+          "targetId": "41"
+        },
+        {
+          "text": "If you possess the spell Counterspell and wish to use it, turn to 58.",
+          "targetId": "58"
+        },
+        {
+          "text": "If you have neither of these spells, turn to 72.",
+          "targetId": "72"
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "title": "25",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You invoke the spell and, to the astonishment of the Giaks, leap over the edge. You are able to control your rate of descent, and gently you come to rest in a shallow ravine. You can hear the cries of Kraan and Giaks echoing through the forest. The trees are thicker to the south and you press on in that direction."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 45.",
+          "targetId": "45"
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "title": "26",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Spreading the fingers of your right hand wide apart, you breathe the spell-runes. The net wraps around the old man, pinning him firmly to his chair. As you step forward to take away his Warhammer, the yellow bird swoops down and gouges your cheek before flying out of an open window. Lose 2 ENDURANCE points."
+        },
+        {
+          "kind": "p",
+          "text": "\u2018Leave me be,\u2019 whimpers the old man. \u2018Take what little I have but spare my life.\u2019"
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to free him from the net, turn to 39.",
+          "targetId": "39"
+        },
+        {
+          "text": "If you decide to leave him tied up and search his cabin for useful items, turn to 5.",
+          "targetId": "5"
+        },
+        {
+          "text": "If you choose to leave the cabin and continue on your mission, turn to 15.",
+          "targetId": "15"
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "title": "27",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "After waiting several minutes for a unit of Giaks to march away you whisper the spell and take to the air. Unfortunately, the effects wear off as you near the middle of the lake, and gradually you descend into the cold dark waters of Lake Pewas."
+        },
+        {
+          "kind": "p",
+          "text": "You are forced to discard all your equipment, except for your Crystal Star Pendant and Guildmaster\u2019s Envelope, for fear of drowning (erase all but these two Special Items from your Action Chart)."
+        },
+        {
+          "kind": "p",
+          "text": "Eventually, you reach the far side and stumble ashore, cold and bedraggled. However, if you possess the spell Mend, you may restore 5 ENDURANCE points to your current total, for you were able to cast the spell whilst swimming across the lake."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 11.",
+          "targetId": "11"
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "title": "28",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The captain is insulted by your attempt at bribery. He knocks the coins from your hand and forces you away from the barricade at the point of his sword. Erase half the number of Gold Crowns that are noted on your Action Chart."
+        },
+        {
+          "kind": "p",
+          "text": "There is little you can do except try to circle the village under cover of the forest."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 63.",
+          "targetId": "63"
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "title": "29",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You bite your lip as an arrowhead gouges a deep furrow across your thigh (lose 4 ENDURANCE points). The pain makes you swoon but you manage to press on until you have left the Rangers far behind."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 15.",
+          "targetId": "15"
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "title": "30",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You sense no evil in these children and you have no cause to doubt their word. They smile with joy when you agree to join them on the ride south."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 14.",
+          "targetId": "14"
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "title": "31",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "From around a bend in the street ahead, a Ranger appears. He is carrying a long black staff. He smiles and waves at you to slow down."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to slow down and see what he wants, turn to 24.",
+          "targetId": "24"
+        },
+        {
+          "text": "If you decide to ignore him and gallop on, turn to 38.",
+          "targetId": "38"
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "title": "32",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "A Giak, taller than the others and dressed from head to foot in black chainmail, curses and whips his troops with a barbed flail to get them to pursue you."
+        },
+        {
+          "kind": "p",
+          "text": "Suddenly, a figure dressed in green leaps out of the undergrowth wielding an axe. Your heart skips a beat as he raises the weapon to strike, but he fells a Giak lurking behind your back\u2014not you! The stranger has saved your life."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 40.",
+          "targetId": "40"
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "title": "33",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "\u2018Welcome to my humble home, welcome,\u2019 beams the wrinkle-faced old man."
+        },
+        {
+          "kind": "p",
+          "text": "As you close the door, a sudden shriek sets your nerves on edge. \u2018Now, now, Galir!\u2019 says the old man, reproving a large yellow-feathered bird perched on a mirror above the mantelpiece. Irritably it flaps its wings and emits a curious warbling sound that the old man appears to understand. The man\u2019s expression becomes less friendly and his fingers tighten around the silver handle of an ornate Warhammer."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Net and wish to use it, turn to 26.",
+          "targetId": "26"
+        },
+        {
+          "text": "If you wish to draw your sword and attack the old man, turn to 44.",
+          "targetId": "44"
+        },
+        {
+          "text": "If you wish to escape into the forest, turn to 15.",
+          "targetId": "15"
+        }
+      ]
+    },
+    {
+      "id": "34",
+      "title": "34",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "As the foul creature dies it tumbles from the bridge and is washed away by the fast-flowing stream. If you have the spell Mend, you can take this opportunity to restore 5 lost ENDURANCE points by wading into the water and casting the spell. Before remounting your horse, you must eat a Meal or lose 3 ENDURANCE points."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Now turn to 10.",
+          "targetId": "10"
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "title": "35",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The Kraan heads west and soon lands in a clearing teeming with Giak soldiers. Roughly you are dragged from the saddle and thrown into a deep pit that holds three other humans, all Sommlending like yourself."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Levitation and wish to use it, turn to 78.",
+          "targetId": "78"
+        },
+        {
+          "text": "If you do not possess this spell, turn to 65.",
+          "targetId": "65"
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "title": "36",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You wake at dawn, refreshed and eager to continue your mission. The blacksmith\u2019s nephew and niece join you for a hearty breakfast and then accompany you to the stable to collect your horse. They share a small black pony called Bobin."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 14.",
+          "targetId": "14"
+        }
+      ]
+    },
+    {
+      "id": "37",
+      "title": "37",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You put up a brave struggle but you are soon overwhelmed. They tie your hands and confiscate everything you possess, except for your Crystal Star Pendant, and the Guildmaster\u2019s Message, both of which they fail to discover."
+        },
+        {
+          "kind": "p",
+          "text": "\u2018Dok ziran,\u2019 shouts a Giak officer pointing at you, \u2018Dok kag eg oknar oka.\u2019"
+        },
+        {
+          "kind": "p",
+          "text": "Suddenly you are grabbed and thrown across the saddle of a Kraan. An ugly-faced Giak sits behind you, his knife held to your throat as the beast takes to the air."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Lightning Hand and wish to use it, turn to 60.",
+          "targetId": "60"
+        },
+        {
+          "text": "If you do not have this spell, or if you do not wish to use it, turn to 35.",
+          "targetId": "35"
+        }
+      ]
+    },
+    {
+      "id": "38",
+      "title": "38",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The Ranger raises his black staff and aims it at your chest. A wave of nausea knots your stomach as suddenly you witness a terrible change. The skin that covers the Ranger\u2019s face is writhing, growing darker and tighter on his skull. His eyes glow red and great curved fangs have pushed themselves through his lower jaw. You stifle a scream as you realize he is a Helghast, a powerful shape-changing agent of the Darklords. A blazing blue flame ignites at the tip of his staff and a bolt of energy leaps towards your chest."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Counterspell and wish to use it, turn to 58.",
+          "targetId": "58"
+        },
+        {
+          "text": "If you do not have this spell you can try to dodge the energy bolt by turning to 52.",
+          "targetId": "52"
+        },
+        {
+          "text": "Or you can try to trample the Helghast beneath your horse\u2019s hooves. Turn to 72.",
+          "targetId": "72"
+        }
+      ]
+    },
+    {
+      "id": "39",
+      "title": "39",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "\u2018Take it easy, old man. I mean you no harm,\u2019 you say, as you cut the magical netting that binds him to his rocking chair. \u2018Your yellow bird seems to have misjudged me, for I have not come here to rob you.\u2019 The old man listens with interest to your explanation and gives you some advice on how to reach the Monastery of the Kai."
+        },
+        {
+          "kind": "p",
+          "text": "You thank the old man and as you turn to leave he offers to exchange his Warhammer for any two items in your Backpack (excluding Meals). If you wish to make the exchange, erase two items of your choice and mark the Silver Warhammer as a Special Item which you carry tucked into your belt."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 15.",
+          "targetId": "15"
+        }
+      ]
+    },
+    {
+      "id": "40",
+      "title": "40",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "On seeing the green-cloaked stranger emerge from the woods, the Giak officer orders his troops to run to the shelter of the forest. For the time being, the danger has passed."
+        },
+        {
+          "kind": "p",
+          "text": "Wiping the sweat from your brow, you turn to thank your unexpected rescuer and, as you do so, you recognize the clothes he wears: they are the green tunic and cloak of a Kai initiate."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 80.",
+          "targetId": "80"
+        }
+      ]
+    },
+    {
+      "id": "41",
+      "title": "41",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Drawing your hand across your face to invoke the spell, you form an invisible shield between yourself and the bolt of energy. Unfortunately, the bolt is magical, and it passes through the shield unhindered."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 72.",
+          "targetId": "72"
+        }
+      ]
+    },
+    {
+      "id": "42",
+      "title": "42",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The message is a warning that the Darklords have mustered a vast army beyond the Durncrag Range. The Guildmaster urges the Kai to cancel the feast of Fehmarn and prepare immediately for war. He fears that Sommerlund has been betrayed by a wizard of the brotherhood, called Vonotar."
+        },
+        {
+          "kind": "p",
+          "text": "Suddenly, you hear the crunch of iron-shod boots on stone, and before you can destroy the Guildmaster\u2019s message, a Giak booms: \u2018Zazgog rek okaka.\u2019"
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to stay where you are, turn to 62.",
+          "targetId": "62"
+        },
+        {
+          "text": "If you wish to move deeper into the ruins, turn to 19.",
+          "targetId": "19"
+        }
+      ]
+    },
+    {
+      "id": "43",
+      "title": "43",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The Border Rangers of Sommerlund are expert archers, and as you hear the hiss of their arrows speeding towards your back you pray that luck is on your side."
+        },
+        {
+          "kind": "p",
+          "text": "If you do not have this spell, pick a number from the Random Number Table."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you possess the spell Invisible Shield, turn to 13.",
+          "targetId": "13"
+        },
+        {
+          "text": "If the number you have chosen is 0\u20132, turn to 69.",
+          "targetId": "69"
+        },
+        {
+          "text": "If the number is 3\u20137, turn to 9.",
+          "targetId": "9"
+        },
+        {
+          "text": "If the number is 8\u20139, turn to 29.",
+          "targetId": "29"
+        }
+      ]
+    },
+    {
+      "id": "44",
+      "title": "44",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You strike at the old man\u2019s head, but he parries your blow with his Warhammer. To your horror, your Sword\u2019s blade disintegrates as soon as it touches the weapon\u2019s silver haft. Cackling with glee, the old man leaps into the attack, brandishing his enchanted Warhammer above his head."
+        },
+        {
+          "kind": "p",
+          "text": "Old Tadeus: COMBAT\u00A0SKILL\u00A018 \u00A0\u00A0ENDURANCE\u00A018"
+        },
+        {
+          "kind": "p",
+          "text": "You must deduct 4 points from your COMBAT SKILL for you are now unarmed. If you have the spell Vigour, you may cast it to increase your COMBAT SKILL, but be sure to deduct 3 ENDURANCE points accordingly."
+        }
+      ],
+      "choices": [
+        {
+          "text": "You may evade combat after three rounds by escaping to your horse. Turn to 15.",
+          "targetId": "15"
+        },
+        {
+          "text": "If you win the combat, turn to 5.",
+          "targetId": "5"
+        }
+      ]
+    },
+    {
+      "id": "45",
+      "title": "45",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You come to the edge of a small lake where many Giaks and Drakkarim are being marshalled into units. You sense that the Kai Monastery lies on the other side of the lake, and you try to think of a way to get across the water unseen."
+        },
+        {
+          "kind": "div",
+          "text": "[Illustration III]"
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Levitation and you wish to use it, turn to 27.",
+          "targetId": "27"
+        },
+        {
+          "text": "If you want to swim across the lake, turn to 53.",
+          "targetId": "53"
+        },
+        {
+          "text": "If you decide to skirt around the lake, under cover of the forest, turn to 68.",
+          "targetId": "68"
+        }
+      ]
+    },
+    {
+      "id": "46",
+      "title": "46",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You have ridden several miles before you dare rest. You stop by the banks of a stream and allow your horse to drink. If you have the spell Mend, you can take this opportunity to restore 5 lost ENDURANCE points by standing in the stream and casting the spell. Before you remount and continue, you must eat a Meal or lose 3 ENDURANCE points."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Now turn to 10.",
+          "targetId": "10"
+        }
+      ]
+    },
+    {
+      "id": "47",
+      "title": "47",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You climb through a tunnel of trees and emerge at the top of a rocky knoll. About three miles to the south you can see a huge cloud of Kraan circling a grey stone building. You watch with grim fascination as they tear at the walls with their talons. Suddenly, you are disturbed by the sound of rustling undergrowth, and you spin around in time to see a handful of Giaks charging towards you. You turn to run, but find yourself teetering on the brink of a steep drop."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Levitation, turn to 25.",
+          "targetId": "25"
+        },
+        {
+          "text": "If you do not have this spell, or if you do not wish to use it, turn to 16.",
+          "targetId": "16"
+        }
+      ]
+    },
+    {
+      "id": "48",
+      "title": "48",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The Rangers are not impressed by your request to be allowed through Meadowood. A Ranger captain tells you to return to Toran. They are searching for a spy who has murdered three of his men. Until he is caught, nobody can pass through Meadowood."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Mind Charm and wish to use it, turn to 77.",
+          "targetId": "77"
+        },
+        {
+          "text": "If you do not have this spell, you can offer him some Gold Crowns by turning to 28.",
+          "targetId": "28"
+        },
+        {
+          "text": "Or you can try to circle Meadowood by riding through the forest. Turn to 63.",
+          "targetId": "63"
+        }
+      ]
+    },
+    {
+      "id": "49",
+      "title": "49",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "A dozen black-winged creatures appear overhead. They are Kraan, and on their backs are shrieking Giaks eager to fight. Suddenly, the Kraan swoop."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Lightning Hand and wish to use it, turn to 56.",
+          "targetId": "56"
+        },
+        {
+          "text": "If you wish to evade the attack by entering the forest, turn to 6.",
+          "targetId": "6"
+        }
+      ]
+    },
+    {
+      "id": "50",
+      "title": "50",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The foul-mouthed Giaks cackle with joy as they close in for combat. You must fight all three as one enemy."
+        },
+        {
+          "kind": "p",
+          "text": "Giaks: COMBAT\u00A0SKILL\u00A016 \u00A0\u00A0ENDURANCE\u00A018"
+        }
+      ],
+      "choices": [
+        {
+          "text": "You can evade combat after three rounds by running into the forest. Turn to 70.",
+          "targetId": "70"
+        },
+        {
+          "text": "If you win the combat, you can escape along the south path by turning to 47.",
+          "targetId": "47"
+        }
+      ]
+    },
+    {
+      "id": "51",
+      "title": "51",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You dive aside and the spear whistles past your arm, tearing the cuff of your robe but drawing no blood. Quickly, you scramble to your feet and run deeper into the ruins."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 32.",
+          "targetId": "32"
+        }
+      ]
+    },
+    {
+      "id": "52",
+      "title": "52",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You have barely seconds to act. Desperately you jerk your horse to the left to avoid the crackling blue pulse of flame."
+        },
+        {
+          "kind": "p",
+          "text": "Pick a number from the Random Number Table."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If the number you have chosen is 0\u20136, turn to 18.",
+          "targetId": "18"
+        },
+        {
+          "text": "If the number is 7\u20139, turn to 72.",
+          "targetId": "72"
+        }
+      ]
+    },
+    {
+      "id": "53",
+      "title": "53",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You leave all you carry (except for your Crystal Star Pendant and Guildmaster\u2019s Envelope) on this side of the lake, for fear of drowning."
+        },
+        {
+          "kind": "p",
+          "text": "After fifteen minutes you reach the far side and stumble ashore, cold and bedraggled. However, if you possess the spell Mend, you may restore 5 ENDURANCE points to your current total, for you were able to cast the spell whilst swimming across the lake."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 11.",
+          "targetId": "11"
+        }
+      ]
+    },
+    {
+      "id": "54",
+      "title": "54",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "She unsheathes a black sword and emits a hideous laugh. The skin on her face is starting to writhe and change colour, growing darker with each passing second. Her eyes glow with red fire and long fangs appear from her lower jaw as she creeps slowly towards you. Shock leaves you breathless as you realize that she is a Helghast, a powerful shape-changing servant of the Darklords. Before you can think of using one of your spells, the Helghast hauls you out of the saddle. You land heavily on the stony ground and fumble in desperation for a weapon as the creature\u2019s black sword whistles towards your head."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have a Silver Warhammer, turn to 64.",
+          "targetId": "64"
+        },
+        {
+          "text": "If you do not possess this Special Item, turn to 61.",
+          "targetId": "61"
+        }
+      ]
+    },
+    {
+      "id": "55",
+      "title": "55",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "This road is little better than a rough forest track. Soon all trace of it disappears. You urge your horse through a mass of tangled undergrowth until you happen upon a moss-covered log cabin."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Sense Evil and if you wish to use it, turn to 20.",
+          "targetId": "20"
+        },
+        {
+          "text": "If you wish to take a closer look at the cabin, turn to 67.",
+          "targetId": "67"
+        },
+        {
+          "text": "If you wish to press on and try to find traces of the old mine road, turn to 15.",
+          "targetId": "15"
+        }
+      ]
+    },
+    {
+      "id": "56",
+      "title": "56",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You release a bolt of lightning at the first of a number of Kraan screaming towards you. The pulse of energy tears through its chest, flipping it backwards and scattering its Giak crew like rag dolls. Two Kraan collide with it in mid-air and come crashing down in a tangled heap."
+        },
+        {
+          "kind": "p",
+          "text": "However, your magic has attracted more Kraan and quickly you realize you must take to the forest if you are to avoid being overwhelmed."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 6.",
+          "targetId": "6"
+        }
+      ]
+    },
+    {
+      "id": "57",
+      "title": "57",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You learn that the Rangers are searching for a Darklord spy. Last night he killed three Rangers, here in Meadowood. He escaped but is still somewhere in the area. The Rangers have sealed off the highway and are not letting anyone through until the spy is caught or killed."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to approach the Rangers and ask them to allow you to pass, turn to 48.",
+          "targetId": "48"
+        },
+        {
+          "text": "If you decide to ride back to the junction at Old Mine Road and try to circle the village, turn to 55.",
+          "targetId": "55"
+        }
+      ]
+    },
+    {
+      "id": "58",
+      "title": "58",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You shout the spell-words and feel a chill as some of your body warmth drains away to form the Counterspell. A flat sphere of translucent red mist suddenly appears in the path of the oncoming bolt and, as they collide, a splash of violet flame erupts in front of your eyes. A tremendous shock wave knocks you back in the saddle and your startled horse rears up, but somehow you manage to regain control. The Helghast emits a cry that rakes your mind (lose 2 ENDURANCE points), but the pain quickly fades as you gallop away from Meadowood."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 46.",
+          "targetId": "46"
+        }
+      ]
+    },
+    {
+      "id": "59",
+      "title": "59",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You race back along the forest track, but a Kraan swoops down and drops three Giaks on the path ahead. They unsheathe curved swords and utter vile curses as they stalk nearer."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Net and wish to use it, turn to 8.",
+          "targetId": "8"
+        },
+        {
+          "text": "If you wish to draw your weapon and fight these three Giak soldiers, turn to 50.",
+          "targetId": "50"
+        },
+        {
+          "text": "If you wish to escape into the forest, turn to 70.",
+          "targetId": "70"
+        }
+      ]
+    },
+    {
+      "id": "60",
+      "title": "60",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Carefully, you point your finger at the grinning Giak rider and say the power-words. There is an intense flash of blue light and a scream as your bolt decapitates him. His body somersaults backwards off the Kraan which begins to climb, its load instantly halved. The spell has burned through your bonds and now you can pull yourself into a sitting position. With blows to its head and neck, you force the Kraan to land in the forest. As soon as its clawed feet touch the soil, you leap from the saddle and run for cover."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 11.",
+          "targetId": "11"
+        }
+      ]
+    },
+    {
+      "id": "61",
+      "title": "61",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The creature laughs manically as it raises the sword to strike again. Valiantly you try to fend off the attack, but you are greatly weakened through loss of blood. The last thing you hear as the black sword descends is the Helghast\u2019s mocking laugh of victory."
+        },
+        {
+          "kind": "p",
+          "text": "Your life and your mission end here."
+        }
+      ],
+      "choices": []
+    },
+    {
+      "id": "62",
+      "title": "62",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You place the Envelope back into your robe and peek carefully over a broken marble slab. A squad of Giaks have entered the ruins and are systematically searching every square inch. Suddenly, a group appear to your left. They see you and raise the alarm: \u2018Orgadak!\u2019"
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Lightning Hand and wish to use it, turn to 2.",
+          "targetId": "2"
+        },
+        {
+          "text": "If you wish to evade the Giaks, turn to 32.",
+          "targetId": "32"
+        }
+      ]
+    },
+    {
+      "id": "63",
+      "title": "63",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The dense foliage makes it difficult to pass through the trees on horseback, so you keep to a narrow track. Suddenly, a patrol of Rangers rush out of the trees behind you. They have bows and are preparing to fire them at you."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to call out to them to hold their fire, turn to 9.",
+          "targetId": "9"
+        },
+        {
+          "text": "If you decide to escape along the track as fast as your horse will carry you, turn to 43.",
+          "targetId": "43"
+        }
+      ]
+    },
+    {
+      "id": "64",
+      "title": "64",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "A crackle of blue flame bursts from your enemy\u2019s sword as it strikes the haft of your Silver Warhammer. The Helghast recoils from the blow, allowing you to stagger to your feet, but it soon recovers and attacks again. You cannot evade combat and must fight this creature to the death."
+        },
+        {
+          "kind": "p",
+          "text": "Helghast: COMBAT\u00A0SKILL\u00A021 \u00A0\u00A0ENDURANCE\u00A028"
+        },
+        {
+          "kind": "p",
+          "text": "If you have the spell Vigour, you may cast it before combat begins."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you win the fight, turn to 34.",
+          "targetId": "34"
+        }
+      ]
+    },
+    {
+      "id": "65",
+      "title": "65",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Three hours pass before a Drakkarim officer appears at the edge of the pit and stares down at you with contempt. He barks an order and a circle of Giak archers appear. The last thing you hear is the hiss of their deadly black arrows."
+        },
+        {
+          "kind": "p",
+          "text": "Your life and your mission end here."
+        }
+      ],
+      "choices": []
+    },
+    {
+      "id": "66",
+      "title": "66",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You knock on the door of the blacksmithy. It opens and a small plump woman stands before you, hurriedly wiping her hands on her chequered apron. She smiles and calls for Tym, her husband, as she ushers you into the dark warmth of the smithy. Tym the blacksmith welcomes you with a firm handshake. \u2018My word, Petrea, we\u2019re honoured to have a journeyman with us tonight,\u2019 he says to his wife."
+        },
+        {
+          "kind": "p",
+          "text": "You enjoy a delicious supper, during which the blacksmith asks a favour of you. His nephew and niece, who are staying at the blacksmithy, are due to return home to their village in the morning. They live in Searsby, which lies to the south, where the road to the Kai Monastery branches off from the main highway. All he asks is that you accompany them home. You can hardly refuse the blacksmith\u2019s request, especially after enjoying his food and hospitality."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 36.",
+          "targetId": "36"
+        }
+      ]
+    },
+    {
+      "id": "67",
+      "title": "67",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You dismount and tether your horse before climbing the rickety steps to the cabin door. Through a cracked window pane you can see an old man sitting in a rocking chair. He is smoking a clay pipe and reading a leather-bound book. As you approach the door, you tread on a twig that snaps with a loud crack."
+        },
+        {
+          "kind": "p",
+          "text": "\u2018Who\u2019s there?\u2019 calls the old man."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to enter the cabin, turn to 33.",
+          "targetId": "33"
+        },
+        {
+          "text": "If you decide to press on through the forest, turn to 15.",
+          "targetId": "15"
+        }
+      ]
+    },
+    {
+      "id": "68",
+      "title": "68",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Cautiously you move through the enemy-infested trees, but less than a hundred yards from the water\u2019s edge you are spotted by a Kraan patrol. You cannot evade them."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 37.",
+          "targetId": "37"
+        }
+      ]
+    },
+    {
+      "id": "69",
+      "title": "69",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You weave back and forth across the track, to present the archers with a harder target. Your tactics pay off, for although an arrow grazes your scalp (lose 1 ENDURANCE point), it is just a flesh wound. Wiping a trickle of blood away, you press on and soon leave the archers cursing your escape."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 15.",
+          "targetId": "15"
+        }
+      ]
+    },
+    {
+      "id": "70",
+      "title": "70",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Crashing headlong through the bracken, you fight to stay on your feet as you make your escape. Everywhere you hear the cries of Kraan and Giaks echoing through the trees. After ten minutes, the trees start to thin out and you can just make out the shape of a stone hut nestling at the bottom of a shallow ravine."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to hide in this hut, turn to 4.",
+          "targetId": "4"
+        },
+        {
+          "text": "If you wish to push on deeper into the forest, turn to 45.",
+          "targetId": "45"
+        }
+      ]
+    },
+    {
+      "id": "71",
+      "title": "71",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You ask her once more to let you cross, this time using your spell Mind Charm to persuade her you are friendly. Unfortunately, your spell does not have the desired effect."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 54.",
+          "targetId": "54"
+        }
+      ]
+    },
+    {
+      "id": "72",
+      "title": "72",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The energy bolt smashes into your unprotected chest and hurls you out of the saddle. Your chest is ablaze and tongues of orange flame flicker before your eyes\u2014but you feel no pain. Only numbness and the irresistible urge to sleep fill your body. As your eyes slowly close, you do not see the Helghast raise its black staff to finish you off."
+        },
+        {
+          "kind": "p",
+          "text": "Your life and your mission end here."
+        }
+      ],
+      "choices": []
+    },
+    {
+      "id": "73",
+      "title": "73",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Your heart is pounding fit to burst as you urge your horse through the ever-thickening foliage. The forest soon becomes too dense to continue on horseback and you are forced to press on by foot. You force your way through the rich vegetation until you discover a track. To the north you can make out some huts; to the south the path disappears into wooded hills."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to head north towards the huts, turn to 21.",
+          "targetId": "21"
+        },
+        {
+          "text": "If you wish to go south towards the hills, turn to 47.",
+          "targetId": "47"
+        }
+      ]
+    },
+    {
+      "id": "74",
+      "title": "74",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You invoke the spell just in time, and your violent sneezing goes undetected by the Giak soldiers searching the hut below. You wait several minutes before leaving your hiding place and pushing on through the forest to the south."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 45.",
+          "targetId": "45"
+        }
+      ]
+    },
+    {
+      "id": "75",
+      "title": "75",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "3Under the influence of your magic, a calm descends on the man and his anger is swiftly replaced by his usual jollity. \u2018I\u2019m sorry,\u2019 he says. \u2018Please forgive my rudeness. I don\u2019t know what came over me.\u2019"
+        },
+        {
+          "kind": "p",
+          "text": "He ushers you to a table near the fireplace that is set for dinner, and calls to his son to prepare you a meal. The food is delicious: restore 2 ENDURANCE points to your total before leaving the tavern and continuing on your way."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 7.",
+          "targetId": "7"
+        }
+      ]
+    },
+    {
+      "id": "76",
+      "title": "76",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "She answers by grasping the hilt of a weapon sheathed at her side. Her expression is stern and unfriendly."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Mind Charm and wish to use it, turn to 71.",
+          "targetId": "71"
+        },
+        {
+          "text": "If you have the spell Sense Evil and wish to use it, turn to 17.",
+          "targetId": "17"
+        },
+        {
+          "text": "If you decide to offer her some Gold Crowns to let you cross the bridge, turn to 54.",
+          "targetId": "54"
+        }
+      ]
+    },
+    {
+      "id": "77",
+      "title": "77",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "To the surprise of his men, the captain orders the barricade to be drawn aside. You are allowed to pass, but as you are riding towards the village, you hear the captain shouting: \u2018Stop that rider!\u2019"
+        },
+        {
+          "kind": "p",
+          "text": "Your spell has begun to wear off. Spurring your horse to a gallop, you race along the deserted main street of Meadowood. Two bloodstained bodies lie on the road ahead; they are Rangers and they appear to be dead."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you wish to stop and examine the bodies, turn to 3.",
+          "targetId": "3"
+        },
+        {
+          "text": "If you decide to ride on as fast as you can, turn to 31.",
+          "targetId": "31"
+        }
+      ]
+    },
+    {
+      "id": "78",
+      "title": "78",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "One of your fellow captives, a young hill farmer, unties the cords that bind your wrists. With your hands free once more, you whisper the spell Levitation and slowly rise to the edge of the pit. The others are amazed but they stay silent so as not to jeopardize your escape. Patiently you wait for the right moment before emerging from the pit and diving into the cover of the trees."
+        }
+      ],
+      "choices": [
+        {
+          "text": "Turn to 11.",
+          "targetId": "11"
+        }
+      ]
+    },
+    {
+      "id": "79",
+      "title": "79",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You awake shortly after dawn to a chill morning and, unless you possess a Blanket, you must deduct 2 ENDURANCE points. You are rising to your feet when suddenly you realize you are being watched. Two children, a boy and a girl, are sitting astride a little black pony, staring at you in disbelief."
+        },
+        {
+          "kind": "p",
+          "text": "\u2018Have you been asleep here all night?\u2019 asks the young girl. You nod."
+        },
+        {
+          "kind": "p",
+          "text": "\u2018You should have called on our uncle,\u2019 says the boy. \u2018He\u2019s the blacksmith of Oak Hill. He would have given you a bed for the night.\u2019"
+        },
+        {
+          "kind": "p",
+          "text": "The little girl leans forward and offers you some bread and cheese. Gratefully you accept her kind offer (restore 1 ENDURANCE point)."
+        },
+        {
+          "kind": "p",
+          "text": "\u2018We\u2019re on our way to Searsby for the feast of Fehmarn,\u2019 says her brother. \u2018Are you going that way?\u2019"
+        },
+        {
+          "kind": "p",
+          "text": "The village of Searsby lies to the south, where a road to the Kai Monastery branches off from the main highway."
+        }
+      ],
+      "choices": [
+        {
+          "text": "If you have the spell Sense Evil and wish to use it, turn to 30.",
+          "targetId": "30"
+        },
+        {
+          "text": "If you wish to accompany the children south, turn to 14.",
+          "targetId": "14"
+        }
+      ]
+    },
+    {
+      "id": "80",
+      "title": "80",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "You offer your hand in friendship and it is gratefully received. After introducing yourself, you hand over the Guildmaster\u2019s Envelope. The Kai Lord studies the message and a great sadness fills his eagle eyes."
+        },
+        {
+          "kind": "p",
+          "text": "\u2018Alas, the wisdom of this warning has arrived too late to save my kin. The war has already begun and my brothers in arms were the first to fall to the evil host of Helgedad. They are dead, and I am all that remains of the Kai. Your mission is complete, Banedon, but mine has only just begun. I, Lone Wolf, must journey to Holmgard to warn the King. He will know what must be done to save our land.\u2019"
+        },
+        {
+          "kind": "p",
+          "text": "Instinctively, you remove your Crystal Star Pendant and hand it to the last Kai warrior. It is a talisman of good luck and you pray that it protects him on the perilous road ahead."
+        },
+        {
+          "kind": "p",
+          "text": "Your mission is complete!"
+        },
+        {
+          "kind": "div",
+          "text": "[Illustration IV]"
+        }
+      ],
+      "choices": []
+    }
+  ]
+}
