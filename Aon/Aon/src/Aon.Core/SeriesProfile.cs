@@ -5,7 +5,8 @@ public interface ISeriesProfile
     string Name { get; }
     IReadOnlyDictionary<string, int> CoreSkills { get; }
     IReadOnlyList<string> SkillNames { get; }
-    IReadOnlyList<string> CounterNames { get; }
+    IReadOnlyDictionary<string, int> DefaultCounters { get; }
+    IReadOnlyList<Item> DefaultItems { get; }
 }
 
 public static class SeriesProfiles
@@ -33,11 +34,13 @@ internal sealed class LoneWolfProfile : ISeriesProfile
         "Mind Over Matter"
     };
 
-    public IReadOnlyList<string> CounterNames { get; } = new[]
+    public IReadOnlyDictionary<string, int> DefaultCounters { get; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
     {
-        "Gold Crowns",
-        "Meals"
+        ["Gold Crowns"] = 0,
+        ["Meals"] = 0
     };
+
+    public IReadOnlyList<Item> DefaultItems { get; } = Array.Empty<Item>();
 }
 
 internal sealed class GreyStarProfile : ISeriesProfile
@@ -46,27 +49,21 @@ internal sealed class GreyStarProfile : ISeriesProfile
     public IReadOnlyDictionary<string, int> CoreSkills { get; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
     public IReadOnlyList<string> SkillNames { get; } = new[]
     {
-        "Alether",
-        "Banishing",
-        "Blending",
-        "Diadem",
+        "Sorcery",
+        "Enchantment",
         "Elementalism",
-        "Evocation",
-        "Hypnosis",
-        "Nexus",
+        "Alchemy",
         "Prophecy",
         "Psychomancy",
-        "Psi-Screen",
-        "Telekinesis",
-        "Telepathy",
-        "Thaumaturgy",
-        "Vapours"
+        "Evocation"
     };
 
-    public IReadOnlyList<string> CounterNames { get; } = new[]
+    public IReadOnlyDictionary<string, int> DefaultCounters { get; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
     {
-        "Gold Crowns"
+        ["Gold Crowns"] = 0
     };
+
+    public IReadOnlyList<Item> DefaultItems { get; } = Array.Empty<Item>();
 }
 
 internal sealed class FreewayWarriorProfile : ISeriesProfile
@@ -83,9 +80,11 @@ internal sealed class FreewayWarriorProfile : ISeriesProfile
 
     public IReadOnlyList<string> SkillNames { get; } = Array.Empty<string>();
 
-    public IReadOnlyList<string> CounterNames { get; } = new[]
+    public IReadOnlyDictionary<string, int> DefaultCounters { get; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
     {
-        "Bullets",
-        "Fuel"
+        ["Bullets"] = 0,
+        ["Fuel"] = 0
     };
+
+    public IReadOnlyList<Item> DefaultItems { get; } = Array.Empty<Item>();
 }
