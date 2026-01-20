@@ -473,13 +473,37 @@ public sealed class MainViewModel : ViewModelBase
             return;
         }
 
-        foreach (var file in bookFiles)
+        var bookEntries = bookFiles.Select(file =>
         {
             var id = Path.GetFileNameWithoutExtension(file);
             var title = TryReadBookTitle(file) ?? id.Replace("__", " ");
             var order = TryGetBookOrder(id);
-            var sectionIds = TryReadBookSectionIds(file);
-            Books.Add(new BookListItemViewModel(id, title, order, sectionIds));
+            var seriesId = ResolveSeriesId(id);
+            return new
+            {
+                Id = id,
+                Title = title,
+                Order = order,
+                SeriesId = seriesId,
+                SeriesName = ResolveSeriesName(seriesId),
+                SeriesSortOrder = ResolveSeriesSortOrder(seriesId),
+                SectionIds = TryReadBookSectionIds(file)
+            };
+        });
+
+        foreach (var entry in bookEntries
+            .OrderBy(item => item.SeriesSortOrder)
+            .ThenBy(item => item.Order ?? int.MaxValue)
+            .ThenBy(item => item.Title, StringComparer.OrdinalIgnoreCase))
+        {
+            Books.Add(new BookListItemViewModel(
+                entry.Id,
+                entry.Title,
+                entry.Order,
+                entry.SeriesId,
+                entry.SeriesName,
+                entry.SeriesSortOrder,
+                entry.SectionIds));
         }
 
         UpdateBookProgressIndicators();
@@ -1178,10 +1202,11 @@ public sealed class MainViewModel : ViewModelBase
             return;
         }
 
-        _currentCharacterState.BookProgress[_state.BookId] = new BookProgressState
-        {
-            SectionId = _state.SectionId
-        };
+        var progress = _currentCharacterState.BookProgress.TryGetValue(_state.BookId, out var existingProgress)
+            ? existingProgress
+            : new BookProgressState();
+        UpdateProgressState(progress, _state.BookId, _state.SectionId);
+        _currentCharacterState.BookProgress[_state.BookId] = progress;
         _currentCharacterState.LastBookId = _state.BookId;
         _currentCharacterState.LastSectionId = _state.SectionId;
         UpdateBookProgressIndicators();
@@ -1207,14 +1232,70 @@ public sealed class MainViewModel : ViewModelBase
                 continue;
             }
 
-            if (_currentCharacterState.BookProgress.TryGetValue(book.Id, out var progress)
-                && !string.IsNullOrWhiteSpace(progress.SectionId))
+            if (_currentCharacterState.BookProgress.TryGetValue(book.Id, out var progress))
             {
-                book.SetProgress(progress.SectionId);
+                book.SetProgress(progress);
             }
             else
             {
                 book.SetProgress(null);
+            }
+        }
+
+        UpdateBookAvailability();
+    }
+
+    private void UpdateProgressState(BookProgressState progress, string bookId, string sectionId)
+    {
+        progress.SectionId = sectionId;
+        var book = Books.FirstOrDefault(item => string.Equals(item.Id, bookId, StringComparison.OrdinalIgnoreCase));
+        if (book is not null && book.TryGetSectionIndex(sectionId, out var index))
+        {
+            progress.MaxSectionIndex = Math.Max(progress.MaxSectionIndex, index);
+        }
+    }
+
+    private void UpdateBookAvailability()
+    {
+        var selectedBookId = SelectedBook?.Id;
+        foreach (var seriesGroup in Books.GroupBy(book => book.SeriesId, StringComparer.OrdinalIgnoreCase))
+        {
+            var orderedBooks = seriesGroup
+                .Where(book => book.Order.HasValue)
+                .OrderBy(book => book.Order!.Value)
+                .ToList();
+
+            if (orderedBooks.Count == 0)
+            {
+                foreach (var book in seriesGroup)
+                {
+                    book.SetAvailability(true);
+                }
+
+                continue;
+            }
+
+            var firstOrder = orderedBooks.First().Order!.Value;
+            var maxCompletedOrder = orderedBooks
+                .Where(book => book.IsCompleted)
+                .Select(book => book.Order!.Value)
+                .DefaultIfEmpty(firstOrder - 1)
+                .Max();
+            var nextOrder = maxCompletedOrder + 1;
+
+            foreach (var book in seriesGroup)
+            {
+                var isEnabled = !book.Order.HasValue
+                    || book.Order.Value <= maxCompletedOrder
+                    || book.Order.Value == nextOrder;
+
+                if (selectedBookId is not null
+                    && string.Equals(book.Id, selectedBookId, StringComparison.OrdinalIgnoreCase))
+                {
+                    isEnabled = true;
+                }
+
+                book.SetAvailability(isEnabled);
             }
         }
     }
@@ -1341,6 +1422,28 @@ public sealed class MainViewModel : ViewModelBase
         return "unknown";
     }
 
+    private static string ResolveSeriesName(string seriesId)
+    {
+        return seriesId switch
+        {
+            "lw" => "Lone Wolf",
+            "gs" => "Grey Star",
+            "fw" => "Freeway Warrior",
+            _ => "Other"
+        };
+    }
+
+    private static int ResolveSeriesSortOrder(string seriesId)
+    {
+        return seriesId switch
+        {
+            "fw" => 0,
+            "lw" => 1,
+            "gs" => 2,
+            _ => 99
+        };
+    }
+
     private static ISeriesProfile ResolveSeriesProfile(string seriesId)
     {
         return seriesId switch
@@ -1450,10 +1553,9 @@ public sealed class MainViewModel : ViewModelBase
             _currentCharacterState = characterState;
             if (!string.IsNullOrWhiteSpace(_state.BookId) && !string.IsNullOrWhiteSpace(_state.SectionId))
             {
-                characterState.BookProgress[_state.BookId] = new BookProgressState
-                {
-                    SectionId = _state.SectionId
-                };
+                var progress = new BookProgressState();
+                UpdateProgressState(progress, _state.BookId, _state.SectionId);
+                characterState.BookProgress[_state.BookId] = progress;
             }
         }
         EnsureSeriesDefaults(_state.Character);

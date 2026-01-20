@@ -25,4 +25,5 @@ public sealed class CharacterProfileState
 public sealed class BookProgressState
 {
     public string SectionId { get; set; } = string.Empty;
+    public int MaxSectionIndex { get; set; } = -1;
 }
