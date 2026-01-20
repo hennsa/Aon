@@ -5,6 +5,11 @@
         Title="{Binding BookTitle}" Height="450" Width="800">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <CollectionViewSource x:Key="BooksView" Source="{Binding Books}">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="SeriesName" />
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
         <DataTemplate DataType="{x:Type vm:StatEntryViewModel}">
             <StackPanel Orientation="Horizontal" Margin="2">
                 <TextBlock Text="{Binding Label}" Width="160" Margin="0,0,8,0" />
@@ -26,11 +31,25 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ComboBox ItemsSource="{Binding Books}"
+        <ComboBox ItemsSource="{Binding Source={StaticResource BooksView}}"
                   Grid.Column="0"
                   SelectedItem="{Binding SelectedBook}"
                   MinWidth="260"
                   Margin="0,0,0,12">
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="IsEnabled" Value="{Binding IsEnabled}" />
+                </Style>
+            </ComboBox.ItemContainerStyle>
+            <ComboBox.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" FontWeight="SemiBold" Foreground="#444444" Margin="0,8,0,4" />
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ComboBox.GroupStyle>
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
