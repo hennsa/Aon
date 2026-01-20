@@ -39,46 +39,19 @@ public sealed class BookListItemViewModel : ViewModelBase
     public string ProgressLabel
     {
         get => _progressLabel;
-        private set
-        {
-            if (_progressLabel == value)
-            {
-                return;
-            }
-
-            _progressLabel = value;
-            OnPropertyChanged();
-        }
+        set => SetProperty(ref _progressLabel, value);
     }
 
     public double ProgressPercentage
     {
         get => _progressPercentage;
-        private set
-        {
-            if (Math.Abs(_progressPercentage - value) < 0.01)
-            {
-                return;
-            }
-
-            _progressPercentage = value;
-            OnPropertyChanged();
-        }
+        set => SetProperty(ref _progressPercentage, value);
     }
 
     public string ProgressPercentageText
     {
         get => _progressPercentageText;
-        private set
-        {
-            if (_progressPercentageText == value)
-            {
-                return;
-            }
-
-            _progressPercentageText = value;
-            OnPropertyChanged();
-        }
+        set => SetProperty(ref _progressPercentageText, value);
     }
 
     public void SetProgress(string? sectionId)
