@@ -624,10 +624,19 @@ public sealed partial class MainViewModel
 
     private async Task CreateNewCharacterAsync()
     {
-        var initialSeriesId = string.IsNullOrWhiteSpace(_state.SeriesId) ? null : _state.SeriesId;
+        var initialSeriesId = SelectedCharacterSeries?.Id ?? _state.SeriesId;
+        if (string.IsNullOrWhiteSpace(initialSeriesId))
+        {
+            MessageBox.Show("Select a series before creating a character.", "Character Setup", MessageBoxButton.OK, MessageBoxImage.Information);
+            return;
+        }
         var existingProfile = SelectedProfile?.Profile ?? _state.Profile;
-        var isProfileSelectionEnabled = SelectedProfile is null;
-        if (!TryRunProfileWizard(ProfileWizardMode.Character, initialSeriesId, existingProfile, true, isProfileSelectionEnabled, out var wizardResult))
+        if (SelectedProfile is null)
+        {
+            return;
+        }
+
+        if (!TryRunProfileWizard(ProfileWizardMode.Character, initialSeriesId, existingProfile, false, false, out var wizardResult))
         {
             return;
         }
