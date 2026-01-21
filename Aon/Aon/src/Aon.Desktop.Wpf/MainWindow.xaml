@@ -289,7 +289,7 @@
                                     <Button Content="Remove Selected Skill" Command="{Binding RemoveSkillCommand}" Margin="0,0,0,12" />
                                 </StackPanel>
 
-                                <TextBlock Text="Inventory" FontWeight="SemiBold" />
+                                <TextBlock Text="{Binding InventoryLabel}" FontWeight="SemiBold" />
                                 <StackPanel Orientation="Horizontal" Margin="0,4,0,6">
                                     <TextBox Text="{Binding CounterNameInput}" Width="120" Margin="0,0,8,0" />
                                     <Button Content="Add Item" Command="{Binding AddCounterCommand}" />

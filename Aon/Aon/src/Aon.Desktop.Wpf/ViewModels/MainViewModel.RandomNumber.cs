@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -33,6 +34,7 @@ public sealed partial class MainViewModel
         _resolvedRandomChoice = null;
         ResetRollHistory();
         RandomNumberStatus = "Roll a number from the Random Number Table (0–9).";
+        RollModifierText = GetSuggestedRollModifier(section).ToString(CultureInfo.InvariantCulture);
         IsRandomNumberVisible = true;
         AreChoicesVisible = false;
         Choices.Clear();
@@ -324,6 +326,61 @@ public sealed partial class MainViewModel
 
         RollModifierText = "0";
         return 0;
+    }
+
+    private int GetSuggestedRollModifier(BookSection section)
+    {
+        if (_state.Character.CoreSkills.Count == 0)
+        {
+            return 0;
+        }
+
+        var text = string.Join(" ", section.Blocks.Select(block => block.Text));
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return 0;
+        }
+
+        var modifierMatch = Regex.Match(
+            text,
+            "\\bif your current (?<skills>[^.]+?) points[^.]*?total (?<threshold>\\d+) or more, add (?<modifier>\\d+)\\b",
+            RegexOptions.IgnoreCase);
+
+        if (!modifierMatch.Success)
+        {
+            modifierMatch = Regex.Match(
+                text,
+                "\\bif your current (?<skills>[^.]+?) points[^.]*?total (?<threshold>\\d+) or less, add (?<modifier>\\d+)\\b",
+                RegexOptions.IgnoreCase);
+        }
+
+        if (!modifierMatch.Success)
+        {
+            return 0;
+        }
+
+        if (!int.TryParse(modifierMatch.Groups["threshold"].Value, out var threshold)
+            || !int.TryParse(modifierMatch.Groups["modifier"].Value, out var modifier))
+        {
+            return 0;
+        }
+
+        var skillsSegment = modifierMatch.Groups["skills"].Value;
+        var sum = 0;
+        foreach (var entry in _state.Character.CoreSkills)
+        {
+            if (Regex.IsMatch(skillsSegment, $"\\b{Regex.Escape(entry.Key)}\\b", RegexOptions.IgnoreCase))
+            {
+                sum += entry.Value;
+            }
+        }
+
+        if (sum == 0)
+        {
+            return 0;
+        }
+
+        return sum >= threshold ? modifier : 0;
     }
 
     private static string BuildRollStatus(int roll, int modifier, int effectiveRoll, string suffix)
