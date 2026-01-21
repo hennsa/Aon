@@ -26,4 +26,5 @@ public sealed class BookProgressState
 {
     public string SectionId { get; set; } = string.Empty;
     public int MaxSectionIndex { get; set; } = -1;
+    public int MaxSectionNumber { get; set; } = -1;
 }

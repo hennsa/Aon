@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Aon.Content;
@@ -7,6 +8,18 @@ namespace Aon.Desktop.Wpf.ViewModels;
 
 public sealed partial class MainViewModel
 {
+    private sealed class SeriesFilterOptionViewModel
+    {
+        public SeriesFilterOptionViewModel(string id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
+        public string Id { get; }
+        public string Name { get; }
+    }
+
     private void RefreshCharacterPanels()
     {
         CoreStats.Clear();
@@ -56,6 +69,9 @@ public sealed partial class MainViewModel
         SelectedSkill = null;
         SelectedInventoryItem = null;
         OnPropertyChanged(nameof(CharacterPanelTitle));
+        OnPropertyChanged(nameof(ActiveCharacterLabel));
+        OnPropertyChanged(nameof(BonusSkillPoints));
+        OnPropertyChanged(nameof(HasBonusSkillPoints));
     }
 
     private void UpdateCharacterOptions(SeriesProfileState seriesState)
@@ -77,13 +93,18 @@ public sealed partial class MainViewModel
         _isUpdatingCharacters = false;
     }
 
-    private void UpdateCharacterOptionsForProfile(PlayerProfile profile, string? activeSeriesId = null, string? activeCharacterName = null)
+    private void UpdateCharacterOptionsForProfile(
+        PlayerProfile profile,
+        string? activeSeriesId = null,
+        string? activeCharacterName = null,
+        string? seriesFilterId = null)
     {
         _isUpdatingCharacters = true;
         Characters.Clear();
 
         if (profile.SeriesStates is null)
         {
+            profile.SeriesStates = new Dictionary<string, SeriesProfileState>(StringComparer.OrdinalIgnoreCase);
             SelectedCharacter = null;
             _isUpdatingCharacters = false;
             return;
@@ -92,8 +113,33 @@ public sealed partial class MainViewModel
         foreach (var seriesEntry in profile.SeriesStates.OrderBy(entry => ResolveSeriesSortOrder(entry.Key)))
         {
             var seriesId = seriesEntry.Key;
+            var seriesState = seriesEntry.Value;
+            if (seriesState.Characters.Count == 0 && HasLegacyCharacterData(seriesState.Character))
+            {
+                var seriesProfile = ResolveSeriesProfile(seriesId);
+                var legacyName = string.IsNullOrWhiteSpace(seriesState.Character.Name)
+                    ? seriesProfile.DefaultCharacterName
+                    : seriesState.Character.Name;
+                if (string.IsNullOrWhiteSpace(seriesState.Character.Name))
+                {
+                    seriesState.Character.Name = legacyName;
+                }
+                seriesState.Characters[legacyName] = new CharacterProfileState
+                {
+                    Character = seriesState.Character
+                };
+                if (string.IsNullOrWhiteSpace(seriesState.ActiveCharacterName))
+                {
+                    seriesState.ActiveCharacterName = legacyName;
+                }
+            }
+            if (!string.IsNullOrWhiteSpace(seriesFilterId)
+                && !string.Equals(seriesFilterId, seriesId, StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
             var seriesName = ResolveSeriesName(seriesId);
-            foreach (var entry in seriesEntry.Value.Characters.Values
+            foreach (var entry in seriesState.Characters.Values
                          .Where(state => !string.IsNullOrWhiteSpace(state.Character.Name))
                          .OrderBy(state => state.Character.Name, StringComparer.OrdinalIgnoreCase))
             {
@@ -112,6 +158,46 @@ public sealed partial class MainViewModel
             SelectedCharacter = null;
         }
         _isUpdatingCharacters = false;
+    }
+
+    private void UpdateCharacterSeriesOptions(PlayerProfile profile, string? preferredSeriesId = null)
+    {
+        _isUpdatingCharacters = true;
+        CharacterSeriesOptions.Clear();
+
+        var seriesIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "lw",
+            "gs",
+            "fw"
+        };
+
+        if (profile.SeriesStates is not null)
+        {
+            foreach (var entry in profile.SeriesStates.Keys)
+            {
+                if (!string.IsNullOrWhiteSpace(entry))
+                {
+                    seriesIds.Add(entry);
+                }
+            }
+        }
+
+        foreach (var seriesId in seriesIds.OrderBy(ResolveSeriesSortOrder))
+        {
+            CharacterSeriesOptions.Add(new SeriesFilterOptionViewModel(seriesId, ResolveSeriesName(seriesId)));
+        }
+
+        _isUpdatingCharacters = false;
+
+        if (!string.IsNullOrWhiteSpace(preferredSeriesId))
+        {
+            SelectedCharacterSeries = CharacterSeriesOptions.FirstOrDefault(option =>
+                string.Equals(option.Id, preferredSeriesId, StringComparison.OrdinalIgnoreCase));
+            return;
+        }
+
+        SelectedCharacterSeries = null;
     }
 
     private void EnsureSeriesDefaults(Character character)
@@ -192,6 +278,7 @@ public sealed partial class MainViewModel
         }
 
         RefreshCharacterPanels();
+        _ = SaveProfileStateAsync();
     }
 
     private void RemoveSkill()
@@ -205,6 +292,7 @@ public sealed partial class MainViewModel
         SelectedSkill = null;
         RefreshCharacterPanels();
         _removeSkillCommand.RaiseCanExecuteChanged();
+        _ = SaveProfileStateAsync();
     }
 
     private void AddItem()
@@ -219,6 +307,7 @@ public sealed partial class MainViewModel
         _state.Character.Inventory.Items.Add(new Item(name, category));
         NewItemName = string.Empty;
         RefreshCharacterPanels();
+        _ = SaveProfileStateAsync();
     }
 
     private void RemoveItem()
@@ -239,6 +328,7 @@ public sealed partial class MainViewModel
 
         SelectedInventoryItem = null;
         RefreshCharacterPanels();
+        _ = SaveProfileStateAsync();
     }
 
     private void AddCounter()
@@ -257,6 +347,7 @@ public sealed partial class MainViewModel
         _state.Character.Inventory.Counters[name] = 0;
         CounterNameInput = string.Empty;
         RefreshCharacterPanels();
+        _ = SaveProfileStateAsync();
     }
 
     private void AdjustCoreSkill(string skillName, int delta)
@@ -277,6 +368,7 @@ public sealed partial class MainViewModel
 
         _state.Character.CoreSkills[skillName] = Math.Max(0, value + delta);
         RefreshCharacterPanels();
+        _ = SaveProfileStateAsync();
     }
 
     private bool TryGetCoreSkillPool(out int poolTotal)
@@ -301,6 +393,7 @@ public sealed partial class MainViewModel
         var updated = Math.Max(0, current + delta);
         _state.Character.Inventory.Counters[name] = updated;
         RefreshCharacterPanels();
+        _ = SaveProfileStateAsync();
     }
 
     private void UpdateSuggestedActions(BookSection section)
@@ -331,6 +424,7 @@ public sealed partial class MainViewModel
                 var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
                 _state.Character.Inventory.Counters[counter] = current + amount;
                 RefreshCharacterPanels();
+                _ = SaveProfileStateAsync();
             }));
         }
 
@@ -350,6 +444,7 @@ public sealed partial class MainViewModel
             {
                 _state.Character.Disciplines.Add(skill);
                 RefreshCharacterPanels();
+                _ = SaveProfileStateAsync();
             }));
         }
     }

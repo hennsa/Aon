@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <ProjectReference Include="..\Aon.Application\Aon.Application.csproj" />
     <ProjectReference Include="..\Aon.Persistence\Aon.Persistence.csproj" />
   </ItemGroup>
