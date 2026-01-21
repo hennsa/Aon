@@ -189,7 +189,7 @@ public sealed partial class MainViewModel
 
         var matchedProfile = Profiles.FirstOrDefault(option =>
             string.Equals(option.Name, _state.Profile?.Name, StringComparison.OrdinalIgnoreCase));
-        var selectedProfile = matchedProfile ?? (shouldSetProfileRequired ? Profiles.FirstOrDefault() : null);
+        var selectedProfile = matchedProfile;
 
         _isUpdatingProfiles = true;
         try
