@@ -56,6 +56,7 @@ public sealed partial class MainViewModel
         SelectedSkill = null;
         SelectedInventoryItem = null;
         OnPropertyChanged(nameof(CharacterPanelTitle));
+        OnPropertyChanged(nameof(ActiveCharacterLabel));
     }
 
     private void UpdateCharacterOptions(SeriesProfileState seriesState)
