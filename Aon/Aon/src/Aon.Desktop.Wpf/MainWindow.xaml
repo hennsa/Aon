@@ -17,345 +17,399 @@
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
-    <Grid Margin="24">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="6" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <TabControl Margin="12" SelectedIndex="{Binding ActiveTabIndex}">
+        <TabItem Header="Book &amp; Series">
+            <Grid Margin="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-        <ComboBox ItemsSource="{Binding Source={StaticResource BooksView}}"
-                  Grid.Column="0"
-                  SelectedItem="{Binding SelectedBook}"
-                  Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}"
-                  MinWidth="260"
-                  Margin="0,0,0,12">
-            <ComboBox.ItemContainerStyle>
-                <Style TargetType="ComboBoxItem">
-                    <Setter Property="IsEnabled" Value="{Binding IsEnabled}" />
-                </Style>
-            </ComboBox.ItemContainerStyle>
-            <ComboBox.GroupStyle>
-                <GroupStyle>
-                    <GroupStyle.HeaderTemplate>
+                <ComboBox ItemsSource="{Binding Source={StaticResource BooksView}}"
+                          Grid.Column="0"
+                          SelectedItem="{Binding SelectedBook}"
+                          Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}"
+                          MinWidth="260"
+                          Margin="0,0,0,12">
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="IsEnabled" Value="{Binding IsEnabled}" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                    <ComboBox.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" FontWeight="SemiBold" Foreground="#444444" Margin="0,8,0,4" />
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ComboBox.GroupStyle>
+                    <ComboBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Name}" FontWeight="SemiBold" Foreground="#444444" Margin="0,8,0,4" />
+                            <StackPanel>
+                                <TextBlock Text="{Binding DisplayName}" />
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,0" VerticalAlignment="Center">
+                                    <ProgressBar Value="{Binding ProgressPercentage}"
+                                                 Maximum="100"
+                                                 Height="6"
+                                                 Width="160"
+                                                 Margin="0,0,8,0" />
+                                    <TextBlock Text="{Binding ProgressPercentageText}" Margin="0,0,8,0" />
+                                    <TextBlock Text="{Binding ProgressLabel}" Foreground="#666666" />
+                                </StackPanel>
+                            </StackPanel>
                         </DataTemplate>
-                    </GroupStyle.HeaderTemplate>
-                </GroupStyle>
-            </ComboBox.GroupStyle>
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding BookTitle}" FontSize="22" FontWeight="SemiBold"
+                           Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding SectionTitle}" FontSize="16" Margin="0,8,0,16"
+                           Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+                <ScrollViewer Grid.Row="3" Grid.Column="0" VerticalScrollBarVisibility="Auto"
+                              Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <StackPanel>
-                        <TextBlock Text="{Binding DisplayName}" />
-                        <StackPanel Orientation="Horizontal" Margin="0,4,0,0" VerticalAlignment="Center">
-                            <ProgressBar Value="{Binding ProgressPercentage}"
-                                         Maximum="100"
-                                         Height="6"
-                                         Width="160"
-                                         Margin="0,0,8,0" />
-                            <TextBlock Text="{Binding ProgressPercentageText}" Margin="0,0,8,0" />
-                            <TextBlock Text="{Binding ProgressLabel}" Foreground="#666666" />
-                        </StackPanel>
+                        <ItemsControl ItemsSource="{Binding Blocks}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Text}" TextWrapping="Wrap">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="FontSize" Value="14" />
+                                                <Setter Property="FontWeight" Value="Normal" />
+                                                <Setter Property="Margin" Value="0,0,0,12" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Kind}" Value="h1">
+                                                        <Setter Property="FontSize" Value="22" />
+                                                        <Setter Property="FontWeight" Value="Bold" />
+                                                        <Setter Property="Margin" Value="0,12,0,12" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Kind}" Value="h2">
+                                                        <Setter Property="FontSize" Value="18" />
+                                                        <Setter Property="FontWeight" Value="SemiBold" />
+                                                        <Setter Property="Margin" Value="0,10,0,10" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Kind}" Value="h3">
+                                                        <Setter Property="FontSize" Value="16" />
+                                                        <Setter Property="FontWeight" Value="SemiBold" />
+                                                        <Setter Property="Margin" Value="0,8,0,8" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <Border Margin="0,4,0,12"
+                                Padding="12"
+                                BorderThickness="1"
+                                BorderBrush="#22000000"
+                                CornerRadius="6"
+                                Visibility="{Binding IsRandomNumberVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <StackPanel>
+                                <TextBlock Text="Random Number Table" FontWeight="SemiBold" />
+                                <TextBlock Text="{Binding RandomNumberStatus}" TextWrapping="Wrap" Margin="0,6,0,8" />
+                                <TextBlock Text="{Binding RollHistoryText}" Foreground="#666666" Margin="0,0,0,8" />
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                    <TextBlock Text="Roll modifier:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                                    <TextBox Text="{Binding RollModifierText}" Width="60" />
+                                </StackPanel>
+                                <CheckBox Content="Manual mode (show choices after roll)"
+                                          IsChecked="{Binding IsManualRandomMode}"
+                                          Margin="0,0,0,8" />
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Roll Random Number"
+                                            Command="{Binding RollRandomNumberCommand}"
+                                            Margin="0,0,8,0" />
+                                    <Button Content="Show Table"
+                                            Command="{Binding ShowRandomNumberTableCommand}"
+                                            Margin="0,0,8,0" />
+                                    <Button Content="Continue"
+                                            Command="{Binding ConfirmRandomNumberCommand}"
+                                            Visibility="{Binding IsRandomNumberConfirmVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding BookTitle}" FontSize="22" FontWeight="SemiBold"
-                   Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding SectionTitle}" FontSize="16" Margin="0,8,0,16"
-                   Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                </ScrollViewer>
 
-        <ScrollViewer Grid.Row="3" Grid.Column="0" VerticalScrollBarVisibility="Auto"
-                      Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <StackPanel>
-                <ItemsControl ItemsSource="{Binding Blocks}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Text}" TextWrapping="Wrap">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="FontSize" Value="14" />
-                                        <Setter Property="FontWeight" Value="Normal" />
-                                        <Setter Property="Margin" Value="0,0,0,12" />
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Kind}" Value="h1">
-                                                <Setter Property="FontSize" Value="22" />
-                                                <Setter Property="FontWeight" Value="Bold" />
-                                                <Setter Property="Margin" Value="0,12,0,12" />
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding Kind}" Value="h2">
-                                                <Setter Property="FontSize" Value="18" />
-                                                <Setter Property="FontWeight" Value="SemiBold" />
-                                                <Setter Property="Margin" Value="0,10,0,10" />
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding Kind}" Value="h3">
-                                                <Setter Property="FontSize" Value="16" />
-                                                <Setter Property="FontWeight" Value="SemiBold" />
-                                                <Setter Property="Margin" Value="0,8,0,8" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                <Border Margin="0,4,0,12"
+                <Border Grid.Row="4"
+                        Grid.Column="0"
+                        Padding="0,8,0,0"
+                        BorderThickness="0,1,0,0"
+                        BorderBrush="#22000000"
+                        Visibility="{Binding AreChoicesVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <ItemsControl ItemsSource="{Binding Choices}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding Text}"
+                                        Command="{Binding Command}"
+                                        IsEnabled="{Binding IsEnabled}"
+                                        Margin="0,4,0,0" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+
+                <TextBlock Grid.Row="3"
+                           Grid.Column="0"
+                           Text="Select or create a profile to begin."
+                           Foreground="#666666"
+                           TextWrapping="Wrap"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsProfileReady}" Value="True">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <GridSplitter Grid.Row="0"
+                              Grid.RowSpan="5"
+                              Grid.Column="1"
+                              Width="6"
+                              Background="#22000000"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              ResizeBehavior="PreviousAndNext" />
+
+                <Border Grid.Row="1"
+                        Grid.Column="2"
+                        Grid.RowSpan="4"
+                        Margin="16,0,0,0"
                         Padding="12"
                         BorderThickness="1"
                         BorderBrush="#22000000"
-                        CornerRadius="6"
-                        Visibility="{Binding IsRandomNumberVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-                    <StackPanel>
-                        <TextBlock Text="Random Number Table" FontWeight="SemiBold" />
-                        <TextBlock Text="{Binding RandomNumberStatus}" TextWrapping="Wrap" Margin="0,6,0,8" />
-                        <TextBlock Text="{Binding RollHistoryText}" Foreground="#666666" Margin="0,0,0,8" />
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                            <TextBlock Text="Roll modifier:" VerticalAlignment="Center" Margin="0,0,8,0" />
-                            <TextBox Text="{Binding RollModifierText}" Width="60" />
-                        </StackPanel>
-                        <CheckBox Content="Manual mode (show choices after roll)"
-                                  IsChecked="{Binding IsManualRandomMode}"
-                                  Margin="0,0,0,8" />
-                        <StackPanel Orientation="Horizontal">
-                            <Button Content="Roll Random Number"
-                                    Command="{Binding RollRandomNumberCommand}"
-                                    Margin="0,0,8,0" />
-                            <Button Content="Show Table"
-                                    Command="{Binding ShowRandomNumberTableCommand}"
-                                    Margin="0,0,8,0" />
-                            <Button Content="Continue"
-                                    Command="{Binding ConfirmRandomNumberCommand}"
-                                    Visibility="{Binding IsRandomNumberConfirmVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        </StackPanel>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
-        </ScrollViewer>
+                        CornerRadius="6">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                        <StackPanel>
+                            <TextBlock Text="{Binding CharacterPanelTitle}" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,8" />
+                            <TextBlock Text="{Binding ActiveProfileLabel}" Foreground="#666666" Margin="0,0,0,4" />
+                            <TextBlock Text="{Binding ActiveCharacterLabel}" Foreground="#666666" Margin="0,0,0,12" />
 
-        <Border Grid.Row="4"
-                Grid.Column="0"
-                Padding="0,8,0,0"
-                BorderThickness="0,1,0,0"
-                BorderBrush="#22000000"
-                Visibility="{Binding AreChoicesVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <ItemsControl ItemsSource="{Binding Choices}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Content="{Binding Text}"
-                                Command="{Binding Command}"
-                                IsEnabled="{Binding IsEnabled}"
-                                Margin="0,4,0,0" />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Border>
-
-        <TextBlock Grid.Row="3"
-                   Grid.Column="0"
-                   Text="Select or create a profile to begin."
-                   Foreground="#666666"
-                   TextWrapping="Wrap"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center">
-            <TextBlock.Style>
-                <Style TargetType="TextBlock">
-                    <Setter Property="Visibility" Value="Visible" />
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsProfileReady}" Value="True">
-                            <Setter Property="Visibility" Value="Collapsed" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
-
-        <GridSplitter Grid.Row="0"
-                      Grid.RowSpan="5"
-                      Grid.Column="1"
-                      Width="6"
-                      Background="#22000000"
-                      HorizontalAlignment="Stretch"
-                      VerticalAlignment="Stretch"
-                      ResizeBehavior="PreviousAndNext" />
-
-        <Border Grid.Row="1"
-                Grid.Column="2"
-                Grid.RowSpan="4"
-                Margin="16,0,0,0"
-                Padding="12"
-                BorderThickness="1"
-                BorderBrush="#22000000"
-                CornerRadius="6">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                <StackPanel>
-                    <TextBlock Text="{Binding CharacterPanelTitle}" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,8" />
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                        <TextBlock Text="Profile:" VerticalAlignment="Center" Margin="0,0,8,0" />
-                        <ComboBox ItemsSource="{Binding Profiles}"
-                                  DisplayMemberPath="Name"
-                                  SelectedItem="{Binding SelectedProfile}"
-                                  Width="180"
-                                  Margin="0,0,8,0" />
-                        <Button Content="New Profile" Command="{Binding NewProfileCommand}" />
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8"
-                                Visibility="{Binding IsProfileSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
-                        <TextBlock Text="Character:" VerticalAlignment="Center" Margin="0,0,8,0" />
-                        <ComboBox ItemsSource="{Binding Characters}"
-                                  SelectedItem="{Binding SelectedCharacter}"
-                                  DisplayMemberPath="DisplayName"
-                                  IsEnabled="{Binding IsProfileSelected}"
-                                  Width="180"
-                                  Margin="0,0,8,0" />
-                        <Button Content="New Character"
-                                Command="{Binding NewCharacterCommand}"
-                                IsEnabled="{Binding IsProfileSelected}" />
-                    </StackPanel>
-                    <TextBlock Text="{Binding CharacterSetupHint}" TextWrapping="Wrap" Foreground="#666666" Margin="0,0,0,12" />
-
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,12"
-                                Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
-                        <TextBlock Text="Save slot:" VerticalAlignment="Center" Margin="0,0,8,0" />
-                        <ComboBox ItemsSource="{Binding SaveSlots}"
-                                  IsEditable="True"
-                                  Text="{Binding SaveSlot, UpdateSourceTrigger=PropertyChanged}"
-                                  Width="140"
-                                  Margin="0,0,8,0" />
-                        <Button Content="New" Command="{Binding NewSaveSlotCommand}" Margin="0,0,4,0" />
-                        <Button Content="Save"
-                                Command="{Binding SaveGameCommand}"
-                                Margin="0,0,4,0"
-                                Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        <Button Content="Load" Command="{Binding LoadGameCommand}" />
-                    </StackPanel>
-                    <StackPanel Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
-                        <TextBlock Text="Core Stats" FontWeight="SemiBold" />
-                        <ItemsControl ItemsSource="{Binding CoreStats}" Margin="0,4,0,12">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap">
-                                        <TextBlock.Inlines>
-                                            <Run Text="{Binding Label}" />
-                                            <Run Text=": " />
-                                            <Run Text="{Binding Value}" />
-                                        </TextBlock.Inlines>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-
-                        <StackPanel Visibility="{Binding HasCoreSkills, Converter={StaticResource BooleanToVisibilityConverter}}">
-                            <TextBlock Text="Core Skills" FontWeight="SemiBold" />
-                            <ItemsControl ItemsSource="{Binding CoreSkills}" Margin="0,4,0,12">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
-                                            <TextBlock Text="{Binding Label}" Width="140" VerticalAlignment="Center" />
-                                            <Button Content="-" Command="{Binding DecreaseCommand}" Width="24" Margin="0,0,6,0" />
-                                            <TextBlock Text="{Binding Value}" Width="40" TextAlignment="Center" VerticalAlignment="Center" />
-                                            <Button Content="+" Command="{Binding IncreaseCommand}" Width="24" Margin="6,0,0,0" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </StackPanel>
-
-                        <TextBlock Text="Attributes" FontWeight="SemiBold" />
-                        <ItemsControl ItemsSource="{Binding AttributeStats}" Margin="0,4,0,12">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock TextWrapping="Wrap">
-                                        <TextBlock.Inlines>
-                                            <Run Text="{Binding Label}" />
-                                            <Run Text=": " />
-                                            <Run Text="{Binding Value}" />
-                                        </TextBlock.Inlines>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-
-                        <TextBlock Text="Inventory Counters" FontWeight="SemiBold" />
-                        <StackPanel Orientation="Horizontal" Margin="0,4,0,6">
-                            <TextBox Text="{Binding CounterNameInput}" Width="120" Margin="0,0,8,0" />
-                            <Button Content="Add Counter" Command="{Binding AddCounterCommand}" />
-                        </StackPanel>
-                        <ItemsControl ItemsSource="{Binding InventoryCounters}" Margin="0,4,0,0">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
-                                        <TextBlock Text="{Binding Label}" Width="140" VerticalAlignment="Center" />
-                                        <Button Content="-" Command="{Binding DecreaseCommand}" Width="24" Margin="0,0,6,0" />
-                                        <TextBlock Text="{Binding Value}" Width="40" TextAlignment="Center" VerticalAlignment="Center" />
-                                        <Button Content="+" Command="{Binding IncreaseCommand}" Width="24" Margin="6,0,0,0" />
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-
-                        <TextBlock Text="Suggestions" FontWeight="SemiBold" Margin="0,12,0,0" />
-                        <ItemsControl ItemsSource="{Binding SuggestedActions}" Margin="0,4,0,12">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Button Content="{Binding Label}" Command="{Binding Command}" Margin="0,0,0,6" />
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-
-                        <StackPanel Visibility="{Binding HasAvailableSkills, Converter={StaticResource BooleanToVisibilityConverter}}">
-                            <TextBlock Text="Skills" FontWeight="SemiBold" Margin="0,12,0,0" />
-                            <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
-                                <ComboBox ItemsSource="{Binding AvailableSkills}"
-                                          SelectedItem="{Binding SelectedAvailableSkill}"
-                                          MinWidth="150"
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,12"
+                                        Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <TextBlock Text="Save slot:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                                <ComboBox ItemsSource="{Binding SaveSlots}"
+                                          IsEditable="True"
+                                          Text="{Binding SaveSlot, UpdateSourceTrigger=PropertyChanged}"
+                                          Width="140"
                                           Margin="0,0,8,0" />
-                                <Button Content="Add" Command="{Binding AddSkillCommand}" />
+                                <Button Content="New" Command="{Binding NewSaveSlotCommand}" Margin="0,0,4,0" />
+                                <Button Content="Save"
+                                        Command="{Binding SaveGameCommand}"
+                                        Margin="0,0,4,0"
+                                        Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                <Button Content="Load" Command="{Binding LoadGameCommand}" />
                             </StackPanel>
-                            <ListBox ItemsSource="{Binding CharacterSkills}"
-                                     SelectedItem="{Binding SelectedSkill}"
-                                     HorizontalContentAlignment="Stretch"
-                                     Height="80"
-                                     Margin="0,0,0,8" />
-                            <Button Content="Remove Selected Skill" Command="{Binding RemoveSkillCommand}" Margin="0,0,0,12" />
-                        </StackPanel>
 
-                        <TextBlock Text="Inventory Items" FontWeight="SemiBold" />
-                        <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
-                            <TextBox Text="{Binding NewItemName}" Width="120" Margin="0,0,8,0" />
-                            <TextBox Text="{Binding NewItemCategory}" Width="80" Margin="0,0,8,0" />
-                            <Button Content="Add" Command="{Binding AddItemCommand}" />
-                        </StackPanel>
-                        <ListBox ItemsSource="{Binding InventoryItems}"
-                                 SelectedItem="{Binding SelectedInventoryItem}"
-                                 HorizontalContentAlignment="Stretch"
-                                 Height="80"
-                                 Margin="0,0,0,8">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock TextWrapping="Wrap">
-                                        <Run Text="{Binding Name}" />
-                                        <Run Text=" (" />
-                                        <Run Text="{Binding Category}" />
-                                        <Run Text=")" />
-                                    </TextBlock>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                        <Button Content="Remove Selected Item" Command="{Binding RemoveItemCommand}" Margin="0,0,0,12" />
+                            <StackPanel Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <TextBlock Text="Core Stats" FontWeight="SemiBold" />
+                                <ItemsControl ItemsSource="{Binding CoreStats}" Margin="0,4,0,12">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Margin="0,0,0,4" TextWrapping="Wrap">
+                                                <TextBlock.Inlines>
+                                                    <Run Text="{Binding Label}" />
+                                                    <Run Text=": " />
+                                                    <Run Text="{Binding Value}" />
+                                                </TextBlock.Inlines>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
 
-                    </StackPanel>
+                                <StackPanel Visibility="{Binding HasCoreSkills, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <TextBlock Text="Core Skills" FontWeight="SemiBold" />
+                                    <TextBlock Text="{Binding BonusSkillPoints, StringFormat=Bonus Skill Points: {0}}"
+                                               Foreground="#666666"
+                                               Margin="0,2,0,4"
+                                               Visibility="{Binding HasBonusSkillPoints, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                    <ItemsControl ItemsSource="{Binding CoreSkills}" Margin="0,4,0,12">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                                                    <TextBlock Text="{Binding Label}" Width="140" VerticalAlignment="Center" />
+                                                    <Button Content="-" Command="{Binding DecreaseCommand}" Width="24" Margin="0,0,6,0" />
+                                                    <TextBlock Text="{Binding Value}" Width="40" TextAlignment="Center" VerticalAlignment="Center" />
+                                                    <Button Content="+" Command="{Binding IncreaseCommand}" Width="24" Margin="6,0,0,0" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+
+                                <TextBlock Text="Attributes" FontWeight="SemiBold" />
+                                <ItemsControl ItemsSource="{Binding AttributeStats}" Margin="0,4,0,12">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock TextWrapping="Wrap">
+                                                <TextBlock.Inlines>
+                                                    <Run Text="{Binding Label}" />
+                                                    <Run Text=": " />
+                                                    <Run Text="{Binding Value}" />
+                                                </TextBlock.Inlines>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+
+                                <StackPanel Visibility="{Binding HasAvailableSkills, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <TextBlock Text="Disciplines &amp; Skills" FontWeight="SemiBold" Margin="0,12,0,0" />
+                                    <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                                        <ComboBox ItemsSource="{Binding AvailableSkills}"
+                                                  SelectedItem="{Binding SelectedAvailableSkill}"
+                                                  MinWidth="150"
+                                                  Margin="0,0,8,0" />
+                                        <Button Content="Add" Command="{Binding AddSkillCommand}" />
+                                    </StackPanel>
+                                    <ListBox ItemsSource="{Binding CharacterSkills}"
+                                             SelectedItem="{Binding SelectedSkill}"
+                                             HorizontalContentAlignment="Stretch"
+                                             Height="80"
+                                             Margin="0,0,0,8" />
+                                    <Button Content="Remove Selected Skill" Command="{Binding RemoveSkillCommand}" Margin="0,0,0,12" />
+                                </StackPanel>
+
+                                <TextBlock Text="Inventory Counters" FontWeight="SemiBold" />
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,6">
+                                    <TextBox Text="{Binding CounterNameInput}" Width="120" Margin="0,0,8,0" />
+                                    <Button Content="Add Counter" Command="{Binding AddCounterCommand}" />
+                                </StackPanel>
+                                <ItemsControl ItemsSource="{Binding InventoryCounters}" Margin="0,4,0,0">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                                                <TextBlock Text="{Binding Label}" Width="140" VerticalAlignment="Center" />
+                                                <Button Content="-" Command="{Binding DecreaseCommand}" Width="24" Margin="0,0,6,0" />
+                                                <TextBlock Text="{Binding Value}" Width="40" TextAlignment="Center" VerticalAlignment="Center" />
+                                                <Button Content="+" Command="{Binding IncreaseCommand}" Width="24" Margin="6,0,0,0" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Profiles">
+            <Grid Margin="16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Profile Management" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,12" />
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,12">
+                    <TextBlock Text="Profile:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                    <ComboBox ItemsSource="{Binding Profiles}"
+                              DisplayMemberPath="Name"
+                              SelectedItem="{Binding SelectedProfile}"
+                              Width="220"
+                              Margin="0,0,8,0" />
+                    <Button Content="New Profile" Command="{Binding NewProfileCommand}" />
                 </StackPanel>
-            </ScrollViewer>
-        </Border>
-    </Grid>
+
+                <TextBlock Grid.Row="2"
+                           Text="Select a profile to manage progress, series status, and profile details."
+                           Foreground="#666666"
+                           TextWrapping="Wrap" />
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Characters" IsEnabled="{Binding IsProfileSelected}">
+            <Grid Margin="16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Character Management" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,12" />
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,12">
+                    <TextBlock Text="Series:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                    <ComboBox ItemsSource="{Binding CharacterSeriesOptions}"
+                              SelectedItem="{Binding SelectedCharacterSeries}"
+                              DisplayMemberPath="Name"
+                              Width="220"
+                              Margin="0,0,8,0" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,12">
+                    <TextBlock Text="Character:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                    <ComboBox ItemsSource="{Binding Characters}"
+                              SelectedItem="{Binding SelectedCharacter}"
+                              DisplayMemberPath="DisplayName"
+                              Width="220"
+                              Margin="0,0,8,0"
+                              IsEnabled="{Binding IsCharacterSeriesSelected}" />
+                    <Button Content="New Character"
+                            Command="{Binding NewCharacterCommand}"
+                            IsEnabled="{Binding IsProfileSelected}" />
+                </StackPanel>
+
+                <TextBlock Grid.Row="3"
+                           Text="Select a character to manage stats, skills, and inventory. Switching will return to the book tab."
+                           Foreground="#666666"
+                           TextWrapping="Wrap" />
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Books">
+            <Grid Margin="16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Book Management" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,12" />
+
+                <ListView Grid.Row="1"
+                          ItemsSource="{Binding Source={StaticResource BooksView}}"
+                          BorderThickness="1"
+                          BorderBrush="#22000000">
+                    <ListView.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" FontWeight="SemiBold" Margin="0,8,0,4" />
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ListView.GroupStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,4,0,4">
+                                <TextBlock Text="{Binding Title}" FontWeight="SemiBold" />
+                                <TextBlock Text="{Binding DisplayName}" Foreground="#666666" FontSize="12" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>
