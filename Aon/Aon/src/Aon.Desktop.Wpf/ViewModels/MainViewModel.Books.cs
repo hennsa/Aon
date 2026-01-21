@@ -488,6 +488,7 @@ public sealed partial class MainViewModel
         _currentCharacterState.LastBookId = _state.BookId;
         _currentCharacterState.LastSectionId = _state.SectionId;
         UpdateBookProgressIndicators();
+        _ = SaveProfileStateAsync();
     }
 
     private string? GetSavedSectionId(string bookId)
@@ -530,6 +531,11 @@ public sealed partial class MainViewModel
         if (book is not null && book.TryGetSectionIndex(sectionId, out var index))
         {
             progress.MaxSectionIndex = Math.Max(progress.MaxSectionIndex, index);
+        }
+
+        if (int.TryParse(sectionId, out var numericSection))
+        {
+            progress.MaxSectionNumber = Math.Max(progress.MaxSectionNumber, numericSection);
         }
     }
 

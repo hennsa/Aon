@@ -8,6 +8,7 @@ namespace Aon.Desktop.Wpf.ViewModels;
 public sealed class BookListItemViewModel : ViewModelBase
 {
     private readonly Dictionary<string, int> _sectionIndexMap;
+    private readonly int _maxSectionNumber;
     private bool _isCompleted;
     private bool _isEnabled = true;
     private string _progressLabel = "New";
@@ -33,6 +34,10 @@ public sealed class BookListItemViewModel : ViewModelBase
         _sectionIndexMap = sectionIds
             .Select((sectionId, index) => new { sectionId, index })
             .ToDictionary(entry => entry.sectionId, entry => entry.index, StringComparer.OrdinalIgnoreCase);
+        _maxSectionNumber = sectionIds
+            .Select(sectionId => int.TryParse(sectionId, out var number) ? number : -1)
+            .DefaultIfEmpty(-1)
+            .Max();
     }
 
     public string Id { get; }
@@ -127,6 +132,10 @@ public sealed class BookListItemViewModel : ViewModelBase
 
         var completed = maxIndex + 1;
         var percentage = Math.Clamp(completed / (double)SectionCount * 100, 0, 100);
+        if (_maxSectionNumber > 0 && progress.MaxSectionNumber > 0)
+        {
+            percentage = Math.Clamp(progress.MaxSectionNumber / (double)_maxSectionNumber * 100, 0, 100);
+        }
         UpdateProgressPercentage(percentage);
         IsCompleted = completed >= SectionCount;
         if (IsCompleted)
