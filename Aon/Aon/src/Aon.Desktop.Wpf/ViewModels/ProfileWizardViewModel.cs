@@ -8,6 +8,7 @@ public sealed class ProfileWizardViewModel : ViewModelBase
 {
     private readonly Func<int> _rollRandomNumber;
     private readonly Dictionary<string, int> _coreSkillMinimums = new(StringComparer.OrdinalIgnoreCase);
+    private readonly Dictionary<string, ISeriesProfile> _seriesProfiles;
     private string _profileName = string.Empty;
     private string _characterName = string.Empty;
     private int _combatSkill;
@@ -16,23 +17,36 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     private int _bonusSkillPoints = 4;
     private int _selectedSkillCount;
     private string _selectionStatus = string.Empty;
+    private string _seriesId = string.Empty;
+    private string _seriesName = string.Empty;
+    private string _skillSelectionTitle = string.Empty;
+    private int _skillSelectionLimit;
     private ProfileOptionViewModel? _selectedExistingProfile;
     private CharacterOptionViewModel? _selectedExistingCharacter;
+    private SeriesOptionViewModel? _selectedSeriesOption;
 
     public ProfileWizardViewModel(
-        string seriesId,
-        ISeriesProfile seriesProfile,
         Func<int> rollRandomNumber,
-        IEnumerable<PlayerProfile> existingProfiles)
+        IEnumerable<PlayerProfile> existingProfiles,
+        string? initialSeriesId = null,
+        bool isSeriesSelectionEnabled = true)
     {
-        SeriesId = seriesId;
-        SeriesName = seriesProfile.Name;
         _rollRandomNumber = rollRandomNumber;
+        _seriesProfiles = new Dictionary<string, ISeriesProfile>(StringComparer.OrdinalIgnoreCase)
+        {
+            { "lw", SeriesProfiles.LoneWolf },
+            { "gs", SeriesProfiles.GreyStar },
+            { "fw", SeriesProfiles.FreewayWarrior }
+        };
         Skills = new ObservableCollection<SelectableSkillViewModel>();
         CoreSkills = new ObservableCollection<CoreSkillEntryViewModel>();
         Counters = new ObservableCollection<CounterEntryViewModel>();
         ExistingProfiles = new ObservableCollection<ProfileOptionViewModel>();
         ExistingCharacters = new ObservableCollection<CharacterOptionViewModel>();
+        SeriesOptions = new ObservableCollection<SeriesOptionViewModel>(
+            _seriesProfiles.Select(entry => new SeriesOptionViewModel(entry.Key, entry.Value.Name))
+                .OrderBy(option => option.Name, StringComparer.OrdinalIgnoreCase));
+        IsSeriesSelectionEnabled = isSeriesSelectionEnabled;
 
         foreach (var profile in existingProfiles
                      .Where(profile => !string.IsNullOrWhiteSpace(profile.Name))
@@ -41,46 +55,12 @@ public sealed class ProfileWizardViewModel : ViewModelBase
             ExistingProfiles.Add(new ProfileOptionViewModel(profile));
         }
 
-        foreach (var entry in seriesProfile.DefaultCounters)
-        {
-            Counters.Add(new CounterEntryViewModel(entry.Key, entry.Value));
-        }
-
-        foreach (var item in seriesProfile.DefaultItems)
-        {
-            DefaultItems.Add(item);
-        }
-
-        if (seriesId is "lw")
-        {
-            SkillSelectionLimit = 5;
-            SkillSelectionTitle = "Kai Disciplines";
-            foreach (var skill in seriesProfile.SkillNames)
-            {
-                Skills.Add(new SelectableSkillViewModel(skill, TryUpdateSkillSelection));
-            }
-        }
-        else if (seriesId is "gs")
-        {
-            SkillSelectionLimit = 5;
-            SkillSelectionTitle = "Magical Powers";
-            foreach (var skill in seriesProfile.SkillNames)
-            {
-                Skills.Add(new SelectableSkillViewModel(skill, TryUpdateSkillSelection));
-            }
-        }
-        else if (seriesId is "fw")
-        {
-            foreach (var entry in seriesProfile.CoreSkills)
-            {
-                _coreSkillMinimums[entry.Key] = entry.Value;
-                CoreSkills.Add(new CoreSkillEntryViewModel(entry.Key, entry.Value, () => TryAdjustCoreSkill(entry.Key, 1), () => TryAdjustCoreSkill(entry.Key, -1)));
-            }
-        }
-
         RollCombatSkillCommand = new RelayCommand(RollCombatSkill);
         RollEnduranceCommand = new RelayCommand(RollEndurance);
         RollWillpowerCommand = new RelayCommand(RollWillpower, () => IsWillpowerAvailable);
+
+        SelectedSeriesOption = SeriesOptions.FirstOrDefault(option => string.Equals(option.Id, initialSeriesId, StringComparison.OrdinalIgnoreCase))
+            ?? SeriesOptions.FirstOrDefault();
 
         if (HasSkillSelection)
         {
@@ -90,19 +70,78 @@ public sealed class ProfileWizardViewModel : ViewModelBase
         LoadExistingCharacters(null);
     }
 
-    public string SeriesId { get; }
-    public string SeriesName { get; }
-    public string SkillSelectionTitle { get; } = string.Empty;
-    public int SkillSelectionLimit { get; }
+    public string SeriesId
+    {
+        get => _seriesId;
+        private set
+        {
+            if (_seriesId == value)
+            {
+                return;
+            }
+
+            _seriesId = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(IsWillpowerAvailable));
+        }
+    }
+
+    public string SeriesName
+    {
+        get => _seriesName;
+        private set
+        {
+            if (_seriesName == value)
+            {
+                return;
+            }
+
+            _seriesName = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string SkillSelectionTitle
+    {
+        get => _skillSelectionTitle;
+        private set
+        {
+            if (_skillSelectionTitle == value)
+            {
+                return;
+            }
+
+            _skillSelectionTitle = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public int SkillSelectionLimit
+    {
+        get => _skillSelectionLimit;
+        private set
+        {
+            if (_skillSelectionLimit == value)
+            {
+                return;
+            }
+
+            _skillSelectionLimit = value;
+            OnPropertyChanged();
+        }
+    }
+
     public ObservableCollection<SelectableSkillViewModel> Skills { get; }
     public ObservableCollection<CoreSkillEntryViewModel> CoreSkills { get; }
     public ObservableCollection<CounterEntryViewModel> Counters { get; }
     public ObservableCollection<ProfileOptionViewModel> ExistingProfiles { get; }
     public ObservableCollection<CharacterOptionViewModel> ExistingCharacters { get; }
+    public ObservableCollection<SeriesOptionViewModel> SeriesOptions { get; }
     public List<Item> DefaultItems { get; } = new();
     public RelayCommand RollCombatSkillCommand { get; }
     public RelayCommand RollEnduranceCommand { get; }
     public RelayCommand RollWillpowerCommand { get; }
+    public bool IsSeriesSelectionEnabled { get; }
     public bool HasSkillSelection => Skills.Count > 0;
     public bool HasCoreSkills => CoreSkills.Count > 0;
     public bool HasCounters => Counters.Count > 0;
@@ -129,6 +168,29 @@ public sealed class ProfileWizardViewModel : ViewModelBase
             }
 
             LoadExistingCharacters(_selectedExistingProfile?.Profile);
+            OnPropertyChanged(nameof(HasExistingCharacters));
+            OnPropertyChanged(nameof(IsValid));
+        }
+    }
+
+    public SeriesOptionViewModel? SelectedSeriesOption
+    {
+        get => _selectedSeriesOption;
+        set
+        {
+            if (_selectedSeriesOption == value)
+            {
+                return;
+            }
+
+            _selectedSeriesOption = value;
+            OnPropertyChanged();
+            if (_selectedSeriesOption is not null)
+            {
+                ApplySeriesProfile(_selectedSeriesOption.Id);
+                LoadExistingCharacters(_selectedExistingProfile?.Profile);
+            }
+
             OnPropertyChanged(nameof(IsValid));
         }
     }
@@ -296,6 +358,11 @@ public sealed class ProfileWizardViewModel : ViewModelBase
                 return false;
             }
 
+            if (string.IsNullOrWhiteSpace(SeriesId))
+            {
+                return false;
+            }
+
             if (!IsCharacterCreationEnabled)
             {
                 return true;
@@ -394,12 +461,80 @@ public sealed class ProfileWizardViewModel : ViewModelBase
                          .Where(state => !string.IsNullOrWhiteSpace(state.Character.Name))
                          .OrderBy(state => state.Character.Name, StringComparer.OrdinalIgnoreCase))
             {
-                ExistingCharacters.Add(new CharacterOptionViewModel(entry.Character.Name, entry));
+                ExistingCharacters.Add(new CharacterOptionViewModel(entry.Character.Name, entry, SeriesId, SeriesName));
             }
         }
 
         SelectedExistingCharacter = ExistingCharacters.FirstOrDefault();
         OnPropertyChanged(nameof(HasExistingCharacters));
+    }
+
+    private void ApplySeriesProfile(string seriesId)
+    {
+        if (!_seriesProfiles.TryGetValue(seriesId, out var seriesProfile))
+        {
+            return;
+        }
+
+        SeriesId = seriesId;
+        SeriesName = seriesProfile.Name;
+
+        Skills.Clear();
+        CoreSkills.Clear();
+        Counters.Clear();
+        DefaultItems.Clear();
+        _coreSkillMinimums.Clear();
+
+        SkillSelectionTitle = string.Empty;
+        SkillSelectionLimit = 0;
+
+        foreach (var entry in seriesProfile.DefaultCounters)
+        {
+            Counters.Add(new CounterEntryViewModel(entry.Key, entry.Value));
+        }
+
+        foreach (var item in seriesProfile.DefaultItems)
+        {
+            DefaultItems.Add(item);
+        }
+
+        if (seriesId is "lw")
+        {
+            SkillSelectionLimit = 5;
+            SkillSelectionTitle = "Kai Disciplines";
+            foreach (var skill in seriesProfile.SkillNames)
+            {
+                Skills.Add(new SelectableSkillViewModel(skill, TryUpdateSkillSelection));
+            }
+        }
+        else if (seriesId is "gs")
+        {
+            SkillSelectionLimit = 5;
+            SkillSelectionTitle = "Magical Powers";
+            foreach (var skill in seriesProfile.SkillNames)
+            {
+                Skills.Add(new SelectableSkillViewModel(skill, TryUpdateSkillSelection));
+            }
+        }
+        else if (seriesId is "fw")
+        {
+            foreach (var entry in seriesProfile.CoreSkills)
+            {
+                _coreSkillMinimums[entry.Key] = entry.Value;
+                CoreSkills.Add(new CoreSkillEntryViewModel(entry.Key, entry.Value, () => TryAdjustCoreSkill(entry.Key, 1), () => TryAdjustCoreSkill(entry.Key, -1)));
+            }
+        }
+
+        CharacterName = string.Empty;
+        CombatSkill = 0;
+        Endurance = 0;
+        Willpower = 0;
+        BonusSkillPoints = 4;
+        SelectedSkillCount = 0;
+        UpdateSelectionStatus();
+        OnPropertyChanged(nameof(HasSkillSelection));
+        OnPropertyChanged(nameof(HasCoreSkills));
+        OnPropertyChanged(nameof(HasCounters));
     }
 
     private void ApplyExistingCharacter(CharacterProfileState? characterState)
@@ -627,24 +762,43 @@ public sealed class ProfileOptionViewModel
 
 public sealed class CharacterOptionViewModel
 {
-    public CharacterOptionViewModel(string name, CharacterProfileState characterState)
+    public CharacterOptionViewModel(string name, CharacterProfileState characterState, string? seriesId = null, string? seriesName = null)
     {
         Name = name;
         CharacterState = characterState;
+        SeriesId = seriesId;
+        SeriesName = seriesName;
+        DisplayName = string.IsNullOrWhiteSpace(seriesName) ? name : $"{name} ({seriesName})";
     }
 
     private CharacterOptionViewModel(string name)
     {
         Name = name;
         IsNew = true;
+        DisplayName = name;
     }
 
     public string Name { get; }
+    public string DisplayName { get; }
     public bool IsNew { get; }
     public CharacterProfileState? CharacterState { get; }
+    public string? SeriesId { get; }
+    public string? SeriesName { get; }
 
     public static CharacterOptionViewModel CreateNew()
     {
         return new CharacterOptionViewModel("Create new character");
     }
+}
+
+public sealed class SeriesOptionViewModel
+{
+    public SeriesOptionViewModel(string id, string name)
+    {
+        Id = id;
+        Name = name;
+    }
+
+    public string Id { get; }
+    public string Name { get; }
 }

@@ -34,6 +34,7 @@
         <ComboBox ItemsSource="{Binding Source={StaticResource BooksView}}"
                   Grid.Column="0"
                   SelectedItem="{Binding SelectedBook}"
+                  Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}"
                   MinWidth="260"
                   Margin="0,0,0,12">
             <ComboBox.ItemContainerStyle>
@@ -67,10 +68,13 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding BookTitle}" FontSize="22" FontWeight="SemiBold" />
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding SectionTitle}" FontSize="16" Margin="0,8,0,16" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding BookTitle}" FontSize="22" FontWeight="SemiBold"
+                   Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding SectionTitle}" FontSize="16" Margin="0,8,0,16"
+                   Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
-        <ScrollViewer Grid.Row="3" Grid.Column="0" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer Grid.Row="3" Grid.Column="0" VerticalScrollBarVisibility="Auto"
+                      Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
             <StackPanel>
                 <ItemsControl ItemsSource="{Binding Blocks}">
                     <ItemsControl.ItemTemplate>
@@ -155,6 +159,25 @@
             </ItemsControl>
         </Border>
 
+        <TextBlock Grid.Row="3"
+                   Grid.Column="0"
+                   Text="Select or create a profile to begin."
+                   Foreground="#666666"
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsProfileReady}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
         <GridSplitter Grid.Row="0"
                       Grid.RowSpan="5"
                       Grid.Column="1"
@@ -176,17 +199,32 @@
                 <StackPanel>
                     <TextBlock Text="{Binding CharacterPanelTitle}" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,8" />
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBlock Text="Profile:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                        <ComboBox ItemsSource="{Binding Profiles}"
+                                  DisplayMemberPath="Name"
+                                  SelectedItem="{Binding SelectedProfile}"
+                                  Width="180"
+                                  Margin="0,0,8,0" />
+                        <Button Content="New Profile" Command="{Binding NewProfileCommand}" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8"
+                                Visibility="{Binding IsProfileSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <TextBlock Text="Character:" VerticalAlignment="Center" Margin="0,0,8,0" />
                         <ComboBox ItemsSource="{Binding Characters}"
                                   SelectedItem="{Binding SelectedCharacter}"
-                                  DisplayMemberPath="Name"
-                                  Width="160"
+                                  DisplayMemberPath="DisplayName"
+                                  IsEnabled="{Binding IsProfileSelected}"
+                                  Width="180"
                                   Margin="0,0,8,0" />
-                        <Button Content="New Character" Command="{Binding NewCharacterCommand}" />
+                        <Button Content="New Character"
+                                Command="{Binding NewCharacterCommand}"
+                                IsEnabled="{Binding IsProfileSelected}" />
                     </StackPanel>
                     <TextBlock Text="{Binding CharacterSetupHint}" TextWrapping="Wrap" Foreground="#666666" Margin="0,0,0,12" />
 
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,12"
+                                Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <TextBlock Text="Save slot:" VerticalAlignment="Center" Margin="0,0,8,0" />
                         <ComboBox ItemsSource="{Binding SaveSlots}"
                                   IsEditable="True"
@@ -200,10 +238,6 @@
                                 Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
                         <Button Content="Load" Command="{Binding LoadGameCommand}" />
                     </StackPanel>
-                    <Button Content="New Profile"
-                            Command="{Binding NewProfileCommand}"
-                            Margin="0,0,0,12" />
-
                     <StackPanel Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <TextBlock Text="Core Stats" FontWeight="SemiBold" />
                         <ItemsControl ItemsSource="{Binding CoreStats}" Margin="0,4,0,12">

@@ -55,6 +55,7 @@ public sealed class MainViewModel : ViewModelBase
     private string _newItemCategory = "general";
     private string _counterNameInput = string.Empty;
     private BookListItemViewModel? _selectedBook;
+    private ProfileOptionViewModel? _selectedProfile;
     private CharacterOptionViewModel? _selectedCharacter;
     private ItemEntryViewModel? _selectedInventoryItem;
     private bool _isRandomNumberVisible;
@@ -64,7 +65,10 @@ public sealed class MainViewModel : ViewModelBase
     private bool _isManualRandomMode;
     private bool _isProfileReady;
     private bool _isUpdatingCharacters;
+    private bool _isUpdatingProfiles;
     private bool _isSwitchingCharacter;
+    private bool _lastWizardCreatedNewCharacter;
+    private string? _lastWizardSeriesId;
 
     public MainViewModel()
     {
@@ -90,7 +94,7 @@ public sealed class MainViewModel : ViewModelBase
         _loadGameCommand = new RelayCommand(() => _ = LoadGameAsync());
         _newSaveSlotCommand = new RelayCommand(CreateNewSaveSlot);
         _newProfileCommand = new RelayCommand(StartNewProfile);
-        _newCharacterCommand = new RelayCommand(() => _ = CreateNewCharacterAsync(), () => IsProfileReady);
+        _newCharacterCommand = new RelayCommand(() => _ = CreateNewCharacterAsync(), () => CanCreateCharacter);
         _addSkillCommand = new RelayCommand(AddSkill, () => !string.IsNullOrWhiteSpace(SelectedAvailableSkill));
         _removeSkillCommand = new RelayCommand(RemoveSkill, () => SelectedSkill is not null);
         _addItemCommand = new RelayCommand(AddItem, () => !string.IsNullOrWhiteSpace(NewItemName));
@@ -98,6 +102,7 @@ public sealed class MainViewModel : ViewModelBase
         _addCounterCommand = new RelayCommand(AddCounter, () => !string.IsNullOrWhiteSpace(CounterNameInput));
         LoadBooks(booksDirectory);
         LoadSaveSlots();
+        LoadProfiles();
     }
 
     public string BookTitle
@@ -133,6 +138,7 @@ public sealed class MainViewModel : ViewModelBase
     public ObservableCollection<ContentBlockViewModel> Blocks { get; }
     public ObservableCollection<ChoiceViewModel> Choices { get; }
     public ObservableCollection<BookListItemViewModel> Books { get; }
+    public ObservableCollection<ProfileOptionViewModel> Profiles { get; } = new();
     public ObservableCollection<CharacterOptionViewModel> Characters { get; } = new();
     public ObservableCollection<StatEntryViewModel> CoreStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> CoreSkills { get; } = new();
@@ -158,6 +164,8 @@ public sealed class MainViewModel : ViewModelBase
     public RelayCommand AddCounterCommand => _addCounterCommand;
     public bool HasCoreSkills => CoreSkills.Count > 0;
     public bool HasAvailableSkills => AvailableSkills.Count > 0;
+    public bool CanCreateCharacter => SelectedProfile is not null;
+    public bool IsProfileSelected => SelectedProfile is not null;
     public bool IsProfileReady
     {
         get => _isProfileReady;
@@ -172,6 +180,36 @@ public sealed class MainViewModel : ViewModelBase
             OnPropertyChanged();
             OnPropertyChanged(nameof(CharacterPanelTitle));
             _newCharacterCommand.RaiseCanExecuteChanged();
+        }
+    }
+
+    public ProfileOptionViewModel? SelectedProfile
+    {
+        get => _selectedProfile;
+        set
+        {
+            if (_selectedProfile == value)
+            {
+                return;
+            }
+
+            _selectedProfile = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(IsProfileSelected));
+            _newCharacterCommand.RaiseCanExecuteChanged();
+
+            if (_isUpdatingProfiles)
+            {
+                return;
+            }
+
+            if (_selectedProfile is null)
+            {
+                SetProfileSetupRequired("Select a profile to continue.");
+                return;
+            }
+
+            ApplySelectedProfile(_selectedProfile.Profile);
         }
     }
 
@@ -424,7 +462,7 @@ public sealed class MainViewModel : ViewModelBase
             _selectedBook = value;
             OnPropertyChanged();
 
-            if (_selectedBook is not null)
+            if (_selectedBook is not null && IsProfileReady)
             {
                 _ = LoadBookAsync(_selectedBook.Id);
             }
@@ -441,17 +479,23 @@ public sealed class MainViewModel : ViewModelBase
                 return;
             }
 
-            _selectedCharacter = value;
-            OnPropertyChanged();
+        _selectedCharacter = value;
+        OnPropertyChanged();
 
-            if (_isUpdatingCharacters || _isSwitchingCharacter || _selectedCharacter is null)
-            {
-                return;
-            }
-
-            _ = SwitchCharacterAsync(_selectedCharacter);
+        if (_isUpdatingCharacters || _isSwitchingCharacter || _selectedCharacter is null)
+        {
+            return;
         }
+
+        if (!IsProfileReady)
+        {
+            _ = LoadCharacterSelectionAsync(_selectedCharacter);
+            return;
+        }
+
+        _ = SwitchCharacterAsync(_selectedCharacter);
     }
+}
 
     private void LoadBooks(string booksDirectory)
     {
@@ -507,7 +551,7 @@ public sealed class MainViewModel : ViewModelBase
         }
 
         UpdateBookProgressIndicators();
-        SelectedBook = Books.FirstOrDefault();
+        SelectedBook = null;
     }
 
     private static string? TryReadBookTitle(string filePath)
@@ -593,11 +637,34 @@ public sealed class MainViewModel : ViewModelBase
             return;
         }
 
+        var seriesId = ResolveSeriesId(book.Id);
+        if (!EnsureSeriesProfile(seriesId))
+        {
+            ClearBookDisplay();
+            return;
+        }
+
+        if (_lastWizardCreatedNewCharacter && string.Equals(_lastWizardSeriesId, seriesId, StringComparison.OrdinalIgnoreCase))
+        {
+            var firstBookId = GetFirstBookIdForSeries(seriesId);
+            if (!string.IsNullOrWhiteSpace(firstBookId)
+                && !string.Equals(firstBookId, book.Id, StringComparison.OrdinalIgnoreCase))
+            {
+                var firstBook = Books.FirstOrDefault(item => string.Equals(item.Id, firstBookId, StringComparison.OrdinalIgnoreCase));
+                if (firstBook is not null)
+                {
+                    SelectedBook = firstBook;
+                    return;
+                }
+            }
+        }
+        _lastWizardCreatedNewCharacter = false;
+        _lastWizardSeriesId = null;
+
         _book = book;
         _state.BookId = _book.Id;
-        _state.SeriesId = ResolveSeriesId(_book.Id);
+        _state.SeriesId = seriesId;
         BookTitle = _book.Title;
-        EnsureSeriesProfile(_state.SeriesId);
         var firstSection = _book.Sections.FirstOrDefault();
         var savedSectionId = GetSavedSectionId(_book.Id);
         _state.SectionId = string.IsNullOrWhiteSpace(savedSectionId)
@@ -634,6 +701,25 @@ public sealed class MainViewModel : ViewModelBase
 
         var sectionToDisplay = _book.Sections.FirstOrDefault(item => item.Id == _state.SectionId) ?? firstSection;
         UpdateSection(sectionToDisplay);
+    }
+
+    private void ClearBookDisplay()
+    {
+        _book = null;
+        _firstSectionForFrontMatter = null;
+        _frontMatterQueue.Clear();
+        _state.BookId = string.Empty;
+        _state.SeriesId = string.Empty;
+        _state.SectionId = string.Empty;
+        BookTitle = "Aon Companion";
+        SectionTitle = "Select a book";
+        Blocks.Clear();
+        Choices.Clear();
+        ResetRandomNumberState();
+        SuggestedActions.Clear();
+        AreChoicesVisible = false;
+        SelectedBook = null;
+        UpdateBookProgressIndicators();
     }
 
     private async Task ApplyChoiceAsync(Choice choice)
@@ -940,7 +1026,7 @@ public sealed class MainViewModel : ViewModelBase
                      .Where(state => !string.IsNullOrWhiteSpace(state.Character.Name))
                      .OrderBy(state => state.Character.Name, StringComparer.OrdinalIgnoreCase))
         {
-            Characters.Add(new CharacterOptionViewModel(entry.Character.Name, entry));
+            Characters.Add(new CharacterOptionViewModel(entry.Character.Name, entry, _state.SeriesId, ResolveSeriesName(_state.SeriesId)));
         }
 
         SelectedCharacter = Characters
@@ -950,27 +1036,64 @@ public sealed class MainViewModel : ViewModelBase
         _isUpdatingCharacters = false;
     }
 
-    private void EnsureSeriesProfile(string seriesId)
+    private void UpdateCharacterOptionsForProfile(PlayerProfile profile, string? activeSeriesId = null, string? activeCharacterName = null)
+    {
+        _isUpdatingCharacters = true;
+        Characters.Clear();
+
+        if (profile.SeriesStates is null)
+        {
+            SelectedCharacter = null;
+            _isUpdatingCharacters = false;
+            return;
+        }
+
+        foreach (var seriesEntry in profile.SeriesStates.OrderBy(entry => ResolveSeriesSortOrder(entry.Key)))
+        {
+            var seriesId = seriesEntry.Key;
+            var seriesName = ResolveSeriesName(seriesId);
+            foreach (var entry in seriesEntry.Value.Characters.Values
+                         .Where(state => !string.IsNullOrWhiteSpace(state.Character.Name))
+                         .OrderBy(state => state.Character.Name, StringComparer.OrdinalIgnoreCase))
+            {
+                Characters.Add(new CharacterOptionViewModel(entry.Character.Name, entry, seriesId, seriesName));
+            }
+        }
+
+        if (!string.IsNullOrWhiteSpace(activeSeriesId) && !string.IsNullOrWhiteSpace(activeCharacterName))
+        {
+            SelectedCharacter = Characters.FirstOrDefault(option =>
+                string.Equals(option.SeriesId, activeSeriesId, StringComparison.OrdinalIgnoreCase)
+                && string.Equals(option.Name, activeCharacterName, StringComparison.OrdinalIgnoreCase));
+        }
+        else
+        {
+            SelectedCharacter = null;
+        }
+        _isUpdatingCharacters = false;
+    }
+
+    private bool EnsureSeriesProfile(string seriesId)
     {
         _currentProfile = ResolveSeriesProfile(seriesId);
         EnsureProfileContainer();
 
         var seriesState = EnsureSeriesState(_state.Profile, seriesId);
+        _lastWizardCreatedNewCharacter = false;
+        _lastWizardSeriesId = null;
         if (!seriesState.IsInitialized || seriesState.Characters.Count == 0)
         {
-            if (!TryRunProfileWizard(seriesId, _currentProfile, seriesState, out var wizardResult))
+            if (!TryRunProfileWizard(seriesId, _state.Profile, false, out var wizardResult))
             {
-                _state.Character = new Character();
-                _currentCharacterState = null;
-                IsProfileReady = false;
-                CharacterSetupHint = $"Profile setup required for {_currentProfile.Name}.";
-                RefreshCharacterPanels();
-                UpdateBookProgressIndicators();
-                return;
+                SetProfileSetupRequired($"Profile setup required for {_currentProfile.Name}.");
+                return false;
             }
 
-            ApplyProfileWizardResult(seriesId, wizardResult);
+            ApplyProfileWizardResult(wizardResult);
             seriesState = wizardResult.SeriesState;
+            LoadProfiles();
+            _lastWizardCreatedNewCharacter = wizardResult.IsNewCharacter;
+            _lastWizardSeriesId = wizardResult.SeriesId;
         }
         else if (_currentCharacterState is null)
         {
@@ -982,23 +1105,21 @@ public sealed class MainViewModel : ViewModelBase
 
             if (shouldUseExisting == MessageBoxResult.No)
             {
-                if (TryRunProfileWizard(seriesId, _currentProfile, seriesState, out var wizardResult))
+                if (TryRunProfileWizard(seriesId, _state.Profile, false, out var wizardResult))
                 {
-                    ApplyProfileWizardResult(seriesId, wizardResult);
+                    ApplyProfileWizardResult(wizardResult);
                     seriesState = wizardResult.SeriesState;
+                    LoadProfiles();
+                    _lastWizardCreatedNewCharacter = wizardResult.IsNewCharacter;
+                    _lastWizardSeriesId = wizardResult.SeriesId;
                 }
             }
         }
 
         if (!TryResolveActiveCharacter(seriesState, out var activeCharacter))
         {
-            _state.Character = new Character();
-            _currentCharacterState = null;
-            IsProfileReady = false;
-            CharacterSetupHint = $"Profile setup required for {_currentProfile.Name}.";
-            RefreshCharacterPanels();
-            UpdateBookProgressIndicators();
-            return;
+            SetProfileSetupRequired($"Profile setup required for {_currentProfile.Name}.");
+            return false;
         }
 
         _currentCharacterState = activeCharacter;
@@ -1012,6 +1133,43 @@ public sealed class MainViewModel : ViewModelBase
         RefreshCharacterPanels();
         UpdateBookProgressIndicators();
         UpdateCharacterOptions(seriesState);
+        _isUpdatingProfiles = true;
+        try
+        {
+            SelectedProfile = Profiles.FirstOrDefault(option => string.Equals(option.Name, _state.Profile.Name, StringComparison.OrdinalIgnoreCase));
+        }
+        finally
+        {
+            _isUpdatingProfiles = false;
+        }
+        return true;
+    }
+
+    private void SetProfileSetupRequired(string message)
+    {
+        _state.Character = new Character();
+        _currentCharacterState = null;
+        IsProfileReady = false;
+        CharacterSetupHint = message;
+        Characters.Clear();
+        SelectedCharacter = null;
+        AreChoicesVisible = false;
+        ClearBookDisplay();
+        RefreshCharacterPanels();
+        UpdateBookProgressIndicators();
+    }
+
+    private void ApplySelectedProfile(PlayerProfile profile)
+    {
+        _state.Profile = profile;
+        EnsureProfileContainer();
+        _state.SeriesId = string.Empty;
+        _currentCharacterState = null;
+        IsProfileReady = false;
+        CharacterSetupHint = "Select an existing character or create a new one to begin.";
+        UpdateCharacterOptionsForProfile(profile);
+        ClearBookDisplay();
+        RefreshCharacterPanels();
     }
 
     private void EnsureSeriesDefaults(Character character)
@@ -1155,11 +1313,13 @@ public sealed class MainViewModel : ViewModelBase
         return false;
     }
 
-    private void ApplyProfileWizardResult(string seriesId, ProfileWizardResult wizardResult)
+    private void ApplyProfileWizardResult(ProfileWizardResult wizardResult)
     {
         _state.Profile = wizardResult.Profile;
         EnsureProfileContainer();
-        _state.Profile.SeriesStates[seriesId] = wizardResult.SeriesState;
+        _state.Profile.SeriesStates[wizardResult.SeriesId] = wizardResult.SeriesState;
+        _state.SeriesId = wizardResult.SeriesId;
+        _currentProfile = ResolveSeriesProfile(wizardResult.SeriesId);
         _currentCharacterState = wizardResult.CharacterState;
         if (wizardResult.CharacterState is not null)
         {
@@ -1301,33 +1461,48 @@ public sealed class MainViewModel : ViewModelBase
     }
 
     private bool TryRunProfileWizard(
-        string seriesId,
-        ISeriesProfile profile,
-        SeriesProfileState? existingSeriesState,
+        string? initialSeriesId,
+        PlayerProfile? selectedProfile,
+        bool isSeriesSelectionEnabled,
         out ProfileWizardResult result)
     {
         var existingProfiles = LoadExistingProfiles();
-        var viewModel = new ProfileWizardViewModel(seriesId, profile, _gameService.RollRandomNumber, existingProfiles);
+        var viewModel = new ProfileWizardViewModel(
+            _gameService.RollRandomNumber,
+            existingProfiles,
+            initialSeriesId,
+            isSeriesSelectionEnabled);
 
-        var existingProfileOption = viewModel.ExistingProfiles
-            .FirstOrDefault(option => string.Equals(option.Name, _state.Profile.Name, StringComparison.OrdinalIgnoreCase));
-        if (existingProfileOption is not null)
+        var profileToSelect = selectedProfile;
+        if (profileToSelect is null && !string.IsNullOrWhiteSpace(_state.Profile.Name))
         {
-            viewModel.SelectedExistingProfile = existingProfileOption;
-        }
-        else if (!string.IsNullOrWhiteSpace(_state.Profile.Name))
-        {
-            viewModel.ProfileName = _state.Profile.Name;
+            profileToSelect = existingProfiles.FirstOrDefault(option =>
+                string.Equals(option.Name, _state.Profile.Name, StringComparison.OrdinalIgnoreCase));
         }
 
-        if (!string.IsNullOrWhiteSpace(existingSeriesState?.ActiveCharacterName))
+        if (profileToSelect is not null)
         {
-            var existingCharacterOption = viewModel.ExistingCharacters
-                .FirstOrDefault(option => !option.IsNew
-                    && string.Equals(option.Name, existingSeriesState.ActiveCharacterName, StringComparison.OrdinalIgnoreCase));
-            if (existingCharacterOption is not null)
+            var existingProfileOption = viewModel.ExistingProfiles
+                .FirstOrDefault(option => string.Equals(option.Name, profileToSelect.Name, StringComparison.OrdinalIgnoreCase));
+            if (existingProfileOption is not null)
             {
-                viewModel.SelectedExistingCharacter = existingCharacterOption;
+                viewModel.SelectedExistingProfile = existingProfileOption;
+            }
+            else
+            {
+                viewModel.ProfileName = profileToSelect.Name;
+            }
+
+            if (profileToSelect.SeriesStates.TryGetValue(viewModel.SeriesId, out var seriesState)
+                && !string.IsNullOrWhiteSpace(seriesState.ActiveCharacterName))
+            {
+                var existingCharacterOption = viewModel.ExistingCharacters
+                    .FirstOrDefault(option => !option.IsNew
+                        && string.Equals(option.Name, seriesState.ActiveCharacterName, StringComparison.OrdinalIgnoreCase));
+                if (existingCharacterOption is not null)
+                {
+                    viewModel.SelectedExistingCharacter = existingCharacterOption;
+                }
             }
         }
 
@@ -1339,7 +1514,7 @@ public sealed class MainViewModel : ViewModelBase
         var dialogResult = window.ShowDialog();
         if (dialogResult != true || !viewModel.IsValid)
         {
-            result = new ProfileWizardResult(new PlayerProfile(), new SeriesProfileState(), string.Empty, null);
+            result = new ProfileWizardResult(new PlayerProfile(), string.Empty, new SeriesProfileState(), string.Empty, null, false);
             return false;
         }
 
@@ -1347,6 +1522,8 @@ public sealed class MainViewModel : ViewModelBase
         selectedProfile.Name = viewModel.ProfileName.Trim();
         selectedProfile.SeriesStates ??= new Dictionary<string, SeriesProfileState>(StringComparer.OrdinalIgnoreCase);
 
+        var seriesId = viewModel.SeriesId;
+        var seriesProfile = ResolveSeriesProfile(seriesId);
         var selectedSeriesState = EnsureSeriesState(selectedProfile, seriesId);
 
         if (!viewModel.IsCharacterCreationEnabled)
@@ -1354,20 +1531,20 @@ public sealed class MainViewModel : ViewModelBase
             var selectedCharacterState = viewModel.SelectedExistingCharacter?.CharacterState;
             if (selectedCharacterState is null)
             {
-                result = new ProfileWizardResult(selectedProfile, selectedSeriesState, string.Empty, null);
+                result = new ProfileWizardResult(selectedProfile, seriesId, selectedSeriesState, string.Empty, null, false);
                 return false;
             }
 
             var selectedName = selectedCharacterState.Character.Name;
             selectedSeriesState.ActiveCharacterName = selectedName;
             selectedSeriesState.IsInitialized = true;
-            result = new ProfileWizardResult(selectedProfile, selectedSeriesState, selectedName, selectedCharacterState);
+            result = new ProfileWizardResult(selectedProfile, seriesId, selectedSeriesState, selectedName, selectedCharacterState, false);
             return true;
         }
 
         var character = viewModel.BuildCharacter();
         var characterName = string.IsNullOrWhiteSpace(character.Name)
-            ? profile.DefaultCharacterName
+            ? seriesProfile.DefaultCharacterName
             : character.Name.Trim();
         if (string.IsNullOrWhiteSpace(character.Name))
         {
@@ -1384,7 +1561,7 @@ public sealed class MainViewModel : ViewModelBase
 
             if (confirm != MessageBoxResult.Yes)
             {
-                result = new ProfileWizardResult(selectedProfile, selectedSeriesState, string.Empty, null);
+                result = new ProfileWizardResult(selectedProfile, seriesId, selectedSeriesState, string.Empty, null, false);
                 return false;
             }
         }
@@ -1398,7 +1575,7 @@ public sealed class MainViewModel : ViewModelBase
         selectedSeriesState.ActiveCharacterName = characterName;
         selectedSeriesState.IsInitialized = true;
 
-        result = new ProfileWizardResult(selectedProfile, selectedSeriesState, characterName, characterState);
+        result = new ProfileWizardResult(selectedProfile, seriesId, selectedSeriesState, characterName, characterState, true);
         return true;
     }
 
@@ -1442,6 +1619,16 @@ public sealed class MainViewModel : ViewModelBase
             "gs" => 2,
             _ => 99
         };
+    }
+
+    private string? GetFirstBookIdForSeries(string seriesId)
+    {
+        return Books
+            .Where(book => string.Equals(book.SeriesId, seriesId, StringComparison.OrdinalIgnoreCase))
+            .OrderBy(book => book.Order ?? int.MaxValue)
+            .ThenBy(book => book.Title, StringComparer.OrdinalIgnoreCase)
+            .Select(book => book.Id)
+            .FirstOrDefault();
     }
 
     private static ISeriesProfile ResolveSeriesProfile(string seriesId)
@@ -1509,6 +1696,7 @@ public sealed class MainViewModel : ViewModelBase
         _state.SeriesId = loaded.SeriesId;
         _state.Profile = loaded.Profile ?? new PlayerProfile();
         EnsureProfileContainer();
+        LoadProfiles(false);
 
         if (!string.IsNullOrWhiteSpace(_state.SeriesId))
         {
@@ -1525,6 +1713,16 @@ public sealed class MainViewModel : ViewModelBase
                 ApplyProfileNameToSaveSlot();
                 RefreshCharacterPanels();
                 UpdateBookProgressIndicators();
+                UpdateCharacterOptionsForProfile(_state.Profile, _state.SeriesId, activeCharacter.Character.Name);
+                _isUpdatingProfiles = true;
+                try
+                {
+                    SelectedProfile = Profiles.FirstOrDefault(option => string.Equals(option.Name, _state.Profile.Name, StringComparison.OrdinalIgnoreCase));
+                }
+                finally
+                {
+                    _isUpdatingProfiles = false;
+                }
                 return;
             }
         }
@@ -1568,7 +1766,16 @@ public sealed class MainViewModel : ViewModelBase
         if (!string.IsNullOrWhiteSpace(_state.SeriesId))
         {
             var seriesState = EnsureSeriesState(_state.Profile, _state.SeriesId);
-            UpdateCharacterOptions(seriesState);
+            UpdateCharacterOptionsForProfile(_state.Profile, _state.SeriesId, seriesState.ActiveCharacterName);
+            _isUpdatingProfiles = true;
+            try
+            {
+                SelectedProfile = Profiles.FirstOrDefault(option => string.Equals(option.Name, _state.Profile.Name, StringComparison.OrdinalIgnoreCase));
+            }
+            finally
+            {
+                _isUpdatingProfiles = false;
+            }
         }
     }
 
@@ -1690,6 +1897,54 @@ public sealed class MainViewModel : ViewModelBase
         }
 
         ResetToStartState();
+        if (!TryRunProfileWizard(null, null, true, out var wizardResult))
+        {
+            SetProfileSetupRequired("Select a profile to continue.");
+            return;
+        }
+
+        ApplyProfileWizardResult(wizardResult);
+        if (wizardResult.CharacterState is not null)
+        {
+            _currentCharacterState = wizardResult.CharacterState;
+            _state.Character = wizardResult.CharacterState.Character;
+            EnsureSeriesDefaults(_state.Character);
+            UpdateAvailableSkills();
+            SuggestedActions.Clear();
+            CharacterSetupHint = $"Profile ready for {_currentProfile.Name}.";
+            IsProfileReady = true;
+            ApplyProfileNameToSaveSlot();
+            RefreshCharacterPanels();
+            UpdateBookProgressIndicators();
+        }
+
+        LoadProfiles();
+        UpdateCharacterOptionsForProfile(_state.Profile, _state.SeriesId, wizardResult.CharacterName);
+
+        if (_currentCharacterState is not null)
+        {
+            var targetBookId = wizardResult.IsNewCharacter
+                ? GetFirstBookIdForSeries(wizardResult.SeriesId)
+                : _currentCharacterState.LastBookId;
+
+            if (string.IsNullOrWhiteSpace(targetBookId))
+            {
+                targetBookId = GetFirstBookIdForSeries(wizardResult.SeriesId);
+            }
+
+            if (!string.IsNullOrWhiteSpace(targetBookId))
+            {
+                var targetBook = Books.FirstOrDefault(book => string.Equals(book.Id, targetBookId, StringComparison.OrdinalIgnoreCase));
+                if (targetBook is not null)
+                {
+                    SelectedBook = targetBook;
+                }
+                else
+                {
+                    _ = LoadBookAsync(targetBookId);
+                }
+            }
+        }
     }
 
     private void ResetToStartState()
@@ -1712,6 +1967,7 @@ public sealed class MainViewModel : ViewModelBase
         Choices.Clear();
         ResetRandomNumberState();
         SuggestedActions.Clear();
+        AreChoicesVisible = false;
         AvailableSkills.Clear();
         CharacterSkills.Clear();
         CoreStats.Clear();
@@ -1722,15 +1978,17 @@ public sealed class MainViewModel : ViewModelBase
         Characters.Clear();
         SelectedCharacter = null;
         SelectedBook = null;
+        SelectedProfile = null;
         IsProfileReady = false;
         OnPropertyChanged(nameof(HasCoreSkills));
         OnPropertyChanged(nameof(HasAvailableSkills));
         UpdateBookProgressIndicators();
+        LoadProfiles();
     }
 
     private async Task SwitchCharacterAsync(CharacterOptionViewModel option)
     {
-        if (_state.Profile is null || string.IsNullOrWhiteSpace(_state.SeriesId) || option.CharacterState is null)
+        if (_state.Profile is null || option.CharacterState is null)
         {
             return;
         }
@@ -1744,7 +2002,15 @@ public sealed class MainViewModel : ViewModelBase
         _isSwitchingCharacter = true;
         try
         {
-            var seriesState = EnsureSeriesState(_state.Profile, _state.SeriesId);
+            var seriesId = option.SeriesId ?? _state.SeriesId;
+            if (string.IsNullOrWhiteSpace(seriesId))
+            {
+                return;
+            }
+
+            _state.SeriesId = seriesId;
+            _currentProfile = ResolveSeriesProfile(seriesId);
+            var seriesState = EnsureSeriesState(_state.Profile, seriesId);
             seriesState.ActiveCharacterName = option.Name;
 
             _currentCharacterState = option.CharacterState;
@@ -1760,7 +2026,7 @@ public sealed class MainViewModel : ViewModelBase
             var targetBookId = option.CharacterState.LastBookId;
             if (string.IsNullOrWhiteSpace(targetBookId))
             {
-                targetBookId = _book?.Id ?? _state.BookId;
+                targetBookId = GetFirstBookIdForSeries(seriesId) ?? _book?.Id ?? _state.BookId;
             }
 
             if (!string.IsNullOrWhiteSpace(targetBookId))
@@ -1789,21 +2055,65 @@ public sealed class MainViewModel : ViewModelBase
         }
     }
 
+    private async Task LoadCharacterSelectionAsync(CharacterOptionViewModel option)
+    {
+        if (option.CharacterState is null || SelectedProfile is null)
+        {
+            return;
+        }
+
+        var seriesId = option.SeriesId;
+        if (string.IsNullOrWhiteSpace(seriesId))
+        {
+            return;
+        }
+
+        _state.Profile = SelectedProfile.Profile;
+        EnsureProfileContainer();
+        _state.SeriesId = seriesId;
+        _currentProfile = ResolveSeriesProfile(seriesId);
+        _currentCharacterState = option.CharacterState;
+        _state.Character = option.CharacterState.Character;
+        EnsureSeriesDefaults(_state.Character);
+        UpdateAvailableSkills();
+        SuggestedActions.Clear();
+        CharacterSetupHint = $"Profile ready for {_currentProfile.Name}.";
+        IsProfileReady = true;
+        ApplyProfileNameToSaveSlot();
+        RefreshCharacterPanels();
+        UpdateBookProgressIndicators();
+
+        var targetBookId = option.CharacterState.LastBookId;
+        if (string.IsNullOrWhiteSpace(targetBookId))
+        {
+            targetBookId = GetFirstBookIdForSeries(seriesId);
+        }
+
+        if (!string.IsNullOrWhiteSpace(targetBookId))
+        {
+            var targetBook = Books.FirstOrDefault(book => string.Equals(book.Id, targetBookId, StringComparison.OrdinalIgnoreCase));
+            if (targetBook is not null)
+            {
+                SelectedBook = targetBook;
+            }
+            else
+            {
+                await LoadBookAsync(targetBookId);
+            }
+        }
+    }
+
     private async Task CreateNewCharacterAsync()
     {
-        if (string.IsNullOrWhiteSpace(_state.SeriesId))
+        var initialSeriesId = string.IsNullOrWhiteSpace(_state.SeriesId) ? null : _state.SeriesId;
+        var existingProfile = SelectedProfile?.Profile ?? _state.Profile;
+        if (!TryRunProfileWizard(initialSeriesId, existingProfile, true, out var wizardResult))
         {
             return;
         }
 
-        var seriesState = EnsureSeriesState(_state.Profile, _state.SeriesId);
-        if (!TryRunProfileWizard(_state.SeriesId, _currentProfile, seriesState, out var wizardResult))
-        {
-            return;
-        }
-
-        ApplyProfileWizardResult(_state.SeriesId, wizardResult);
-        seriesState = wizardResult.SeriesState;
+        ApplyProfileWizardResult(wizardResult);
+        var seriesState = wizardResult.SeriesState;
         if (wizardResult.CharacterState is not null)
         {
             _currentCharacterState = wizardResult.CharacterState;
@@ -1817,14 +2127,32 @@ public sealed class MainViewModel : ViewModelBase
             UpdateBookProgressIndicators();
         }
 
+        LoadProfiles();
         UpdateCharacterOptions(seriesState);
+        _isUpdatingProfiles = true;
+        try
+        {
+            SelectedProfile = Profiles.FirstOrDefault(option => string.Equals(option.Name, _state.Profile.Name, StringComparison.OrdinalIgnoreCase));
+        }
+        finally
+        {
+            _isUpdatingProfiles = false;
+        }
 
         if (_currentCharacterState is null)
         {
             return;
         }
 
-        var targetBookId = _book?.Id ?? SelectedBook?.Id;
+        var targetBookId = wizardResult.IsNewCharacter
+            ? GetFirstBookIdForSeries(wizardResult.SeriesId)
+            : _currentCharacterState.LastBookId;
+
+        if (string.IsNullOrWhiteSpace(targetBookId))
+        {
+            targetBookId = GetFirstBookIdForSeries(wizardResult.SeriesId);
+        }
+
         if (!string.IsNullOrWhiteSpace(targetBookId))
         {
             var targetBook = Books.FirstOrDefault(book => string.Equals(book.Id, targetBookId, StringComparison.OrdinalIgnoreCase));
@@ -2319,6 +2647,34 @@ public sealed class MainViewModel : ViewModelBase
         }
     }
 
+    private void LoadProfiles(bool shouldSetProfileRequired = true)
+    {
+        Profiles.Clear();
+        var profiles = LoadExistingProfiles()
+            .Where(profile => !string.IsNullOrWhiteSpace(profile.Name))
+            .DistinctBy(profile => profile.Name, StringComparer.OrdinalIgnoreCase)
+            .OrderBy(profile => profile.Name, StringComparer.OrdinalIgnoreCase);
+
+        foreach (var profile in profiles)
+        {
+            Profiles.Add(new ProfileOptionViewModel(profile));
+        }
+
+        _isUpdatingProfiles = true;
+        try
+        {
+            SelectedProfile = Profiles.FirstOrDefault(option => string.Equals(option.Name, _state.Profile?.Name, StringComparison.OrdinalIgnoreCase));
+        }
+        finally
+        {
+            _isUpdatingProfiles = false;
+        }
+        if (shouldSetProfileRequired && SelectedProfile is null)
+        {
+            SetProfileSetupRequired("Select a profile to continue.");
+        }
+    }
+
     private IReadOnlyList<PlayerProfile> LoadExistingProfiles()
     {
         var profiles = new List<PlayerProfile>();
@@ -2388,9 +2744,11 @@ public sealed class MainViewModel : ViewModelBase
 
     private sealed record ProfileWizardResult(
         PlayerProfile Profile,
+        string SeriesId,
         SeriesProfileState SeriesState,
         string CharacterName,
-        CharacterProfileState? CharacterState);
+        CharacterProfileState? CharacterState,
+        bool IsNewCharacter);
 
     private sealed class RandomNumberChoice
     {
