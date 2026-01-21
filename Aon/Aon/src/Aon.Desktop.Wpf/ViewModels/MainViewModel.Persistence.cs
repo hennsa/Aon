@@ -25,6 +25,60 @@ public sealed partial class MainViewModel
         MessageBox.Show($"Saved to slot '{slot}'.", "Save Game", MessageBoxButton.OK, MessageBoxImage.Information);
     }
 
+    private async Task SaveProfileStateAsync()
+    {
+        if (string.IsNullOrWhiteSpace(_state.Profile?.Name))
+        {
+            return;
+        }
+
+        var slot = string.IsNullOrWhiteSpace(SaveSlot) || string.Equals(SaveSlot.Trim(), "default", StringComparison.OrdinalIgnoreCase)
+            ? _state.Profile.Name.Trim()
+            : SaveSlot.Trim();
+        if (string.IsNullOrWhiteSpace(slot))
+        {
+            return;
+        }
+
+        PersistActiveCharacterState();
+        await _gameService.SaveGameAsync(slot, _state);
+        LoadSaveSlots();
+        SaveSlot = slot;
+    }
+
+    private void DeleteAllProfiles()
+    {
+        var confirm = MessageBox.Show(
+            "Delete all saved profiles? This will remove all save files and cannot be undone.",
+            "Delete Profiles",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Warning);
+
+        if (confirm != MessageBoxResult.Yes)
+        {
+            return;
+        }
+
+        if (Directory.Exists(_saveDirectory))
+        {
+            foreach (var file in Directory.EnumerateFiles(_saveDirectory, "*.json"))
+            {
+                try
+                {
+                    File.Delete(file);
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
+            }
+        }
+
+        ResetToStartState();
+        LoadSaveSlots();
+        LoadProfiles();
+    }
+
     private async Task LoadGameAsync()
     {
         var slot = NormalizeSaveSlot();
@@ -54,6 +108,31 @@ public sealed partial class MainViewModel
         if (section is not null)
         {
             UpdateSection(section);
+        }
+    }
+
+    private sealed class DevSettings
+    {
+        public bool IsDev { get; set; }
+    }
+
+    private bool LoadDevSettings()
+    {
+        var settingsPath = Path.Combine(AppContext.BaseDirectory, "appsettings.json");
+        if (!File.Exists(settingsPath))
+        {
+            return false;
+        }
+
+        try
+        {
+            var json = File.ReadAllText(settingsPath);
+            var settings = JsonSerializer.Deserialize<DevSettings>(json);
+            return settings?.IsDev ?? false;
+        }
+        catch (Exception)
+        {
+            return false;
         }
     }
 
@@ -178,7 +257,11 @@ public sealed partial class MainViewModel
         Profiles.Clear();
         var profiles = LoadExistingProfiles()
             .Where(profile => !string.IsNullOrWhiteSpace(profile.Name))
-            .DistinctBy(profile => profile.Name, StringComparer.OrdinalIgnoreCase)
+            .GroupBy(profile => profile.Name, StringComparer.OrdinalIgnoreCase)
+            .Select(group => group
+                .OrderByDescending(GetProfileCharacterCount)
+                .ThenBy(profile => profile.Name, StringComparer.OrdinalIgnoreCase)
+                .First())
             .OrderBy(profile => profile.Name, StringComparer.OrdinalIgnoreCase);
 
         foreach (var profile in profiles)
@@ -188,7 +271,7 @@ public sealed partial class MainViewModel
 
         var matchedProfile = Profiles.FirstOrDefault(option =>
             string.Equals(option.Name, _state.Profile?.Name, StringComparison.OrdinalIgnoreCase));
-        var selectedProfile = matchedProfile ?? (shouldSetProfileRequired ? Profiles.FirstOrDefault() : null);
+        var selectedProfile = matchedProfile;
 
         _isUpdatingProfiles = true;
         try
@@ -210,6 +293,22 @@ public sealed partial class MainViewModel
         {
             SetProfileSetupRequired("Select a profile to continue.");
         }
+    }
+
+    private static int GetProfileCharacterCount(PlayerProfile profile)
+    {
+        if (profile.SeriesStates is null)
+        {
+            return 0;
+        }
+
+        var total = 0;
+        foreach (var series in profile.SeriesStates.Values)
+        {
+            total += series.Characters?.Count ?? 0;
+        }
+
+        return total;
     }
 
     private IReadOnlyList<PlayerProfile> LoadExistingProfiles()
