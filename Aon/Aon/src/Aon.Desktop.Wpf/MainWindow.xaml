@@ -291,24 +291,35 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <TextBlock Text="Character Management" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,12" />
 
                 <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,12">
+                    <TextBlock Text="Series:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                    <ComboBox ItemsSource="{Binding CharacterSeriesOptions}"
+                              SelectedItem="{Binding SelectedCharacterSeries}"
+                              DisplayMemberPath="Name"
+                              Width="220"
+                              Margin="0,0,8,0" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,12">
                     <TextBlock Text="Character:" VerticalAlignment="Center" Margin="0,0,8,0" />
                     <ComboBox ItemsSource="{Binding Characters}"
                               SelectedItem="{Binding SelectedCharacter}"
                               DisplayMemberPath="DisplayName"
                               Width="220"
-                              Margin="0,0,8,0" />
+                              Margin="0,0,8,0"
+                              IsEnabled="{Binding IsCharacterSeriesSelected}" />
                     <Button Content="New Character"
                             Command="{Binding NewCharacterCommand}"
                             IsEnabled="{Binding IsProfileSelected}" />
                 </StackPanel>
 
-                <TextBlock Grid.Row="2"
+                <TextBlock Grid.Row="3"
                            Text="Select a character to manage stats, skills, and inventory. Switching will return to the book tab."
                            Foreground="#666666"
                            TextWrapping="Wrap" />

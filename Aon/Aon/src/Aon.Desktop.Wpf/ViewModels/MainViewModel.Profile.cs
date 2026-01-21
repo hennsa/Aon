@@ -87,6 +87,8 @@ public sealed partial class MainViewModel
         _currentCharacterState = null;
         IsProfileReady = false;
         CharacterSetupHint = message;
+        CharacterSeriesOptions.Clear();
+        SelectedCharacterSeries = null;
         Characters.Clear();
         SelectedCharacter = null;
         AreChoicesVisible = false;
@@ -105,7 +107,9 @@ public sealed partial class MainViewModel
         _currentCharacterState = null;
         IsProfileReady = false;
         CharacterSetupHint = "Select an existing character or create a new one to begin.";
-        UpdateCharacterOptionsForProfile(profile);
+        UpdateCharacterSeriesOptions(profile, _state.SeriesId);
+        Characters.Clear();
+        SelectedCharacter = null;
         ClearBookDisplay();
         RefreshCharacterPanels();
         OnPropertyChanged(nameof(ActiveProfileLabel));
@@ -443,8 +447,10 @@ public sealed partial class MainViewModel
         }
 
         ApplySelectedProfile(wizardResult.Profile);
+        ApplyProfileNameToSaveSlot();
         LoadProfiles();
-        UpdateCharacterOptionsForProfile(_state.Profile);
+        UpdateCharacterSeriesOptions(_state.Profile, _state.SeriesId);
+        UpdateCharacterOptionsForProfile(_state.Profile, seriesFilterId: _state.SeriesId);
         _isUpdatingProfiles = true;
         try
         {
@@ -593,6 +599,8 @@ public sealed partial class MainViewModel
         ApplyProfileNameToSaveSlot();
         RefreshCharacterPanels();
         UpdateBookProgressIndicators();
+        UpdateCharacterSeriesOptions(_state.Profile, seriesId);
+        UpdateCharacterOptionsForProfile(_state.Profile, seriesFilterId: seriesId);
 
         var targetBookId = option.CharacterState.LastBookId;
         if (string.IsNullOrWhiteSpace(targetBookId))
@@ -635,12 +643,15 @@ public sealed partial class MainViewModel
             SuggestedActions.Clear();
             CharacterSetupHint = $"Profile ready for {_currentProfile.Name}.";
             IsProfileReady = true;
+            ApplyProfileNameToSaveSlot();
             RefreshCharacterPanels();
             UpdateBookProgressIndicators();
         }
 
         LoadProfiles();
         UpdateCharacterOptions(seriesState);
+        UpdateCharacterSeriesOptions(_state.Profile, wizardResult.SeriesId);
+        UpdateCharacterOptionsForProfile(_state.Profile, seriesFilterId: wizardResult.SeriesId);
         _isUpdatingProfiles = true;
         try
         {

@@ -851,7 +851,9 @@ public sealed class CharacterOptionViewModel
         CharacterState = characterState;
         SeriesId = seriesId;
         SeriesName = seriesName;
-        DisplayName = string.IsNullOrWhiteSpace(seriesName) ? name : $"{name} ({seriesName})";
+        DisplayName = string.IsNullOrWhiteSpace(seriesName) || string.Equals(seriesName, "Other", StringComparison.OrdinalIgnoreCase)
+            ? name
+            : $"{name} ({seriesName})";
     }
 
     private CharacterOptionViewModel(string name)
