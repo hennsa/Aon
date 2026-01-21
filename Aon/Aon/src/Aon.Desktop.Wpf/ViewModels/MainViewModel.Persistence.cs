@@ -258,7 +258,11 @@ public sealed partial class MainViewModel
         Profiles.Clear();
         var profiles = LoadExistingProfiles()
             .Where(profile => !string.IsNullOrWhiteSpace(profile.Name))
-            .DistinctBy(profile => profile.Name, StringComparer.OrdinalIgnoreCase)
+            .GroupBy(profile => profile.Name, StringComparer.OrdinalIgnoreCase)
+            .Select(group => group
+                .OrderByDescending(GetProfileCharacterCount)
+                .ThenBy(profile => profile.Name, StringComparer.OrdinalIgnoreCase)
+                .First())
             .OrderBy(profile => profile.Name, StringComparer.OrdinalIgnoreCase);
 
         foreach (var profile in profiles)
@@ -290,6 +294,22 @@ public sealed partial class MainViewModel
         {
             SetProfileSetupRequired("Select a profile to continue.");
         }
+    }
+
+    private static int GetProfileCharacterCount(PlayerProfile profile)
+    {
+        if (profile.SeriesStates is null)
+        {
+            return 0;
+        }
+
+        var total = 0;
+        foreach (var series in profile.SeriesStates.Values)
+        {
+            total += series.Characters?.Count ?? 0;
+        }
+
+        return total;
     }
 
     private IReadOnlyList<PlayerProfile> LoadExistingProfiles()
