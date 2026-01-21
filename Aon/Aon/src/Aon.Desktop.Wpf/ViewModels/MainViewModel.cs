@@ -210,6 +210,7 @@ public sealed class MainViewModel : ViewModelBase
                 return;
             }
 
+            PersistActiveCharacterState();
             ApplySelectedProfile(_selectedProfile.Profile);
         }
     }
@@ -1084,7 +1085,7 @@ public sealed class MainViewModel : ViewModelBase
         _lastWizardSeriesId = null;
         if (!seriesState.IsInitialized || seriesState.Characters.Count == 0)
         {
-            if (!TryRunProfileWizard(seriesId, _state.Profile, false, out var wizardResult))
+            if (!TryRunProfileWizard(seriesId, _state.Profile, false, false, out var wizardResult))
             {
                 SetProfileSetupRequired($"Profile setup required for {_currentProfile.Name}.");
                 return false;
@@ -1106,7 +1107,7 @@ public sealed class MainViewModel : ViewModelBase
 
             if (shouldUseExisting == MessageBoxResult.No)
             {
-                if (TryRunProfileWizard(seriesId, _state.Profile, false, out var wizardResult))
+                if (TryRunProfileWizard(seriesId, _state.Profile, false, false, out var wizardResult))
                 {
                     ApplyProfileWizardResult(wizardResult);
                     seriesState = wizardResult.SeriesState;
@@ -1465,14 +1466,21 @@ public sealed class MainViewModel : ViewModelBase
         string? initialSeriesId,
         PlayerProfile? selectedProfileArg,
         bool isSeriesSelectionEnabled,
+        bool isProfileSelectionEnabled,
         out ProfileWizardResult result)
     {
         var existingProfiles = LoadExistingProfiles();
+        if (string.IsNullOrWhiteSpace(initialSeriesId) && selectedProfile is not null)
+        {
+            initialSeriesId = ResolvePreferredSeriesId(selectedProfile);
+        }
+
         var viewModel = new ProfileWizardViewModel(
             _gameService.RollRandomNumber,
             existingProfiles,
             initialSeriesId,
-            isSeriesSelectionEnabled);
+            isSeriesSelectionEnabled,
+            isProfileSelectionEnabled);
 
         // Pick a profile to pre-select in the wizard (if any)
         var profileToSelect = selectedProfileArg;
@@ -1611,6 +1619,33 @@ public sealed class MainViewModel : ViewModelBase
             "fw" => "Freeway Warrior",
             _ => "Other"
         };
+    }
+
+    private static string? ResolvePreferredSeriesId(PlayerProfile profile)
+    {
+        if (profile.SeriesStates is null)
+        {
+            return null;
+        }
+
+        foreach (var entry in profile.SeriesStates)
+        {
+            if (entry.Value.Characters is { Count: > 0 }
+                && !string.IsNullOrWhiteSpace(entry.Value.ActiveCharacterName))
+            {
+                return entry.Key;
+            }
+        }
+
+        foreach (var entry in profile.SeriesStates)
+        {
+            if (entry.Value.Characters is { Count: > 0 })
+            {
+                return entry.Key;
+            }
+        }
+
+        return null;
     }
 
     private static int ResolveSeriesSortOrder(string seriesId)
@@ -1900,7 +1935,7 @@ public sealed class MainViewModel : ViewModelBase
         }
 
         ResetToStartState();
-        if (!TryRunProfileWizard(null, null, true, out var wizardResult))
+        if (!TryRunProfileWizard(null, null, true, true, out var wizardResult))
         {
             SetProfileSetupRequired("Select a profile to continue.");
             return;
@@ -2110,7 +2145,8 @@ public sealed class MainViewModel : ViewModelBase
     {
         var initialSeriesId = string.IsNullOrWhiteSpace(_state.SeriesId) ? null : _state.SeriesId;
         var existingProfile = SelectedProfile?.Profile ?? _state.Profile;
-        if (!TryRunProfileWizard(initialSeriesId, existingProfile, true, out var wizardResult))
+        var isProfileSelectionEnabled = SelectedProfile is null;
+        if (!TryRunProfileWizard(initialSeriesId, existingProfile, true, isProfileSelectionEnabled, out var wizardResult))
         {
             return;
         }
@@ -2663,15 +2699,26 @@ public sealed class MainViewModel : ViewModelBase
             Profiles.Add(new ProfileOptionViewModel(profile));
         }
 
+        var matchedProfile = Profiles.FirstOrDefault(option =>
+            string.Equals(option.Name, _state.Profile?.Name, StringComparison.OrdinalIgnoreCase));
+        var selectedProfile = matchedProfile ?? (shouldSetProfileRequired ? Profiles.FirstOrDefault() : null);
+
         _isUpdatingProfiles = true;
         try
         {
-            SelectedProfile = Profiles.FirstOrDefault(option => string.Equals(option.Name, _state.Profile?.Name, StringComparison.OrdinalIgnoreCase));
+            SelectedProfile = selectedProfile;
         }
         finally
         {
             _isUpdatingProfiles = false;
         }
+
+        if (shouldSetProfileRequired && selectedProfile is not null && !IsProfileReady)
+        {
+            ApplySelectedProfile(selectedProfile.Profile);
+            return;
+        }
+
         if (shouldSetProfileRequired && SelectedProfile is null)
         {
             SetProfileSetupRequired("Select a profile to continue.");
