@@ -6,5 +6,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Aon.Core\Aon.Core.csproj" />
+    <ProjectReference Include="..\Aon.Content\Aon.Content.csproj" />
   </ItemGroup>
 </Project>
