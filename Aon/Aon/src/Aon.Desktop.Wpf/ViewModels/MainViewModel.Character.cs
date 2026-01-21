@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using Aon.Content;
+using Aon.Rules;
 using Aon.Core;
 
 namespace Aon.Desktop.Wpf.ViewModels;
@@ -400,88 +400,37 @@ public sealed partial class MainViewModel
     private void UpdateSuggestedActions(BookSection section)
     {
         ResetSuggestedActions();
-        if (_currentProfile is null)
+        var effects = new List<Effect>();
+        foreach (var choice in section.Choices)
         {
-            return;
-        }
-
-        var text = string.Join(" ", section.Blocks.Select(block => block.Text));
-        if (string.IsNullOrWhiteSpace(text))
-        {
-            return;
-        }
-
-        foreach (var counter in _currentProfile.DefaultCounters.Keys)
-        {
-            var counterPattern = GetCounterPattern(counter);
-            var addAmount = GetCounterAmountFromText(text, counterPattern, CounterAddVerbPattern);
-            if (addAmount > 0)
-            {
-                var label = $"Add {addAmount} {counter}";
-                SuggestedActions.Add(new QuickActionViewModel(label, () =>
-                {
-                    var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
-                    _state.Character.Inventory.Counters[counter] = current + addAmount;
-                    RefreshCharacterPanels();
-                    _ = SaveProfileStateAsync();
-                }));
-            }
-
-            var removeAmount = GetCounterAmountFromText(text, counterPattern, CounterRemoveVerbPattern);
-            if (removeAmount > 0)
-            {
-                var label = $"Remove {removeAmount} {counter}";
-                SuggestedActions.Add(new QuickActionViewModel(label, () =>
-                {
-                    var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
-                    _state.Character.Inventory.Counters[counter] = Math.Max(0, current - removeAmount);
-                    RefreshCharacterPanels();
-                    _ = SaveProfileStateAsync();
-                }));
-            }
-
-            if (addAmount == 0)
-            {
-                var listedAmount = GetCounterAmountFromItemLists(text, counterPattern);
-                if (listedAmount > 0)
-                {
-                    var label = $"Add {listedAmount} {counter}";
-                    SuggestedActions.Add(new QuickActionViewModel(label, () =>
-                    {
-                        var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
-                        _state.Character.Inventory.Counters[counter] = current + listedAmount;
-                        RefreshCharacterPanels();
-                        _ = SaveProfileStateAsync();
-                    }));
-                }
-            }
-        }
-
-        foreach (var enduranceAction in GetEnduranceActions(text))
-        {
-            SuggestedActions.Add(new QuickActionViewModel(enduranceAction.Label, () =>
-            {
-                _state.Character.Endurance = Math.Max(0, _state.Character.Endurance + enduranceAction.Delta);
-                RefreshCharacterPanels();
-                _ = SaveProfileStateAsync();
-            }));
-        }
-
-        foreach (var skill in _currentProfile.SkillNames)
-        {
-            if (_state.Character.Disciplines.Contains(skill, StringComparer.OrdinalIgnoreCase))
+            var evaluation = _gameService.EvaluateChoice(_state, choice);
+            if (!evaluation.IsAvailable)
             {
                 continue;
             }
 
-            if (!IsSkillSuggested(text, skill))
+            var rules = _gameService.ResolveChoiceRules(choice);
+            effects.AddRange(rules.Effects);
+        }
+
+        var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var effect in effects)
+        {
+            var label = GetSuggestedActionLabel(effect);
+            if (string.IsNullOrWhiteSpace(label))
             {
                 continue;
             }
 
-            SuggestedActions.Add(new QuickActionViewModel($"Add skill: {skill}", () =>
+            var key = GetSuggestedActionKey(effect);
+            if (!seen.Add(key))
             {
-                _state.Character.Disciplines.Add(skill);
+                continue;
+            }
+
+            SuggestedActions.Add(new QuickActionViewModel(label, () =>
+            {
+                _gameService.ApplyEffects(_state, new[] { effect });
                 RefreshCharacterPanels();
                 _ = SaveProfileStateAsync();
             }));
@@ -490,138 +439,37 @@ public sealed partial class MainViewModel
         OnPropertyChanged(nameof(HasSuggestedActions));
     }
 
-    private const string CounterAddVerbPattern = "\\b(?:gain|take|acquire|find|receive|collect|pick\\s+up|earn|get|claim|discover|loot)\\b";
-    private const string CounterRemoveVerbPattern = "\\b(?:lose|spend|use|fire|eat|drink|pay|discard|give|deduct|remove|subtract|consume|erase|cross\\s+off|tick\\s+off)\\b";
-    private const string NumberWordPattern = "one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve";
-    private static readonly Dictionary<string, int> NumberWords = new(StringComparer.OrdinalIgnoreCase)
+    private static string GetSuggestedActionKey(Effect effect)
     {
-        ["one"] = 1,
-        ["two"] = 2,
-        ["three"] = 3,
-        ["four"] = 4,
-        ["five"] = 5,
-        ["six"] = 6,
-        ["seven"] = 7,
-        ["eight"] = 8,
-        ["nine"] = 9,
-        ["ten"] = 10,
-        ["eleven"] = 11,
-        ["twelve"] = 12
-    };
-
-    private static int GetCounterAmountFromText(string text, string counterPattern, string verbPattern)
-    {
-        var matches = Regex.Matches(text, $"{verbPattern}[^.]*?(?<value>\\d+|{NumberWordPattern})\\s+{counterPattern}\\b", RegexOptions.IgnoreCase);
-        var total = 0;
-        foreach (Match match in matches)
+        return effect switch
         {
-            if (TryParseQuantity(match.Groups["value"].Value, out var value))
-            {
-                total += value;
-            }
-        }
-
-        return total;
+            AdjustStatEffect stat => $"stat:{stat.StatName}:{stat.Delta}",
+            AddItemEffect addItem => $"item:add:{addItem.ItemName}:{addItem.Category}",
+            RemoveItemEffect removeItem => $"item:remove:{removeItem.ItemName}",
+            SetFlagEffect flag => $"flag:{flag.FlagName}:{flag.Value}",
+            GrantDisciplineEffect discipline => $"discipline:{discipline.DisciplineName}",
+            UpdateCounterEffect counter => $"counter:{counter.CounterName}:{counter.Value}:{counter.IsAbsolute}",
+            _ => $"unsupported:{effect.Raw}"
+        };
     }
 
-    private int GetCounterAmountFromItemLists(string text, string counterPattern)
+    private static string? GetSuggestedActionLabel(Effect effect)
     {
-        if (string.IsNullOrWhiteSpace(text))
+        return effect switch
         {
-            return 0;
-        }
-
-        var lines = text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-        var total = 0;
-
-        foreach (var line in lines)
-        {
-            if (!Regex.IsMatch(line, counterPattern, RegexOptions.IgnoreCase))
-            {
-                continue;
-            }
-
-            if (!Regex.IsMatch(line, $"^\\s*(\\d+|{NumberWordPattern})\\b", RegexOptions.IgnoreCase)
-                && !Regex.IsMatch(line, $"\\((?:[^)]*?)({NumberWordPattern}|\\d+)[^)]*?\\)", RegexOptions.IgnoreCase))
-            {
-                continue;
-            }
-
-            var matches = Regex.Matches(line, $"(?<value>\\d+|{NumberWordPattern})\\s+[^.]*?{counterPattern}\\b", RegexOptions.IgnoreCase);
-            foreach (Match match in matches)
-            {
-                if (TryParseQuantity(match.Groups["value"].Value, out var value))
-                {
-                    total += value;
-                }
-            }
-        }
-
-        return total;
-    }
-
-    private IEnumerable<(string Label, int Delta)> GetEnduranceActions(string text)
-    {
-        var actions = new List<(string Label, int Delta)>();
-        var loseMatches = Regex.Matches(text, $"\\b(?:lose|loses|lost|deduct|reduce|suffer)\\s+(?<value>\\d+|{NumberWordPattern})\\s+endurance\\b", RegexOptions.IgnoreCase);
-        foreach (Match match in loseMatches)
-        {
-            if (TryParseQuantity(match.Groups["value"].Value, out var value))
-            {
-                actions.Add(($"Lose {value} Endurance", -value));
-            }
-        }
-
-        var gainMatches = Regex.Matches(text, $"\\b(?:gain|gains|restore|restores|recover|recovers|increase|increases)\\s+(?<value>\\d+|{NumberWordPattern})\\s+endurance\\b", RegexOptions.IgnoreCase);
-        foreach (Match match in gainMatches)
-        {
-            if (TryParseQuantity(match.Groups["value"].Value, out var value))
-            {
-                actions.Add(($"Gain {value} Endurance", value));
-            }
-        }
-
-        return actions;
-    }
-
-    private static bool TryParseQuantity(string raw, out int value)
-    {
-        if (int.TryParse(raw, out value))
-        {
-            return true;
-        }
-
-        return NumberWords.TryGetValue(raw, out value);
-    }
-
-    private string GetCounterPattern(string counterName)
-    {
-        if (string.Equals(counterName, "Bullets", StringComparison.OrdinalIgnoreCase))
-        {
-            return "(?:bullets?|rounds?|ammo|ammunition|9mm|7\\.62mm|12-?gauge|shotgun\\s+shells?)";
-        }
-
-        if (string.Equals(counterName, "Fuel", StringComparison.OrdinalIgnoreCase))
-        {
-            return "(?:fuel|gasoline|gas|petrol)";
-        }
-
-        if (string.Equals(counterName, "Meals", StringComparison.OrdinalIgnoreCase))
-        {
-            return "(?:meals?|food)";
-        }
-
-        if (string.Equals(counterName, "Gold Crowns", StringComparison.OrdinalIgnoreCase))
-        {
-            return "(?:gold(?:\\s+crowns?)?|crowns?)";
-        }
-
-        return Regex.Escape(counterName);
-    }
-
-    private static bool IsSkillSuggested(string text, string skillName)
-    {
-        var escaped = Regex.Escape(skillName);
-        return Regex.IsMatch(text, $"\\b(?:gain|learn|choose|acquire|pick)\\b[^.]*\\b{escaped}\\b", RegexOptions.IgnoreCase);
+            AdjustStatEffect stat => stat.Delta >= 0
+                ? $"Add {stat.Delta} {stat.StatName}"
+                : $"Remove {Math.Abs(stat.Delta)} {stat.StatName}",
+            AddItemEffect addItem => $"Add item: {addItem.ItemName}",
+            RemoveItemEffect removeItem => $"Remove item: {removeItem.ItemName}",
+            SetFlagEffect flag => $"Set flag: {flag.FlagName} = {flag.Value}",
+            GrantDisciplineEffect discipline => $"Add skill: {discipline.DisciplineName}",
+            UpdateCounterEffect counter when counter.IsAbsolute => $"Set {counter.CounterName} to {counter.Value}",
+            UpdateCounterEffect counter => counter.Value >= 0
+                ? $"Add {counter.Value} {counter.CounterName}"
+                : $"Remove {Math.Abs(counter.Value)} {counter.CounterName}",
+            UnsupportedEffect => null,
+            _ => null
+        };
     }
 }

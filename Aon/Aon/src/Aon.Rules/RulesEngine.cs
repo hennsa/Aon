@@ -9,13 +9,15 @@ public sealed class RulesEngine : IRulesEngine
     private readonly CombatResolver _combatResolver;
     private readonly IRandomNumberGenerator _randomNumberGenerator;
     private readonly IConditionEvaluator _conditionEvaluator;
+    private readonly IRuleCatalog _ruleCatalog;
 
     public RulesEngine()
         : this(
             new RandomNumberTable(),
             new CombatResolver(),
             new DefaultRandomNumberGenerator(),
-            new ConditionEvaluator())
+            new ConditionEvaluator(),
+            RuleCatalog.LoadDefault())
     {
     }
 
@@ -23,12 +25,14 @@ public sealed class RulesEngine : IRulesEngine
         RandomNumberTable randomNumberTable,
         CombatResolver combatResolver,
         IRandomNumberGenerator randomNumberGenerator,
-        IConditionEvaluator conditionEvaluator)
+        IConditionEvaluator conditionEvaluator,
+        IRuleCatalog ruleCatalog)
     {
         _randomNumberTable = randomNumberTable;
         _combatResolver = combatResolver;
         _randomNumberGenerator = randomNumberGenerator;
         _conditionEvaluator = conditionEvaluator;
+        _ruleCatalog = ruleCatalog;
     }
 
     public int RollRandomNumber()
@@ -50,14 +54,46 @@ public sealed class RulesEngine : IRulesEngine
         ArgumentNullException.ThrowIfNull(choice);
         ArgumentNullException.ThrowIfNull(context);
 
-        var requirements = choice.Requirements
-            .Select(RequirementParser.Parse)
-            .ToList();
+        var rules = ResolveChoiceRules(choice);
 
-        var isAvailable = requirements.All(requirement => _conditionEvaluator.CanApply(requirement, context));
+        var isAvailable = rules.Requirements.All(requirement => _conditionEvaluator.CanApply(requirement, context));
         var rollMetadata = ChoiceRollMetadata.FromChoice(choice);
 
         return new ChoiceEvaluationResult(isAvailable, rollMetadata);
+    }
+
+    public ChoiceRuleSet ResolveChoiceRules(Choice choice)
+    {
+        ArgumentNullException.ThrowIfNull(choice);
+
+        var requirements = new List<Requirement>();
+        var effects = new List<Effect>();
+
+        foreach (var requirement in choice.Requirements)
+        {
+            requirements.Add(RequirementParser.Parse(requirement));
+        }
+
+        foreach (var effect in choice.Effects)
+        {
+            effects.Add(EffectParser.Parse(effect));
+        }
+
+        var resolvedRules = _ruleCatalog.Resolve(choice.RuleIds);
+        foreach (var rule in resolvedRules)
+        {
+            foreach (var requirement in rule.Requirements)
+            {
+                requirements.Add(RequirementParser.Parse(requirement));
+            }
+
+            foreach (var effect in rule.Effects)
+            {
+                effects.Add(EffectParser.Parse(effect));
+            }
+        }
+
+        return new ChoiceRuleSet(requirements, effects);
     }
 
     public void ApplyEffects(IEnumerable<Effect> effects, RuleContext context)

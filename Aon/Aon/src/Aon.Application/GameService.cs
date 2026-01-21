@@ -42,13 +42,18 @@ public sealed class GameService
         return _gameStateRepository.SaveAsync(slot, state, cancellationToken);
     }
 
-    public async Task<BookSection?> ApplyChoiceAsync(GameState state, Choice choice, CancellationToken cancellationToken = default)
+    public async Task<BookSection?> ApplyChoiceAsync(
+        GameState state,
+        Choice choice,
+        int? randomNumber = null,
+        CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(state);
         ArgumentNullException.ThrowIfNull(choice);
 
         var book = await _bookRepository.GetBookAsync(state.BookId, cancellationToken);
-        var section = book.Sections.FirstOrDefault(item => item.Id == choice.TargetId);
+        var randomOutcome = ResolveRandomOutcome(choice, randomNumber);
+        var section = book.Sections.FirstOrDefault(item => item.Id == randomOutcome.TargetId);
         if (section is null)
         {
             return null;
@@ -61,13 +66,76 @@ public sealed class GameService
             return null;
         }
 
-        var effects = choice.Effects
-            .Select(EffectParser.Parse)
+        var effects = _rulesEngine.ResolveChoiceRules(choice).Effects
+            .Concat(randomOutcome.Effects)
             .ToList();
         _rulesEngine.ApplyEffects(effects, context);
 
         state.SectionId = section.Id;
         return section;
+    }
+
+    private static RandomOutcomeResolution ResolveRandomOutcome(Choice choice, int? randomNumber)
+    {
+        var targetId = choice.TargetId;
+        var effects = new List<Effect>();
+
+        if (!randomNumber.HasValue)
+        {
+            return new RandomOutcomeResolution(targetId, effects);
+        }
+
+        var metadata = ChoiceRollMetadata.FromChoice(choice);
+        if (!metadata.RequiresRoll)
+        {
+            return new RandomOutcomeResolution(targetId, effects);
+        }
+
+        var outcome = RollOutcomeResolver.ResolveOutcomes(metadata, randomNumber.Value)
+            .FirstOrDefault();
+        if (outcome is null)
+        {
+            return new RandomOutcomeResolution(targetId, effects);
+        }
+
+        if (!string.IsNullOrWhiteSpace(outcome.TargetId))
+        {
+            targetId = outcome.TargetId;
+        }
+
+        foreach (var effect in outcome.Effects)
+        {
+            effects.Add(EffectParser.Parse(effect));
+        }
+
+        return new RandomOutcomeResolution(targetId, effects);
+    }
+
+    private sealed record RandomOutcomeResolution(string TargetId, List<Effect> Effects);
+
+    public ChoiceEvaluationResult EvaluateChoice(GameState state, Choice choice)
+    {
+        ArgumentNullException.ThrowIfNull(state);
+        ArgumentNullException.ThrowIfNull(choice);
+
+        var context = new RuleContext(state);
+        return _rulesEngine.EvaluateChoice(choice, context);
+    }
+
+    public ChoiceRuleSet ResolveChoiceRules(Choice choice)
+    {
+        ArgumentNullException.ThrowIfNull(choice);
+
+        return _rulesEngine.ResolveChoiceRules(choice);
+    }
+
+    public void ApplyEffects(GameState state, IEnumerable<Effect> effects)
+    {
+        ArgumentNullException.ThrowIfNull(state);
+        ArgumentNullException.ThrowIfNull(effects);
+
+        var context = new RuleContext(state);
+        _rulesEngine.ApplyEffects(effects, context);
     }
 
     public int RollRandomNumber()

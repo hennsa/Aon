@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows;
 using Aon.Content;
 using Aon.Core;
@@ -55,48 +54,7 @@ public sealed partial class MainViewModel
 
     private bool IsChoiceAvailable(Choice choice)
     {
-        if (string.IsNullOrWhiteSpace(choice.Text))
-        {
-            return true;
-        }
-
-        if (!TryGetRequiredSkill(choice.Text, out var requiredSkill))
-        {
-            return true;
-        }
-
-        return _state.Character.Disciplines.Contains(requiredSkill, StringComparer.OrdinalIgnoreCase);
-    }
-
-    private bool TryGetRequiredSkill(string text, out string requiredSkill)
-    {
-        requiredSkill = string.Empty;
-        if (_currentProfile.SkillNames.Count == 0)
-        {
-            return false;
-        }
-
-        var requiresKaiDiscipline = _state.SeriesId.Equals("lw", StringComparison.OrdinalIgnoreCase)
-            && text.Contains("Kai Discipline", StringComparison.OrdinalIgnoreCase);
-        var requiresMagicalPower = _state.SeriesId.Equals("gs", StringComparison.OrdinalIgnoreCase)
-            && (text.Contains("Magical Power", StringComparison.OrdinalIgnoreCase)
-                || text.Contains("Power of", StringComparison.OrdinalIgnoreCase));
-
-        if (!requiresKaiDiscipline && !requiresMagicalPower)
-        {
-            return false;
-        }
-
-        foreach (var skill in _currentProfile.SkillNames)
-        {
-            if (text.Contains(skill, StringComparison.OrdinalIgnoreCase))
-            {
-                requiredSkill = skill;
-                return true;
-            }
-        }
-
-        return false;
+        return _gameService.EvaluateChoice(_state, choice).IsAvailable;
     }
 
     private void RollRandomNumber()
@@ -107,10 +65,10 @@ public sealed partial class MainViewModel
         }
 
         var roll = _gameService.RollRandomNumber();
-        _randomNumberResult = roll;
         TrackRoll(roll);
         var modifier = GetRollModifier();
         var effectiveRoll = Math.Clamp(roll + modifier, 0, 9);
+        _randomNumberResult = effectiveRoll;
 
         if (IsManualRandomMode)
         {

@@ -8,4 +8,7 @@
     <ProjectReference Include="..\Aon.Core\Aon.Core.csproj" />
     <ProjectReference Include="..\Aon.Content\Aon.Content.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RulesCatalog.json" />
+  </ItemGroup>
 </Project>
