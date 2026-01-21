@@ -528,7 +528,10 @@ public sealed partial class MainViewModel
         var lines = text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
         if (lines.Length == 0)
         {
-            return 0;
+            if (int.TryParse(match.Groups["value"].Value, out var value))
+            {
+                total += value;
+            }
         }
 
         var total = 0;
