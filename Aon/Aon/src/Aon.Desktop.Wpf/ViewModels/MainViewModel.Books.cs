@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Aon.Content;
+using Aon.Core;
 
 namespace Aon.Desktop.Wpf.ViewModels;
 

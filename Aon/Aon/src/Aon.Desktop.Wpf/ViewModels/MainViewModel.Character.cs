@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Aon.Content;
+using Aon.Core;
 
 namespace Aon.Desktop.Wpf.ViewModels;
 
