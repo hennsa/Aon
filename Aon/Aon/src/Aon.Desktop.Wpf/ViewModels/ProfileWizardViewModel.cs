@@ -26,6 +26,7 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     private string _selectionStatus = string.Empty;
     private string _seriesId = string.Empty;
     private string _seriesName = string.Empty;
+    private string _inventoryLabel = "Backpack";
     private string _skillSelectionTitle = string.Empty;
     private int _skillSelectionLimit;
     private ProfileOptionViewModel? _selectedExistingProfile;
@@ -117,6 +118,21 @@ public sealed class ProfileWizardViewModel : ViewModelBase
             _seriesName = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(HeaderTitle));
+        }
+    }
+
+    public string InventoryLabel
+    {
+        get => _inventoryLabel;
+        private set
+        {
+            if (_inventoryLabel == value)
+            {
+                return;
+            }
+
+            _inventoryLabel = value;
+            OnPropertyChanged();
         }
     }
 
@@ -541,6 +557,7 @@ public sealed class ProfileWizardViewModel : ViewModelBase
 
         SeriesId = seriesId;
         SeriesName = seriesProfile.Name;
+        InventoryLabel = seriesProfile.InventoryLabel;
 
         Skills.Clear();
         CoreSkills.Clear();

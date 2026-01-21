@@ -12,6 +12,7 @@ public sealed partial class MainViewModel
     private bool EnsureSeriesProfile(string seriesId)
     {
         _currentProfile = ResolveSeriesProfile(seriesId);
+        OnPropertyChanged(nameof(InventoryLabel));
         EnsureProfileContainer();
 
         var seriesState = EnsureSeriesState(_state.Profile, seriesId);
@@ -105,6 +106,7 @@ public sealed partial class MainViewModel
         EnsureProfileContainer();
         _state.SeriesId = string.Empty;
         _currentCharacterState = null;
+        OnPropertyChanged(nameof(InventoryLabel));
         IsProfileReady = false;
         CharacterSetupHint = "Select an existing character or create a new one to begin.";
         UpdateCharacterSeriesOptions(profile, _state.SeriesId);
