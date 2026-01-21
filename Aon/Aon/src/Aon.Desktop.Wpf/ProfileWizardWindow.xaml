@@ -9,6 +9,13 @@
         <StackPanel Margin="16">
             <TextBlock Text="{Binding SeriesName}" FontSize="20" FontWeight="SemiBold" Margin="0,0,0,12" />
 
+            <TextBlock Text="Series" FontWeight="SemiBold" />
+            <ComboBox ItemsSource="{Binding SeriesOptions}"
+                      DisplayMemberPath="Name"
+                      SelectedItem="{Binding SelectedSeriesOption}"
+                      IsEnabled="{Binding IsSeriesSelectionEnabled}"
+                      Margin="0,4,0,12" />
+
             <StackPanel Visibility="{Binding HasExistingProfiles, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <TextBlock Text="Load Existing Profile" FontWeight="SemiBold" />
                 <ComboBox ItemsSource="{Binding ExistingProfiles}"
@@ -23,7 +30,7 @@
             <StackPanel Visibility="{Binding HasExistingCharacters, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <TextBlock Text="Character" FontWeight="SemiBold" />
                 <ComboBox ItemsSource="{Binding ExistingCharacters}"
-                          DisplayMemberPath="Name"
+                          DisplayMemberPath="DisplayName"
                           SelectedItem="{Binding SelectedExistingCharacter}"
                           Margin="0,4,0,12" />
             </StackPanel>
