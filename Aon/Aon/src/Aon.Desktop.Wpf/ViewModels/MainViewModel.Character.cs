@@ -71,6 +71,8 @@ public sealed partial class MainViewModel
         SelectedInventoryItem = null;
         OnPropertyChanged(nameof(CharacterPanelTitle));
         OnPropertyChanged(nameof(ActiveCharacterLabel));
+        OnPropertyChanged(nameof(BonusSkillPoints));
+        OnPropertyChanged(nameof(HasBonusSkillPoints));
     }
 
     private void UpdateCharacterOptions(SeriesProfileState seriesState)
@@ -144,13 +146,27 @@ public sealed partial class MainViewModel
         _isUpdatingCharacters = true;
         CharacterSeriesOptions.Clear();
 
+        var seriesIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "lw",
+            "gs",
+            "fw"
+        };
+
         if (profile.SeriesStates is not null)
         {
-            foreach (var entry in profile.SeriesStates.OrderBy(item => ResolveSeriesSortOrder(item.Key)))
+            foreach (var entry in profile.SeriesStates.Keys)
             {
-                var seriesId = entry.Key;
-                CharacterSeriesOptions.Add(new SeriesFilterOptionViewModel(seriesId, ResolveSeriesName(seriesId)));
+                if (!string.IsNullOrWhiteSpace(entry))
+                {
+                    seriesIds.Add(entry);
+                }
             }
+        }
+
+        foreach (var seriesId in seriesIds.OrderBy(ResolveSeriesSortOrder))
+        {
+            CharacterSeriesOptions.Add(new SeriesFilterOptionViewModel(seriesId, ResolveSeriesName(seriesId)));
         }
 
         _isUpdatingCharacters = false;

@@ -235,6 +235,58 @@
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
 
+                                <StackPanel Visibility="{Binding HasCoreSkills, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <TextBlock Text="Core Skills" FontWeight="SemiBold" />
+                                    <TextBlock Text="{Binding BonusSkillPoints, StringFormat=Bonus Skill Points: {0}}"
+                                               Foreground="#666666"
+                                               Margin="0,2,0,4"
+                                               Visibility="{Binding HasBonusSkillPoints, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                    <ItemsControl ItemsSource="{Binding CoreSkills}" Margin="0,4,0,12">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                                                    <TextBlock Text="{Binding Label}" Width="140" VerticalAlignment="Center" />
+                                                    <Button Content="-" Command="{Binding DecreaseCommand}" Width="24" Margin="0,0,6,0" />
+                                                    <TextBlock Text="{Binding Value}" Width="40" TextAlignment="Center" VerticalAlignment="Center" />
+                                                    <Button Content="+" Command="{Binding IncreaseCommand}" Width="24" Margin="6,0,0,0" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+
+                                <TextBlock Text="Attributes" FontWeight="SemiBold" />
+                                <ItemsControl ItemsSource="{Binding AttributeStats}" Margin="0,4,0,12">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock TextWrapping="Wrap">
+                                                <TextBlock.Inlines>
+                                                    <Run Text="{Binding Label}" />
+                                                    <Run Text=": " />
+                                                    <Run Text="{Binding Value}" />
+                                                </TextBlock.Inlines>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+
+                                <StackPanel Visibility="{Binding HasAvailableSkills, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <TextBlock Text="Disciplines &amp; Skills" FontWeight="SemiBold" Margin="0,12,0,0" />
+                                    <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                                        <ComboBox ItemsSource="{Binding AvailableSkills}"
+                                                  SelectedItem="{Binding SelectedAvailableSkill}"
+                                                  MinWidth="150"
+                                                  Margin="0,0,8,0" />
+                                        <Button Content="Add" Command="{Binding AddSkillCommand}" />
+                                    </StackPanel>
+                                    <ListBox ItemsSource="{Binding CharacterSkills}"
+                                             SelectedItem="{Binding SelectedSkill}"
+                                             HorizontalContentAlignment="Stretch"
+                                             Height="80"
+                                             Margin="0,0,0,8" />
+                                    <Button Content="Remove Selected Skill" Command="{Binding RemoveSkillCommand}" Margin="0,0,0,12" />
+                                </StackPanel>
+
                                 <TextBlock Text="Inventory Counters" FontWeight="SemiBold" />
                                 <StackPanel Orientation="Horizontal" Margin="0,4,0,6">
                                     <TextBox Text="{Binding CounterNameInput}" Width="120" Margin="0,0,8,0" />
