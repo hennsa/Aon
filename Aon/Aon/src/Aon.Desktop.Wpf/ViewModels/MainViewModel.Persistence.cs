@@ -25,6 +25,25 @@ public sealed partial class MainViewModel
         MessageBox.Show($"Saved to slot '{slot}'.", "Save Game", MessageBoxButton.OK, MessageBoxImage.Information);
     }
 
+    private async Task SaveProfileStateAsync()
+    {
+        if (string.IsNullOrWhiteSpace(_state.Profile?.Name))
+        {
+            return;
+        }
+
+        var slot = string.IsNullOrWhiteSpace(SaveSlot) ? _state.Profile.Name.Trim() : SaveSlot.Trim();
+        if (string.IsNullOrWhiteSpace(slot))
+        {
+            return;
+        }
+
+        PersistActiveCharacterState();
+        await _gameService.SaveGameAsync(slot, _state);
+        LoadSaveSlots();
+        SaveSlot = slot;
+    }
+
     private async Task LoadGameAsync()
     {
         var slot = NormalizeSaveSlot();
@@ -188,7 +207,7 @@ public sealed partial class MainViewModel
 
         var matchedProfile = Profiles.FirstOrDefault(option =>
             string.Equals(option.Name, _state.Profile?.Name, StringComparison.OrdinalIgnoreCase));
-        var selectedProfile = matchedProfile ?? (shouldSetProfileRequired ? Profiles.FirstOrDefault() : null);
+        var selectedProfile = matchedProfile;
 
         _isUpdatingProfiles = true;
         try
