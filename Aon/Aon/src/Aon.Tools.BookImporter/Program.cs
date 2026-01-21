@@ -1,7 +1,9 @@
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using AngleSharp;
 using AngleSharp.Dom;
 using Aon.Content;
+using Json.Schema;
 using System.Text.RegularExpressions;
 
 if (args.Length < 2)
@@ -28,6 +30,21 @@ var jsonOptions = new JsonSerializerOptions
     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     WriteIndented = true
 };
+var metadataJsonOptions = new JsonSerializerOptions
+{
+    PropertyNameCaseInsensitive = true
+};
+var schemaPath = FindBookSchemaPath(Environment.CurrentDirectory);
+JsonSchema? bookSchema = null;
+if (schemaPath is null)
+{
+    Console.Error.WriteLine("Warning: Unable to locate Book.schema.json for validation.");
+}
+else
+{
+    var schemaText = await File.ReadAllTextAsync(schemaPath);
+    bookSchema = JsonSchema.FromText(schemaText);
+}
 var importedCount = 0;
 var hadValidationErrors = false;
 
@@ -38,6 +55,7 @@ foreach (var file in Directory.EnumerateFiles(inputDirectory, "*.htm", SearchOpt
     var bookId = BuildBookId(inputDirectory, file);
     var book = ExtractBook(document, bookId);
     var validationErrors = ValidateBook(book);
+    validationErrors.AddRange(ValidateBookSchema(book, bookSchema, jsonOptions));
 
     if (validationErrors.Count > 0)
     {
@@ -266,14 +284,91 @@ static List<Choice> ExtractChoices(IEnumerable<INode> nodes)
             continue;
         }
 
+        var metadata = ExtractChoiceMetadata(el);
+
         choices.Add(new Choice
         {
             Text = el.TextContent?.Trim() ?? string.Empty,
-            TargetId = targetId
+            TargetId = targetId,
+            Requirements = metadata.Requirements,
+            Effects = metadata.Effects,
+            RandomOutcomes = metadata.RandomOutcomes,
+            RuleIds = metadata.RuleIds
         });
     }
 
     return choices;
+}
+
+static ChoiceRuleMetadata ExtractChoiceMetadata(IElement element)
+{
+    var metadata = new ChoiceRuleMetadata();
+
+    var rulesJson = element.GetAttribute("data-rules");
+    if (!string.IsNullOrWhiteSpace(rulesJson))
+    {
+        var parsed = DeserializeChoiceMetadata(rulesJson);
+        if (parsed is not null)
+        {
+            metadata.Merge(parsed);
+        }
+    }
+
+    var requirements = ParseDelimitedList(element.GetAttribute("data-requirements"));
+    var effects = ParseDelimitedList(element.GetAttribute("data-effects"));
+    var ruleIds = ParseDelimitedList(element.GetAttribute("data-rule-ids"));
+    var randomOutcomes = ParseRandomOutcomes(element.GetAttribute("data-random-outcomes"));
+
+    metadata.AddRequirements(requirements);
+    metadata.AddEffects(effects);
+    metadata.AddRuleIds(ruleIds);
+    metadata.AddRandomOutcomes(randomOutcomes);
+
+    return metadata;
+}
+
+static ChoiceRuleMetadata? DeserializeChoiceMetadata(string json)
+{
+    try
+    {
+        return JsonSerializer.Deserialize<ChoiceRuleMetadata>(json, metadataJsonOptions);
+    }
+    catch (JsonException)
+    {
+        Console.Error.WriteLine("Warning: Unable to parse choice rule metadata JSON.");
+        return null;
+    }
+}
+
+static List<string> ParseDelimitedList(string? value)
+{
+    if (string.IsNullOrWhiteSpace(value))
+    {
+        return new List<string>();
+    }
+
+    return value
+        .Split(new[] { '|', ';', ',' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+        .Where(item => !string.IsNullOrWhiteSpace(item))
+        .ToList();
+}
+
+static List<RandomOutcome> ParseRandomOutcomes(string? value)
+{
+    if (string.IsNullOrWhiteSpace(value))
+    {
+        return new List<RandomOutcome>();
+    }
+
+    try
+    {
+        return JsonSerializer.Deserialize<List<RandomOutcome>>(value, metadataJsonOptions) ?? new List<RandomOutcome>();
+    }
+    catch (JsonException)
+    {
+        Console.Error.WriteLine("Warning: Unable to parse choice random outcomes JSON.");
+        return new List<RandomOutcome>();
+    }
 }
 
 static List<string> ValidateBook(Book book)
@@ -307,6 +402,51 @@ static List<string> ValidateBook(Book book)
     }
 
     return errors;
+}
+
+static List<string> ValidateBookSchema(Book book, JsonSchema? schema, JsonSerializerOptions options)
+{
+    var errors = new List<string>();
+    if (schema is null)
+    {
+        return errors;
+    }
+
+    JsonNode? instance = JsonSerializer.SerializeToNode(book, options);
+    if (instance is null)
+    {
+        errors.Add("Schema validation failed: unable to serialize book.");
+        return errors;
+    }
+
+    var results = schema.Evaluate(instance, new EvaluationOptions
+    {
+        OutputFormat = OutputFormat.Detailed
+    });
+
+    if (!results.IsValid)
+    {
+        errors.Add("Schema validation failed: output does not conform to Book.schema.json.");
+    }
+
+    return errors;
+}
+
+static string? FindBookSchemaPath(string startDirectory)
+{
+    var current = new DirectoryInfo(startDirectory);
+    while (current is not null)
+    {
+        var candidate = Path.Combine(current.FullName, "Aon.Content", "Book.schema.json");
+        if (File.Exists(candidate))
+        {
+            return candidate;
+        }
+
+        current = current.Parent;
+    }
+
+    return null;
 }
 
 static string? GetSectionId(IElement heading)
@@ -443,5 +583,69 @@ static class CharacterTokenization
             "fw" => CalNameRegex.Replace(CalPhoenixNameRegex.Replace(text, CharacterNameToken), CharacterNameToken),
             _ => text
         };
+    }
+}
+
+sealed class ChoiceRuleMetadata
+{
+    public List<string> Requirements { get; } = new();
+    public List<string> Effects { get; } = new();
+    public List<RandomOutcome> RandomOutcomes { get; } = new();
+    public List<string> RuleIds { get; } = new();
+
+    public void Merge(ChoiceRuleMetadata other)
+    {
+        AddRequirements(other.Requirements);
+        AddEffects(other.Effects);
+        AddRandomOutcomes(other.RandomOutcomes);
+        AddRuleIds(other.RuleIds);
+    }
+
+    public void AddRequirements(IEnumerable<string> values) => AddUnique(Requirements, values);
+    public void AddEffects(IEnumerable<string> values) => AddUnique(Effects, values);
+    public void AddRuleIds(IEnumerable<string> values) => AddUnique(RuleIds, values);
+
+    public void AddRandomOutcomes(IEnumerable<RandomOutcome> values)
+    {
+        foreach (var value in values)
+        {
+            if (value is null)
+            {
+                continue;
+            }
+
+            var hasTarget = !string.IsNullOrWhiteSpace(value.TargetId);
+            var hasEffects = value.Effects.Any(effect => !string.IsNullOrWhiteSpace(effect));
+            if (!hasTarget && !hasEffects)
+            {
+                continue;
+            }
+
+            RandomOutcomes.Add(new RandomOutcome
+            {
+                Min = value.Min,
+                Max = value.Max,
+                TargetId = value.TargetId?.Trim() ?? string.Empty,
+                Effects = value.Effects.Where(effect => !string.IsNullOrWhiteSpace(effect)).ToList()
+            });
+        }
+    }
+
+    private static void AddUnique(List<string> target, IEnumerable<string> values)
+    {
+        var seen = new HashSet<string>(target, StringComparer.OrdinalIgnoreCase);
+        foreach (var value in values)
+        {
+            var trimmed = value?.Trim();
+            if (string.IsNullOrWhiteSpace(trimmed))
+            {
+                continue;
+            }
+
+            if (seen.Add(trimmed))
+            {
+                target.Add(trimmed);
+            }
+        }
     }
 }
