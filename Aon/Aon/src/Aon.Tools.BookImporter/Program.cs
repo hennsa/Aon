@@ -6,6 +6,7 @@ using Aon.Content;
 using Json.Schema;
 using System.Text.RegularExpressions;
 
+
 if (args.Length < 2)
 {
     Console.Error.WriteLine("Usage: Aon.Tools.BookImporter <input-dir> <output-dir>");
@@ -29,10 +30,6 @@ var jsonOptions = new JsonSerializerOptions
 {
     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     WriteIndented = true
-};
-var metadataJsonOptions = new JsonSerializerOptions
-{
-    PropertyNameCaseInsensitive = true
 };
 var schemaPath = FindBookSchemaPath(Environment.CurrentDirectory);
 JsonSchema? bookSchema = null;
@@ -331,7 +328,7 @@ static ChoiceRuleMetadata? DeserializeChoiceMetadata(string json)
 {
     try
     {
-        return JsonSerializer.Deserialize<ChoiceRuleMetadata>(json, metadataJsonOptions);
+        return JsonSerializer.Deserialize<ChoiceRuleMetadata>(json, MetadataOptions.Options);
     }
     catch (JsonException)
     {
@@ -362,7 +359,7 @@ static List<RandomOutcome> ParseRandomOutcomes(string? value)
 
     try
     {
-        return JsonSerializer.Deserialize<List<RandomOutcome>>(value, metadataJsonOptions) ?? new List<RandomOutcome>();
+        return JsonSerializer.Deserialize<List<RandomOutcome>>(value, MetadataOptions.Options) ?? new List<RandomOutcome>();
     }
     catch (JsonException)
     {
@@ -419,10 +416,7 @@ static List<string> ValidateBookSchema(Book book, JsonSchema? schema, JsonSerial
         return errors;
     }
 
-    var results = schema.Evaluate(instance, new EvaluationOptions
-    {
-        OutputFormat = OutputFormat.Detailed
-    });
+    var results = schema.Evaluate(instance, new EvaluationOptions());
 
     if (!results.IsValid)
     {
@@ -648,4 +642,11 @@ sealed class ChoiceRuleMetadata
             }
         }
     }
+}
+static class MetadataOptions
+{
+    public static readonly JsonSerializerOptions Options = new JsonSerializerOptions
+    {
+        PropertyNameCaseInsensitive = true
+    };
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using Aon.Content;
 using Aon.Rules;
 using Aon.Core;
+using System.Text.RegularExpressions;
 
 namespace Aon.Desktop.Wpf.ViewModels;
 
