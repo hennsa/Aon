@@ -110,7 +110,8 @@ static Book ExtractBook(IDocument document, string fallbackId)
                             {
                                 Min = outcome.Min,
                                 Max = outcome.Max,
-                                TargetId = outcome.TargetId
+                                TargetId = outcome.TargetId,
+                                Effects = outcome.Effects.ToList()
                             })
                             .ToList(),
                         RuleIds = choice.RuleIds.ToList()

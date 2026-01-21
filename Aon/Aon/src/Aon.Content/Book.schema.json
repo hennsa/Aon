@@ -151,11 +151,6 @@
     "randomOutcome": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "min",
-        "max",
-        "targetId"
-      ],
       "properties": {
         "min": {
           "type": "integer",
@@ -170,8 +165,31 @@
         "targetId": {
           "type": "string",
           "minLength": 1
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         }
-      }
+      },
+      "required": [
+        "min",
+        "max"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "targetId"
+          ]
+        },
+        {
+          "required": [
+            "effects"
+          ]
+        }
+      ]
     }
   }
 }
