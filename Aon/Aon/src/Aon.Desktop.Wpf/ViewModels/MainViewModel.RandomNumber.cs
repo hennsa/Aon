@@ -65,10 +65,10 @@ public sealed partial class MainViewModel
         }
 
         var roll = _gameService.RollRandomNumber();
-        _randomNumberResult = roll;
         TrackRoll(roll);
         var modifier = GetRollModifier();
         var effectiveRoll = Math.Clamp(roll + modifier, 0, 9);
+        _randomNumberResult = effectiveRoll;
 
         if (IsManualRandomMode)
         {

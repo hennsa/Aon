@@ -244,7 +244,7 @@ public sealed partial class MainViewModel
             return;
         }
 
-        var section = await _gameService.ApplyChoiceAsync(_state, choice);
+        var section = await _gameService.ApplyChoiceAsync(_state, choice, _randomNumberResult);
         if (section is null)
         {
             return;
