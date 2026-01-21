@@ -102,7 +102,19 @@ static Book ExtractBook(IDocument document, string fallbackId)
                     .Select(choice => new Choice
                     {
                         Text = ReplaceCharacterTokens(seriesId, choice.Text),
-                        TargetId = choice.TargetId
+                        TargetId = choice.TargetId,
+                        Requirements = choice.Requirements.ToList(),
+                        Effects = choice.Effects.ToList(),
+                        RandomOutcomes = choice.RandomOutcomes
+                            .Select(outcome => new RandomOutcome
+                            {
+                                Min = outcome.Min,
+                                Max = outcome.Max,
+                                TargetId = outcome.TargetId,
+                                Effects = outcome.Effects.ToList()
+                            })
+                            .ToList(),
+                        RuleIds = choice.RuleIds.ToList()
                     })
                     .ToList()
             })
