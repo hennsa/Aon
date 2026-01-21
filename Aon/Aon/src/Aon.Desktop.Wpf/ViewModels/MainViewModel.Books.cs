@@ -250,6 +250,7 @@ public sealed partial class MainViewModel
             return;
         }
 
+        RefreshCharacterPanels();
         UpdateSection(section);
     }
 
