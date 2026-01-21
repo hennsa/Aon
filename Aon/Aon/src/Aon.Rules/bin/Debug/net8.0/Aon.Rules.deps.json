@@ -8,10 +8,19 @@
     ".NETCoreApp,Version=v8.0": {
       "Aon.Rules/1.0.0": {
         "dependencies": {
+          "Aon.Content": "1.0.0",
           "Aon.Core": "1.0.0"
         },
         "runtime": {
           "Aon.Rules.dll": {}
+        }
+      },
+      "Aon.Content/1.0.0": {
+        "runtime": {
+          "Aon.Content.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Aon.Core/1.0.0": {
@@ -26,6 +35,11 @@
   },
   "libraries": {
     "Aon.Rules/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Aon.Content/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

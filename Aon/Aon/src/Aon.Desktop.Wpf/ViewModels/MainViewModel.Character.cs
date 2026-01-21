@@ -526,16 +526,14 @@ public sealed partial class MainViewModel
 
     private int GetCounterAmountFromItemLists(string text, string counterPattern)
     {
-        var lines = text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-        if (lines.Length == 0)
+        if (string.IsNullOrWhiteSpace(text))
         {
-            if (int.TryParse(match.Groups["value"].Value, out var value))
-            {
-                total += value;
-            }
+            return 0;
         }
 
+        var lines = text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
         var total = 0;
+
         foreach (var line in lines)
         {
             if (!Regex.IsMatch(line, counterPattern, RegexOptions.IgnoreCase))
@@ -586,7 +584,7 @@ public sealed partial class MainViewModel
         return actions;
     }
 
-    private bool TryParseQuantity(string raw, out int value)
+    private static bool TryParseQuantity(string raw, out int value)
     {
         if (int.TryParse(raw, out value))
         {

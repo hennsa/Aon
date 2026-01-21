@@ -111,7 +111,11 @@
       "choices": [
         {
           "text": "Turn to 204.",
-          "targetId": "204"
+          "targetId": "204",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -131,11 +135,19 @@
       "choices": [
         {
           "text": "If your total score is now 10 or less, turn to 349.",
-          "targetId": "349"
+          "targetId": "349",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 11 or more, turn to 229.",
-          "targetId": "229"
+          "targetId": "229",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -155,7 +167,11 @@
       "choices": [
         {
           "text": "Turn to 86.",
-          "targetId": "86"
+          "targetId": "86",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -175,7 +191,11 @@
       "choices": [
         {
           "text": "Turn to 29.",
-          "targetId": "29"
+          "targetId": "29",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -195,7 +215,11 @@
       "choices": [
         {
           "text": "Turn to 90.",
-          "targetId": "90"
+          "targetId": "90",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -215,7 +239,11 @@
       "choices": [
         {
           "text": "Turn to 347.",
-          "targetId": "347"
+          "targetId": "347",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -235,7 +263,11 @@
       "choices": [
         {
           "text": "To leave the store and continue, turn to 273.",
-          "targetId": "273"
+          "targetId": "273",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -255,11 +287,19 @@
       "choices": [
         {
           "text": "If your total score is now 15 or less, turn to 96.",
-          "targetId": "96"
+          "targetId": "96",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 16 or more, turn to 344.",
-          "targetId": "344"
+          "targetId": "344",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -279,7 +319,11 @@
       "choices": [
         {
           "text": "To continue, turn to 251.",
-          "targetId": "251"
+          "targetId": "251",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -299,11 +343,19 @@
       "choices": [
         {
           "text": "If your total is 14 or less, turn to 148.",
-          "targetId": "148"
+          "targetId": "148",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is 15 or more, turn to 272.",
-          "targetId": "272"
+          "targetId": "272",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -327,7 +379,11 @@
       "choices": [
         {
           "text": "Turn to 170.",
-          "targetId": "170"
+          "targetId": "170",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -343,7 +399,11 @@
       "choices": [
         {
           "text": "Turn to 305.",
-          "targetId": "305"
+          "targetId": "305",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -367,11 +427,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20134, turn to 91.",
-          "targetId": "91"
+          "targetId": "91",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number is 5\u20139, turn to 30.",
-          "targetId": "30"
+          "targetId": "30",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -387,19 +455,35 @@
       "choices": [
         {
           "text": "If you are using a Pistol, turn to 101.",
-          "targetId": "101"
+          "targetId": "101",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are using a Machine Pistol, turn to 131.",
-          "targetId": "131"
+          "targetId": "131",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are using a Shotgun, turn to 72.",
-          "targetId": "72"
+          "targetId": "72",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are using a Rifle, turn to 233.",
-          "targetId": "233"
+          "targetId": "233",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -415,7 +499,11 @@
       "choices": [
         {
           "text": "Turn to 175.",
-          "targetId": "175"
+          "targetId": "175",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -443,11 +531,19 @@
       "choices": [
         {
           "text": "If you win and the fight lasts three rounds or less, turn to 113.",
-          "targetId": "113"
+          "targetId": "113",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win the fight in four rounds or more, turn to 291.",
-          "targetId": "291"
+          "targetId": "291",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -482,7 +578,11 @@
       "choices": [
         {
           "text": "Turn to 329.",
-          "targetId": "329"
+          "targetId": "329",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -525,7 +625,11 @@
       "choices": [
         {
           "text": "To leave the strongroom and return to the convoy, turn to 29.",
-          "targetId": "29"
+          "targetId": "29",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -541,7 +645,11 @@
       "choices": [
         {
           "text": "Turn to 150.",
-          "targetId": "150"
+          "targetId": "150",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -569,11 +677,19 @@
       "choices": [
         {
           "text": "If you wish to check out the bridge at Lakeside Village, turn to 312.",
-          "targetId": "312"
+          "targetId": "312",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to continue along Interstate 820 and attempt to cross the Trinity River at Lake Worth, turn to 149.",
-          "targetId": "149"
+          "targetId": "149",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -601,11 +717,19 @@
       "choices": [
         {
           "text": "If your total is 11 or less, turn to 324.",
-          "targetId": "324"
+          "targetId": "324",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is 12 or more, turn to 200.",
-          "targetId": "200"
+          "targetId": "200",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -625,7 +749,11 @@
       "choices": [
         {
           "text": "Turn to 305.",
-          "targetId": "305"
+          "targetId": "305",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -649,11 +777,19 @@
       "choices": [
         {
           "text": "If the snake loses the greater number of ENDURANCE points in the initial round, turn to 266.",
-          "targetId": "266"
+          "targetId": "266",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you lose the greater number of ENDURANCE points in the initial round, do not deduct them from your total, but instead turn to 157.",
-          "targetId": "157"
+          "targetId": "157",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -677,11 +813,19 @@
       "choices": [
         {
           "text": "If the total is now 0\u20135, turn to 275.",
-          "targetId": "275"
+          "targetId": "275",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 6 or more, turn to 111.",
-          "targetId": "111"
+          "targetId": "111",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -697,7 +841,11 @@
       "choices": [
         {
           "text": "Turn to 179.",
-          "targetId": "179"
+          "targetId": "179",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -717,11 +865,19 @@
       "choices": [
         {
           "text": "If you wish to fire a second round at these rabid dogs and are able to do so, turn to 190.",
-          "targetId": "190"
+          "targetId": "190",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have run out of ammunition, or if you choose not to fire a second round, turn to 64.",
-          "targetId": "64"
+          "targetId": "64",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -741,7 +897,11 @@
       "choices": [
         {
           "text": "Turn to 22.",
-          "targetId": "22"
+          "targetId": "22",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -769,7 +929,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 228.",
-          "targetId": "228"
+          "targetId": "228",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -789,11 +953,19 @@
       "choices": [
         {
           "text": "If you possess either a File or a Flexible Saw, turn to 346.",
-          "targetId": "346"
+          "targetId": "346",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you possess neither of these items, turn to 294.",
-          "targetId": "294"
+          "targetId": "294",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -817,11 +989,19 @@
       "choices": [
         {
           "text": "If you win and the fight lasts four rounds or less, turn to 187.",
-          "targetId": "187"
+          "targetId": "187",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win the fight in five rounds or more, turn to 230.",
-          "targetId": "230"
+          "targetId": "230",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -849,7 +1029,11 @@
       "choices": [
         {
           "text": "Turn to 170.",
-          "targetId": "170"
+          "targetId": "170",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -869,11 +1053,19 @@
       "choices": [
         {
           "text": "If the number you have picked is less than or equal to your current Perception skill level, turn to 232.",
-          "targetId": "232"
+          "targetId": "232",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is greater than your current Perception skill level, turn to 309.",
-          "targetId": "309"
+          "targetId": "309",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -912,11 +1104,19 @@
       "choices": [
         {
           "text": "If you wish to scout along the river to the north, turn to 161.",
-          "targetId": "161"
+          "targetId": "161",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to scout along the river to the south, turn to 319.",
-          "targetId": "319"
+          "targetId": "319",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -944,7 +1144,11 @@
       "choices": [
         {
           "text": "Turn to 177.",
-          "targetId": "177"
+          "targetId": "177",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -968,7 +1172,11 @@
       "choices": [
         {
           "text": "Turn to 239.",
-          "targetId": "239"
+          "targetId": "239",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -984,7 +1192,11 @@
       "choices": [
         {
           "text": "Turn to 231.",
-          "targetId": "231"
+          "targetId": "231",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1004,11 +1216,19 @@
       "choices": [
         {
           "text": "If the total is now 0\u20135, turn to 275.",
-          "targetId": "275"
+          "targetId": "275",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 6 or more, turn to 180.",
-          "targetId": "180"
+          "targetId": "180",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1028,11 +1248,19 @@
       "choices": [
         {
           "text": "If your total score is 13 or less, turn to 340.",
-          "targetId": "340"
+          "targetId": "340",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is 14 or more, turn to 302.",
-          "targetId": "302"
+          "targetId": "302",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1060,11 +1288,19 @@
       "choices": [
         {
           "text": "If your total score is now 12 or less, turn to 300.",
-          "targetId": "300"
+          "targetId": "300",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 13 or more, turn to 209.",
-          "targetId": "209"
+          "targetId": "209",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1088,11 +1324,19 @@
       "choices": [
         {
           "text": "If the total is now 7 or less, turn to 240.",
-          "targetId": "240"
+          "targetId": "240",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 8 or more, turn to 4.",
-          "targetId": "4"
+          "targetId": "4",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1112,7 +1356,11 @@
       "choices": [
         {
           "text": "Turn to 90.",
-          "targetId": "90"
+          "targetId": "90",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1132,7 +1380,11 @@
       "choices": [
         {
           "text": "Turn to 185.",
-          "targetId": "185"
+          "targetId": "185",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1148,15 +1400,27 @@
       "choices": [
         {
           "text": "If you possess some Binoculars, turn to 339.",
-          "targetId": "339"
+          "targetId": "339",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to return to the convoy and tell them to avoid Denton, turn to 198.",
-          "targetId": "198"
+          "targetId": "198",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to ignore your fears and investigate the ruins, turn to 298.",
-          "targetId": "298"
+          "targetId": "298",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1219,7 +1483,11 @@
       "choices": [
         {
           "text": "Turn to 337.",
-          "targetId": "337"
+          "targetId": "337",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1239,7 +1507,11 @@
       "choices": [
         {
           "text": "Turn to 216.",
-          "targetId": "216"
+          "targetId": "216",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1279,7 +1551,11 @@
       "choices": [
         {
           "text": "Turn to 178.",
-          "targetId": "178"
+          "targetId": "178",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1295,11 +1571,19 @@
       "choices": [
         {
           "text": "If you possess a missile weapon, turn to 130.",
-          "targetId": "130"
+          "targetId": "130",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a missile weapon, or if you do not have sufficient ammunition to use it, turn to 212.",
-          "targetId": "212"
+          "targetId": "212",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1334,15 +1618,27 @@
       "choices": [
         {
           "text": "If you have a missile weapon and wish to use it, turn to 112.",
-          "targetId": "112"
+          "targetId": "112",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to draw a close combat weapon to meet an attack by the snake, turn to 25.",
-          "targetId": "25"
+          "targetId": "25",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to back away from the snake as slowly as you can, turn to 226.",
-          "targetId": "226"
+          "targetId": "226",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1362,7 +1658,11 @@
       "choices": [
         {
           "text": "To continue, turn to 251.",
-          "targetId": "251"
+          "targetId": "251",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1386,11 +1686,19 @@
       "choices": [
         {
           "text": "If your total score is now 13 or less, turn to 241.",
-          "targetId": "241"
+          "targetId": "241",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 14 or more, turn to 256.",
-          "targetId": "256"
+          "targetId": "256",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1438,7 +1746,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 249.",
-          "targetId": "249"
+          "targetId": "249",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1458,11 +1770,19 @@
       "choices": [
         {
           "text": "If you possess a missile weapon and wish to use it, turn to 193.",
-          "targetId": "193"
+          "targetId": "193",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a missile weapon, or if you do not wish to use it, turn to 195.",
-          "targetId": "195"
+          "targetId": "195",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1482,11 +1802,19 @@
       "choices": [
         {
           "text": "If you wish to search the body, turn to 303.",
-          "targetId": "303"
+          "targetId": "303",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to press on with the crossing, turn to 160.",
-          "targetId": "160"
+          "targetId": "160",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1502,7 +1830,11 @@
       "choices": [
         {
           "text": "Turn to 188.",
-          "targetId": "188"
+          "targetId": "188",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1522,11 +1854,19 @@
       "choices": [
         {
           "text": "If your total score is now 12 or less, turn to 331.",
-          "targetId": "331"
+          "targetId": "331",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 13 or more, turn to 218.",
-          "targetId": "218"
+          "targetId": "218",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1550,7 +1890,11 @@
       "choices": [
         {
           "text": "Turn to 100.",
-          "targetId": "100"
+          "targetId": "100",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1570,7 +1914,11 @@
       "choices": [
         {
           "text": "Turn to 175.",
-          "targetId": "175"
+          "targetId": "175",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1594,11 +1942,19 @@
       "choices": [
         {
           "text": "If the total is now 5 or less, turn to 18.",
-          "targetId": "18"
+          "targetId": "18",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 6 or more, turn to 329.",
-          "targetId": "329"
+          "targetId": "329",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1618,11 +1974,19 @@
       "choices": [
         {
           "text": "If you win and the fight lasts three rounds or less, turn to 113.",
-          "targetId": "113"
+          "targetId": "113",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win the fight in four rounds or more, turn to 291.",
-          "targetId": "291"
+          "targetId": "291",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1638,11 +2002,19 @@
       "choices": [
         {
           "text": "If you possess a CB Radio, turn to 116.",
-          "targetId": "116"
+          "targetId": "116",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this item, turn to 99.",
-          "targetId": "99"
+          "targetId": "99",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1662,7 +2034,11 @@
       "choices": [
         {
           "text": "Turn to 284.",
-          "targetId": "284"
+          "targetId": "284",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1678,11 +2054,19 @@
       "choices": [
         {
           "text": "If your current Perception skill total is 4 or less turn to 341.",
-          "targetId": "341"
+          "targetId": "341",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 5 or more, turn to 154.",
-          "targetId": "154"
+          "targetId": "154",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1722,11 +2106,19 @@
       "choices": [
         {
           "text": "If you possess a missile weapon, turn to 135.",
-          "targetId": "135"
+          "targetId": "135",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a missile weapon, or if you have exhausted your supply of ammunition, turn to 288.",
-          "targetId": "288"
+          "targetId": "288",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1742,7 +2134,11 @@
       "choices": [
         {
           "text": "Turn to 120.",
-          "targetId": "120"
+          "targetId": "120",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1762,11 +2158,19 @@
       "choices": [
         {
           "text": "If you possess a missile weapon, turn to 292.",
-          "targetId": "292"
+          "targetId": "292",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a missile weapon, or if you do not have sufficient ammunition to use it, turn to 238.",
-          "targetId": "238"
+          "targetId": "238",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1786,11 +2190,19 @@
       "choices": [
         {
           "text": "If your total score is now 14 or less, turn to 282.",
-          "targetId": "282"
+          "targetId": "282",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 15 or more, turn to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1810,11 +2222,19 @@
       "choices": [
         {
           "text": "If your total score is now 15 or less, turn to 164.",
-          "targetId": "164"
+          "targetId": "164",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 16 or more, turn to 58.",
-          "targetId": "58"
+          "targetId": "58",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1830,7 +2250,11 @@
       "choices": [
         {
           "text": "Turn to 304.",
-          "targetId": "304"
+          "targetId": "304",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1846,11 +2270,19 @@
       "choices": [
         {
           "text": "If you possess a CB Radio, turn to 253.",
-          "targetId": "253"
+          "targetId": "253",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not, turn to 158.",
-          "targetId": "158"
+          "targetId": "158",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1870,7 +2302,11 @@
       "choices": [
         {
           "text": "Turn to 185.",
-          "targetId": "185"
+          "targetId": "185",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1886,11 +2322,19 @@
       "choices": [
         {
           "text": "If you possess a Pistol,3 turn to 287.",
-          "targetId": "287"
+          "targetId": "287",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this missile weapon, turn to 32.",
-          "targetId": "32"
+          "targetId": "32",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1910,7 +2354,11 @@
       "choices": [
         {
           "text": "Turn to 175.",
-          "targetId": "175"
+          "targetId": "175",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1930,7 +2378,11 @@
       "choices": [
         {
           "text": "Turn to 182.",
-          "targetId": "182"
+          "targetId": "182",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1946,7 +2398,11 @@
       "choices": [
         {
           "text": "If you are still alive after sustaining this injury, turn to 219.",
-          "targetId": "219"
+          "targetId": "219",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1981,11 +2437,19 @@
       "choices": [
         {
           "text": "If you win and the combat lasts three rounds or less, turn to 314.",
-          "targetId": "314"
+          "targetId": "314",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win and the combat lasts four rounds or more, turn to 192.",
-          "targetId": "192"
+          "targetId": "192",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2009,11 +2473,19 @@
       "choices": [
         {
           "text": "If you wish to continue your search, turn to 184.",
-          "targetId": "184"
+          "targetId": "184",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to call off your search and return to the convoy, turn to 315.",
-          "targetId": "315"
+          "targetId": "315",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2037,7 +2509,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 15.",
-          "targetId": "15"
+          "targetId": "15",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2057,7 +2533,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 215.",
-          "targetId": "215"
+          "targetId": "215",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2085,7 +2565,11 @@
       "choices": [
         {
           "text": "To return to the convoy, turn to 224.",
-          "targetId": "224"
+          "targetId": "224",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2109,7 +2593,11 @@
       "choices": [
         {
           "text": "Turn to 100.",
-          "targetId": "100"
+          "targetId": "100",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2129,11 +2617,19 @@
       "choices": [
         {
           "text": "If your total score is now 11 or less, turn to 172.",
-          "targetId": "172"
+          "targetId": "172",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 12 or more, turn to 23.",
-          "targetId": "23"
+          "targetId": "23",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2153,11 +2649,19 @@
       "choices": [
         {
           "text": "If the total is now 0\u20137, turn to 275.",
-          "targetId": "275"
+          "targetId": "275",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 8 or more, turn to 9.",
-          "targetId": "9"
+          "targetId": "9",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2185,11 +2689,19 @@
       "choices": [
         {
           "text": "If the total is 22 or less, turn to 10.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the total is 23 or more, turn to 313.",
-          "targetId": "313"
+          "targetId": "313",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2217,7 +2729,11 @@
       "choices": [
         {
           "text": "Turn to 327.",
-          "targetId": "327"
+          "targetId": "327",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2233,11 +2749,19 @@
       "choices": [
         {
           "text": "If you wish to run east, turn to 110.",
-          "targetId": "110"
+          "targetId": "110",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to run west, turn to 321.",
-          "targetId": "321"
+          "targetId": "321",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2261,7 +2785,11 @@
       "choices": [
         {
           "text": "To continue, turn to 188.",
-          "targetId": "188"
+          "targetId": "188",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2297,11 +2825,19 @@
       "choices": [
         {
           "text": "If your total is now 8 or less, turn to 265.",
-          "targetId": "265"
+          "targetId": "265",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is 9 or more, turn to 289.",
-          "targetId": "289"
+          "targetId": "289",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2325,11 +2861,19 @@
       "choices": [
         {
           "text": "If you possess a Rope, turn to 181.",
-          "targetId": "181"
+          "targetId": "181",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this item, turn to 246.",
-          "targetId": "246"
+          "targetId": "246",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2349,7 +2893,11 @@
       "choices": [
         {
           "text": "Turn to 198.",
-          "targetId": "198"
+          "targetId": "198",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2381,11 +2929,19 @@
       "choices": [
         {
           "text": "If your total is 9 or less, turn to 258.",
-          "targetId": "258"
+          "targetId": "258",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 10 or more, turn to 83.",
-          "targetId": "83"
+          "targetId": "83",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2405,11 +2961,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20134, turn to 283.",
-          "targetId": "283"
+          "targetId": "283",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 5\u20139, turn to 44.",
-          "targetId": "44"
+          "targetId": "44",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2437,7 +3001,11 @@
       "choices": [
         {
           "text": "To leave the strongroom and return to the convoy, turn to 315.",
-          "targetId": "315"
+          "targetId": "315",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2453,11 +3021,19 @@
       "choices": [
         {
           "text": "If you possess an HE Grenade, turn to 276.",
-          "targetId": "276"
+          "targetId": "276",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this item, turn to 311.",
-          "targetId": "311"
+          "targetId": "311",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2485,11 +3061,19 @@
       "choices": [
         {
           "text": "If you possess a CB Radio, turn to 304.",
-          "targetId": "304"
+          "targetId": "304",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this item, turn to 73.",
-          "targetId": "73"
+          "targetId": "73",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2509,11 +3093,19 @@
       "choices": [
         {
           "text": "If your total score is now 12 or less, turn to 164.",
-          "targetId": "164"
+          "targetId": "164",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 13 or more, turn to 58.",
-          "targetId": "58"
+          "targetId": "58",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2533,11 +3125,19 @@
       "choices": [
         {
           "text": "If your total score is now 10 or less, turn to 172.",
-          "targetId": "172"
+          "targetId": "172",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 11 or more, turn to 23.",
-          "targetId": "23"
+          "targetId": "23",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2565,11 +3165,19 @@
       "choices": [
         {
           "text": "If you wish to search the store, turn to 7.",
-          "targetId": "7"
+          "targetId": "7",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to leave the store and continue, turn to 273.",
-          "targetId": "273"
+          "targetId": "273",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2585,7 +3193,11 @@
       "choices": [
         {
           "text": "Turn to 150.",
-          "targetId": "150"
+          "targetId": "150",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2613,11 +3225,19 @@
       "choices": [
         {
           "text": "If you wish to search the university, turn to 82.",
-          "targetId": "82"
+          "targetId": "82",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to lead the convoy onto Interstate 35, turn to 22.",
-          "targetId": "22"
+          "targetId": "22",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2648,19 +3268,35 @@
       "choices": [
         {
           "text": "If you are using a Pistol, turn to 261.",
-          "targetId": "261"
+          "targetId": "261",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are using a Shotgun, turn to 320.",
-          "targetId": "320"
+          "targetId": "320",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are using a Rifle, turn to 28.",
-          "targetId": "28"
+          "targetId": "28",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are using a Machine Pistol, turn to 5.",
-          "targetId": "5"
+          "targetId": "5",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2680,11 +3316,19 @@
       "choices": [
         {
           "text": "If your total score is 9 or less, turn to 340.",
-          "targetId": "340"
+          "targetId": "340",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is 10 or more, turn to 302.",
-          "targetId": "302"
+          "targetId": "302",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2708,7 +3352,11 @@
       "choices": [
         {
           "text": "If you win, turn to 63.",
-          "targetId": "63"
+          "targetId": "63",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2728,11 +3376,19 @@
       "choices": [
         {
           "text": "If you wish to ascend the stairs to the first floor, turn to 286.",
-          "targetId": "286"
+          "targetId": "286",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to hide behind the counter, turn to 118.",
-          "targetId": "118"
+          "targetId": "118",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2752,7 +3408,11 @@
       "choices": [
         {
           "text": "To continue, turn to 251.",
-          "targetId": "251"
+          "targetId": "251",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2772,7 +3432,11 @@
       "choices": [
         {
           "text": "Turn to 185.",
-          "targetId": "185"
+          "targetId": "185",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2788,11 +3452,19 @@
       "choices": [
         {
           "text": "If during your close combat with the rabid dog you lost 4 or more ENDURANCE points, turn to 97.",
-          "targetId": "97"
+          "targetId": "97",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you lost 3 or less ENDURANCE points, turn to 245.",
-          "targetId": "245"
+          "targetId": "245",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2816,11 +3488,19 @@
       "choices": [
         {
           "text": "If you possess a missile weapon and wish to use it, turn to 193.",
-          "targetId": "193"
+          "targetId": "193",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a missile weapon, or if you do not wish to use it, turn to 195.",
-          "targetId": "195"
+          "targetId": "195",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2840,7 +3520,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 303.",
-          "targetId": "303"
+          "targetId": "303",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2864,11 +3548,19 @@
       "choices": [
         {
           "text": "If you possess a missile weapon, turn to 143.",
-          "targetId": "143"
+          "targetId": "143",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a missile weapon, or if you do not have sufficient ammunition to use it, turn to 183.",
-          "targetId": "183"
+          "targetId": "183",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2888,7 +3580,11 @@
       "choices": [
         {
           "text": "If you are still alive, adjust your ENDURANCE points total and turn to 242.",
-          "targetId": "242"
+          "targetId": "242",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2908,15 +3604,27 @@
       "choices": [
         {
           "text": "If your total score is now 0\u20132, turn to 35.",
-          "targetId": "35"
+          "targetId": "35",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 3\u20136, turn to 334.",
-          "targetId": "334"
+          "targetId": "334",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 7\u201310, turn to 279.",
-          "targetId": "279"
+          "targetId": "279",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2948,7 +3656,11 @@
       "choices": [
         {
           "text": "Turn to 347.",
-          "targetId": "347"
+          "targetId": "347",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2976,11 +3688,19 @@
       "choices": [
         {
           "text": "If you wish to investigate the base while Cutter finishes his repairs, turn to 342.",
-          "targetId": "342"
+          "targetId": "342",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to stay with the convoy, turn to 295.",
-          "targetId": "295"
+          "targetId": "295",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3015,7 +3735,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 163.",
-          "targetId": "163"
+          "targetId": "163",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3031,7 +3755,11 @@
       "choices": [
         {
           "text": "Turn to 295.",
-          "targetId": "295"
+          "targetId": "295",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3051,11 +3779,19 @@
       "choices": [
         {
           "text": "If your total score is now 14 or less, turn to 349.",
-          "targetId": "349"
+          "targetId": "349",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 15 or more, turn to 229.",
-          "targetId": "229"
+          "targetId": "229",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3075,11 +3811,19 @@
       "choices": [
         {
           "text": "If your current Perception skill total is 3 or less, turn to 341.",
-          "targetId": "341"
+          "targetId": "341",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 4 or more, turn to 154.",
-          "targetId": "154"
+          "targetId": "154",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3099,11 +3843,19 @@
       "choices": [
         {
           "text": "If the total is now 7 or less, turn to 18.",
-          "targetId": "18"
+          "targetId": "18",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 8 or more, turn to 329.",
-          "targetId": "329"
+          "targetId": "329",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3139,7 +3891,11 @@
       "choices": [
         {
           "text": "Turn to 94.",
-          "targetId": "94"
+          "targetId": "94",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3155,11 +3911,19 @@
       "choices": [
         {
           "text": "If you possess a missile weapon and wish to use it, turn to 107.",
-          "targetId": "107"
+          "targetId": "107",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a missile weapon, or if you do not wish to use it, turn to 16.",
-          "targetId": "16"
+          "targetId": "16",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3183,7 +3947,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 166.",
-          "targetId": "166"
+          "targetId": "166",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3207,7 +3975,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 119.",
-          "targetId": "119"
+          "targetId": "119",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3227,11 +3999,19 @@
       "choices": [
         {
           "text": "If your total score is now 11 or less, turn to 164.",
-          "targetId": "164"
+          "targetId": "164",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 12 or more, turn to 58.",
-          "targetId": "58"
+          "targetId": "58",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3251,7 +4031,11 @@
       "choices": [
         {
           "text": "Turn to 350.",
-          "targetId": "350"
+          "targetId": "350",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3283,7 +4067,11 @@
       "choices": [
         {
           "text": "Turn to 327.",
-          "targetId": "327"
+          "targetId": "327",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3299,7 +4087,11 @@
       "choices": [
         {
           "text": "To return to the convoy, turn to 144.",
-          "targetId": "144"
+          "targetId": "144",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3323,11 +4115,19 @@
       "choices": [
         {
           "text": "If you wish to hide behind the auto wreck, turn to 332.",
-          "targetId": "332"
+          "targetId": "332",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to take cover inside the factory, turn to 243.",
-          "targetId": "243"
+          "targetId": "243",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3351,7 +4151,11 @@
       "choices": [
         {
           "text": "Turn to 100.",
-          "targetId": "100"
+          "targetId": "100",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3375,11 +4179,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20136, turn to 281.",
-          "targetId": "281"
+          "targetId": "281",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 7\u20139, turn to 160.",
-          "targetId": "160"
+          "targetId": "160",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3407,11 +4219,19 @@
       "choices": [
         {
           "text": "If your total is 11 or less, turn to 324.",
-          "targetId": "324"
+          "targetId": "324",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is 12 or more, turn to 200.",
-          "targetId": "200"
+          "targetId": "200",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3435,7 +4255,11 @@
       "choices": [
         {
           "text": "Turn to 257.",
-          "targetId": "257"
+          "targetId": "257",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3455,11 +4279,19 @@
       "choices": [
         {
           "text": "If your total score is now 10 or less, turn to 96.",
-          "targetId": "96"
+          "targetId": "96",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 11 or more, turn to 153.",
-          "targetId": "153"
+          "targetId": "153",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3479,7 +4311,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 163.",
-          "targetId": "163"
+          "targetId": "163",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3503,7 +4339,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 63.",
-          "targetId": "63"
+          "targetId": "63",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3539,7 +4379,11 @@
       "choices": [
         {
           "text": "Turn to 347.",
-          "targetId": "347"
+          "targetId": "347",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3559,7 +4403,11 @@
       "choices": [
         {
           "text": "Turn to 22.",
-          "targetId": "22"
+          "targetId": "22",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3579,11 +4427,19 @@
       "choices": [
         {
           "text": "If your total score is now 9 or less, turn to 349.",
-          "targetId": "349"
+          "targetId": "349",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 10 or more, turn to 229.",
-          "targetId": "229"
+          "targetId": "229",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3599,7 +4455,11 @@
       "choices": [
         {
           "text": "Turn to 280.",
-          "targetId": "280"
+          "targetId": "280",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3619,7 +4479,11 @@
       "choices": [
         {
           "text": "Turn to 128.",
-          "targetId": "128"
+          "targetId": "128",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3662,7 +4526,11 @@
       "choices": [
         {
           "text": "Turn to 227.",
-          "targetId": "227"
+          "targetId": "227",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3694,11 +4562,19 @@
       "choices": [
         {
           "text": "If your total score is now 11 or less, turn to 236.",
-          "targetId": "236"
+          "targetId": "236",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 12 or more, turn to 165.",
-          "targetId": "165"
+          "targetId": "165",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3745,7 +4621,11 @@
       "choices": [
         {
           "text": "If you cannot work out the correct answer, turn to 171.",
-          "targetId": "171"
+          "targetId": "171",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3769,7 +4649,11 @@
       "choices": [
         {
           "text": "Turn to 175.",
-          "targetId": "175"
+          "targetId": "175",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3793,7 +4677,11 @@
       "choices": [
         {
           "text": "Turn to 280.",
-          "targetId": "280"
+          "targetId": "280",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3817,11 +4705,19 @@
       "choices": [
         {
           "text": "If your total is now 0\u20139, turn to 76.",
-          "targetId": "76"
+          "targetId": "76",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 10 or more, turn to 244.",
-          "targetId": "244"
+          "targetId": "244",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3841,7 +4737,11 @@
       "choices": [
         {
           "text": "Turn to 343.",
-          "targetId": "343"
+          "targetId": "343",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3861,11 +4761,19 @@
       "choices": [
         {
           "text": "If your total score is now 12 or less, turn to 106.",
-          "targetId": "106"
+          "targetId": "106",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 13 or more, turn to 45.",
-          "targetId": "45"
+          "targetId": "45",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3893,7 +4801,11 @@
       "choices": [
         {
           "text": "Turn to 325.",
-          "targetId": "325"
+          "targetId": "325",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3913,11 +4825,19 @@
       "choices": [
         {
           "text": "If your total score is 7 or less, turn to 340.",
-          "targetId": "340"
+          "targetId": "340",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is 8 or more, turn to 302.",
-          "targetId": "302"
+          "targetId": "302",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3941,11 +4861,19 @@
       "choices": [
         {
           "text": "If you wish to search the university, turn to 82.",
-          "targetId": "82"
+          "targetId": "82",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to lead the convoy onto Interstate 35, turn to 22.",
-          "targetId": "22"
+          "targetId": "22",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3969,11 +4897,19 @@
       "choices": [
         {
           "text": "If your total score is now 10 or less, turn to 274.",
-          "targetId": "274"
+          "targetId": "274",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 11 or more, turn to 53.",
-          "targetId": "53"
+          "targetId": "53",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4001,7 +4937,11 @@
       "choices": [
         {
           "text": "To leave the control tower, turn to 123.",
-          "targetId": "123"
+          "targetId": "123",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4045,7 +4985,11 @@
       "choices": [
         {
           "text": "To continue, turn to 61.",
-          "targetId": "61"
+          "targetId": "61",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4069,7 +5013,11 @@
       "choices": [
         {
           "text": "Turn to 271.",
-          "targetId": "271"
+          "targetId": "271",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4093,15 +5041,27 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20131, turn to 17.",
-          "targetId": "17"
+          "targetId": "17",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 2\u20135, turn to 317.",
-          "targetId": "317"
+          "targetId": "317",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 6\u20139, turn to 217.",
-          "targetId": "217"
+          "targetId": "217",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4129,15 +5089,27 @@
       "choices": [
         {
           "text": "If your total is now 0\u20135, turn to 301.",
-          "targetId": "301"
+          "targetId": "301",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 6\u201310, turn to 78.",
-          "targetId": "78"
+          "targetId": "78",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 11 or more, turn to 213.",
-          "targetId": "213"
+          "targetId": "213",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4161,15 +5133,27 @@
       "choices": [
         {
           "text": "If your total score is now 8 or less, turn to 19.",
-          "targetId": "19"
+          "targetId": "19",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 9\u201314, turn to 65.",
-          "targetId": "65"
+          "targetId": "65",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is 15 or more, turn to 248.",
-          "targetId": "248"
+          "targetId": "248",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4189,7 +5173,11 @@
       "choices": [
         {
           "text": "Turn to 220.",
-          "targetId": "220"
+          "targetId": "220",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4209,11 +5197,19 @@
       "choices": [
         {
           "text": "If you possess a pair of Goggles, turn to 223.",
-          "targetId": "223"
+          "targetId": "223",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this item, turn to 252.",
-          "targetId": "252"
+          "targetId": "252",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4237,7 +5233,11 @@
       "choices": [
         {
           "text": "Turn to 210.",
-          "targetId": "210"
+          "targetId": "210",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4257,7 +5257,11 @@
       "choices": [
         {
           "text": "Turn to 29.",
-          "targetId": "29"
+          "targetId": "29",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4277,11 +5281,19 @@
       "choices": [
         {
           "text": "If your total score is 7 or less, turn to 47.",
-          "targetId": "47"
+          "targetId": "47",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is 8 or more, turn to 138.",
-          "targetId": "138"
+          "targetId": "138",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4305,11 +5317,19 @@
       "choices": [
         {
           "text": "If your total score is now 0\u20134, turn to 225.",
-          "targetId": "225"
+          "targetId": "225",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 5 or more, turn to 202.",
-          "targetId": "202"
+          "targetId": "202",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4329,7 +5349,11 @@
       "choices": [
         {
           "text": "Turn to 198.",
-          "targetId": "198"
+          "targetId": "198",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4353,7 +5377,11 @@
       "choices": [
         {
           "text": "Turn to 297.",
-          "targetId": "297"
+          "targetId": "297",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4373,7 +5401,11 @@
       "choices": [
         {
           "text": "Turn to 86.",
-          "targetId": "86"
+          "targetId": "86",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4397,11 +5429,19 @@
       "choices": [
         {
           "text": "If the total is now 0\u20139, turn to 49.",
-          "targetId": "49"
+          "targetId": "49",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 10 or more, turn to 348.",
-          "targetId": "348"
+          "targetId": "348",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4429,15 +5469,27 @@
       "choices": [
         {
           "text": "If your total score is now 7 or less, turn to 326.",
-          "targetId": "326"
+          "targetId": "326",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 8\u201313, turn to 104.",
-          "targetId": "104"
+          "targetId": "104",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 14 or more, turn to 21.",
-          "targetId": "21"
+          "targetId": "21",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4457,7 +5509,11 @@
       "choices": [
         {
           "text": "Turn to 89.",
-          "targetId": "89"
+          "targetId": "89",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4477,7 +5533,11 @@
       "choices": [
         {
           "text": "To continue, turn to 251.",
-          "targetId": "251"
+          "targetId": "251",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4493,7 +5553,11 @@
       "choices": [
         {
           "text": "Turn to 335.",
-          "targetId": "335"
+          "targetId": "335",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4529,7 +5593,11 @@
       "choices": [
         {
           "text": "Turn to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4553,7 +5621,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 119.",
-          "targetId": "119"
+          "targetId": "119",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4569,15 +5641,27 @@
       "choices": [
         {
           "text": "If you wish to take a closer look at the crate, turn to 336.",
-          "targetId": "336"
+          "targetId": "336",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to investigate the steel door, turn to 255.",
-          "targetId": "255"
+          "targetId": "255",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you choose to examine neither the crate nor the door, you can return to the convoy; turn to 315.",
-          "targetId": "315"
+          "targetId": "315",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4605,7 +5689,11 @@
       "choices": [
         {
           "text": "Turn to 68.",
-          "targetId": "68"
+          "targetId": "68",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4625,11 +5713,19 @@
       "choices": [
         {
           "text": "If you wish to run east, turn to 110.",
-          "targetId": "110"
+          "targetId": "110",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to run west, turn to 321.",
-          "targetId": "321"
+          "targetId": "321",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4645,7 +5741,11 @@
       "choices": [
         {
           "text": "Turn to 198.",
-          "targetId": "198"
+          "targetId": "198",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4689,11 +5789,19 @@
       "choices": [
         {
           "text": "If you total is 8 or less, turn to 221.",
-          "targetId": "221"
+          "targetId": "221",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is 9 or more, turn to 290.",
-          "targetId": "290"
+          "targetId": "290",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4713,7 +5821,11 @@
       "choices": [
         {
           "text": "Turn to 222.",
-          "targetId": "222"
+          "targetId": "222",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4733,7 +5845,11 @@
       "choices": [
         {
           "text": "Turn to 90.",
-          "targetId": "90"
+          "targetId": "90",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4757,7 +5873,11 @@
       "choices": [
         {
           "text": "To continue, turn to 220.",
-          "targetId": "220"
+          "targetId": "220",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4773,7 +5893,11 @@
       "choices": [
         {
           "text": "Turn to 48.",
-          "targetId": "48"
+          "targetId": "48",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4789,19 +5913,35 @@
       "choices": [
         {
           "text": "If the weapon you are using is a Pistol, turn to 8.",
-          "targetId": "8"
+          "targetId": "8",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is a Machine Pistol, turn to 140.",
-          "targetId": "140"
+          "targetId": "140",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is a Shotgun, turn to 310.",
-          "targetId": "310"
+          "targetId": "310",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is a Rifle, turn to 264.",
-          "targetId": "264"
+          "targetId": "264",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4817,11 +5957,19 @@
       "choices": [
         {
           "text": "If you wish to examine the crate, turn to 43.",
-          "targetId": "43"
+          "targetId": "43",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you choose to leave the basement and return to the convoy, turn to 315.",
-          "targetId": "315"
+          "targetId": "315",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4849,11 +5997,19 @@
       "choices": [
         {
           "text": "If your total is 9 or less, turn to 258.",
-          "targetId": "258"
+          "targetId": "258",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 10 or more, turn to 83.",
-          "targetId": "83"
+          "targetId": "83",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4881,11 +6037,19 @@
       "choices": [
         {
           "text": "If you possess a Telescope or Binoculars, turn to 34.",
-          "targetId": "34"
+          "targetId": "34",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you possess neither of these items, turn to 147.",
-          "targetId": "147"
+          "targetId": "147",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4901,7 +6065,11 @@
       "choices": [
         {
           "text": "Turn to 219.",
-          "targetId": "219"
+          "targetId": "219",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4925,7 +6093,11 @@
       "choices": [
         {
           "text": "To continue, turn to 137.",
-          "targetId": "137"
+          "targetId": "137",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4945,7 +6117,11 @@
       "choices": [
         {
           "text": "Turn to 50.",
-          "targetId": "50"
+          "targetId": "50",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4961,7 +6137,11 @@
       "choices": [
         {
           "text": "Turn to 39.",
-          "targetId": "39"
+          "targetId": "39",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4977,11 +6157,19 @@
       "choices": [
         {
           "text": "If you wish to take as many tubs of salt as you can carry and then return to the convoy, turn to 29.",
-          "targetId": "29"
+          "targetId": "29",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to investigate the steel door before leaving the basement, turn to 152.",
-          "targetId": "152"
+          "targetId": "152",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4997,7 +6185,11 @@
       "choices": [
         {
           "text": "To continue, turn to 61.",
-          "targetId": "61"
+          "targetId": "61",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5013,11 +6205,19 @@
       "choices": [
         {
           "text": "If you possess a missile weapon, turn to 130.",
-          "targetId": "130"
+          "targetId": "130",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a missile weapon, or if you do not have sufficient ammunition to use it, turn to 71.",
-          "targetId": "71"
+          "targetId": "71",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5041,11 +6241,19 @@
       "choices": [
         {
           "text": "If you wish to get back into your roadster and try to escape this ambush, turn to 109.",
-          "targetId": "109"
+          "targetId": "109",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to dive to the ground and take cover, turn to 307.",
-          "targetId": "307"
+          "targetId": "307",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5065,7 +6273,11 @@
       "choices": [
         {
           "text": "Turn to 280.",
-          "targetId": "280"
+          "targetId": "280",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5089,7 +6301,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 166.",
-          "targetId": "166"
+          "targetId": "166",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5109,11 +6325,19 @@
       "choices": [
         {
           "text": "If your total score is now 11 or less, turn to 330.",
-          "targetId": "330"
+          "targetId": "330",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 12 or more, turn to 234.",
-          "targetId": "234"
+          "targetId": "234",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5141,7 +6365,11 @@
       "choices": [
         {
           "text": "Turn to 177.",
-          "targetId": "177"
+          "targetId": "177",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5161,11 +6389,19 @@
       "choices": [
         {
           "text": "If you wish to ascend the stairs to the first floor, turn to 286.",
-          "targetId": "286"
+          "targetId": "286",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to hide behind the counter, turn to 118.",
-          "targetId": "118"
+          "targetId": "118",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5197,15 +6433,27 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20132, turn to 27.",
-          "targetId": "27"
+          "targetId": "27",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 3\u20138, turn to 328.",
-          "targetId": "328"
+          "targetId": "328",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 9, turn to 121.",
-          "targetId": "121"
+          "targetId": "121",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5233,11 +6481,19 @@
       "choices": [
         {
           "text": "If your total is now 6\u201312, turn to 155.",
-          "targetId": "155"
+          "targetId": "155",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 13 or more, turn to 46.",
-          "targetId": "46"
+          "targetId": "46",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5261,7 +6517,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 119.",
-          "targetId": "119"
+          "targetId": "119",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5281,7 +6541,11 @@
       "choices": [
         {
           "text": "Turn to 182.",
-          "targetId": "182"
+          "targetId": "182",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5301,11 +6565,19 @@
       "choices": [
         {
           "text": "If your total score is now 11 or less, turn to 349.",
-          "targetId": "349"
+          "targetId": "349",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 12 or more, turn to 229.",
-          "targetId": "229"
+          "targetId": "229",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5325,7 +6597,11 @@
       "choices": [
         {
           "text": "Turn to 86.",
-          "targetId": "86"
+          "targetId": "86",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5353,7 +6629,11 @@
       "choices": [
         {
           "text": "To continue, turn to 105.",
-          "targetId": "105"
+          "targetId": "105",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5369,7 +6649,11 @@
       "choices": [
         {
           "text": "Turn to 285.",
-          "targetId": "285"
+          "targetId": "285",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5389,7 +6673,11 @@
       "choices": [
         {
           "text": "Turn to 56.",
-          "targetId": "56"
+          "targetId": "56",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5405,11 +6693,19 @@
       "choices": [
         {
           "text": "If you possess a Fire Extinguisher, turn to 59.",
-          "targetId": "59"
+          "targetId": "59",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this item, turn to 92.",
-          "targetId": "92"
+          "targetId": "92",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5433,7 +6729,11 @@
       "choices": [
         {
           "text": "Turn to 318.",
-          "targetId": "318"
+          "targetId": "318",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5449,7 +6749,11 @@
       "choices": [
         {
           "text": "If you are still alive after this grievous wounding, turn to 262.",
-          "targetId": "262"
+          "targetId": "262",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5477,11 +6781,19 @@
       "choices": [
         {
           "text": "If you wish to enter Strawn via the alley, turn to 103.",
-          "targetId": "103"
+          "targetId": "103",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to enter the town via the amusement park, turn to 60.",
-          "targetId": "60"
+          "targetId": "60",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5501,7 +6813,11 @@
       "choices": [
         {
           "text": "Turn to 50.",
-          "targetId": "50"
+          "targetId": "50",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5517,7 +6833,11 @@
       "choices": [
         {
           "text": "Turn to 149.",
-          "targetId": "149"
+          "targetId": "149",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5533,7 +6853,11 @@
       "choices": [
         {
           "text": "Turn to 48.",
-          "targetId": "48"
+          "targetId": "48",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5553,7 +6877,11 @@
       "choices": [
         {
           "text": "Turn to 185.",
-          "targetId": "185"
+          "targetId": "185",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5593,15 +6921,27 @@
       "choices": [
         {
           "text": "If your total is now 0\u201310, turn to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 11\u201314, turn to 263.",
-          "targetId": "263"
+          "targetId": "263",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 15 or more, turn to 69.",
-          "targetId": "69"
+          "targetId": "69",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5621,11 +6961,19 @@
       "choices": [
         {
           "text": "If you wish to run east, turn to 110.",
-          "targetId": "110"
+          "targetId": "110",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to run west, turn to 321.",
-          "targetId": "321"
+          "targetId": "321",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5653,11 +7001,19 @@
       "choices": [
         {
           "text": "If your total is 11 or less, turn to 324.",
-          "targetId": "324"
+          "targetId": "324",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is 12 or more, turn to 200.",
-          "targetId": "200"
+          "targetId": "200",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5677,11 +7033,19 @@
       "choices": [
         {
           "text": "If your total is now 3\u20138, turn to 345.",
-          "targetId": "345"
+          "targetId": "345",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 9 or more, turn to 95.",
-          "targetId": "95"
+          "targetId": "95",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5705,11 +7069,19 @@
       "choices": [
         {
           "text": "If your total score is now 20 or less, turn to 167.",
-          "targetId": "167"
+          "targetId": "167",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 21 or more, turn to 338.",
-          "targetId": "338"
+          "targetId": "338",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5729,11 +7101,19 @@
       "choices": [
         {
           "text": "If you possess enough food for three Meals, turn to 133.",
-          "targetId": "133"
+          "targetId": "133",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this much food, turn to 322.",
-          "targetId": "322"
+          "targetId": "322",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5753,11 +7133,19 @@
       "choices": [
         {
           "text": "If your total score is now 7 or less, turn to 164.",
-          "targetId": "164"
+          "targetId": "164",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 8 or more, turn to 58.",
-          "targetId": "58"
+          "targetId": "58",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5777,7 +7165,11 @@
       "choices": [
         {
           "text": "Turn to 185.",
-          "targetId": "185"
+          "targetId": "185",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5793,11 +7185,19 @@
       "choices": [
         {
           "text": "If you possess a Solar Torch, turn to 24.",
-          "targetId": "24"
+          "targetId": "24",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this item, turn to 117.",
-          "targetId": "117"
+          "targetId": "117",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5828,19 +7228,35 @@
       "choices": [
         {
           "text": "If you are using a Pistol, turn to 88.",
-          "targetId": "88"
+          "targetId": "88",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are using a Machine Pistol, turn to 333.",
-          "targetId": "333"
+          "targetId": "333",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are using a Shotgun, turn to 26.",
-          "targetId": "26"
+          "targetId": "26",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are using a Rifle, turn to 40.",
-          "targetId": "40"
+          "targetId": "40",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5860,11 +7276,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20132, turn to 79.",
-          "targetId": "79"
+          "targetId": "79",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number is 3\u20139, turn to 197.",
-          "targetId": "197"
+          "targetId": "197",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5880,15 +7304,27 @@
       "choices": [
         {
           "text": "If you possess a Flexible Saw, turn to 186.",
-          "targetId": "186"
+          "targetId": "186",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you possess a Signal Flare, turn to 13.",
-          "targetId": "13"
+          "targetId": "13",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you possess neither of these items, turn to 55.",
-          "targetId": "55"
+          "targetId": "55",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5904,7 +7340,11 @@
       "choices": [
         {
           "text": "To return to the convoy, turn to 144.",
-          "targetId": "144"
+          "targetId": "144",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5943,11 +7383,19 @@
       "choices": [
         {
           "text": "If your total score is now 10 or less, turn to 80.",
-          "targetId": "80"
+          "targetId": "80",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 11 or more, turn to 12.",
-          "targetId": "12"
+          "targetId": "12",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5975,19 +7423,35 @@
       "choices": [
         {
           "text": "If the gun you are holding is a Pistol, turn to 124.",
-          "targetId": "124"
+          "targetId": "124",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is a Machine Pistol, turn to 2.",
-          "targetId": "2"
+          "targetId": "2",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is a Rifle, turn to 145.",
-          "targetId": "145"
+          "targetId": "145",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is a Shotgun, turn to 214.",
-          "targetId": "214"
+          "targetId": "214",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6003,7 +7467,11 @@
       "choices": [
         {
           "text": "Turn to 198.",
-          "targetId": "198"
+          "targetId": "198",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6019,7 +7487,11 @@
       "choices": [
         {
           "text": "Turn to 90.",
-          "targetId": "90"
+          "targetId": "90",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6035,7 +7507,11 @@
       "choices": [
         {
           "text": "Turn to 335.",
-          "targetId": "335"
+          "targetId": "335",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6055,11 +7531,19 @@
       "choices": [
         {
           "text": "If you possess a Shotgun, turn to 37.",
-          "targetId": "37"
+          "targetId": "37",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this missile weapon, turn to 208.",
-          "targetId": "208"
+          "targetId": "208",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6075,11 +7559,19 @@
       "choices": [
         {
           "text": "If you possess a CB Radio, turn to 116.",
-          "targetId": "116"
+          "targetId": "116",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this item, turn to 99.",
-          "targetId": "99"
+          "targetId": "99",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6099,7 +7591,11 @@
       "choices": [
         {
           "text": "Turn to 196.",
-          "targetId": "196"
+          "targetId": "196",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6119,7 +7615,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 350.",
-          "targetId": "350"
+          "targetId": "350",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6139,11 +7639,19 @@
       "choices": [
         {
           "text": "If you wish to make a dash for the store, turn to 126.",
-          "targetId": "126"
+          "targetId": "126",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to jump into your roadster and take off along the main street, turn to 142.",
-          "targetId": "142"
+          "targetId": "142",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6163,11 +7671,19 @@
       "choices": [
         {
           "text": "If your total score is now 10 or less, turn to 67.",
-          "targetId": "67"
+          "targetId": "67",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 11 or more, turn to 199.",
-          "targetId": "199"
+          "targetId": "199",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6199,7 +7715,11 @@
       "choices": [
         {
           "text": "Turn to 325.",
-          "targetId": "325"
+          "targetId": "325",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6219,11 +7739,19 @@
       "choices": [
         {
           "text": "If your total score is 8 or less, turn to 340.",
-          "targetId": "340"
+          "targetId": "340",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is 9 or more, turn to 302.",
-          "targetId": "302"
+          "targetId": "302",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6255,7 +7783,11 @@
       "choices": [
         {
           "text": "If you cannot work out the correct answer, turn to 194.",
-          "targetId": "194"
+          "targetId": "194",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6283,7 +7815,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 136.",
-          "targetId": "136"
+          "targetId": "136",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6323,7 +7859,11 @@
       "choices": [
         {
           "text": "Turn to 189.",
-          "targetId": "189"
+          "targetId": "189",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6362,11 +7902,19 @@
       "choices": [
         {
           "text": "If you win and the fight lasts four rounds or less, turn to 187.",
-          "targetId": "187"
+          "targetId": "187",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win and the fight lasts five rounds or more, turn to 230.",
-          "targetId": "230"
+          "targetId": "230",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6398,11 +7946,19 @@
       "choices": [
         {
           "text": "If your total is 11 or less, turn to 324.",
-          "targetId": "324"
+          "targetId": "324",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is 12 or more, turn to 200.",
-          "targetId": "200"
+          "targetId": "200",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6422,11 +7978,19 @@
       "choices": [
         {
           "text": "If your total score is now 10 or less, turn to 64.",
-          "targetId": "64"
+          "targetId": "64",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 11 or more, turn to 190.",
-          "targetId": "190"
+          "targetId": "190",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6442,11 +8006,19 @@
       "choices": [
         {
           "text": "If you possess a missile weapon, turn to 132.",
-          "targetId": "132"
+          "targetId": "132",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a missile weapon, or if you do not have sufficient ammunition to use it, turn to 250.",
-          "targetId": "250"
+          "targetId": "250",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6470,11 +8042,19 @@
       "choices": [
         {
           "text": "If the total is now 6 or less, turn to 52.",
-          "targetId": "52"
+          "targetId": "52",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the total is now 7 or more, turn to 278.",
-          "targetId": "278"
+          "targetId": "278",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6494,11 +8074,19 @@
       "choices": [
         {
           "text": "If your total score is now 7 or less, turn to 96.",
-          "targetId": "96"
+          "targetId": "96",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 8 or more, turn to 77.",
-          "targetId": "77"
+          "targetId": "77",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6522,11 +8110,19 @@
       "choices": [
         {
           "text": "If you wish to unshoulder a weapon and open fire on the bikers, turn to 206.10",
-          "targetId": "206"
+          "targetId": "206",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you choose to leap to your feet and try to intercept them before they enter the bus, turn to 129.",
-          "targetId": "129"
+          "targetId": "129",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6546,7 +8142,11 @@
       "choices": [
         {
           "text": "Turn to 185.",
-          "targetId": "185"
+          "targetId": "185",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6574,7 +8174,11 @@
       "choices": [
         {
           "text": "Turn to 211.",
-          "targetId": "211"
+          "targetId": "211",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6594,11 +8198,19 @@
       "choices": [
         {
           "text": "If your total score is now 9 or less, turn to 172.",
-          "targetId": "172"
+          "targetId": "172",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 10 or more, turn to 23.",
-          "targetId": "23"
+          "targetId": "23",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6618,7 +8230,11 @@
       "choices": [
         {
           "text": "To leave the stores, turn to 123.",
-          "targetId": "123"
+          "targetId": "123",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6642,7 +8258,11 @@
       "choices": [
         {
           "text": "Turn to 42.",
-          "targetId": "42"
+          "targetId": "42",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6662,7 +8282,11 @@
       "choices": [
         {
           "text": "Turn to 247.",
-          "targetId": "247"
+          "targetId": "247",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6686,7 +8310,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 70.",
-          "targetId": "70"
+          "targetId": "70",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6734,7 +8362,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 249.",
-          "targetId": "249"
+          "targetId": "249",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6754,11 +8386,19 @@
       "choices": [
         {
           "text": "If your total score is now 11 or less, turn to 106.",
-          "targetId": "106"
+          "targetId": "106",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 12 or more, turn to 45.",
-          "targetId": "45"
+          "targetId": "45",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6782,7 +8422,11 @@
       "choices": [
         {
           "text": "If you win the fight, turn to 63.",
-          "targetId": "63"
+          "targetId": "63",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6798,7 +8442,11 @@
       "choices": [
         {
           "text": "Turn to 119.",
-          "targetId": "119"
+          "targetId": "119",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6822,11 +8470,19 @@
       "choices": [
         {
           "text": "If you wish to climb the staircase to the roof, turn to 173.",
-          "targetId": "173"
+          "targetId": "173",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to enter the door at ground level, turn to 81.",
-          "targetId": "81"
+          "targetId": "81",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6842,7 +8498,11 @@
       "choices": [
         {
           "text": "Turn to 120.",
-          "targetId": "120"
+          "targetId": "120",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6866,11 +8526,19 @@
       "choices": [
         {
           "text": "If you wish to take this weapon, turn to 176.",
-          "targetId": "176"
+          "targetId": "176",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to ignore it, turn to 84.",
-          "targetId": "84"
+          "targetId": "84",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6902,7 +8570,11 @@
       "choices": [
         {
           "text": "Turn to 178.",
-          "targetId": "178"
+          "targetId": "178",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6918,15 +8590,27 @@
       "choices": [
         {
           "text": "If you have a missile weapon and wish to use it, turn to 14.",
-          "targetId": "14"
+          "targetId": "14",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to go after the spy on foot, turn to 115.",
-          "targetId": "115"
+          "targetId": "115",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you choose to ignore the spy and continue crossing the lake, turn to 271.",
-          "targetId": "271"
+          "targetId": "271",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6992,11 +8676,19 @@
       "choices": [
         {
           "text": "If your total is now 9 or less, turn to 265.",
-          "targetId": "265"
+          "targetId": "265",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 10 or more, turn to 289.",
-          "targetId": "289"
+          "targetId": "289",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7012,7 +8704,11 @@
       "choices": [
         {
           "text": "Turn to 127.",
-          "targetId": "127"
+          "targetId": "127",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7044,11 +8740,19 @@
       "choices": [
         {
           "text": "If you win both combats and together they take seven rounds or less to complete, turn to 3.",
-          "targetId": "3"
+          "targetId": "3",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the combats take eight or more rounds to complete when added together, turn to 316.",
-          "targetId": "316"
+          "targetId": "316",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7068,11 +8772,19 @@
       "choices": [
         {
           "text": "If your total score is now 13 or less, turn to 259.",
-          "targetId": "259"
+          "targetId": "259",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 14 or more, turn to 174.",
-          "targetId": "174"
+          "targetId": "174",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7100,11 +8812,19 @@
       "choices": [
         {
           "text": "If you wish to hide behind the auto wreck, turn to 332.",
-          "targetId": "332"
+          "targetId": "332",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to take cover inside the factory, turn to 243.",
-          "targetId": "243"
+          "targetId": "243",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7120,11 +8840,19 @@
       "choices": [
         {
           "text": "If you wish to unshoulder a weapon and open fire on the bikers, turn to 206.12",
-          "targetId": "206"
+          "targetId": "206",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you choose to leap to your feet and try to intercept them before they enter the bus, turn to 129.",
-          "targetId": "129"
+          "targetId": "129",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7140,11 +8868,19 @@
       "choices": [
         {
           "text": "If you have a missile weapon and wish to use it, turn to 132.",
-          "targetId": "132"
+          "targetId": "132",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have a missile weapon, or if you do not have sufficient ammunition to use it, turn to 250.",
-          "targetId": "250"
+          "targetId": "250",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7164,7 +8900,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 113.",
-          "targetId": "113"
+          "targetId": "113",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7180,19 +8920,35 @@
       "choices": [
         {
           "text": "If you are using a Pistol, turn to 108.",
-          "targetId": "108"
+          "targetId": "108",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are using a Rifle, turn to 41.",
-          "targetId": "41"
+          "targetId": "41",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are using a Machine Pistol, turn to 254.",
-          "targetId": "254"
+          "targetId": "254",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are using a Shotgun, turn to 159.",
-          "targetId": "159"
+          "targetId": "159",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7216,7 +8972,11 @@
       "choices": [
         {
           "text": "Turn to 220.",
-          "targetId": "220"
+          "targetId": "220",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7256,7 +9016,11 @@
       "choices": [
         {
           "text": "Turn to 337.",
-          "targetId": "337"
+          "targetId": "337",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7288,11 +9052,19 @@
       "choices": [
         {
           "text": "If you wish to volunteer to go to Mineral Wells and investigate the source of the radio broadcast, turn to 74.",
-          "targetId": "74"
+          "targetId": "74",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you choose to ignore the broadcast and insist that the convoy continues along its chosen route, turn to 93.",
-          "targetId": "93"
+          "targetId": "93",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7308,7 +9080,11 @@
       "choices": [
         {
           "text": "Turn to 347.",
-          "targetId": "347"
+          "targetId": "347",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7352,7 +9128,11 @@
       "choices": [
         {
           "text": "Turn to 36.",
-          "targetId": "36"
+          "targetId": "36",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7372,11 +9152,19 @@
       "choices": [
         {
           "text": "If your total is now 0\u201310, turn to 76.",
-          "targetId": "76"
+          "targetId": "76",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 11 or more, turn to 244.",
-          "targetId": "244"
+          "targetId": "244",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7408,7 +9196,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 146.",
-          "targetId": "146"
+          "targetId": "146",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7432,7 +9224,11 @@
       "choices": [
         {
           "text": "Turn to 38.",
-          "targetId": "38"
+          "targetId": "38",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7467,7 +9263,11 @@
       "choices": [
         {
           "text": "Turn to 188.",
-          "targetId": "188"
+          "targetId": "188",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7495,7 +9295,11 @@
       "choices": [
         {
           "text": "To return to the convoy and continue with the crossing, turn to 160.",
-          "targetId": "160"
+          "targetId": "160",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7515,15 +9319,27 @@
       "choices": [
         {
           "text": "If you wish to search to the north, turn to 169.",
-          "targetId": "169"
+          "targetId": "169",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to search to the west, turn to 299.",
-          "targetId": "299"
+          "targetId": "299",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to search to the east, turn to 125.",
-          "targetId": "125"
+          "targetId": "125",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7563,11 +9379,19 @@
       "choices": [
         {
           "text": "If you agree to his proposition, turn to 257.",
-          "targetId": "257"
+          "targetId": "257",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you refuse it, turn to 139.",
-          "targetId": "139"
+          "targetId": "139",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7591,7 +9415,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 119.",
-          "targetId": "119"
+          "targetId": "119",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7611,11 +9439,19 @@
       "choices": [
         {
           "text": "If you have a missile weapon and wish to use it, turn to 237.",
-          "targetId": "237"
+          "targetId": "237",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not, turn to 251.",
-          "targetId": "251"
+          "targetId": "251",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7635,11 +9471,19 @@
       "choices": [
         {
           "text": "If your total score is now 14 or less, turn to 172.",
-          "targetId": "172"
+          "targetId": "172",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 15 or more, turn to 23.",
-          "targetId": "23"
+          "targetId": "23",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7659,11 +9503,19 @@
       "choices": [
         {
           "text": "If you possess a missile weapon and wish to use it, turn to 107.",
-          "targetId": "107"
+          "targetId": "107",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a missile weapon, or if you do not wish to use it, turn to 16.",
-          "targetId": "16"
+          "targetId": "16",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7683,11 +9535,19 @@
       "choices": [
         {
           "text": "If your total score is now 11 or less, turn to 96.",
-          "targetId": "96"
+          "targetId": "96",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 12 or more, turn to 62.",
-          "targetId": "62"
+          "targetId": "62",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7703,11 +9563,19 @@
       "choices": [
         {
           "text": "If you wish to enter the diner by the rear door, turn to 51.",
-          "targetId": "51"
+          "targetId": "51",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you choose to enter the diner by the front door, turn to 203.",
-          "targetId": "203"
+          "targetId": "203",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7731,11 +9599,19 @@
       "choices": [
         {
           "text": "If you wish to investigate the old bus, turn to 85.",
-          "targetId": "85"
+          "targetId": "85",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to ignore it and return to the convoy, turn to 224.",
-          "targetId": "224"
+          "targetId": "224",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7763,7 +9639,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 70.",
-          "targetId": "70"
+          "targetId": "70",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7779,7 +9659,11 @@
       "choices": [
         {
           "text": "To continue, turn to 61.",
-          "targetId": "61"
+          "targetId": "61",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7795,7 +9679,11 @@
       "choices": [
         {
           "text": "Turn to 22.",
-          "targetId": "22"
+          "targetId": "22",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7815,7 +9703,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 3.",
-          "targetId": "3"
+          "targetId": "3",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7831,7 +9723,11 @@
       "choices": [
         {
           "text": "Turn to 285.",
-          "targetId": "285"
+          "targetId": "285",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7879,7 +9775,11 @@
       "choices": [
         {
           "text": "Turn to 267.",
-          "targetId": "267"
+          "targetId": "267",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7903,11 +9803,19 @@
       "choices": [
         {
           "text": "If your total score is now 10 or less, turn to 207.",
-          "targetId": "207"
+          "targetId": "207",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 11 or more, turn to 75.",
-          "targetId": "75"
+          "targetId": "75",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7927,11 +9835,19 @@
       "choices": [
         {
           "text": "If you wish to fire a second round at the rabid dogs and are able to do so, turn to 190.",
-          "targetId": "190"
+          "targetId": "190",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have run out of ammunition, or if you choose not to fire a second round, turn to 64.",
-          "targetId": "64"
+          "targetId": "64",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7971,7 +9887,11 @@
       "choices": [
         {
           "text": "Turn to 100.",
-          "targetId": "100"
+          "targetId": "100",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7987,11 +9907,19 @@
       "choices": [
         {
           "text": "If you possess a missile weapon and wish to use it, turn to 107.",
-          "targetId": "107"
+          "targetId": "107",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a missile weapon, or if you do not wish to use it, turn to 16.",
-          "targetId": "16"
+          "targetId": "16",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8053,11 +9981,19 @@
       "choices": [
         {
           "text": "If you wish to search the radio station, turn to 66.",
-          "targetId": "66"
+          "targetId": "66",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to return to the convoy without delay, turn to 284.",
-          "targetId": "284"
+          "targetId": "284",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8104,11 +10040,19 @@
       "choices": [
         {
           "text": "If you decide to take the highway northwest to Albany, turn to 156.",
-          "targetId": "156"
+          "targetId": "156",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you choose to take the southwest route through Cross Plains, turn to 270.",
-          "targetId": "270"
+          "targetId": "270",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8124,7 +10068,11 @@
       "choices": [
         {
           "text": "Turn to 179.",
-          "targetId": "179"
+          "targetId": "179",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8156,15 +10104,27 @@
       "choices": [
         {
           "text": "If your total is now 0\u20133, turn to 191.",
-          "targetId": "191"
+          "targetId": "191",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 4\u20136, turn to 293.",
-          "targetId": "293"
+          "targetId": "293",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 7 or more, turn to 168.",
-          "targetId": "168"
+          "targetId": "168",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8195,7 +10155,11 @@
       "choices": [
         {
           "text": "If you survived the injury, turn to 56.",
-          "targetId": "56"
+          "targetId": "56",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8215,19 +10179,35 @@
       "choices": [
         {
           "text": "If the gun you are holding is a Pistol, turn to 308.",
-          "targetId": "308"
+          "targetId": "308",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is a Machine Pistol, turn to 102.",
-          "targetId": "102"
+          "targetId": "102",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is a Rifle, turn to 268.",
-          "targetId": "268"
+          "targetId": "268",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is a Shotgun, turn to 87.",
-          "targetId": "87"
+          "targetId": "87",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8247,11 +10227,19 @@
       "choices": [
         {
           "text": "If the total is now 0\u20136, turn to 275.",
-          "targetId": "275"
+          "targetId": "275",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 7 or more, turn to 54.",
-          "targetId": "54"
+          "targetId": "54",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8279,11 +10267,19 @@
       "choices": [
         {
           "text": "If you wish to take the weapon, turn to 176.",
-          "targetId": "176"
+          "targetId": "176",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to ignore it, turn to 84.",
-          "targetId": "84"
+          "targetId": "84",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8315,11 +10311,19 @@
       "choices": [
         {
           "text": "If your total is now 7 or less, turn to 114.",
-          "targetId": "114"
+          "targetId": "114",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 8 or more, turn to 57.",
-          "targetId": "57"
+          "targetId": "57",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8343,11 +10347,19 @@
       "choices": [
         {
           "text": "If the total is now 6 or less, turn to 134.",
-          "targetId": "134"
+          "targetId": "134",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If it is 7 or more, turn to 201.",
-          "targetId": "201"
+          "targetId": "201",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8383,11 +10395,19 @@
       "choices": [
         {
           "text": "If your total score is 7 or less, turn to 122.",
-          "targetId": "122"
+          "targetId": "122",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is 8 or more, turn to 141.",
-          "targetId": "141"
+          "targetId": "141",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8419,11 +10439,19 @@
       "choices": [
         {
           "text": "If your total is now 7 or less, turn to 6.",
-          "targetId": "6"
+          "targetId": "6",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 8 or more, turn to 296.",
-          "targetId": "296"
+          "targetId": "296",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8439,11 +10467,19 @@
       "choices": [
         {
           "text": "If you wish to enter Denton and take a closer look, turn to 298.",
-          "targetId": "298"
+          "targetId": "298",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to return to the convoy and warn them to avoid Denton, turn to 198.",
-          "targetId": "198"
+          "targetId": "198",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8463,11 +10499,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20132, turn to 79.",
-          "targetId": "79"
+          "targetId": "79",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number is 3\u20139, turn to 197.",
-          "targetId": "197"
+          "targetId": "197",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8495,7 +10539,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 205.",
-          "targetId": "205"
+          "targetId": "205",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8511,11 +10559,19 @@
       "choices": [
         {
           "text": "If you wish to explore the control tower, turn to 162.",
-          "targetId": "162"
+          "targetId": "162",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to investigate the stores, turn to 269.",
-          "targetId": "269"
+          "targetId": "269",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8539,11 +10595,19 @@
       "choices": [
         {
           "text": "If your total score is now 12 or less, turn to 31.",
-          "targetId": "31"
+          "targetId": "31",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 13 or more, turn to 277.",
-          "targetId": "277"
+          "targetId": "277",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8563,7 +10627,11 @@
       "choices": [
         {
           "text": "Turn to 175.",
-          "targetId": "175"
+          "targetId": "175",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8598,7 +10666,11 @@
       "choices": [
         {
           "text": "To continue, turn to 61.",
-          "targetId": "61"
+          "targetId": "61",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8622,11 +10694,19 @@
       "choices": [
         {
           "text": "If you possess Binoculars or a Telescope, turn to 11.",
-          "targetId": "11"
+          "targetId": "11",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you possess neither of these items, turn to 33.",
-          "targetId": "33"
+          "targetId": "33",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8646,7 +10726,11 @@
       "choices": [
         {
           "text": "Turn to 216.",
-          "targetId": "216"
+          "targetId": "216",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -8666,11 +10750,19 @@
       "choices": [
         {
           "text": "If your total score is now 7 or less, turn to 151.",
-          "targetId": "151"
+          "targetId": "151",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 8 or more, turn to 260.",
-          "targetId": "260"
+          "targetId": "260",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },

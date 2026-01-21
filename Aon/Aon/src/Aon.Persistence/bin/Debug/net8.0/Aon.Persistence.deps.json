@@ -47,6 +47,7 @@
       },
       "Aon.Rules/1.0.0": {
         "dependencies": {
+          "Aon.Content": "1.0.0",
           "Aon.Core": "1.0.0"
         },
         "runtime": {
