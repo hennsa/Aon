@@ -16,7 +16,7 @@
                       IsEnabled="{Binding IsSeriesSelectionEnabled}"
                       Margin="0,4,0,12" />
 
-            <StackPanel Visibility="{Binding HasExistingProfiles, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <StackPanel Visibility="{Binding ShowExistingProfiles, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <TextBlock Text="Load Existing Profile" FontWeight="SemiBold" />
                 <ComboBox ItemsSource="{Binding ExistingProfiles}"
                           DisplayMemberPath="Name"
@@ -25,7 +25,9 @@
             </StackPanel>
 
             <TextBlock Text="Profile Name" FontWeight="SemiBold" />
-            <TextBox Text="{Binding ProfileName, UpdateSourceTrigger=PropertyChanged}" Margin="0,4,0,12" />
+            <TextBox Text="{Binding ProfileName, UpdateSourceTrigger=PropertyChanged}"
+                     IsReadOnly="{Binding IsProfileNameReadOnly}"
+                     Margin="0,4,0,12" />
 
             <StackPanel Visibility="{Binding HasExistingCharacters, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <TextBlock Text="Character" FontWeight="SemiBold" />
@@ -110,7 +112,7 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
                 <Button Content="Cancel" Width="90" Margin="0,0,8,0" Click="OnCancel" />
-                <Button Content="Create Profile" Width="120" IsEnabled="{Binding IsValid}" Click="OnConfirm" />
+                <Button Content="{Binding ConfirmActionLabel}" Width="140" IsEnabled="{Binding IsValid}" Click="OnConfirm" />
             </StackPanel>
         </StackPanel>
     </ScrollViewer>
