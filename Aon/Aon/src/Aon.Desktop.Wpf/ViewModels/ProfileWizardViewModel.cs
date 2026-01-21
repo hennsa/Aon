@@ -24,12 +24,14 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     private ProfileOptionViewModel? _selectedExistingProfile;
     private CharacterOptionViewModel? _selectedExistingCharacter;
     private SeriesOptionViewModel? _selectedSeriesOption;
+    private string _confirmActionLabel = "Create Profile";
 
     public ProfileWizardViewModel(
         Func<int> rollRandomNumber,
         IEnumerable<PlayerProfile> existingProfiles,
         string? initialSeriesId = null,
-        bool isSeriesSelectionEnabled = true)
+        bool isSeriesSelectionEnabled = true,
+        bool isProfileSelectionEnabled = true)
     {
         _rollRandomNumber = rollRandomNumber;
         _seriesProfiles = new Dictionary<string, ISeriesProfile>(StringComparer.OrdinalIgnoreCase)
@@ -47,6 +49,7 @@ public sealed class ProfileWizardViewModel : ViewModelBase
             _seriesProfiles.Select(entry => new SeriesOptionViewModel(entry.Key, entry.Value.Name))
                 .OrderBy(option => option.Name, StringComparer.OrdinalIgnoreCase));
         IsSeriesSelectionEnabled = isSeriesSelectionEnabled;
+        IsProfileSelectionEnabled = isProfileSelectionEnabled;
 
         foreach (var profile in existingProfiles
                      .Where(profile => !string.IsNullOrWhiteSpace(profile.Name))
@@ -67,6 +70,7 @@ public sealed class ProfileWizardViewModel : ViewModelBase
             UpdateSelectionStatus();
         }
 
+        UpdateConfirmActionLabel();
         LoadExistingCharacters(null);
     }
 
@@ -142,13 +146,30 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     public RelayCommand RollEnduranceCommand { get; }
     public RelayCommand RollWillpowerCommand { get; }
     public bool IsSeriesSelectionEnabled { get; }
+    public bool IsProfileSelectionEnabled { get; }
+    public bool IsProfileNameReadOnly => !IsProfileSelectionEnabled;
     public bool HasSkillSelection => Skills.Count > 0;
     public bool HasCoreSkills => CoreSkills.Count > 0;
     public bool HasCounters => Counters.Count > 0;
     public bool IsWillpowerAvailable => SeriesId is "gs";
     public bool HasExistingProfiles => ExistingProfiles.Count > 0;
+    public bool ShowExistingProfiles => IsProfileSelectionEnabled && HasExistingProfiles;
     public bool HasExistingCharacters => ExistingCharacters.Count > 1;
     public bool IsCharacterCreationEnabled => SelectedExistingCharacter?.IsNew ?? true;
+    public string ConfirmActionLabel
+    {
+        get => _confirmActionLabel;
+        private set
+        {
+            if (_confirmActionLabel == value)
+            {
+                return;
+            }
+
+            _confirmActionLabel = value;
+            OnPropertyChanged();
+        }
+    }
 
     public ProfileOptionViewModel? SelectedExistingProfile
     {
@@ -169,6 +190,8 @@ public sealed class ProfileWizardViewModel : ViewModelBase
 
             LoadExistingCharacters(_selectedExistingProfile?.Profile);
             OnPropertyChanged(nameof(HasExistingCharacters));
+            OnPropertyChanged(nameof(ShowExistingProfiles));
+            UpdateConfirmActionLabel();
             OnPropertyChanged(nameof(IsValid));
         }
     }
@@ -209,6 +232,7 @@ public sealed class ProfileWizardViewModel : ViewModelBase
             OnPropertyChanged();
             OnPropertyChanged(nameof(IsCharacterCreationEnabled));
             OnPropertyChanged(nameof(IsValid));
+            UpdateConfirmActionLabel();
 
             if (_selectedExistingCharacter is null || _selectedExistingCharacter.IsNew)
             {
@@ -467,6 +491,7 @@ public sealed class ProfileWizardViewModel : ViewModelBase
 
         SelectedExistingCharacter = ExistingCharacters.FirstOrDefault();
         OnPropertyChanged(nameof(HasExistingCharacters));
+        UpdateConfirmActionLabel();
     }
 
     private void ApplySeriesProfile(string seriesId)
@@ -627,6 +652,23 @@ public sealed class ProfileWizardViewModel : ViewModelBase
         }
 
         SelectionStatus = $"Selected {SelectedSkillCount} of {SkillSelectionLimit}.";
+    }
+
+    private void UpdateConfirmActionLabel()
+    {
+        if (!IsProfileSelectionEnabled)
+        {
+            ConfirmActionLabel = IsCharacterCreationEnabled ? "Create Character" : "Use Character";
+            return;
+        }
+
+        if (SelectedExistingProfile is not null)
+        {
+            ConfirmActionLabel = IsCharacterCreationEnabled ? "Create Character" : "Use Character";
+            return;
+        }
+
+        ConfirmActionLabel = "Create Profile";
     }
 
     private void TryAdjustCoreSkill(string skillName, int delta)
