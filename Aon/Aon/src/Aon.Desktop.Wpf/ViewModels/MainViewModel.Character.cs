@@ -398,7 +398,7 @@ public sealed partial class MainViewModel
 
     private void UpdateSuggestedActions(BookSection section)
     {
-        SuggestedActions.Clear();
+        ResetSuggestedActions();
         if (_currentProfile is null)
         {
             return;
@@ -412,20 +412,31 @@ public sealed partial class MainViewModel
 
         foreach (var counter in _currentProfile.DefaultCounters.Keys)
         {
-            var amount = GetCounterAmountFromText(text, counter);
-            if (amount <= 0)
+            var addAmount = GetCounterAmountFromText(text, counter, CounterAddVerbPattern);
+            if (addAmount > 0)
             {
-                continue;
+                var label = $"Add {addAmount} {counter}";
+                SuggestedActions.Add(new QuickActionViewModel(label, () =>
+                {
+                    var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
+                    _state.Character.Inventory.Counters[counter] = current + addAmount;
+                    RefreshCharacterPanels();
+                    _ = SaveProfileStateAsync();
+                }));
             }
 
-            var label = $"Add {amount} {counter}";
-            SuggestedActions.Add(new QuickActionViewModel(label, () =>
+            var removeAmount = GetCounterAmountFromText(text, counter, CounterRemoveVerbPattern);
+            if (removeAmount > 0)
             {
-                var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
-                _state.Character.Inventory.Counters[counter] = current + amount;
-                RefreshCharacterPanels();
-                _ = SaveProfileStateAsync();
-            }));
+                var label = $"Remove {removeAmount} {counter}";
+                SuggestedActions.Add(new QuickActionViewModel(label, () =>
+                {
+                    var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
+                    _state.Character.Inventory.Counters[counter] = Math.Max(0, current - removeAmount);
+                    RefreshCharacterPanels();
+                    _ = SaveProfileStateAsync();
+                }));
+            }
         }
 
         foreach (var skill in _currentProfile.SkillNames)
@@ -447,18 +458,27 @@ public sealed partial class MainViewModel
                 _ = SaveProfileStateAsync();
             }));
         }
+
+        OnPropertyChanged(nameof(HasSuggestedActions));
     }
 
-    private static int GetCounterAmountFromText(string text, string counterName)
+    private const string CounterAddVerbPattern = "\\b(?:gain|take|acquire|find|receive|collect|pick\\s+up|earn|get|claim)\\b";
+    private const string CounterRemoveVerbPattern = "\\b(?:lose|spend|use|fire|eat|drink|pay|discard|give|deduct|remove|subtract|consume)\\b";
+
+    private static int GetCounterAmountFromText(string text, string counterName, string verbPattern)
     {
         var escaped = Regex.Escape(counterName);
-        var match = Regex.Match(text, $"(?<value>\\d+)\\s+{escaped}\\b", RegexOptions.IgnoreCase);
-        if (!match.Success)
+        var matches = Regex.Matches(text, $"{verbPattern}[^.]*?(?<value>\\d+)\\s+{escaped}\\b", RegexOptions.IgnoreCase);
+        var total = 0;
+        foreach (Match match in matches)
         {
-            return 0;
+            if (int.TryParse(match.Groups["value"].Value, out var value))
+            {
+                total += value;
+            }
         }
 
-        return int.TryParse(match.Groups["value"].Value, out var value) ? value : 0;
+        return total;
     }
 
     private static bool IsSkillSuggested(string text, string skillName)

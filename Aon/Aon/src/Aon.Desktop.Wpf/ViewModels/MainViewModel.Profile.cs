@@ -62,7 +62,7 @@ public sealed partial class MainViewModel
         _state.Character = activeCharacter.Character;
         EnsureSeriesDefaults(activeCharacter.Character);
         UpdateAvailableSkills();
-        SuggestedActions.Clear();
+        ResetSuggestedActions();
         CharacterSetupHint = $"Profile ready for {_currentProfile.Name}.";
         IsProfileReady = true;
         ApplyProfileNameToSaveSlot();
@@ -483,7 +483,7 @@ public sealed partial class MainViewModel
         Blocks.Clear();
         Choices.Clear();
         ResetRandomNumberState();
-        SuggestedActions.Clear();
+        ResetSuggestedActions();
         AreChoicesVisible = false;
         AvailableSkills.Clear();
         CharacterSkills.Clear();
@@ -534,7 +534,7 @@ public sealed partial class MainViewModel
             _state.Character = option.CharacterState.Character;
             EnsureSeriesDefaults(_state.Character);
             UpdateAvailableSkills();
-            SuggestedActions.Clear();
+            ResetSuggestedActions();
             CharacterSetupHint = $"Profile ready for {_currentProfile.Name}.";
             IsProfileReady = true;
             RefreshCharacterPanels();
@@ -593,7 +593,7 @@ public sealed partial class MainViewModel
         _state.Character = option.CharacterState.Character;
         EnsureSeriesDefaults(_state.Character);
         UpdateAvailableSkills();
-        SuggestedActions.Clear();
+        ResetSuggestedActions();
         CharacterSetupHint = $"Profile ready for {_currentProfile.Name}.";
         IsProfileReady = true;
         ApplyProfileNameToSaveSlot();
@@ -649,7 +649,7 @@ public sealed partial class MainViewModel
             _state.Character = wizardResult.CharacterState.Character;
             EnsureSeriesDefaults(_state.Character);
             UpdateAvailableSkills();
-            SuggestedActions.Clear();
+            ResetSuggestedActions();
             CharacterSetupHint = $"Profile ready for {_currentProfile.Name}.";
             IsProfileReady = true;
             ApplyProfileNameToSaveSlot();

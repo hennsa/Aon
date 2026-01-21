@@ -143,23 +143,41 @@
                     </StackPanel>
                 </ScrollViewer>
 
-                <Border Grid.Row="4"
-                        Grid.Column="0"
-                        Padding="0,8,0,0"
-                        BorderThickness="0,1,0,0"
-                        BorderBrush="#22000000"
-                        Visibility="{Binding AreChoicesVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-                    <ItemsControl ItemsSource="{Binding Choices}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Button Content="{Binding Text}"
-                                        Command="{Binding Command}"
-                                        IsEnabled="{Binding IsEnabled}"
-                                        Margin="0,4,0,0" />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Border>
+                <StackPanel Grid.Row="4" Grid.Column="0">
+                    <Border Padding="0,8,0,12"
+                            BorderThickness="0,1,0,0"
+                            BorderBrush="#22000000"
+                            Visibility="{Binding HasSuggestedActions, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel>
+                            <TextBlock Text="Suggested Actions" FontWeight="SemiBold" Margin="0,0,0,4" />
+                            <ItemsControl ItemsSource="{Binding SuggestedActions}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Content="{Binding Label}"
+                                                Command="{Binding Command}"
+                                                Margin="0,4,0,0" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Padding="0,8,0,0"
+                            BorderThickness="0,1,0,0"
+                            BorderBrush="#22000000"
+                            Visibility="{Binding AreChoicesVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <ItemsControl ItemsSource="{Binding Choices}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Content="{Binding Text}"
+                                            Command="{Binding Command}"
+                                            IsEnabled="{Binding IsEnabled}"
+                                            Margin="0,4,0,0" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Border>
+                </StackPanel>
 
                 <TextBlock Grid.Row="3"
                            Grid.Column="0"
@@ -271,10 +289,10 @@
                                     <Button Content="Remove Selected Skill" Command="{Binding RemoveSkillCommand}" Margin="0,0,0,12" />
                                 </StackPanel>
 
-                                <TextBlock Text="Inventory Counters" FontWeight="SemiBold" />
+                                <TextBlock Text="Inventory" FontWeight="SemiBold" />
                                 <StackPanel Orientation="Horizontal" Margin="0,4,0,6">
                                     <TextBox Text="{Binding CounterNameInput}" Width="120" Margin="0,0,8,0" />
-                                    <Button Content="Add Counter" Command="{Binding AddCounterCommand}" />
+                                    <Button Content="Add Item" Command="{Binding AddCounterCommand}" />
                                 </StackPanel>
                                 <ItemsControl ItemsSource="{Binding InventoryCounters}" Margin="0,4,0,0">
                                     <ItemsControl.ItemTemplate>
