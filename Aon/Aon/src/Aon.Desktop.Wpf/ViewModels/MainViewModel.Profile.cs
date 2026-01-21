@@ -19,7 +19,7 @@ public sealed partial class MainViewModel
         _lastWizardSeriesId = null;
         if (!seriesState.IsInitialized || seriesState.Characters.Count == 0)
         {
-            if (!TryRunProfileWizard(seriesId, _state.Profile, false, false, out var wizardResult))
+            if (!TryRunProfileWizard(ProfileWizardMode.Character, seriesId, _state.Profile, false, false, out var wizardResult))
             {
                 SetProfileSetupRequired($"Profile setup required for {_currentProfile.Name}.");
                 return false;
@@ -41,7 +41,7 @@ public sealed partial class MainViewModel
 
             if (shouldUseExisting == MessageBoxResult.No)
             {
-                if (TryRunProfileWizard(seriesId, _state.Profile, false, false, out var wizardResult))
+                if (TryRunProfileWizard(ProfileWizardMode.Character, seriesId, _state.Profile, false, false, out var wizardResult))
                 {
                     ApplyProfileWizardResult(wizardResult);
                     seriesState = wizardResult.SeriesState;
@@ -93,6 +93,8 @@ public sealed partial class MainViewModel
         ClearBookDisplay();
         RefreshCharacterPanels();
         UpdateBookProgressIndicators();
+        OnPropertyChanged(nameof(ActiveProfileLabel));
+        OnPropertyChanged(nameof(ActiveCharacterLabel));
     }
 
     private void ApplySelectedProfile(PlayerProfile profile)
@@ -106,6 +108,8 @@ public sealed partial class MainViewModel
         UpdateCharacterOptionsForProfile(profile);
         ClearBookDisplay();
         RefreshCharacterPanels();
+        OnPropertyChanged(nameof(ActiveProfileLabel));
+        OnPropertyChanged(nameof(ActiveCharacterLabel));
     }
 
     private void EnsureProfileContainer()
@@ -236,6 +240,7 @@ public sealed partial class MainViewModel
     }
 
     private bool TryRunProfileWizard(
+        ProfileWizardMode mode,
         string? initialSeriesId,
         PlayerProfile? selectedProfile,
         bool isSeriesSelectionEnabled,
@@ -251,6 +256,7 @@ public sealed partial class MainViewModel
         var viewModel = new ProfileWizardViewModel(
             _gameService.RollRandomNumber,
             existingProfiles,
+            mode,
             initialSeriesId,
             isSeriesSelectionEnabled,
             isProfileSelectionEnabled);
@@ -275,7 +281,8 @@ public sealed partial class MainViewModel
                 viewModel.ProfileName = profileToSelect.Name;
             }
 
-            if (profileToSelect.SeriesStates.TryGetValue(viewModel.SeriesId, out var seriesState)
+            if (mode == ProfileWizardMode.Character
+                && profileToSelect.SeriesStates.TryGetValue(viewModel.SeriesId, out var seriesState)
                 && !string.IsNullOrWhiteSpace(seriesState.ActiveCharacterName))
             {
                 var existingCharacterOption = viewModel.ExistingCharacters
@@ -303,6 +310,12 @@ public sealed partial class MainViewModel
         var profileFromWizard = viewModel.SelectedExistingProfile?.Profile ?? new PlayerProfile();
         profileFromWizard.Name = viewModel.ProfileName.Trim();
         profileFromWizard.SeriesStates ??= new Dictionary<string, SeriesProfileState>(StringComparer.OrdinalIgnoreCase);
+
+        if (mode == ProfileWizardMode.Profile)
+        {
+            result = new ProfileWizardResult(profileFromWizard, string.Empty, new SeriesProfileState(), string.Empty, null, false);
+            return true;
+        }
 
         var seriesId = viewModel.SeriesId;
         var seriesProfile = ResolveSeriesProfile(seriesId);
@@ -423,53 +436,23 @@ public sealed partial class MainViewModel
         }
 
         ResetToStartState();
-        if (!TryRunProfileWizard(null, null, true, true, out var wizardResult))
+        if (!TryRunProfileWizard(ProfileWizardMode.Profile, null, null, false, true, out var wizardResult))
         {
             SetProfileSetupRequired("Select a profile to continue.");
             return;
         }
 
-        ApplyProfileWizardResult(wizardResult);
-        if (wizardResult.CharacterState is not null)
-        {
-            _currentCharacterState = wizardResult.CharacterState;
-            _state.Character = wizardResult.CharacterState.Character;
-            EnsureSeriesDefaults(_state.Character);
-            UpdateAvailableSkills();
-            SuggestedActions.Clear();
-            CharacterSetupHint = $"Profile ready for {_currentProfile.Name}.";
-            IsProfileReady = true;
-            ApplyProfileNameToSaveSlot();
-            RefreshCharacterPanels();
-            UpdateBookProgressIndicators();
-        }
-
+        ApplySelectedProfile(wizardResult.Profile);
         LoadProfiles();
-        UpdateCharacterOptionsForProfile(_state.Profile, _state.SeriesId, wizardResult.CharacterName);
-
-        if (_currentCharacterState is not null)
+        UpdateCharacterOptionsForProfile(_state.Profile);
+        _isUpdatingProfiles = true;
+        try
         {
-            var targetBookId = wizardResult.IsNewCharacter
-                ? GetFirstBookIdForSeries(wizardResult.SeriesId)
-                : _currentCharacterState.LastBookId;
-
-            if (string.IsNullOrWhiteSpace(targetBookId))
-            {
-                targetBookId = GetFirstBookIdForSeries(wizardResult.SeriesId);
-            }
-
-            if (!string.IsNullOrWhiteSpace(targetBookId))
-            {
-                var targetBook = Books.FirstOrDefault(book => string.Equals(book.Id, targetBookId, StringComparison.OrdinalIgnoreCase));
-                if (targetBook is not null)
-                {
-                    SelectedBook = targetBook;
-                }
-                else
-                {
-                    _ = LoadBookAsync(targetBookId);
-                }
-            }
+            SelectedProfile = Profiles.FirstOrDefault(option => string.Equals(option.Name, _state.Profile.Name, StringComparison.OrdinalIgnoreCase));
+        }
+        finally
+        {
+            _isUpdatingProfiles = false;
         }
     }
 
@@ -634,7 +617,7 @@ public sealed partial class MainViewModel
         var initialSeriesId = string.IsNullOrWhiteSpace(_state.SeriesId) ? null : _state.SeriesId;
         var existingProfile = SelectedProfile?.Profile ?? _state.Profile;
         var isProfileSelectionEnabled = SelectedProfile is null;
-        if (!TryRunProfileWizard(initialSeriesId, existingProfile, true, isProfileSelectionEnabled, out var wizardResult))
+        if (!TryRunProfileWizard(ProfileWizardMode.Character, initialSeriesId, existingProfile, true, isProfileSelectionEnabled, out var wizardResult))
         {
             return;
         }
