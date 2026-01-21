@@ -4,11 +4,18 @@ using Aon.Core;
 
 namespace Aon.Desktop.Wpf.ViewModels;
 
+public enum ProfileWizardMode
+{
+    Profile,
+    Character
+}
+
 public sealed class ProfileWizardViewModel : ViewModelBase
 {
     private readonly Func<int> _rollRandomNumber;
     private readonly Dictionary<string, int> _coreSkillMinimums = new(StringComparer.OrdinalIgnoreCase);
     private readonly Dictionary<string, ISeriesProfile> _seriesProfiles;
+    private readonly ProfileWizardMode _mode;
     private string _profileName = string.Empty;
     private string _characterName = string.Empty;
     private int _combatSkill;
@@ -29,11 +36,13 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     public ProfileWizardViewModel(
         Func<int> rollRandomNumber,
         IEnumerable<PlayerProfile> existingProfiles,
+        ProfileWizardMode mode,
         string? initialSeriesId = null,
         bool isSeriesSelectionEnabled = true,
         bool isProfileSelectionEnabled = true)
     {
         _rollRandomNumber = rollRandomNumber;
+        _mode = mode;
         _seriesProfiles = new Dictionary<string, ISeriesProfile>(StringComparer.OrdinalIgnoreCase)
         {
             { "lw", SeriesProfiles.LoneWolf },
@@ -71,7 +80,10 @@ public sealed class ProfileWizardViewModel : ViewModelBase
         }
 
         UpdateConfirmActionLabel();
-        LoadExistingCharacters(null);
+        if (IsCharacterWizard)
+        {
+            LoadExistingCharacters(null);
+        }
     }
 
     public string SeriesId
@@ -102,6 +114,7 @@ public sealed class ProfileWizardViewModel : ViewModelBase
 
             _seriesName = value;
             OnPropertyChanged();
+            OnPropertyChanged(nameof(HeaderTitle));
         }
     }
 
@@ -148,14 +161,20 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     public bool IsSeriesSelectionEnabled { get; }
     public bool IsProfileSelectionEnabled { get; }
     public bool IsProfileNameReadOnly => !IsProfileSelectionEnabled;
+    public bool IsCharacterWizard => _mode == ProfileWizardMode.Character;
+    public bool IsProfileWizard => _mode == ProfileWizardMode.Profile;
+    public bool ShowSeriesSelection => IsCharacterWizard;
+    public bool ShowCharacterSection => IsCharacterWizard;
+    public string WindowTitle => IsProfileWizard ? "Profile Setup" : "Character Setup";
+    public string HeaderTitle => IsProfileWizard ? "Profile Details" : SeriesName;
     public bool HasSkillSelection => Skills.Count > 0;
     public bool HasCoreSkills => CoreSkills.Count > 0;
     public bool HasCounters => Counters.Count > 0;
     public bool IsWillpowerAvailable => SeriesId is "gs";
     public bool HasExistingProfiles => ExistingProfiles.Count > 0;
     public bool ShowExistingProfiles => IsProfileSelectionEnabled && HasExistingProfiles;
-    public bool HasExistingCharacters => ExistingCharacters.Count > 1;
-    public bool IsCharacterCreationEnabled => SelectedExistingCharacter?.IsNew ?? true;
+    public bool HasExistingCharacters => IsCharacterWizard && ExistingCharacters.Count > 1;
+    public bool IsCharacterCreationEnabled => IsCharacterWizard && (SelectedExistingCharacter?.IsNew ?? true);
     public string ConfirmActionLabel
     {
         get => _confirmActionLabel;
@@ -188,8 +207,11 @@ public sealed class ProfileWizardViewModel : ViewModelBase
                 ProfileName = _selectedExistingProfile.Name;
             }
 
-            LoadExistingCharacters(_selectedExistingProfile?.Profile);
-            OnPropertyChanged(nameof(HasExistingCharacters));
+            if (IsCharacterWizard)
+            {
+                LoadExistingCharacters(_selectedExistingProfile?.Profile);
+                OnPropertyChanged(nameof(HasExistingCharacters));
+            }
             OnPropertyChanged(nameof(ShowExistingProfiles));
             UpdateConfirmActionLabel();
             OnPropertyChanged(nameof(IsValid));
@@ -211,7 +233,10 @@ public sealed class ProfileWizardViewModel : ViewModelBase
             if (_selectedSeriesOption is not null)
             {
                 ApplySeriesProfile(_selectedSeriesOption.Id);
-                LoadExistingCharacters(_selectedExistingProfile?.Profile);
+                if (IsCharacterWizard)
+                {
+                    LoadExistingCharacters(_selectedExistingProfile?.Profile);
+                }
             }
 
             OnPropertyChanged(nameof(IsValid));
@@ -382,6 +407,11 @@ public sealed class ProfileWizardViewModel : ViewModelBase
                 return false;
             }
 
+            if (IsProfileWizard)
+            {
+                return true;
+            }
+
             if (string.IsNullOrWhiteSpace(SeriesId))
             {
                 return false;
@@ -475,6 +505,11 @@ public sealed class ProfileWizardViewModel : ViewModelBase
 
     private void LoadExistingCharacters(PlayerProfile? profile)
     {
+        if (!IsCharacterWizard)
+        {
+            return;
+        }
+
         ExistingCharacters.Clear();
         ExistingCharacters.Add(CharacterOptionViewModel.CreateNew());
 
@@ -656,6 +691,12 @@ public sealed class ProfileWizardViewModel : ViewModelBase
 
     private void UpdateConfirmActionLabel()
     {
+        if (IsProfileWizard)
+        {
+            ConfirmActionLabel = SelectedExistingProfile is not null ? "Update Profile" : "Create Profile";
+            return;
+        }
+
         if (!IsProfileSelectionEnabled)
         {
             ConfirmActionLabel = IsCharacterCreationEnabled ? "Create Character" : "Use Character";
@@ -810,7 +851,9 @@ public sealed class CharacterOptionViewModel
         CharacterState = characterState;
         SeriesId = seriesId;
         SeriesName = seriesName;
-        DisplayName = string.IsNullOrWhiteSpace(seriesName) ? name : $"{name} ({seriesName})";
+        DisplayName = string.IsNullOrWhiteSpace(seriesName) || string.Equals(seriesName, "Other", StringComparison.OrdinalIgnoreCase)
+            ? name
+            : $"{name} ({seriesName})";
     }
 
     private CharacterOptionViewModel(string name)

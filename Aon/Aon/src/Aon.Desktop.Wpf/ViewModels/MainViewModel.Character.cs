@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Aon.Content;
@@ -7,6 +8,18 @@ namespace Aon.Desktop.Wpf.ViewModels;
 
 public sealed partial class MainViewModel
 {
+    private sealed class SeriesFilterOptionViewModel
+    {
+        public SeriesFilterOptionViewModel(string id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
+        public string Id { get; }
+        public string Name { get; }
+    }
+
     private void RefreshCharacterPanels()
     {
         CoreStats.Clear();
@@ -56,6 +69,7 @@ public sealed partial class MainViewModel
         SelectedSkill = null;
         SelectedInventoryItem = null;
         OnPropertyChanged(nameof(CharacterPanelTitle));
+        OnPropertyChanged(nameof(ActiveCharacterLabel));
     }
 
     private void UpdateCharacterOptions(SeriesProfileState seriesState)
@@ -77,13 +91,18 @@ public sealed partial class MainViewModel
         _isUpdatingCharacters = false;
     }
 
-    private void UpdateCharacterOptionsForProfile(PlayerProfile profile, string? activeSeriesId = null, string? activeCharacterName = null)
+    private void UpdateCharacterOptionsForProfile(
+        PlayerProfile profile,
+        string? activeSeriesId = null,
+        string? activeCharacterName = null,
+        string? seriesFilterId = null)
     {
         _isUpdatingCharacters = true;
         Characters.Clear();
 
         if (profile.SeriesStates is null)
         {
+            profile.SeriesStates = new Dictionary<string, SeriesProfileState>(StringComparer.OrdinalIgnoreCase);
             SelectedCharacter = null;
             _isUpdatingCharacters = false;
             return;
@@ -92,6 +111,11 @@ public sealed partial class MainViewModel
         foreach (var seriesEntry in profile.SeriesStates.OrderBy(entry => ResolveSeriesSortOrder(entry.Key)))
         {
             var seriesId = seriesEntry.Key;
+            if (!string.IsNullOrWhiteSpace(seriesFilterId)
+                && !string.Equals(seriesFilterId, seriesId, StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
             var seriesName = ResolveSeriesName(seriesId);
             foreach (var entry in seriesEntry.Value.Characters.Values
                          .Where(state => !string.IsNullOrWhiteSpace(state.Character.Name))
@@ -112,6 +136,32 @@ public sealed partial class MainViewModel
             SelectedCharacter = null;
         }
         _isUpdatingCharacters = false;
+    }
+
+    private void UpdateCharacterSeriesOptions(PlayerProfile profile, string? preferredSeriesId = null)
+    {
+        _isUpdatingCharacters = true;
+        CharacterSeriesOptions.Clear();
+
+        if (profile.SeriesStates is not null)
+        {
+            foreach (var entry in profile.SeriesStates.OrderBy(item => ResolveSeriesSortOrder(item.Key)))
+            {
+                var seriesId = entry.Key;
+                CharacterSeriesOptions.Add(new SeriesFilterOptionViewModel(seriesId, ResolveSeriesName(seriesId)));
+            }
+        }
+
+        _isUpdatingCharacters = false;
+
+        if (!string.IsNullOrWhiteSpace(preferredSeriesId))
+        {
+            SelectedCharacterSeries = CharacterSeriesOptions.FirstOrDefault(option =>
+                string.Equals(option.Id, preferredSeriesId, StringComparison.OrdinalIgnoreCase));
+            return;
+        }
+
+        SelectedCharacterSeries = null;
     }
 
     private void EnsureSeriesDefaults(Character character)

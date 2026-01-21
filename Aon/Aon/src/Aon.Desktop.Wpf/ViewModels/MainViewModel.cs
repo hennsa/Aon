@@ -59,6 +59,8 @@ public sealed partial class MainViewModel : ViewModelBase
     private ProfileOptionViewModel? _selectedProfile;
     private CharacterOptionViewModel? _selectedCharacter;
     private ItemEntryViewModel? _selectedInventoryItem;
+    private SeriesFilterOptionViewModel? _selectedCharacterSeries;
+    private int _activeTabIndex = 1;
     private bool _isRandomNumberVisible;
     private bool _areChoicesVisible = true;
     private int? _randomNumberResult;
@@ -104,6 +106,7 @@ public sealed partial class MainViewModel : ViewModelBase
         LoadBooks(booksDirectory);
         LoadSaveSlots();
         LoadProfiles();
+        ActiveTabIndex = 1;
     }
 
     public string BookTitle
@@ -141,6 +144,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public ObservableCollection<BookListItemViewModel> Books { get; }
     public ObservableCollection<ProfileOptionViewModel> Profiles { get; } = new();
     public ObservableCollection<CharacterOptionViewModel> Characters { get; } = new();
+    public ObservableCollection<SeriesFilterOptionViewModel> CharacterSeriesOptions { get; } = new();
     public ObservableCollection<StatEntryViewModel> CoreStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> CoreSkills { get; } = new();
     public ObservableCollection<StatEntryViewModel> AttributeStats { get; } = new();
@@ -167,6 +171,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public bool HasAvailableSkills => AvailableSkills.Count > 0;
     public bool CanCreateCharacter => SelectedProfile is not null;
     public bool IsProfileSelected => SelectedProfile is not null;
+    public bool IsCharacterSeriesSelected => SelectedCharacterSeries is not null;
     public bool IsProfileReady
     {
         get => _isProfileReady;
@@ -180,6 +185,8 @@ public sealed partial class MainViewModel : ViewModelBase
             _isProfileReady = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(CharacterPanelTitle));
+            OnPropertyChanged(nameof(ActiveProfileLabel));
+            OnPropertyChanged(nameof(ActiveCharacterLabel));
             _newCharacterCommand.RaiseCanExecuteChanged();
         }
     }
@@ -197,6 +204,9 @@ public sealed partial class MainViewModel : ViewModelBase
             _selectedProfile = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(IsProfileSelected));
+            OnPropertyChanged(nameof(ActiveProfileLabel));
+            OnPropertyChanged(nameof(ActiveCharacterLabel));
+            OnPropertyChanged(nameof(IsCharacterSeriesSelected));
             _newCharacterCommand.RaiseCanExecuteChanged();
 
             if (_isUpdatingProfiles)
@@ -206,12 +216,14 @@ public sealed partial class MainViewModel : ViewModelBase
 
             if (_selectedProfile is null)
             {
+                ActiveTabIndex = 1;
                 SetProfileSetupRequired("Select a profile to continue.");
                 return;
             }
 
             PersistActiveCharacterState();
             ApplySelectedProfile(_selectedProfile.Profile);
+            UpdateCharacterSeriesOptions(_selectedProfile.Profile, _state.SeriesId);
         }
     }
 
@@ -230,6 +242,81 @@ public sealed partial class MainViewModel : ViewModelBase
             }
 
             return _currentProfile.DefaultCharacterName;
+        }
+    }
+
+    public SeriesFilterOptionViewModel? SelectedCharacterSeries
+    {
+        get => _selectedCharacterSeries;
+        set
+        {
+            if (_selectedCharacterSeries == value)
+            {
+                return;
+            }
+
+            _selectedCharacterSeries = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(IsCharacterSeriesSelected));
+
+            if (_isUpdatingCharacters)
+            {
+                return;
+            }
+
+            if (_selectedProfile is null || _selectedCharacterSeries is null)
+            {
+                Characters.Clear();
+                SelectedCharacter = null;
+                return;
+            }
+
+            UpdateCharacterOptionsForProfile(_selectedProfile.Profile, seriesFilterId: _selectedCharacterSeries.Id);
+        }
+    }
+
+    public int ActiveTabIndex
+    {
+        get => _activeTabIndex;
+        set
+        {
+            if (_activeTabIndex == value)
+            {
+                return;
+            }
+
+            _activeTabIndex = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string ActiveProfileLabel
+    {
+        get
+        {
+            if (!IsProfileSelected || string.IsNullOrWhiteSpace(_state.Profile?.Name))
+            {
+                return "Profile: none selected";
+            }
+
+            return $"Profile: {_state.Profile.Name}";
+        }
+    }
+
+    public string ActiveCharacterLabel
+    {
+        get
+        {
+            if (!IsProfileReady)
+            {
+                return "Character: none selected";
+            }
+
+            var name = string.IsNullOrWhiteSpace(_state.Character.Name)
+                ? _currentProfile.DefaultCharacterName
+                : _state.Character.Name;
+
+            return $"Character: {name}";
         }
     }
 
@@ -480,6 +567,7 @@ public sealed partial class MainViewModel : ViewModelBase
                 return;
             }
 
+            var previousCharacter = _selectedCharacter;
             _selectedCharacter = value;
             OnPropertyChanged();
 
@@ -491,10 +579,32 @@ public sealed partial class MainViewModel : ViewModelBase
             if (!IsProfileReady)
             {
                 _ = LoadCharacterSelectionAsync(_selectedCharacter);
+                ActiveTabIndex = 0;
+                return;
+            }
+
+            var confirm = MessageBox.Show(
+                "Switching characters will save the current character and update the book view. Continue?",
+                "Switch Character",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+            if (confirm != MessageBoxResult.Yes)
+            {
+                _isUpdatingCharacters = true;
+                try
+                {
+                    _selectedCharacter = previousCharacter;
+                    OnPropertyChanged(nameof(SelectedCharacter));
+                }
+                finally
+                {
+                    _isUpdatingCharacters = false;
+                }
                 return;
             }
 
             _ = SwitchCharacterAsync(_selectedCharacter);
+            ActiveTabIndex = 0;
         }
     }
 }
