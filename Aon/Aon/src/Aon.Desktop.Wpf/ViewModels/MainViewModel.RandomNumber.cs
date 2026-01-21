@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using Aon.Content;
 using Aon.Core;
+using Aon.Rules;
 
 namespace Aon.Desktop.Wpf.ViewModels;
 
@@ -14,7 +15,6 @@ public sealed partial class MainViewModel
     private void ResetRandomNumberState()
     {
         _pendingRandomChoices.Clear();
-        _randomNumberChoices.Clear();
         _randomNumberResult = null;
         _resolvedRandomChoice = null;
         RandomNumberStatus = string.Empty;
@@ -28,8 +28,6 @@ public sealed partial class MainViewModel
     {
         _pendingRandomChoices.Clear();
         _pendingRandomChoices.AddRange(section.Choices);
-        _randomNumberChoices.Clear();
-        _randomNumberChoices.AddRange(BuildRandomNumberChoices(section.Choices));
         _randomNumberResult = null;
         _resolvedRandomChoice = null;
         ResetRollHistory();
@@ -124,16 +122,16 @@ public sealed partial class MainViewModel
             return;
         }
 
-        var matches = _randomNumberChoices
-            .Where(choice => choice.IsMatch(effectiveRoll))
-            .Select(choice => choice.Choice)
-            .Distinct()
-            .ToList();
+        var matches = RollOutcomeResolver.ResolveChoices(_pendingRandomChoices, effectiveRoll);
 
         if (matches.Count == 1)
         {
             _resolvedRandomChoice = matches[0];
-            RandomNumberStatus = BuildRollStatus(roll, modifier, effectiveRoll, $"This directs you to section {_resolvedRandomChoice.TargetId}.");
+            var targetId = GetOutcomeTargetId(_resolvedRandomChoice, effectiveRoll);
+            var suffix = string.IsNullOrWhiteSpace(targetId)
+                ? "This resolves your roll outcome."
+                : $"This directs you to section {targetId}.";
+            RandomNumberStatus = BuildRollStatus(roll, modifier, effectiveRoll, suffix);
             AreChoicesVisible = false;
         }
         else if (matches.Count > 1)
@@ -171,132 +169,15 @@ public sealed partial class MainViewModel
 
     private static bool RequiresRandomNumber(BookSection section)
     {
-        return section.Blocks.Any(block => block.Text.Contains("random number table", StringComparison.OrdinalIgnoreCase)
-            || block.Text.Contains("pick a number", StringComparison.OrdinalIgnoreCase));
+        return section.Choices.Any(choice => ChoiceRollMetadata.FromChoice(choice).RequiresRoll);
     }
 
-    private static IEnumerable<RandomNumberChoice> BuildRandomNumberChoices(IEnumerable<Choice> choices)
+    private static string GetOutcomeTargetId(Choice choice, int roll)
     {
-        foreach (var choice in choices)
-        {
-            var ranges = ParseRandomNumberRanges(choice.Text);
-            if (ranges.Count == 0)
-            {
-                continue;
-            }
-
-            yield return new RandomNumberChoice(choice, ranges);
-        }
-    }
-
-    private static List<RandomNumberRange> ParseRandomNumberRanges(string text)
-    {
-        var sanitized = StripTargetReferences(text);
-        if (Regex.Matches(sanitized, "\\bif\\b", RegexOptions.IgnoreCase).Count > 1)
-        {
-            return new List<RandomNumberRange>();
-        }
-
-        var exceptMatch = Regex.Match(sanitized, "\\bexcept(?:\\s+a)?\\s+(?<value>[0-9])\\b", RegexOptions.IgnoreCase);
-        if (exceptMatch.Success)
-        {
-            if (!TryParseDigit(exceptMatch.Groups["value"].Value, out var exceptValue))
-            {
-                return new List<RandomNumberRange>();
-            }
-
-            return BuildExceptRanges(exceptValue);
-        }
-
-        var rangeMatches = RangeRegex.Matches(sanitized);
-        if (rangeMatches.Count > 1)
-        {
-            return new List<RandomNumberRange>();
-        }
-
-        if (rangeMatches.Count == 1)
-        {
-            var minText = rangeMatches[0].Groups["min"].Value;
-            var maxText = rangeMatches[0].Groups["max"].Value;
-            if (!TryParseDigit(minText, out var min) || !TryParseDigit(maxText, out var max))
-            {
-                return new List<RandomNumberRange>();
-            }
-
-            return new List<RandomNumberRange> { RandomNumberRange.From(min, max) };
-        }
-
-        if (TryMatchComparison(sanitized, BelowRegex, out var belowValue))
-        {
-            return new List<RandomNumberRange> { RandomNumberRange.From(0, belowValue - 1) };
-        }
-
-        if (TryMatchComparison(sanitized, AtMostRegex, out var atMostValue))
-        {
-            return new List<RandomNumberRange> { RandomNumberRange.From(0, atMostValue) };
-        }
-
-        if (TryMatchComparison(sanitized, AtLeastRegex, out var atLeastValue))
-        {
-            return new List<RandomNumberRange> { RandomNumberRange.From(atLeastValue, 9) };
-        }
-
-        if (TryMatchComparison(sanitized, AboveRegex, out var aboveValue))
-        {
-            return new List<RandomNumberRange> { RandomNumberRange.From(aboveValue + 1, 9) };
-        }
-
-        var exactMatch = Regex.Match(sanitized, "\\b(?:number|pick|picked|roll|rolled|score)\\s+(?:is\\s+|a\\s+)?(?<value>[0-9])\\b", RegexOptions.IgnoreCase);
-        if (exactMatch.Success && TryParseDigit(exactMatch.Groups["value"].Value, out var exactValue))
-        {
-            return new List<RandomNumberRange> { RandomNumberRange.From(exactValue, exactValue) };
-        }
-
-        return new List<RandomNumberRange>();
-    }
-
-    private static List<RandomNumberRange> BuildExceptRanges(int value)
-    {
-        var ranges = new List<RandomNumberRange>();
-        if (value > 0)
-        {
-            ranges.Add(RandomNumberRange.From(0, value - 1));
-        }
-
-        if (value < 9)
-        {
-            ranges.Add(RandomNumberRange.From(value + 1, 9));
-        }
-
-        return ranges;
-    }
-
-    private static bool TryMatchComparison(string text, Regex regex, out int value)
-    {
-        value = 0;
-        var match = regex.Match(text);
-        if (!match.Success)
-        {
-            return false;
-        }
-
-        return TryParseDigit(match.Groups["value"].Value, out value);
-    }
-
-    private static bool TryParseDigit(string value, out int parsed)
-    {
-        parsed = 0;
-        if (!int.TryParse(value, out parsed))
-        {
-            return false;
-        }
-
-        return parsed is >= 0 and <= 9;
-    }
-
-    private static string StripTargetReferences(string text)
-    {
-        return Regex.Replace(text, "\\b(turn to|turning to|go to)\\s+\\d+\\b", string.Empty, RegexOptions.IgnoreCase);
+        var metadata = ChoiceRollMetadata.FromChoice(choice);
+        var outcome = RollOutcomeResolver.ResolveOutcomes(metadata, roll)
+            .FirstOrDefault();
+        return outcome?.TargetId ?? choice.TargetId;
     }
 
     private void TrackRoll(int roll)
@@ -397,50 +278,4 @@ public sealed partial class MainViewModel
         string CharacterName,
         CharacterProfileState? CharacterState,
         bool IsNewCharacter);
-
-    private sealed class RandomNumberChoice
-    {
-        public RandomNumberChoice(Choice choice, IReadOnlyList<RandomNumberRange> ranges)
-        {
-            Choice = choice;
-            Ranges = ranges;
-        }
-
-        public Choice Choice { get; }
-        public IReadOnlyList<RandomNumberRange> Ranges { get; }
-
-        public bool IsMatch(int value) => Ranges.Any(range => range.Contains(value));
-    }
-
-    private readonly struct RandomNumberRange
-    {
-        private RandomNumberRange(int min, int max)
-        {
-            Min = min;
-            Max = max;
-        }
-
-        public int Min { get; }
-        public int Max { get; }
-
-        public bool Contains(int value) => value >= Min && value <= Max;
-
-        public static RandomNumberRange From(int min, int max)
-        {
-            if (min > max)
-            {
-                (min, max) = (max, min);
-            }
-
-            min = Math.Clamp(min, 0, 9);
-            max = Math.Clamp(max, 0, 9);
-            return new RandomNumberRange(min, max);
-        }
-    }
-
-    private static readonly Regex RangeRegex = new("\\b(?<min>[0-9])\\s*(?:-|–|—|to)\\s*(?<max>[0-9])\\b", RegexOptions.IgnoreCase);
-    private static readonly Regex BelowRegex = new("\\b(?:below|under|less than)\\s+(?<value>[0-9])\\b", RegexOptions.IgnoreCase);
-    private static readonly Regex AtMostRegex = new("\\b(?:at most|or less|or lower)\\s+(?<value>[0-9])\\b", RegexOptions.IgnoreCase);
-    private static readonly Regex AtLeastRegex = new("\\b(?:at least|or above|or higher)\\s+(?<value>[0-9])\\b", RegexOptions.IgnoreCase);
-    private static readonly Regex AboveRegex = new("\\b(?:above|over|greater than)\\s+(?<value>[0-9])\\b", RegexOptions.IgnoreCase);
 }

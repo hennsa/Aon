@@ -37,7 +37,6 @@ public sealed partial class MainViewModel : ViewModelBase
     private readonly RelayCommand _removeItemCommand;
     private readonly RelayCommand _addCounterCommand;
     private readonly List<Choice> _pendingRandomChoices = new();
-    private readonly List<RandomNumberChoice> _randomNumberChoices = new();
     private readonly Queue<int> _recentRolls = new();
     private readonly string _saveDirectory;
     private readonly bool _isDev;

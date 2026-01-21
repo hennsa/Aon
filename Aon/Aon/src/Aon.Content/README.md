@@ -21,3 +21,6 @@ Choices can optionally include rule metadata to drive downstream logic:
 - `randomOutcomes`: array of objects describing random number table routing, each with:
   - `min`/`max`: inclusive integer bounds (0–9).
   - `targetId`: section id that should be reached for the outcome.
+  - `effects`: optional array of rule effect strings to apply for the outcome.
+
+Outcomes may specify a `targetId`, `effects`, or both, enabling roll-based branching to a new section or a direct effect application.
