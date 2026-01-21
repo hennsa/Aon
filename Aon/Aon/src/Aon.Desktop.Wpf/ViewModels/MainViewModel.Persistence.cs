@@ -32,7 +32,9 @@ public sealed partial class MainViewModel
             return;
         }
 
-        var slot = string.IsNullOrWhiteSpace(SaveSlot) ? _state.Profile.Name.Trim() : SaveSlot.Trim();
+        var slot = string.IsNullOrWhiteSpace(SaveSlot) || string.Equals(SaveSlot.Trim(), "default", StringComparison.OrdinalIgnoreCase)
+            ? _state.Profile.Name.Trim()
+            : SaveSlot.Trim();
         if (string.IsNullOrWhiteSpace(slot))
         {
             return;

@@ -59,6 +59,7 @@ public sealed partial class MainViewModel : ViewModelBase
     private ProfileOptionViewModel? _selectedProfile;
     private CharacterOptionViewModel? _selectedCharacter;
     private ItemEntryViewModel? _selectedInventoryItem;
+    private SeriesFilterOptionViewModel? _selectedCharacterSeries;
     private int _activeTabIndex = 1;
     private bool _isRandomNumberVisible;
     private bool _areChoicesVisible = true;
@@ -143,6 +144,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public ObservableCollection<BookListItemViewModel> Books { get; }
     public ObservableCollection<ProfileOptionViewModel> Profiles { get; } = new();
     public ObservableCollection<CharacterOptionViewModel> Characters { get; } = new();
+    public ObservableCollection<SeriesFilterOptionViewModel> CharacterSeriesOptions { get; } = new();
     public ObservableCollection<StatEntryViewModel> CoreStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> CoreSkills { get; } = new();
     public ObservableCollection<StatEntryViewModel> AttributeStats { get; } = new();
@@ -169,6 +171,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public bool HasAvailableSkills => AvailableSkills.Count > 0;
     public bool CanCreateCharacter => SelectedProfile is not null;
     public bool IsProfileSelected => SelectedProfile is not null;
+    public bool IsCharacterSeriesSelected => SelectedCharacterSeries is not null;
     public bool IsProfileReady
     {
         get => _isProfileReady;
@@ -203,6 +206,7 @@ public sealed partial class MainViewModel : ViewModelBase
             OnPropertyChanged(nameof(IsProfileSelected));
             OnPropertyChanged(nameof(ActiveProfileLabel));
             OnPropertyChanged(nameof(ActiveCharacterLabel));
+            OnPropertyChanged(nameof(IsCharacterSeriesSelected));
             _newCharacterCommand.RaiseCanExecuteChanged();
 
             if (_isUpdatingProfiles)
@@ -219,6 +223,7 @@ public sealed partial class MainViewModel : ViewModelBase
 
             PersistActiveCharacterState();
             ApplySelectedProfile(_selectedProfile.Profile);
+            UpdateCharacterSeriesOptions(_selectedProfile.Profile, _state.SeriesId);
         }
     }
 
@@ -237,6 +242,36 @@ public sealed partial class MainViewModel : ViewModelBase
             }
 
             return _currentProfile.DefaultCharacterName;
+        }
+    }
+
+    public SeriesFilterOptionViewModel? SelectedCharacterSeries
+    {
+        get => _selectedCharacterSeries;
+        set
+        {
+            if (_selectedCharacterSeries == value)
+            {
+                return;
+            }
+
+            _selectedCharacterSeries = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(IsCharacterSeriesSelected));
+
+            if (_isUpdatingCharacters)
+            {
+                return;
+            }
+
+            if (_selectedProfile is null || _selectedCharacterSeries is null)
+            {
+                Characters.Clear();
+                SelectedCharacter = null;
+                return;
+            }
+
+            UpdateCharacterOptionsForProfile(_selectedProfile.Profile, seriesFilterId: _selectedCharacterSeries.Id);
         }
     }
 
