@@ -61,13 +61,36 @@ public sealed class GameService
             return null;
         }
 
-        var effects = choice.Effects
-            .Select(EffectParser.Parse)
-            .ToList();
+        var effects = _rulesEngine.ResolveChoiceRules(choice).Effects;
         _rulesEngine.ApplyEffects(effects, context);
 
         state.SectionId = section.Id;
         return section;
+    }
+
+    public ChoiceEvaluationResult EvaluateChoice(GameState state, Choice choice)
+    {
+        ArgumentNullException.ThrowIfNull(state);
+        ArgumentNullException.ThrowIfNull(choice);
+
+        var context = new RuleContext(state);
+        return _rulesEngine.EvaluateChoice(choice, context);
+    }
+
+    public ChoiceRuleSet ResolveChoiceRules(Choice choice)
+    {
+        ArgumentNullException.ThrowIfNull(choice);
+
+        return _rulesEngine.ResolveChoiceRules(choice);
+    }
+
+    public void ApplyEffects(GameState state, IEnumerable<Effect> effects)
+    {
+        ArgumentNullException.ThrowIfNull(state);
+        ArgumentNullException.ThrowIfNull(effects);
+
+        var context = new RuleContext(state);
+        _rulesEngine.ApplyEffects(effects, context);
     }
 
     public int RollRandomNumber()
