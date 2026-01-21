@@ -279,6 +279,7 @@ public sealed partial class MainViewModel
         }
 
         RefreshCharacterPanels();
+        _ = SaveProfileStateAsync();
     }
 
     private void RemoveSkill()
@@ -292,6 +293,7 @@ public sealed partial class MainViewModel
         SelectedSkill = null;
         RefreshCharacterPanels();
         _removeSkillCommand.RaiseCanExecuteChanged();
+        _ = SaveProfileStateAsync();
     }
 
     private void AddItem()
@@ -306,6 +308,7 @@ public sealed partial class MainViewModel
         _state.Character.Inventory.Items.Add(new Item(name, category));
         NewItemName = string.Empty;
         RefreshCharacterPanels();
+        _ = SaveProfileStateAsync();
     }
 
     private void RemoveItem()
@@ -326,6 +329,7 @@ public sealed partial class MainViewModel
 
         SelectedInventoryItem = null;
         RefreshCharacterPanels();
+        _ = SaveProfileStateAsync();
     }
 
     private void AddCounter()
@@ -344,6 +348,7 @@ public sealed partial class MainViewModel
         _state.Character.Inventory.Counters[name] = 0;
         CounterNameInput = string.Empty;
         RefreshCharacterPanels();
+        _ = SaveProfileStateAsync();
     }
 
     private void AdjustCoreSkill(string skillName, int delta)
@@ -364,6 +369,7 @@ public sealed partial class MainViewModel
 
         _state.Character.CoreSkills[skillName] = Math.Max(0, value + delta);
         RefreshCharacterPanels();
+        _ = SaveProfileStateAsync();
     }
 
     private bool TryGetCoreSkillPool(out int poolTotal)
@@ -388,6 +394,7 @@ public sealed partial class MainViewModel
         var updated = Math.Max(0, current + delta);
         _state.Character.Inventory.Counters[name] = updated;
         RefreshCharacterPanels();
+        _ = SaveProfileStateAsync();
     }
 
     private void UpdateSuggestedActions(BookSection section)
@@ -418,6 +425,7 @@ public sealed partial class MainViewModel
                 var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
                 _state.Character.Inventory.Counters[counter] = current + amount;
                 RefreshCharacterPanels();
+                _ = SaveProfileStateAsync();
             }));
         }
 
@@ -437,6 +445,7 @@ public sealed partial class MainViewModel
             {
                 _state.Character.Disciplines.Add(skill);
                 RefreshCharacterPanels();
+                _ = SaveProfileStateAsync();
             }));
         }
     }

@@ -203,22 +203,6 @@
                             <TextBlock Text="{Binding ActiveProfileLabel}" Foreground="#666666" Margin="0,0,0,4" />
                             <TextBlock Text="{Binding ActiveCharacterLabel}" Foreground="#666666" Margin="0,0,0,12" />
 
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,12"
-                                        Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                <TextBlock Text="Save slot:" VerticalAlignment="Center" Margin="0,0,8,0" />
-                                <ComboBox ItemsSource="{Binding SaveSlots}"
-                                          IsEditable="True"
-                                          Text="{Binding SaveSlot, UpdateSourceTrigger=PropertyChanged}"
-                                          Width="140"
-                                          Margin="0,0,8,0" />
-                                <Button Content="New" Command="{Binding NewSaveSlotCommand}" Margin="0,0,4,0" />
-                                <Button Content="Save"
-                                        Command="{Binding SaveGameCommand}"
-                                        Margin="0,0,4,0"
-                                        Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                <Button Content="Load" Command="{Binding LoadGameCommand}" />
-                            </StackPanel>
-
                             <StackPanel Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
                                 <TextBlock Text="Core Stats" FontWeight="SemiBold" />
                                 <ItemsControl ItemsSource="{Binding CoreStats}" Margin="0,4,0,12">
