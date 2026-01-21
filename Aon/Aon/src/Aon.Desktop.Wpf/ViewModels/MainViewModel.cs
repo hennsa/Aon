@@ -11,6 +11,7 @@ using Aon.Core;
 using Aon.Desktop.Wpf;
 using Aon.Persistence;
 using Aon.Rules;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Aon.Desktop.Wpf.ViewModels;
 
@@ -1289,7 +1290,7 @@ public sealed class MainViewModel : ViewModelBase
             || character.Inventory.Counters.Count > 0;
     }
 
-    private bool TryResolveActiveCharacter(SeriesProfileState seriesState, out CharacterProfileState activeCharacter)
+    private bool TryResolveActiveCharacter(SeriesProfileState seriesState, [NotNullWhen(true)] out CharacterProfileState? activeCharacter)
     {
         if (!string.IsNullOrWhiteSpace(seriesState.ActiveCharacterName)
             && seriesState.Characters.TryGetValue(seriesState.ActiveCharacterName, out activeCharacter))
@@ -1309,7 +1310,7 @@ public sealed class MainViewModel : ViewModelBase
             return true;
         }
 
-        activeCharacter = null!;
+        activeCharacter = null;
         return false;
     }
 
@@ -1462,7 +1463,7 @@ public sealed class MainViewModel : ViewModelBase
 
     private bool TryRunProfileWizard(
         string? initialSeriesId,
-        PlayerProfile? selectedProfile,
+        PlayerProfile? selectedProfileArg,
         bool isSeriesSelectionEnabled,
         out ProfileWizardResult result)
     {
@@ -1473,8 +1474,9 @@ public sealed class MainViewModel : ViewModelBase
             initialSeriesId,
             isSeriesSelectionEnabled);
 
-        var profileToSelect = selectedProfile;
-        if (profileToSelect is null && !string.IsNullOrWhiteSpace(_state.Profile.Name))
+        // Pick a profile to pre-select in the wizard (if any)
+        var profileToSelect = selectedProfileArg;
+        if (profileToSelect is null && !string.IsNullOrWhiteSpace(_state.Profile?.Name))
         {
             profileToSelect = existingProfiles.FirstOrDefault(option =>
                 string.Equals(option.Name, _state.Profile.Name, StringComparison.OrdinalIgnoreCase));
@@ -1518,6 +1520,7 @@ public sealed class MainViewModel : ViewModelBase
             return false;
         }
 
+        // Name the profile constructed/selected in the wizard
         var selectedProfile = viewModel.SelectedExistingProfile?.Profile ?? new PlayerProfile();
         selectedProfile.Name = viewModel.ProfileName.Trim();
         selectedProfile.SeriesStates ??= new Dictionary<string, SeriesProfileState>(StringComparer.OrdinalIgnoreCase);
