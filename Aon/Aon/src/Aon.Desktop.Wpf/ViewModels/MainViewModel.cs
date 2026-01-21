@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net;
 using System.IO;
 using System.Windows;
@@ -172,6 +173,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public bool CanCreateCharacter => SelectedProfile is not null;
     public bool IsProfileSelected => SelectedProfile is not null;
     public bool IsCharacterSeriesSelected => SelectedCharacterSeries is not null;
+    public bool HasBonusSkillPoints => BonusSkillPoints.HasValue;
     public bool IsProfileReady
     {
         get => _isProfileReady;
@@ -242,6 +244,21 @@ public sealed partial class MainViewModel : ViewModelBase
             }
 
             return _currentProfile.DefaultCharacterName;
+        }
+    }
+
+    public int? BonusSkillPoints
+    {
+        get
+        {
+            if (!_state.Character.Attributes.TryGetValue("CoreSkillPoolTotal", out var poolTotal)
+                || poolTotal <= 0)
+            {
+                return null;
+            }
+
+            var spent = _state.Character.CoreSkills.Values.Sum();
+            return Math.Max(0, poolTotal - spent);
         }
     }
 

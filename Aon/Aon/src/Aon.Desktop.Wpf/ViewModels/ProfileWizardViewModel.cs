@@ -99,6 +99,8 @@ public sealed class ProfileWizardViewModel : ViewModelBase
             _seriesId = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(IsWillpowerAvailable));
+            RollWillpowerCommand.RaiseCanExecuteChanged();
+            OnPropertyChanged(nameof(IsValid));
         }
     }
 
@@ -343,6 +345,7 @@ public sealed class ProfileWizardViewModel : ViewModelBase
 
             _willpower = value;
             OnPropertyChanged();
+            OnPropertyChanged(nameof(IsValid));
         }
     }
 
