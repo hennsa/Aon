@@ -454,6 +454,8 @@ public sealed partial class MainViewModel
         {
             _isUpdatingProfiles = false;
         }
+
+        _ = SaveProfileStateAsync();
     }
 
     private void ResetToStartState()
@@ -682,6 +684,8 @@ public sealed partial class MainViewModel
                 await LoadBookAsync(targetBookId);
             }
         }
+
+        await SaveProfileStateAsync();
     }
 
     private void ApplyProfileNameToSaveSlot()
