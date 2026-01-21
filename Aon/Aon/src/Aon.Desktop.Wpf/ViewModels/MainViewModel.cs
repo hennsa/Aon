@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net;
 using System.IO;
 using System.Windows;
@@ -29,6 +30,7 @@ public sealed partial class MainViewModel : ViewModelBase
     private readonly RelayCommand _newSaveSlotCommand;
     private readonly RelayCommand _newProfileCommand;
     private readonly RelayCommand _newCharacterCommand;
+    private readonly RelayCommand _deleteProfilesCommand;
     private readonly RelayCommand _addSkillCommand;
     private readonly RelayCommand _removeSkillCommand;
     private readonly RelayCommand _addItemCommand;
@@ -38,6 +40,7 @@ public sealed partial class MainViewModel : ViewModelBase
     private readonly List<RandomNumberChoice> _randomNumberChoices = new();
     private readonly Queue<int> _recentRolls = new();
     private readonly string _saveDirectory;
+    private readonly bool _isDev;
     private const string CharacterNameToken = "{{characterName}}";
     private ISeriesProfile _currentProfile = SeriesProfiles.LoneWolf;
     private CharacterProfileState? _currentCharacterState;
@@ -59,6 +62,8 @@ public sealed partial class MainViewModel : ViewModelBase
     private ProfileOptionViewModel? _selectedProfile;
     private CharacterOptionViewModel? _selectedCharacter;
     private ItemEntryViewModel? _selectedInventoryItem;
+    private SeriesFilterOptionViewModel? _selectedCharacterSeries;
+    private int _activeTabIndex = 1;
     private bool _isRandomNumberVisible;
     private bool _areChoicesVisible = true;
     private int? _randomNumberResult;
@@ -75,6 +80,7 @@ public sealed partial class MainViewModel : ViewModelBase
     {
         var booksDirectory = FindBooksDirectory();
         _saveDirectory = GetSaveDirectory();
+        _isDev = LoadDevSettings();
         _bookRepository = new JsonBookRepository(booksDirectory);
         _gameService = new GameService(
             _bookRepository,
@@ -96,6 +102,7 @@ public sealed partial class MainViewModel : ViewModelBase
         _newSaveSlotCommand = new RelayCommand(CreateNewSaveSlot);
         _newProfileCommand = new RelayCommand(StartNewProfile);
         _newCharacterCommand = new RelayCommand(() => _ = CreateNewCharacterAsync(), () => CanCreateCharacter);
+        _deleteProfilesCommand = new RelayCommand(DeleteAllProfiles, () => IsDev);
         _addSkillCommand = new RelayCommand(AddSkill, () => !string.IsNullOrWhiteSpace(SelectedAvailableSkill));
         _removeSkillCommand = new RelayCommand(RemoveSkill, () => SelectedSkill is not null);
         _addItemCommand = new RelayCommand(AddItem, () => !string.IsNullOrWhiteSpace(NewItemName));
@@ -104,6 +111,7 @@ public sealed partial class MainViewModel : ViewModelBase
         LoadBooks(booksDirectory);
         LoadSaveSlots();
         LoadProfiles();
+        ActiveTabIndex = 1;
     }
 
     public string BookTitle
@@ -141,6 +149,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public ObservableCollection<BookListItemViewModel> Books { get; }
     public ObservableCollection<ProfileOptionViewModel> Profiles { get; } = new();
     public ObservableCollection<CharacterOptionViewModel> Characters { get; } = new();
+    public ObservableCollection<SeriesFilterOptionViewModel> CharacterSeriesOptions { get; } = new();
     public ObservableCollection<StatEntryViewModel> CoreStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> CoreSkills { get; } = new();
     public ObservableCollection<StatEntryViewModel> AttributeStats { get; } = new();
@@ -158,6 +167,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public RelayCommand NewSaveSlotCommand => _newSaveSlotCommand;
     public RelayCommand NewProfileCommand => _newProfileCommand;
     public RelayCommand NewCharacterCommand => _newCharacterCommand;
+    public RelayCommand DeleteProfilesCommand => _deleteProfilesCommand;
     public RelayCommand AddSkillCommand => _addSkillCommand;
     public RelayCommand RemoveSkillCommand => _removeSkillCommand;
     public RelayCommand AddItemCommand => _addItemCommand;
@@ -167,6 +177,10 @@ public sealed partial class MainViewModel : ViewModelBase
     public bool HasAvailableSkills => AvailableSkills.Count > 0;
     public bool CanCreateCharacter => SelectedProfile is not null;
     public bool IsProfileSelected => SelectedProfile is not null;
+    public bool IsCharacterSeriesSelected => SelectedCharacterSeries is not null;
+    public bool HasBonusSkillPoints => BonusSkillPoints.HasValue;
+    public bool IsDev => _isDev;
+    public bool HasSelectedProfileAndSeries => SelectedProfile is not null && SelectedCharacterSeries is not null;
     public bool IsProfileReady
     {
         get => _isProfileReady;
@@ -180,6 +194,8 @@ public sealed partial class MainViewModel : ViewModelBase
             _isProfileReady = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(CharacterPanelTitle));
+            OnPropertyChanged(nameof(ActiveProfileLabel));
+            OnPropertyChanged(nameof(ActiveCharacterLabel));
             _newCharacterCommand.RaiseCanExecuteChanged();
         }
     }
@@ -197,6 +213,10 @@ public sealed partial class MainViewModel : ViewModelBase
             _selectedProfile = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(IsProfileSelected));
+            OnPropertyChanged(nameof(ActiveProfileLabel));
+            OnPropertyChanged(nameof(ActiveCharacterLabel));
+            OnPropertyChanged(nameof(IsCharacterSeriesSelected));
+            OnPropertyChanged(nameof(HasSelectedProfileAndSeries));
             _newCharacterCommand.RaiseCanExecuteChanged();
 
             if (_isUpdatingProfiles)
@@ -206,12 +226,16 @@ public sealed partial class MainViewModel : ViewModelBase
 
             if (_selectedProfile is null)
             {
+                ActiveTabIndex = 1;
                 SetProfileSetupRequired("Select a profile to continue.");
                 return;
             }
 
+            SelectedCharacterSeries = null;
             PersistActiveCharacterState();
             ApplySelectedProfile(_selectedProfile.Profile);
+            UpdateCharacterSeriesOptions(_selectedProfile.Profile, _state.SeriesId);
+            OnPropertyChanged(nameof(HasSelectedProfileAndSeries));
         }
     }
 
@@ -230,6 +254,97 @@ public sealed partial class MainViewModel : ViewModelBase
             }
 
             return _currentProfile.DefaultCharacterName;
+        }
+    }
+
+    public int? BonusSkillPoints
+    {
+        get
+        {
+            if (!_state.Character.Attributes.TryGetValue("CoreSkillPoolTotal", out var poolTotal)
+                || poolTotal <= 0)
+            {
+                return null;
+            }
+
+            var spent = _state.Character.CoreSkills.Values.Sum();
+            return Math.Max(0, poolTotal - spent);
+        }
+    }
+
+    public SeriesFilterOptionViewModel? SelectedCharacterSeries
+    {
+        get => _selectedCharacterSeries;
+        set
+        {
+            if (_selectedCharacterSeries == value)
+            {
+                return;
+            }
+
+            _selectedCharacterSeries = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(IsCharacterSeriesSelected));
+            OnPropertyChanged(nameof(HasSelectedProfileAndSeries));
+
+            if (_isUpdatingCharacters)
+            {
+                return;
+            }
+
+            if (_selectedProfile is null || _selectedCharacterSeries is null)
+            {
+                Characters.Clear();
+                SelectedCharacter = null;
+                return;
+            }
+
+            UpdateCharacterOptionsForProfile(_selectedProfile.Profile, seriesFilterId: _selectedCharacterSeries.Id);
+        }
+    }
+
+    public int ActiveTabIndex
+    {
+        get => _activeTabIndex;
+        set
+        {
+            if (_activeTabIndex == value)
+            {
+                return;
+            }
+
+            _activeTabIndex = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string ActiveProfileLabel
+    {
+        get
+        {
+            if (!IsProfileSelected || string.IsNullOrWhiteSpace(_state.Profile?.Name))
+            {
+                return "Profile: none selected";
+            }
+
+            return $"Profile: {_state.Profile.Name}";
+        }
+    }
+
+    public string ActiveCharacterLabel
+    {
+        get
+        {
+            if (!IsProfileReady)
+            {
+                return "Character: none selected";
+            }
+
+            var name = string.IsNullOrWhiteSpace(_state.Character.Name)
+                ? _currentProfile.DefaultCharacterName
+                : _state.Character.Name;
+
+            return $"Character: {name}";
         }
     }
 
@@ -480,6 +595,7 @@ public sealed partial class MainViewModel : ViewModelBase
                 return;
             }
 
+            var previousCharacter = _selectedCharacter;
             _selectedCharacter = value;
             OnPropertyChanged();
 
@@ -491,10 +607,32 @@ public sealed partial class MainViewModel : ViewModelBase
             if (!IsProfileReady)
             {
                 _ = LoadCharacterSelectionAsync(_selectedCharacter);
+                ActiveTabIndex = 0;
+                return;
+            }
+
+            var confirm = MessageBox.Show(
+                "Switching characters will save the current character and update the book view. Continue?",
+                "Switch Character",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+            if (confirm != MessageBoxResult.Yes)
+            {
+                _isUpdatingCharacters = true;
+                try
+                {
+                    _selectedCharacter = previousCharacter;
+                    OnPropertyChanged(nameof(SelectedCharacter));
+                }
+                finally
+                {
+                    _isUpdatingCharacters = false;
+                }
                 return;
             }
 
             _ = SwitchCharacterAsync(_selectedCharacter);
+            ActiveTabIndex = 0;
         }
     }
 }
