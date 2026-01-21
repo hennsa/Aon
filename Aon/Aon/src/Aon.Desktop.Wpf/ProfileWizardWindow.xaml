@@ -1,20 +1,22 @@
 <Window x:Class="Aon.Desktop.Wpf.ProfileWizardWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Profile Setup" Height="540" Width="520" WindowStartupLocation="CenterOwner">
+        Title="{Binding WindowTitle}" Height="540" Width="520" WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Window.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="16">
-            <TextBlock Text="{Binding SeriesName}" FontSize="20" FontWeight="SemiBold" Margin="0,0,0,12" />
+            <TextBlock Text="{Binding HeaderTitle}" FontSize="20" FontWeight="SemiBold" Margin="0,0,0,12" />
 
-            <TextBlock Text="Series" FontWeight="SemiBold" />
-            <ComboBox ItemsSource="{Binding SeriesOptions}"
-                      DisplayMemberPath="Name"
-                      SelectedItem="{Binding SelectedSeriesOption}"
-                      IsEnabled="{Binding IsSeriesSelectionEnabled}"
-                      Margin="0,4,0,12" />
+            <StackPanel Visibility="{Binding ShowSeriesSelection, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock Text="Series" FontWeight="SemiBold" />
+                <ComboBox ItemsSource="{Binding SeriesOptions}"
+                          DisplayMemberPath="Name"
+                          SelectedItem="{Binding SelectedSeriesOption}"
+                          IsEnabled="{Binding IsSeriesSelectionEnabled}"
+                          Margin="0,4,0,12" />
+            </StackPanel>
 
             <StackPanel Visibility="{Binding ShowExistingProfiles, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <TextBlock Text="Load Existing Profile" FontWeight="SemiBold" />
@@ -29,85 +31,87 @@
                      IsReadOnly="{Binding IsProfileNameReadOnly}"
                      Margin="0,4,0,12" />
 
-            <StackPanel Visibility="{Binding HasExistingCharacters, Converter={StaticResource BooleanToVisibilityConverter}}">
-                <TextBlock Text="Character" FontWeight="SemiBold" />
-                <ComboBox ItemsSource="{Binding ExistingCharacters}"
-                          DisplayMemberPath="DisplayName"
-                          SelectedItem="{Binding SelectedExistingCharacter}"
-                          Margin="0,4,0,12" />
-            </StackPanel>
-
-            <TextBlock Text="Character Name (optional)" FontWeight="SemiBold" />
-            <TextBox Text="{Binding CharacterName, UpdateSourceTrigger=PropertyChanged}"
-                     IsEnabled="{Binding IsCharacterCreationEnabled}"
-                     Margin="0,4,0,12" />
-
-            <TextBlock Text="Combat Skill" FontWeight="SemiBold" />
-            <StackPanel Orientation="Horizontal" Margin="0,4,0,12">
-                <TextBox Text="{Binding CombatSkill}" Width="80" Margin="0,0,8,0" IsEnabled="{Binding IsCharacterCreationEnabled}" />
-                <Button Content="Roll" Command="{Binding RollCombatSkillCommand}" Width="80" IsEnabled="{Binding IsCharacterCreationEnabled}" />
-            </StackPanel>
-
-            <TextBlock Text="Endurance" FontWeight="SemiBold" />
-            <StackPanel Orientation="Horizontal" Margin="0,4,0,12">
-                <TextBox Text="{Binding Endurance}" Width="80" Margin="0,0,8,0" IsEnabled="{Binding IsCharacterCreationEnabled}" />
-                <Button Content="Roll" Command="{Binding RollEnduranceCommand}" Width="80" IsEnabled="{Binding IsCharacterCreationEnabled}" />
-            </StackPanel>
-
-            <StackPanel Visibility="{Binding IsWillpowerAvailable, Converter={StaticResource BooleanToVisibilityConverter}}">
-                <TextBlock Text="Willpower" FontWeight="SemiBold" />
-                <StackPanel Orientation="Horizontal" Margin="0,4,0,12">
-                    <TextBox Text="{Binding Willpower}" Width="80" Margin="0,0,8,0" IsEnabled="{Binding IsCharacterCreationEnabled}" />
-                    <Button Content="Roll" Command="{Binding RollWillpowerCommand}" Width="80" IsEnabled="{Binding IsCharacterCreationEnabled}" />
+            <StackPanel Visibility="{Binding ShowCharacterSection, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <StackPanel Visibility="{Binding HasExistingCharacters, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <TextBlock Text="Character" FontWeight="SemiBold" />
+                    <ComboBox ItemsSource="{Binding ExistingCharacters}"
+                              DisplayMemberPath="DisplayName"
+                              SelectedItem="{Binding SelectedExistingCharacter}"
+                              Margin="0,4,0,12" />
                 </StackPanel>
-            </StackPanel>
 
-            <StackPanel Visibility="{Binding HasSkillSelection, Converter={StaticResource BooleanToVisibilityConverter}}"
-                        IsEnabled="{Binding IsCharacterCreationEnabled}">
-                <TextBlock Text="{Binding SkillSelectionTitle}" FontWeight="SemiBold" />
-                <TextBlock Text="{Binding SelectionStatus}" Foreground="#666666" Margin="0,2,0,8" />
-                <ItemsControl ItemsSource="{Binding Skills}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsSelected}" Margin="0,0,0,4" />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
+                <TextBlock Text="Character Name (optional)" FontWeight="SemiBold" />
+                <TextBox Text="{Binding CharacterName, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="{Binding IsCharacterCreationEnabled}"
+                         Margin="0,4,0,12" />
 
-            <StackPanel Visibility="{Binding HasCoreSkills, Converter={StaticResource BooleanToVisibilityConverter}}"
-                        IsEnabled="{Binding IsCharacterCreationEnabled}">
-                <TextBlock Text="Core Skills" FontWeight="SemiBold" Margin="0,8,0,0" />
-                <TextBlock Text="Bonus Skill Points" FontWeight="SemiBold" Margin="0,4,0,0" />
-                <TextBox Text="{Binding BonusSkillPoints}" Width="80" Margin="0,4,0,6" />
-                <TextBlock Text="{Binding RemainingCoreSkillPoints, StringFormat=Remaining points: {0}}" Foreground="#666666" Margin="0,0,0,8" />
-                <ItemsControl ItemsSource="{Binding CoreSkills}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
-                                <TextBlock Text="{Binding Label}" Width="140" VerticalAlignment="Center" />
-                                <Button Content="-" Command="{Binding DecreaseCommand}" Width="24" Margin="0,0,6,0" />
-                                <TextBlock Text="{Binding Value}" Width="40" TextAlignment="Center" VerticalAlignment="Center" />
-                                <Button Content="+" Command="{Binding IncreaseCommand}" Width="24" Margin="6,0,0,0" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
+                <TextBlock Text="Combat Skill" FontWeight="SemiBold" />
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,12">
+                    <TextBox Text="{Binding CombatSkill}" Width="80" Margin="0,0,8,0" IsEnabled="{Binding IsCharacterCreationEnabled}" />
+                    <Button Content="Roll" Command="{Binding RollCombatSkillCommand}" Width="80" IsEnabled="{Binding IsCharacterCreationEnabled}" />
+                </StackPanel>
 
-            <StackPanel Visibility="{Binding HasCounters, Converter={StaticResource BooleanToVisibilityConverter}}"
-                        IsEnabled="{Binding IsCharacterCreationEnabled}">
-                <TextBlock Text="Inventory Counters" FontWeight="SemiBold" Margin="0,8,0,0" />
-                <ItemsControl ItemsSource="{Binding Counters}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
-                                <TextBlock Text="{Binding Name}" Width="140" VerticalAlignment="Center" />
-                                <TextBox Text="{Binding Value}" Width="80" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                <TextBlock Text="Endurance" FontWeight="SemiBold" />
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,12">
+                    <TextBox Text="{Binding Endurance}" Width="80" Margin="0,0,8,0" IsEnabled="{Binding IsCharacterCreationEnabled}" />
+                    <Button Content="Roll" Command="{Binding RollEnduranceCommand}" Width="80" IsEnabled="{Binding IsCharacterCreationEnabled}" />
+                </StackPanel>
+
+                <StackPanel Visibility="{Binding IsWillpowerAvailable, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <TextBlock Text="Willpower" FontWeight="SemiBold" />
+                    <StackPanel Orientation="Horizontal" Margin="0,4,0,12">
+                        <TextBox Text="{Binding Willpower}" Width="80" Margin="0,0,8,0" IsEnabled="{Binding IsCharacterCreationEnabled}" />
+                        <Button Content="Roll" Command="{Binding RollWillpowerCommand}" Width="80" IsEnabled="{Binding IsCharacterCreationEnabled}" />
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Visibility="{Binding HasSkillSelection, Converter={StaticResource BooleanToVisibilityConverter}}"
+                            IsEnabled="{Binding IsCharacterCreationEnabled}">
+                    <TextBlock Text="{Binding SkillSelectionTitle}" FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding SelectionStatus}" Foreground="#666666" Margin="0,2,0,8" />
+                    <ItemsControl ItemsSource="{Binding Skills}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Name}" IsChecked="{Binding IsSelected}" Margin="0,0,0,4" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+
+                <StackPanel Visibility="{Binding HasCoreSkills, Converter={StaticResource BooleanToVisibilityConverter}}"
+                            IsEnabled="{Binding IsCharacterCreationEnabled}">
+                    <TextBlock Text="Core Skills" FontWeight="SemiBold" Margin="0,8,0,0" />
+                    <TextBlock Text="Bonus Skill Points" FontWeight="SemiBold" Margin="0,4,0,0" />
+                    <TextBox Text="{Binding BonusSkillPoints}" Width="80" Margin="0,4,0,6" />
+                    <TextBlock Text="{Binding RemainingCoreSkillPoints, StringFormat=Remaining points: {0}}" Foreground="#666666" Margin="0,0,0,8" />
+                    <ItemsControl ItemsSource="{Binding CoreSkills}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                                    <TextBlock Text="{Binding Label}" Width="140" VerticalAlignment="Center" />
+                                    <Button Content="-" Command="{Binding DecreaseCommand}" Width="24" Margin="0,0,6,0" />
+                                    <TextBlock Text="{Binding Value}" Width="40" TextAlignment="Center" VerticalAlignment="Center" />
+                                    <Button Content="+" Command="{Binding IncreaseCommand}" Width="24" Margin="6,0,0,0" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+
+                <StackPanel Visibility="{Binding HasCounters, Converter={StaticResource BooleanToVisibilityConverter}}"
+                            IsEnabled="{Binding IsCharacterCreationEnabled}">
+                    <TextBlock Text="Inventory Counters" FontWeight="SemiBold" Margin="0,8,0,0" />
+                    <ItemsControl ItemsSource="{Binding Counters}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                                    <TextBlock Text="{Binding Name}" Width="140" VerticalAlignment="Center" />
+                                    <TextBox Text="{Binding Value}" Width="80" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
