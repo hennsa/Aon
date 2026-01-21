@@ -398,7 +398,7 @@ public sealed partial class MainViewModel
 
     private void UpdateSuggestedActions(BookSection section)
     {
-        SuggestedActions.Clear();
+        ResetSuggestedActions();
         if (_currentProfile is null)
         {
             return;
@@ -412,17 +412,55 @@ public sealed partial class MainViewModel
 
         foreach (var counter in _currentProfile.DefaultCounters.Keys)
         {
-            var amount = GetCounterAmountFromText(text, counter);
-            if (amount <= 0)
+            var counterPattern = GetCounterPattern(counter);
+            var addAmount = GetCounterAmountFromText(text, counterPattern, CounterAddVerbPattern);
+            if (addAmount > 0)
             {
-                continue;
+                var label = $"Add {addAmount} {counter}";
+                SuggestedActions.Add(new QuickActionViewModel(label, () =>
+                {
+                    var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
+                    _state.Character.Inventory.Counters[counter] = current + addAmount;
+                    RefreshCharacterPanels();
+                    _ = SaveProfileStateAsync();
+                }));
             }
 
-            var label = $"Add {amount} {counter}";
-            SuggestedActions.Add(new QuickActionViewModel(label, () =>
+            var removeAmount = GetCounterAmountFromText(text, counterPattern, CounterRemoveVerbPattern);
+            if (removeAmount > 0)
             {
-                var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
-                _state.Character.Inventory.Counters[counter] = current + amount;
+                var label = $"Remove {removeAmount} {counter}";
+                SuggestedActions.Add(new QuickActionViewModel(label, () =>
+                {
+                    var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
+                    _state.Character.Inventory.Counters[counter] = Math.Max(0, current - removeAmount);
+                    RefreshCharacterPanels();
+                    _ = SaveProfileStateAsync();
+                }));
+            }
+
+            if (addAmount == 0)
+            {
+                var listedAmount = GetCounterAmountFromItemLists(text, counterPattern);
+                if (listedAmount > 0)
+                {
+                    var label = $"Add {listedAmount} {counter}";
+                    SuggestedActions.Add(new QuickActionViewModel(label, () =>
+                    {
+                        var current = _state.Character.Inventory.Counters.GetValueOrDefault(counter, 0);
+                        _state.Character.Inventory.Counters[counter] = current + listedAmount;
+                        RefreshCharacterPanels();
+                        _ = SaveProfileStateAsync();
+                    }));
+                }
+            }
+        }
+
+        foreach (var enduranceAction in GetEnduranceActions(text))
+        {
+            SuggestedActions.Add(new QuickActionViewModel(enduranceAction.Label, () =>
+            {
+                _state.Character.Endurance = Math.Max(0, _state.Character.Endurance + enduranceAction.Delta);
                 RefreshCharacterPanels();
                 _ = SaveProfileStateAsync();
             }));
@@ -447,18 +485,136 @@ public sealed partial class MainViewModel
                 _ = SaveProfileStateAsync();
             }));
         }
+
+        OnPropertyChanged(nameof(HasSuggestedActions));
     }
 
-    private static int GetCounterAmountFromText(string text, string counterName)
+    private const string CounterAddVerbPattern = "\\b(?:gain|take|acquire|find|receive|collect|pick\\s+up|earn|get|claim|discover|loot)\\b";
+    private const string CounterRemoveVerbPattern = "\\b(?:lose|spend|use|fire|eat|drink|pay|discard|give|deduct|remove|subtract|consume|erase|cross\\s+off|tick\\s+off)\\b";
+    private const string NumberWordPattern = "one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve";
+    private static readonly Dictionary<string, int> NumberWords = new(StringComparer.OrdinalIgnoreCase)
     {
-        var escaped = Regex.Escape(counterName);
-        var match = Regex.Match(text, $"(?<value>\\d+)\\s+{escaped}\\b", RegexOptions.IgnoreCase);
-        if (!match.Success)
+        ["one"] = 1,
+        ["two"] = 2,
+        ["three"] = 3,
+        ["four"] = 4,
+        ["five"] = 5,
+        ["six"] = 6,
+        ["seven"] = 7,
+        ["eight"] = 8,
+        ["nine"] = 9,
+        ["ten"] = 10,
+        ["eleven"] = 11,
+        ["twelve"] = 12
+    };
+
+    private static int GetCounterAmountFromText(string text, string counterPattern, string verbPattern)
+    {
+        var matches = Regex.Matches(text, $"{verbPattern}[^.]*?(?<value>\\d+|{NumberWordPattern})\\s+{counterPattern}\\b", RegexOptions.IgnoreCase);
+        var total = 0;
+        foreach (Match match in matches)
+        {
+            if (TryParseQuantity(match.Groups["value"].Value, out var value))
+            {
+                total += value;
+            }
+        }
+
+        return total;
+    }
+
+    private int GetCounterAmountFromItemLists(string text, string counterPattern)
+    {
+        var lines = text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+        if (lines.Length == 0)
         {
             return 0;
         }
 
-        return int.TryParse(match.Groups["value"].Value, out var value) ? value : 0;
+        var total = 0;
+        foreach (var line in lines)
+        {
+            if (!Regex.IsMatch(line, counterPattern, RegexOptions.IgnoreCase))
+            {
+                continue;
+            }
+
+            if (!Regex.IsMatch(line, $"^\\s*(\\d+|{NumberWordPattern})\\b", RegexOptions.IgnoreCase)
+                && !Regex.IsMatch(line, $"\\((?:[^)]*?)({NumberWordPattern}|\\d+)[^)]*?\\)", RegexOptions.IgnoreCase))
+            {
+                continue;
+            }
+
+            var matches = Regex.Matches(line, $"(?<value>\\d+|{NumberWordPattern})\\s+[^.]*?{counterPattern}\\b", RegexOptions.IgnoreCase);
+            foreach (Match match in matches)
+            {
+                if (TryParseQuantity(match.Groups["value"].Value, out var value))
+                {
+                    total += value;
+                }
+            }
+        }
+
+        return total;
+    }
+
+    private IEnumerable<(string Label, int Delta)> GetEnduranceActions(string text)
+    {
+        var actions = new List<(string Label, int Delta)>();
+        var loseMatches = Regex.Matches(text, $"\\b(?:lose|loses|lost|deduct|reduce|suffer)\\s+(?<value>\\d+|{NumberWordPattern})\\s+endurance\\b", RegexOptions.IgnoreCase);
+        foreach (Match match in loseMatches)
+        {
+            if (TryParseQuantity(match.Groups["value"].Value, out var value))
+            {
+                actions.Add(($"Lose {value} Endurance", -value));
+            }
+        }
+
+        var gainMatches = Regex.Matches(text, $"\\b(?:gain|gains|restore|restores|recover|recovers|increase|increases)\\s+(?<value>\\d+|{NumberWordPattern})\\s+endurance\\b", RegexOptions.IgnoreCase);
+        foreach (Match match in gainMatches)
+        {
+            if (TryParseQuantity(match.Groups["value"].Value, out var value))
+            {
+                actions.Add(($"Gain {value} Endurance", value));
+            }
+        }
+
+        return actions;
+    }
+
+    private bool TryParseQuantity(string raw, out int value)
+    {
+        if (int.TryParse(raw, out value))
+        {
+            return true;
+        }
+
+        return NumberWords.TryGetValue(raw, out value);
+    }
+
+    private string GetCounterPattern(string counterName)
+    {
+        if (string.Equals(counterName, "Bullets", StringComparison.OrdinalIgnoreCase))
+        {
+            return "(?:bullets?|rounds?|ammo|ammunition|9mm|7\\.62mm|12-?gauge|shotgun\\s+shells?)";
+        }
+
+        if (string.Equals(counterName, "Fuel", StringComparison.OrdinalIgnoreCase))
+        {
+            return "(?:fuel|gasoline|gas|petrol)";
+        }
+
+        if (string.Equals(counterName, "Meals", StringComparison.OrdinalIgnoreCase))
+        {
+            return "(?:meals?|food)";
+        }
+
+        if (string.Equals(counterName, "Gold Crowns", StringComparison.OrdinalIgnoreCase))
+        {
+            return "(?:gold(?:\\s+crowns?)?|crowns?)";
+        }
+
+        return Regex.Escape(counterName);
     }
 
     private static bool IsSkillSuggested(string text, string skillName)

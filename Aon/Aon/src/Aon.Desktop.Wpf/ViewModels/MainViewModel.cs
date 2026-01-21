@@ -181,6 +181,14 @@ public sealed partial class MainViewModel : ViewModelBase
     public bool HasBonusSkillPoints => BonusSkillPoints.HasValue;
     public bool IsDev => _isDev;
     public bool HasSelectedProfileAndSeries => SelectedProfile is not null && SelectedCharacterSeries is not null;
+    public bool HasSuggestedActions => SuggestedActions.Count > 0;
+    public string InventoryLabel => _currentProfile.InventoryLabel;
+
+    private void ResetSuggestedActions()
+    {
+        SuggestedActions.Clear();
+        OnPropertyChanged(nameof(HasSuggestedActions));
+    }
     public bool IsProfileReady
     {
         get => _isProfileReady;

@@ -231,7 +231,7 @@ public sealed partial class MainViewModel
         Blocks.Clear();
         Choices.Clear();
         ResetRandomNumberState();
-        SuggestedActions.Clear();
+        ResetSuggestedActions();
         AreChoicesVisible = false;
         SelectedBook = null;
         UpdateBookProgressIndicators();
@@ -310,7 +310,7 @@ public sealed partial class MainViewModel
         Choices.Clear();
         var command = new RelayCommand(continueAction);
         Choices.Add(new ChoiceViewModel("Continue", command, true));
-        SuggestedActions.Clear();
+        ResetSuggestedActions();
         ResetRandomNumberState();
         AreChoicesVisible = true;
     }

@@ -4,6 +4,7 @@ public interface ISeriesProfile
 {
     string Name { get; }
     string DefaultCharacterName { get; }
+    string InventoryLabel { get; }
     IReadOnlyDictionary<string, int> CoreSkills { get; }
     IReadOnlyList<string> SkillNames { get; }
     IReadOnlyDictionary<string, int> DefaultCounters { get; }
@@ -21,6 +22,7 @@ internal sealed class LoneWolfProfile : ISeriesProfile
 {
     public string Name => "Lone Wolf";
     public string DefaultCharacterName => "Lone Wolf";
+    public string InventoryLabel => "Backpack";
     public IReadOnlyDictionary<string, int> CoreSkills { get; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
     public IReadOnlyList<string> SkillNames { get; } = new[]
     {
@@ -49,6 +51,7 @@ internal sealed class GreyStarProfile : ISeriesProfile
 {
     public string Name => "Grey Star";
     public string DefaultCharacterName => "Grey Star";
+    public string InventoryLabel => "Backpack";
     public IReadOnlyDictionary<string, int> CoreSkills { get; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
     public IReadOnlyList<string> SkillNames { get; } = new[]
     {
@@ -73,6 +76,7 @@ internal sealed class FreewayWarriorProfile : ISeriesProfile
 {
     public string Name => "Freeway Warrior";
     public string DefaultCharacterName => "Cal Phoenix";
+    public string InventoryLabel => "Backpack";
     public IReadOnlyDictionary<string, int> CoreSkills { get; } = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
     {
         ["Driving"] = 3,

@@ -100,7 +100,7 @@
 
                 <StackPanel Visibility="{Binding HasCounters, Converter={StaticResource BooleanToVisibilityConverter}}"
                             IsEnabled="{Binding IsCharacterCreationEnabled}">
-                    <TextBlock Text="Inventory Counters" FontWeight="SemiBold" Margin="0,8,0,0" />
+                    <TextBlock Text="{Binding InventoryLabel}" FontWeight="SemiBold" Margin="0,8,0,0" />
                     <ItemsControl ItemsSource="{Binding Counters}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
