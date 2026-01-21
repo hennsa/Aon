@@ -13,5 +13,5 @@ public sealed class RuleContext
     public Character Character => GameState.Character;
     public Inventory Inventory => GameState.Character.Inventory;
     public Dictionary<string, int> Counters => GameState.Character.Inventory.Counters;
-    public Dictionary<string, string> Flags { get; } = new(StringComparer.OrdinalIgnoreCase);
+    public Dictionary<string, string> Flags => GameState.Flags;
 }

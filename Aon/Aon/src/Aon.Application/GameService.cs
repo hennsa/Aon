@@ -44,12 +44,27 @@ public sealed class GameService
 
     public async Task<BookSection?> ApplyChoiceAsync(GameState state, Choice choice, CancellationToken cancellationToken = default)
     {
+        ArgumentNullException.ThrowIfNull(state);
+        ArgumentNullException.ThrowIfNull(choice);
+
         var book = await _bookRepository.GetBookAsync(state.BookId, cancellationToken);
         var section = book.Sections.FirstOrDefault(item => item.Id == choice.TargetId);
         if (section is null)
         {
             return null;
         }
+
+        var context = new RuleContext(state);
+        var evaluation = _rulesEngine.EvaluateChoice(choice, context);
+        if (!evaluation.IsAvailable)
+        {
+            return null;
+        }
+
+        var effects = choice.Effects
+            .Select(EffectParser.Parse)
+            .ToList();
+        _rulesEngine.ApplyEffects(effects, context);
 
         state.SectionId = section.Id;
         return section;
