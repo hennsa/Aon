@@ -1470,9 +1470,9 @@ public sealed class MainViewModel : ViewModelBase
         out ProfileWizardResult result)
     {
         var existingProfiles = LoadExistingProfiles();
-        if (string.IsNullOrWhiteSpace(initialSeriesId) && selectedProfile is not null)
+        if (string.IsNullOrWhiteSpace(initialSeriesId) && selectedProfileArg is not null)
         {
-            initialSeriesId = ResolvePreferredSeriesId(selectedProfile);
+            initialSeriesId = ResolvePreferredSeriesId(selectedProfileArg);
         }
 
         var viewModel = new ProfileWizardViewModel(
