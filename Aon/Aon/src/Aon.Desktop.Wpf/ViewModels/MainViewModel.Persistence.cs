@@ -47,6 +47,39 @@ public sealed partial class MainViewModel
         SaveSlot = slot;
     }
 
+    private void DeleteAllProfiles()
+    {
+        var confirm = MessageBox.Show(
+            "Delete all saved profiles? This will remove all save files and cannot be undone.",
+            "Delete Profiles",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Warning);
+
+        if (confirm != MessageBoxResult.Yes)
+        {
+            return;
+        }
+
+        if (Directory.Exists(_saveDirectory))
+        {
+            foreach (var file in Directory.EnumerateFiles(_saveDirectory, "*.json"))
+            {
+                try
+                {
+                    File.Delete(file);
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
+            }
+        }
+
+        ResetToStartState();
+        LoadSaveSlots();
+        LoadProfiles();
+    }
+
     private async Task LoadGameAsync()
     {
         var slot = NormalizeSaveSlot();
@@ -76,6 +109,31 @@ public sealed partial class MainViewModel
         if (section is not null)
         {
             UpdateSection(section);
+        }
+    }
+
+    private sealed class DevSettings
+    {
+        public bool IsDev { get; set; }
+    }
+
+    private bool LoadDevSettings()
+    {
+        var settingsPath = Path.Combine(AppContext.BaseDirectory, "appsettings.json");
+        if (!File.Exists(settingsPath))
+        {
+            return false;
+        }
+
+        try
+        {
+            var json = File.ReadAllText(settingsPath);
+            var settings = JsonSerializer.Deserialize<DevSettings>(json);
+            return settings?.IsDev ?? false;
+        }
+        catch (Exception)
+        {
+            return false;
         }
     }
 

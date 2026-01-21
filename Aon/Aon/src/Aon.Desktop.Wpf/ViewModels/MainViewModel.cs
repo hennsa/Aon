@@ -30,6 +30,7 @@ public sealed partial class MainViewModel : ViewModelBase
     private readonly RelayCommand _newSaveSlotCommand;
     private readonly RelayCommand _newProfileCommand;
     private readonly RelayCommand _newCharacterCommand;
+    private readonly RelayCommand _deleteProfilesCommand;
     private readonly RelayCommand _addSkillCommand;
     private readonly RelayCommand _removeSkillCommand;
     private readonly RelayCommand _addItemCommand;
@@ -39,6 +40,7 @@ public sealed partial class MainViewModel : ViewModelBase
     private readonly List<RandomNumberChoice> _randomNumberChoices = new();
     private readonly Queue<int> _recentRolls = new();
     private readonly string _saveDirectory;
+    private readonly bool _isDev;
     private const string CharacterNameToken = "{{characterName}}";
     private ISeriesProfile _currentProfile = SeriesProfiles.LoneWolf;
     private CharacterProfileState? _currentCharacterState;
@@ -78,6 +80,7 @@ public sealed partial class MainViewModel : ViewModelBase
     {
         var booksDirectory = FindBooksDirectory();
         _saveDirectory = GetSaveDirectory();
+        _isDev = LoadDevSettings();
         _bookRepository = new JsonBookRepository(booksDirectory);
         _gameService = new GameService(
             _bookRepository,
@@ -99,6 +102,7 @@ public sealed partial class MainViewModel : ViewModelBase
         _newSaveSlotCommand = new RelayCommand(CreateNewSaveSlot);
         _newProfileCommand = new RelayCommand(StartNewProfile);
         _newCharacterCommand = new RelayCommand(() => _ = CreateNewCharacterAsync(), () => CanCreateCharacter);
+        _deleteProfilesCommand = new RelayCommand(DeleteAllProfiles, () => IsDev);
         _addSkillCommand = new RelayCommand(AddSkill, () => !string.IsNullOrWhiteSpace(SelectedAvailableSkill));
         _removeSkillCommand = new RelayCommand(RemoveSkill, () => SelectedSkill is not null);
         _addItemCommand = new RelayCommand(AddItem, () => !string.IsNullOrWhiteSpace(NewItemName));
@@ -163,6 +167,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public RelayCommand NewSaveSlotCommand => _newSaveSlotCommand;
     public RelayCommand NewProfileCommand => _newProfileCommand;
     public RelayCommand NewCharacterCommand => _newCharacterCommand;
+    public RelayCommand DeleteProfilesCommand => _deleteProfilesCommand;
     public RelayCommand AddSkillCommand => _addSkillCommand;
     public RelayCommand RemoveSkillCommand => _removeSkillCommand;
     public RelayCommand AddItemCommand => _addItemCommand;
@@ -174,6 +179,8 @@ public sealed partial class MainViewModel : ViewModelBase
     public bool IsProfileSelected => SelectedProfile is not null;
     public bool IsCharacterSeriesSelected => SelectedCharacterSeries is not null;
     public bool HasBonusSkillPoints => BonusSkillPoints.HasValue;
+    public bool IsDev => _isDev;
+    public bool HasSelectedProfileAndSeries => SelectedProfile is not null && SelectedCharacterSeries is not null;
     public bool IsProfileReady
     {
         get => _isProfileReady;
@@ -209,6 +216,7 @@ public sealed partial class MainViewModel : ViewModelBase
             OnPropertyChanged(nameof(ActiveProfileLabel));
             OnPropertyChanged(nameof(ActiveCharacterLabel));
             OnPropertyChanged(nameof(IsCharacterSeriesSelected));
+            OnPropertyChanged(nameof(HasSelectedProfileAndSeries));
             _newCharacterCommand.RaiseCanExecuteChanged();
 
             if (_isUpdatingProfiles)
@@ -223,9 +231,11 @@ public sealed partial class MainViewModel : ViewModelBase
                 return;
             }
 
+            SelectedCharacterSeries = null;
             PersistActiveCharacterState();
             ApplySelectedProfile(_selectedProfile.Profile);
             UpdateCharacterSeriesOptions(_selectedProfile.Profile, _state.SeriesId);
+            OnPropertyChanged(nameof(HasSelectedProfileAndSeries));
         }
     }
 
@@ -275,6 +285,7 @@ public sealed partial class MainViewModel : ViewModelBase
             _selectedCharacterSeries = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(IsCharacterSeriesSelected));
+            OnPropertyChanged(nameof(HasSelectedProfileAndSeries));
 
             if (_isUpdatingCharacters)
             {

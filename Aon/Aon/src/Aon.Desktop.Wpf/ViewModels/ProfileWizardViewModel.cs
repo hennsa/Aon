@@ -165,7 +165,7 @@ public sealed class ProfileWizardViewModel : ViewModelBase
     public bool IsProfileNameReadOnly => !IsProfileSelectionEnabled;
     public bool IsCharacterWizard => _mode == ProfileWizardMode.Character;
     public bool IsProfileWizard => _mode == ProfileWizardMode.Profile;
-    public bool ShowSeriesSelection => IsCharacterWizard;
+    public bool ShowSeriesSelection => IsCharacterWizard && IsSeriesSelectionEnabled;
     public bool ShowCharacterSection => IsCharacterWizard;
     public string WindowTitle => IsProfileWizard ? "Profile Setup" : "Character Setup";
     public string HeaderTitle => IsProfileWizard ? "Profile Details" : SeriesName;

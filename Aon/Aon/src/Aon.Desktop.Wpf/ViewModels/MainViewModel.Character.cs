@@ -114,13 +114,33 @@ public sealed partial class MainViewModel
         foreach (var seriesEntry in profile.SeriesStates.OrderBy(entry => ResolveSeriesSortOrder(entry.Key)))
         {
             var seriesId = seriesEntry.Key;
+            var seriesState = seriesEntry.Value;
+            if (seriesState.Characters.Count == 0 && HasLegacyCharacterData(seriesState.Character))
+            {
+                var seriesProfile = ResolveSeriesProfile(seriesId);
+                var legacyName = string.IsNullOrWhiteSpace(seriesState.Character.Name)
+                    ? seriesProfile.DefaultCharacterName
+                    : seriesState.Character.Name;
+                if (string.IsNullOrWhiteSpace(seriesState.Character.Name))
+                {
+                    seriesState.Character.Name = legacyName;
+                }
+                seriesState.Characters[legacyName] = new CharacterProfileState
+                {
+                    Character = seriesState.Character
+                };
+                if (string.IsNullOrWhiteSpace(seriesState.ActiveCharacterName))
+                {
+                    seriesState.ActiveCharacterName = legacyName;
+                }
+            }
             if (!string.IsNullOrWhiteSpace(seriesFilterId)
                 && !string.Equals(seriesFilterId, seriesId, StringComparison.OrdinalIgnoreCase))
             {
                 continue;
             }
             var seriesName = ResolveSeriesName(seriesId);
-            foreach (var entry in seriesEntry.Value.Characters.Values
+            foreach (var entry in seriesState.Characters.Values
                          .Where(state => !string.IsNullOrWhiteSpace(state.Character.Name))
                          .OrderBy(state => state.Character.Name, StringComparer.OrdinalIgnoreCase))
             {
