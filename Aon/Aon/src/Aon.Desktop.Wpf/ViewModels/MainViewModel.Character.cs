@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Aon.Content;
+using Aon.Core;
 using Aon.Rules;
 
 namespace Aon.Desktop.Wpf.ViewModels;
@@ -435,6 +437,21 @@ public sealed partial class MainViewModel
             }));
         }
 
+        foreach (var item in ExtractItemSuggestions(section))
+        {
+            if (_state.Character.Inventory.Items.Any(existing => existing.Name.Equals(item, StringComparison.OrdinalIgnoreCase)))
+            {
+                continue;
+            }
+
+            SuggestedActions.Add(new QuickActionViewModel($"Add item: {item}", () =>
+            {
+                _state.Character.Inventory.Items.Add(new Item(item, "general"));
+                RefreshCharacterPanels();
+                _ = SaveProfileStateAsync();
+            }));
+        }
+
         OnPropertyChanged(nameof(HasSuggestedActions));
     }
 
@@ -470,5 +487,86 @@ public sealed partial class MainViewModel
             UnsupportedEffect => null,
             _ => null
         };
+    }
+
+    private static IEnumerable<string> ExtractItemSuggestions(BookSection section)
+    {
+        var items = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        foreach (var block in section.Blocks)
+        {
+            if (string.IsNullOrWhiteSpace(block.Text))
+            {
+                continue;
+            }
+
+            if (string.Equals(block.Kind, "ul", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(block.Kind, "ol", StringComparison.OrdinalIgnoreCase))
+            {
+                foreach (var entry in block.Text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    var item = NormalizeItemText(entry);
+                    if (!string.IsNullOrWhiteSpace(item))
+                    {
+                        items.Add(item);
+                    }
+                }
+
+                continue;
+            }
+
+            foreach (Match match in Regex.Matches(
+                block.Text,
+                "\\bitems? you (?:find|found|discover|discovered|notice|noticed|spot|spotted|locate|located)[^.]*? are (?<items>[^.]+)",
+                RegexOptions.IgnoreCase))
+            {
+                foreach (var item in SplitItemList(match.Groups["items"].Value))
+                {
+                    if (!string.IsNullOrWhiteSpace(item))
+                    {
+                        items.Add(item);
+                    }
+                }
+            }
+        }
+
+        return items;
+    }
+
+    private static IEnumerable<string> SplitItemList(string text)
+    {
+        var parts = text.Split(new[] { ",", " and " }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        foreach (var part in parts)
+        {
+            var item = NormalizeItemText(part);
+            if (!string.IsNullOrWhiteSpace(item))
+            {
+                yield return item;
+            }
+        }
+    }
+
+    private static string NormalizeItemText(string raw)
+    {
+        var trimmed = raw.Trim();
+        if (string.IsNullOrWhiteSpace(trimmed))
+        {
+            return string.Empty;
+        }
+
+        trimmed = Regex.Replace(trimmed, "^\\d+\\.\\s*", string.Empty);
+        trimmed = Regex.Replace(trimmed, "^(?:a|an|the)\\s+", string.Empty, RegexOptions.IgnoreCase);
+
+        foreach (var separator in new[] { " (", " with ", " containing ", " sufficient for ", " that ", " which " })
+        {
+            var index = trimmed.IndexOf(separator, StringComparison.OrdinalIgnoreCase);
+            if (index > 0)
+            {
+                trimmed = trimmed[..index];
+                break;
+            }
+        }
+
+        return trimmed.Trim();
     }
 }
