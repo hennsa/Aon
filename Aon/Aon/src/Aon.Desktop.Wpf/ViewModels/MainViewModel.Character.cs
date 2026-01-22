@@ -569,6 +569,6 @@ public sealed partial class MainViewModel
             }
         }
 
-        return trimmed.Trim();
+        return trimmed.Trim().TrimEnd('.', ';', ':');
     }
 }
