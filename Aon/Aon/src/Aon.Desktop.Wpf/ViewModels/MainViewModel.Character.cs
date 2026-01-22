@@ -439,16 +439,21 @@ public sealed partial class MainViewModel
             }));
         }
 
-        foreach (var item in ExtractItemSuggestions(section))
+        foreach (var suggestion in ExtractItemSuggestions(section))
         {
-            if (_state.Character.Inventory.Items.Any(existing => existing.Name.Equals(item, StringComparison.OrdinalIgnoreCase)))
+            if (_state.Character.Inventory.Items.Any(existing =>
+                    existing.Name.Equals(suggestion.Name, StringComparison.OrdinalIgnoreCase)
+                    && existing.Category.Equals(suggestion.Category, StringComparison.OrdinalIgnoreCase)))
             {
                 continue;
             }
 
-            SuggestedActions.Add(new QuickActionViewModel($"Add item: {item}", () =>
+            var labelPrefix = suggestion.Category.Equals("weapon", StringComparison.OrdinalIgnoreCase)
+                ? "Add weapon"
+                : "Add item";
+            SuggestedActions.Add(new QuickActionViewModel($"{labelPrefix}: {suggestion.Name}", () =>
             {
-                _state.Character.Inventory.Items.Add(new Item(item, "general"));
+                _state.Character.Inventory.Items.Add(new Item(suggestion.Name, suggestion.Category));
                 RefreshCharacterPanels();
                 _ = SaveProfileStateAsync();
             }));
@@ -491,9 +496,9 @@ public sealed partial class MainViewModel
         };
     }
 
-    private static IEnumerable<string> ExtractItemSuggestions(BookSection section)
+    private static IEnumerable<ItemSuggestion> ExtractItemSuggestions(BookSection section)
     {
-        var items = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        var items = new Dictionary<string, ItemSuggestion>(StringComparer.OrdinalIgnoreCase);
 
         foreach (var block in section.Blocks)
         {
@@ -510,7 +515,7 @@ public sealed partial class MainViewModel
                     var item = NormalizeItemText(entry);
                     if (!string.IsNullOrWhiteSpace(item))
                     {
-                        items.Add(item);
+                        AddSuggestion(items, item, InferItemCategory(item, block.Text));
                     }
                 }
 
@@ -519,23 +524,47 @@ public sealed partial class MainViewModel
 
             foreach (Match match in Regex.Matches(
                 block.Text,
+                "\\b(?:it is|it was|you (?:find|found|discover|discovered|notice|noticed|spot|spotted|locate|located|pick up|take))\\s+(?:an?|the)\\s+(?<item>[^.]+)",
+                RegexOptions.IgnoreCase))
+            {
+                var item = NormalizeItemText(match.Groups["item"].Value);
+                if (!string.IsNullOrWhiteSpace(item))
+                {
+                    AddSuggestion(items, item, InferItemCategory(item, block.Text));
+                }
+            }
+
+            foreach (Match match in Regex.Matches(
+                block.Text,
+                "\\b(?<item>[A-Z][A-Za-z0-9'’\\- ]+\\(\\d+\\))",
+                RegexOptions.IgnoreCase))
+            {
+                var item = NormalizeItemText(match.Groups["item"].Value);
+                if (!string.IsNullOrWhiteSpace(item))
+                {
+                    AddSuggestion(items, item, "weapon");
+                }
+            }
+
+            foreach (Match match in Regex.Matches(
+                block.Text,
                 "\\bitems? you (?:find|found|discover|discovered|notice|noticed|spot|spotted|locate|located)[^.]*? are (?<items>[^.]+)",
                 RegexOptions.IgnoreCase))
             {
-                foreach (var item in SplitItemList(match.Groups["items"].Value))
+                foreach (var item in SplitItemList(match.Groups["items"].Value, block.Text))
                 {
                     if (!string.IsNullOrWhiteSpace(item))
                     {
-                        items.Add(item);
+                        AddSuggestion(items, item, InferItemCategory(item, block.Text));
                     }
                 }
             }
         }
 
-        return items;
+        return items.Values;
     }
 
-    private static IEnumerable<string> SplitItemList(string text)
+    private static IEnumerable<string> SplitItemList(string text, string context)
     {
         var parts = text.Split(new[] { ",", " and " }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         foreach (var part in parts)
@@ -556,10 +585,14 @@ public sealed partial class MainViewModel
             return string.Empty;
         }
 
+        var hasWeaponBonus = Regex.IsMatch(trimmed, "\\(\\d+\\)");
         trimmed = Regex.Replace(trimmed, "^\\d+\\.\\s*", string.Empty);
         trimmed = Regex.Replace(trimmed, "^(?:a|an|the)\\s+", string.Empty, RegexOptions.IgnoreCase);
 
-        foreach (var separator in new[] { " (", " with ", " containing ", " sufficient for ", " that ", " which " })
+        var separators = hasWeaponBonus
+            ? new[] { " with ", " containing ", " sufficient for ", " that ", " which " }
+            : new[] { " (", " with ", " containing ", " sufficient for ", " that ", " which " };
+        foreach (var separator in separators)
         {
             var index = trimmed.IndexOf(separator, StringComparison.OrdinalIgnoreCase);
             if (index > 0)
@@ -571,4 +604,34 @@ public sealed partial class MainViewModel
 
         return trimmed.Trim().TrimEnd('.', ';', ':');
     }
+
+    private static string InferItemCategory(string item, string context)
+    {
+        if (Regex.IsMatch(item, "\\(\\d+\\)"))
+        {
+            return "weapon";
+        }
+
+        if (context.Contains("Weapons List", StringComparison.OrdinalIgnoreCase)
+            || context.Contains("weapon", StringComparison.OrdinalIgnoreCase))
+        {
+            return "weapon";
+        }
+
+        return "general";
+    }
+
+    private static void AddSuggestion(
+        IDictionary<string, ItemSuggestion> items,
+        string name,
+        string category)
+    {
+        var key = $"{name}|{category}";
+        if (!items.ContainsKey(key))
+        {
+            items[key] = new ItemSuggestion(name, category);
+        }
+    }
+
+    private readonly record struct ItemSuggestion(string Name, string Category);
 }

@@ -315,9 +315,19 @@
                                 </StackPanel>
                                 <ListBox ItemsSource="{Binding InventoryItems}"
                                          SelectedItem="{Binding SelectedInventoryItem}"
-                                         DisplayMemberPath="Name"
                                          Height="100"
-                                         Margin="0,0,0,6" />
+                                         Margin="0,0,0,6">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock>
+                                                <Run Text="{Binding Name}" />
+                                                <Run Text=" (" />
+                                                <Run Text="{Binding Category}" />
+                                                <Run Text=")" />
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
                                 <Button Content="Remove Selected Item" Command="{Binding RemoveItemCommand}" />
                             </StackPanel>
                         </StackPanel>
