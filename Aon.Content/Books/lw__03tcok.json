@@ -111,11 +111,19 @@
       "choices": [
         {
           "text": "If you wish to attempt the shorter, but more difficult Viad Glacier route, turn to 160.",
-          "targetId": "160"
+          "targetId": "160",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to take the longer, but easier Hrod Basin and Storm Giant Pass route, turn to 273.",
-          "targetId": "273"
+          "targetId": "273",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -131,11 +139,19 @@
       "choices": [
         {
           "text": "If you wish to pull this lever, turn to 290.",
-          "targetId": "290"
+          "targetId": "290",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not wish to pull the lever, you may continue climbing the stairs by turning to 76.",
-          "targetId": "76"
+          "targetId": "76",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -151,11 +167,19 @@
       "choices": [
         {
           "text": "If you wish to take this Key, turn to 280.",
-          "targetId": "280"
+          "targetId": "280",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you would rather ignore it and look for a way to open the fortress door, turn to 344.",
-          "targetId": "344"
+          "targetId": "344",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -171,7 +195,11 @@
       "choices": [
         {
           "text": "Turn to 332.",
-          "targetId": "332"
+          "targetId": "332",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -191,15 +219,27 @@
       "choices": [
         {
           "text": "If you wish to approach them and ask for some of their food, turn to 295.",
-          "targetId": "295"
+          "targetId": "295",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to attack them, turn to 14.",
-          "targetId": "14"
+          "targetId": "14",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to ignore them and continue on your way, turn to 132.",
-          "targetId": "132"
+          "targetId": "132",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -215,11 +255,19 @@
       "choices": [
         {
           "text": "If you wish to look through the portal, turn to 224.",
-          "targetId": "224"
+          "targetId": "224",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to continue towards the stairs, turn to 166.",
-          "targetId": "166"
+          "targetId": "166",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -239,11 +287,19 @@
       "choices": [
         {
           "text": "If you wish to try this exit, turn to 145.",
-          "targetId": "145"
+          "targetId": "145",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to try to open the door by which you entered, turn to 242.",
-          "targetId": "242"
+          "targetId": "242",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -275,7 +331,11 @@
       "choices": [
         {
           "text": "Turn to 325.",
-          "targetId": "325"
+          "targetId": "325",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -314,23 +374,43 @@
       "choices": [
         {
           "text": "Red? If so, turn to 90.",
-          "targetId": "90"
+          "targetId": "90",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "Orange? If so, turn to 171.",
-          "targetId": "171"
+          "targetId": "171",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "Green? If so, turn to 289.",
-          "targetId": "289"
+          "targetId": "289",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "Black? If so, turn to 225.",
-          "targetId": "225"
+          "targetId": "225",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "You may leave this chamber at any time and continue northwards along the corridor by turning to 126.",
-          "targetId": "126"
+          "targetId": "126",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -341,15 +421,27 @@
       "choices": [
         {
           "text": "If you wish to ask who the current ruler of Ragadorn is, turn to 141.",
-          "targetId": "141"
+          "targetId": "141",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to ask the name of the river that divides Ragadorn into east and west, turn to 159.",
-          "targetId": "159"
+          "targetId": "159",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to ask the name of the tavern in Barnacle Street, turn to 234.",
-          "targetId": "234"
+          "targetId": "234",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -385,11 +477,19 @@
       "choices": [
         {
           "text": "If you wish to draw your weapon and investigate the noise, turn to 180.",
-          "targetId": "180"
+          "targetId": "180",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you prefer to hold your breath and keep as still as possible, turn to 259.",
-          "targetId": "259"
+          "targetId": "259",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -405,11 +505,19 @@
       "choices": [
         {
           "text": "If you wish to pull the lever and open the door, turn to 128.",
-          "targetId": "128"
+          "targetId": "128",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to leave him where he is and continue exploring the main corridor, turn to 254.",
-          "targetId": "254"
+          "targetId": "254",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -433,7 +541,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 309.",
-          "targetId": "309"
+          "targetId": "309",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -449,15 +561,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Mind Over Matter, turn to 185.",
-          "targetId": "185"
+          "targetId": "185",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have a Dagger or Bone Sword in your possession, turn to 86.",
-          "targetId": "86"
+          "targetId": "86",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have the above skill or weapons, you should leave the chamber and investigate the stairs by turning to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -473,7 +597,11 @@
       "choices": [
         {
           "text": "Turn to 63.",
-          "targetId": "63"
+          "targetId": "63",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -489,11 +617,19 @@
       "choices": [
         {
           "text": "If you wish to cover your eyes with a blindfold and keep them covered at least until you make camp later today, turn to 62.",
-          "targetId": "62"
+          "targetId": "62",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not like the idea of being blindfolded and prefer to risk snow-blindness, turn to 251.",
-          "targetId": "251"
+          "targetId": "251",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -509,11 +645,19 @@
       "choices": [
         {
           "text": "If you wish to try to escape towards the darkened archway beyond, turn to 211.",
-          "targetId": "211"
+          "targetId": "211",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to continue retreating into the corner of the temple, turn to 95.",
-          "targetId": "95"
+          "targetId": "95",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -545,11 +689,19 @@
       "choices": [
         {
           "text": "If you wish to press on, in the hope that you will outrun the Barbarians, turn to 327.",
-          "targetId": "327"
+          "targetId": "327",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to attack them to prevent them warning others, turn to 307.",
-          "targetId": "307"
+          "targetId": "307",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -569,7 +721,11 @@
       "choices": [
         {
           "text": "Turn to 254.",
-          "targetId": "254"
+          "targetId": "254",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -593,7 +749,11 @@
       "choices": [
         {
           "text": "Turn to 325.",
-          "targetId": "325"
+          "targetId": "325",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -613,7 +773,11 @@
       "choices": [
         {
           "text": "Turn to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -629,7 +793,11 @@
       "choices": [
         {
           "text": "Turn to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -645,7 +813,11 @@
       "choices": [
         {
           "text": "Turn to 332.",
-          "targetId": "332"
+          "targetId": "332",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -665,7 +837,11 @@
       "choices": [
         {
           "text": "Turn to 284.",
-          "targetId": "284"
+          "targetId": "284",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -681,15 +857,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Sixth Sense, turn to 231.",
-          "targetId": "231"
+          "targetId": "231",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to take one of the Bracelets, put it on your wrist, mark it on your Action Chart as a Special Item, and turn to 187.",
-          "targetId": "187"
+          "targetId": "187",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not wish to take a Bracelet, you may continue your exploration and turn to 63.",
-          "targetId": "63"
+          "targetId": "63",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -705,11 +893,19 @@
       "choices": [
         {
           "text": "If you wish to push on and continue your search for shelter, turn to 314.",
-          "targetId": "314"
+          "targetId": "314",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to dig a hole in the snow with your hands and try to shelter here for the night, turn to 205.",
-          "targetId": "205"
+          "targetId": "205",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -725,11 +921,19 @@
       "choices": [
         {
           "text": "If you wish to search the Ice Barbarian\u2019s body, you must drag it into the light of the corridor and turn to 210.",
-          "targetId": "210"
+          "targetId": "210",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to press on with your mission as quickly as possible, close the cell door and continue along the corridor towards the junction. Turn to 215.",
-          "targetId": "215"
+          "targetId": "215",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -749,23 +953,43 @@
       "choices": [
         {
           "text": "If you possess the Sommerswerd, turn to 43.",
-          "targetId": "43"
+          "targetId": "43",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have the Kai Discipline of Mind Over Matter, turn to 121.",
-          "targetId": "121"
+          "targetId": "121",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 1\u20134, turn to 226.",
-          "targetId": "226"
+          "targetId": "226",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 5\u20139, turn to 266.",
-          "targetId": "266"
+          "targetId": "266",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 0, turn to 312.",
-          "targetId": "312"
+          "targetId": "312",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -781,11 +1005,19 @@
       "choices": [
         {
           "text": "If you wish to examine the door, turn to 203.",
-          "targetId": "203"
+          "targetId": "203",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to head left towards the junction, turn to 276.",
-          "targetId": "276"
+          "targetId": "276",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -805,11 +1037,19 @@
       "choices": [
         {
           "text": "If you wish to attack this strange statue, turn to 150.",
-          "targetId": "150"
+          "targetId": "150",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to dodge past it and run towards the archway beyond, turn to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -837,11 +1077,19 @@
       "choices": [
         {
           "text": "If you lose any ENDURANCE points at all during this combat, turn immediately to 66.",
-          "targetId": "66"
+          "targetId": "66",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win the combat without losing any ENDURANCE points, turn to 25.",
-          "targetId": "25"
+          "targetId": "25",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -865,15 +1113,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline either of Tracking or of Sixth Sense, turn to 348.",
-          "targetId": "348"
+          "targetId": "348",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to search northwards, turn to 27.",
-          "targetId": "27"
+          "targetId": "27",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to search southwards, turn to 314.",
-          "targetId": "314"
+          "targetId": "314",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -917,7 +1177,11 @@
       "choices": [
         {
           "text": "Turn to 350.",
-          "targetId": "350"
+          "targetId": "350",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -933,7 +1197,11 @@
       "choices": [
         {
           "text": "Turn to 291.",
-          "targetId": "291"
+          "targetId": "291",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -949,15 +1217,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Sixth Sense and if you have reached the Kai rank of Guardian and therefore possess 7 Kai Disciplines, turn to 341.",
-          "targetId": "341"
+          "targetId": "341",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have the Kai Discipline of Sixth Sense, but have not yet reached the Kai rank of Guardian, turn to 124.",
-          "targetId": "124"
+          "targetId": "124",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess the Kai Discipline of Sixth Sense, prepare yourself for attack and pass through the archway by turning to 264.",
-          "targetId": "264"
+          "targetId": "264",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -992,7 +1272,11 @@
       "choices": [
         {
           "text": "Turn to 237.",
-          "targetId": "237"
+          "targetId": "237",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1008,7 +1292,11 @@
       "choices": [
         {
           "text": "Turn to 173.",
-          "targetId": "173"
+          "targetId": "173",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1032,15 +1320,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Tracking, turn to 255.",
-          "targetId": "255"
+          "targetId": "255",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to take the left tunnel, turn to 125.",
-          "targetId": "125"
+          "targetId": "125",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to take the right tunnel, turn to 184.",
-          "targetId": "184"
+          "targetId": "184",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1060,7 +1360,11 @@
       "choices": [
         {
           "text": "Turn to 221.",
-          "targetId": "221"
+          "targetId": "221",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1076,11 +1380,19 @@
       "choices": [
         {
           "text": "If you wish to continue beating the door with the Sommerswerd, turn to 294.",
-          "targetId": "294"
+          "targetId": "294",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to give up, you can leave by the previously concealed northern passage and turn to 145.",
-          "targetId": "145"
+          "targetId": "145",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1104,7 +1416,11 @@
       "choices": [
         {
           "text": "Turn to 325.",
-          "targetId": "325"
+          "targetId": "325",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1128,15 +1444,27 @@
       "choices": [
         {
           "text": "If you possess a Potion of Black Graveweed, turn to 79.",
-          "targetId": "79"
+          "targetId": "79",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you possess a Potion of Green Gallowbrush, turn to 157.",
-          "targetId": "157"
+          "targetId": "157",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess either of these potions, you can open the secret door and launch a surprise attack upon the unarmed Ice Barbarians, by turning to 270.",
-          "targetId": "270"
+          "targetId": "270",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1152,11 +1480,19 @@
       "choices": [
         {
           "text": "If you possess an Ornate Silver Key, turn to 303.",
-          "targetId": "303"
+          "targetId": "303",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this Special Item, turn to 15.",
-          "targetId": "15"
+          "targetId": "15",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1176,7 +1512,11 @@
       "choices": [
         {
           "text": "Turn to 269.",
-          "targetId": "269"
+          "targetId": "269",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1192,7 +1532,11 @@
       "choices": [
         {
           "text": "Turn to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1208,11 +1552,19 @@
       "choices": [
         {
           "text": "If you wish to escape on tiptoe along the northern corridor, turn to 215.",
-          "targetId": "215"
+          "targetId": "215",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to attack the Ice Barbarian from behind, turn to 260.",
-          "targetId": "260"
+          "targetId": "260",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1232,15 +1584,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Tracking, turn to 342.",
-          "targetId": "342"
+          "targetId": "342",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to follow the passage to the left, turn to 284.",
-          "targetId": "284"
+          "targetId": "284",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to follow the passage to the right, turn to 199.",
-          "targetId": "199"
+          "targetId": "199",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1256,11 +1620,19 @@
       "choices": [
         {
           "text": "If you possess this Special Item, turn to 139.",
-          "targetId": "139"
+          "targetId": "139",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have it, turn to 189.",
-          "targetId": "189"
+          "targetId": "189",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1276,11 +1648,19 @@
       "choices": [
         {
           "text": "If you are brave enough to enter a cell full of Doomwolves, turn to 285.",
-          "targetId": "285"
+          "targetId": "285",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not want to take the risk, you must leave and descend the stairs. Turn to 261.",
-          "targetId": "261"
+          "targetId": "261",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1296,11 +1676,19 @@
       "choices": [
         {
           "text": "If you wish to evade this creature and run towards the stone door, turn to 169.",
-          "targetId": "169"
+          "targetId": "169",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to fight it, turn to 265.",
-          "targetId": "265"
+          "targetId": "265",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1335,11 +1723,19 @@
       "choices": [
         {
           "text": "If your total score is now 0\u20134, turn to 250.",
-          "targetId": "250"
+          "targetId": "250",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 5\u201312, turn to 268.",
-          "targetId": "268"
+          "targetId": "268",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1363,7 +1759,11 @@
       "choices": [
         {
           "text": "Turn to 182.",
-          "targetId": "182"
+          "targetId": "182",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1407,7 +1807,11 @@
       "choices": [
         {
           "text": "Turn to 192.",
-          "targetId": "192"
+          "targetId": "192",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1427,11 +1831,19 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Healing, turn to 17.",
-          "targetId": "17"
+          "targetId": "17",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this skill, turn to 251.",
-          "targetId": "251"
+          "targetId": "251",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1451,7 +1863,11 @@
       "choices": [
         {
           "text": "Turn to 252.",
-          "targetId": "252"
+          "targetId": "252",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1471,7 +1887,11 @@
       "choices": [
         {
           "text": "Enter the tunnel by turning to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1487,15 +1907,27 @@
       "choices": [
         {
           "text": "If you wish to attack the creature before it rises from the altar, turn to 150.",
-          "targetId": "150"
+          "targetId": "150",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to remain perfectly still and prepare for combat, turn to 31.",
-          "targetId": "31"
+          "targetId": "31",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to run for the darkened archway beyond, turn to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1526,7 +1958,11 @@
       "choices": [
         {
           "text": "Make the necessary adjustment to your Action Chart, before turning to 167.",
-          "targetId": "167"
+          "targetId": "167",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1542,11 +1978,19 @@
       "choices": [
         {
           "text": "If you wish to climb the stairs, turn to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to investigate the door, turn to 246.",
-          "targetId": "246"
+          "targetId": "246",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1562,11 +2006,19 @@
       "choices": [
         {
           "text": "If you wish to enter the north tunnel, turn to 321.",
-          "targetId": "321"
+          "targetId": "321",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to take the west tunnel, turn to 275.",
-          "targetId": "275"
+          "targetId": "275",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1582,7 +2034,11 @@
       "choices": [
         {
           "text": "Turn to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1613,11 +2069,19 @@
       "choices": [
         {
           "text": "If you have a Rope, you can lower it through the portal and help the man to climb out of his cell by turning to 328.",
-          "targetId": "328"
+          "targetId": "328",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a Rope, or if you do not want to help him, you can continue along the corridor towards the stairs by turning to 166.",
-          "targetId": "166"
+          "targetId": "166",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1637,7 +2101,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 186.",
-          "targetId": "186"
+          "targetId": "186",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1653,15 +2121,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Camouflage, turn to 222.",
-          "targetId": "222"
+          "targetId": "222",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to run down these stairs and hide from the patrol, turn to 108.",
-          "targetId": "108"
+          "targetId": "108",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to run back to the landing and take the north corridor, turn to 198.",
-          "targetId": "198"
+          "targetId": "198",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1681,11 +2161,19 @@
       "choices": [
         {
           "text": "If you have coated yourself with Baknar oil, turn to 209.",
-          "targetId": "209"
+          "targetId": "209",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have not applied this oil to your skin, turn to 339.",
-          "targetId": "339"
+          "targetId": "339",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1701,7 +2189,11 @@
       "choices": [
         {
           "text": "Forewarned by your Kai sense, turn to 320.",
-          "targetId": "320"
+          "targetId": "320",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1721,7 +2213,11 @@
       "choices": [
         {
           "text": "Turn to 227.",
-          "targetId": "227"
+          "targetId": "227",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1741,11 +2237,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20137, turn to 119.",
-          "targetId": "119"
+          "targetId": "119",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 8\u20139, turn to 136.",
-          "targetId": "136"
+          "targetId": "136",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1765,11 +2269,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20134, turn to 48.",
-          "targetId": "48"
+          "targetId": "48",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 5\u20139, turn to 287.",
-          "targetId": "287"
+          "targetId": "287",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1785,11 +2297,19 @@
       "choices": [
         {
           "text": "If you wish to take the left tunnel, turn to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to take the right tunnel, turn to 114.",
-          "targetId": "114"
+          "targetId": "114",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1805,15 +2325,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Hunting or Animal Kinship, turn to 51.",
-          "targetId": "51"
+          "targetId": "51",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have either of these skills, you can open the door and attack the Doomwolves by turning to 137.",
-          "targetId": "137"
+          "targetId": "137",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you would rather back away from the cell door and descend the stairs, turn to 261.",
-          "targetId": "261"
+          "targetId": "261",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1829,7 +2361,11 @@
       "choices": [
         {
           "text": "Return to 10 and choose your next course of action.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1853,7 +2389,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 245.",
-          "targetId": "245"
+          "targetId": "245",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1873,7 +2413,11 @@
       "choices": [
         {
           "text": "Turn to 301.",
-          "targetId": "301"
+          "targetId": "301",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1893,11 +2437,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20131, turn to 123.",
-          "targetId": "123"
+          "targetId": "123",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 2\u20139, turn to 59.",
-          "targetId": "59"
+          "targetId": "59",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1913,11 +2465,19 @@
       "choices": [
         {
           "text": "If you wish to run northwards, turn to 198.",
-          "targetId": "198"
+          "targetId": "198",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to run southwards, turn to 69.",
-          "targetId": "69"
+          "targetId": "69",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1933,15 +2493,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Animal Kinship, turn to 329.",
-          "targetId": "329"
+          "targetId": "329",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to draw your weapon and charge, turn to 138.",
-          "targetId": "138"
+          "targetId": "138",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you want to try to creep closer and spy on whatever is there, turn to 107.",
-          "targetId": "107"
+          "targetId": "107",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1965,7 +2537,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 313.",
-          "targetId": "313"
+          "targetId": "313",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -1985,7 +2561,11 @@
       "choices": [
         {
           "text": "Turn to 221.",
-          "targetId": "221"
+          "targetId": "221",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2009,15 +2589,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Sixth Sense, turn to 98.",
-          "targetId": "98"
+          "targetId": "98",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to investigate this strange light, turn to 49.",
-          "targetId": "49"
+          "targetId": "49",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to ignore it and return to the tent, turn to 212.",
-          "targetId": "212"
+          "targetId": "212",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2037,11 +2629,19 @@
       "choices": [
         {
           "text": "If your total is 0\u20137, turn to 47.",
-          "targetId": "47"
+          "targetId": "47",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is 8\u201312, turn to 194.",
-          "targetId": "194"
+          "targetId": "194",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2057,11 +2657,19 @@
       "choices": [
         {
           "text": "If you wish to climb the stairs, turn to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to investigate the room, turn to 246.",
-          "targetId": "246"
+          "targetId": "246",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2093,7 +2701,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 269.",
-          "targetId": "269"
+          "targetId": "269",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2121,7 +2733,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 161.",
-          "targetId": "161"
+          "targetId": "161",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2137,11 +2753,19 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Healing, turn to 233.",
-          "targetId": "233"
+          "targetId": "233",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have this skill, you are suspicious of the possible ill effects of this fluid and discard it. Return to 10 and choose your next course of action.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2161,7 +2785,11 @@
       "choices": [
         {
           "text": "Turn to 134.",
-          "targetId": "134"
+          "targetId": "134",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2177,11 +2805,19 @@
       "choices": [
         {
           "text": "If you have a Rope, turn to 133.",
-          "targetId": "133"
+          "targetId": "133",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a Rope, you will have to retrace your steps and explore the other tunnel. Turn to 297.",
-          "targetId": "297"
+          "targetId": "297",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2216,7 +2852,11 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20136, you are lucky. You drag yourself from the icy water and lie exhausted on the bank. Lose 3 ENDURANCE points and turn to 176.",
-          "targetId": "176"
+          "targetId": "176",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2255,11 +2895,19 @@
       "choices": [
         {
           "text": "If your total score is now 0\u20138, turn to 59.",
-          "targetId": "59"
+          "targetId": "59",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 9\u201311, turn to 214.",
-          "targetId": "214"
+          "targetId": "214",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2275,15 +2923,27 @@
       "choices": [
         {
           "text": "If you possess a Diamond, turn to 24.",
-          "targetId": "24"
+          "targetId": "24",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to distract him with some Gold Crowns, turn to 152.",
-          "targetId": "152"
+          "targetId": "152",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to attack him, turn to 208.",
-          "targetId": "208"
+          "targetId": "208",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2299,11 +2959,19 @@
       "choices": [
         {
           "text": "If you wish to explore the fissure, turn to 49.",
-          "targetId": "49"
+          "targetId": "49",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to return to the tent, turn to 212.",
-          "targetId": "212"
+          "targetId": "212",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2323,7 +2991,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 230.",
-          "targetId": "230"
+          "targetId": "230",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2343,11 +3015,19 @@
       "choices": [
         {
           "text": "If you wish to descend the spiral staircase, turn to 148.",
-          "targetId": "148"
+          "targetId": "148",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to ascend the stairs to the arch, turn to 61.",
-          "targetId": "61"
+          "targetId": "61",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2363,7 +3043,11 @@
       "choices": [
         {
           "text": "Leave the chamber and turn to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2383,11 +3067,19 @@
       "choices": [
         {
           "text": "If you wish to activate the buttons again, turn to 65.",
-          "targetId": "65"
+          "targetId": "65",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to leave the temple, turn to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2419,7 +3111,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 305.",
-          "targetId": "305"
+          "targetId": "305",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2435,11 +3131,19 @@
       "choices": [
         {
           "text": "If you possess a Blue Stone Disc, turn to 135.",
-          "targetId": "135"
+          "targetId": "135",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have this item, you will have to return along the corridor and head south by turning to 330.",
-          "targetId": "330"
+          "targetId": "330",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2463,15 +3167,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Sixth Sense, turn to 64.",
-          "targetId": "64"
+          "targetId": "64",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to explore the north tunnel, turn to 321.",
-          "targetId": "321"
+          "targetId": "321",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to explore the west tunnel, turn to 275.",
-          "targetId": "275"
+          "targetId": "275",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2495,11 +3211,19 @@
       "choices": [
         {
           "text": "You may evade at any time by crawling back into the chamber and escaping by the north passage. Turn to 145.",
-          "targetId": "145"
+          "targetId": "145",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win the combat, turn to 338.",
-          "targetId": "338"
+          "targetId": "338",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2515,15 +3239,27 @@
       "choices": [
         {
           "text": "If you have smeared Baknar oil into your skin, turn to 202.",
-          "targetId": "202"
+          "targetId": "202",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have not coated yourself with Baknar oil, you can avoid the Kalkoth by retracing your steps back to the other tunnel. Turn to 284.",
-          "targetId": "284"
+          "targetId": "284",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to attack the squabbling creatures, turn to 138.",
-          "targetId": "138"
+          "targetId": "138",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2547,15 +3283,27 @@
       "choices": [
         {
           "text": "If, at this time, you wish to head south (right), turn to 330.",
-          "targetId": "330"
+          "targetId": "330",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to head north (left), turn to 198.",
-          "targetId": "198"
+          "targetId": "198",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win the combat, turn to 282.",
-          "targetId": "282"
+          "targetId": "282",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2571,7 +3319,11 @@
       "choices": [
         {
           "text": "Turn to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2587,11 +3339,19 @@
       "choices": [
         {
           "text": "If you wish to take a dive through the shrinking gap, turn to 283.",
-          "targetId": "283"
+          "targetId": "283",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you prefer to stay where you are, turn to 256.",
-          "targetId": "256"
+          "targetId": "256",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2607,11 +3367,19 @@
       "choices": [
         {
           "text": "If you wish to investigate the junction, turn to 254.",
-          "targetId": "254"
+          "targetId": "254",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to close the secret door and to continue exploring the dark tunnel, turn to 336.",
-          "targetId": "336"
+          "targetId": "336",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2631,7 +3399,11 @@
       "choices": [
         {
           "text": "Turn to 291.",
-          "targetId": "291"
+          "targetId": "291",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2647,7 +3419,11 @@
       "choices": [
         {
           "text": "Turn to 63.",
-          "targetId": "63"
+          "targetId": "63",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2663,15 +3439,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Hunting, turn to 279.",
-          "targetId": "279"
+          "targetId": "279",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to creep stealthily past the Baknar, turn to 23.",
-          "targetId": "23"
+          "targetId": "23",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to attack the creature, turn to 101.",
-          "targetId": "101"
+          "targetId": "101",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2687,11 +3475,19 @@
       "choices": [
         {
           "text": "If you wish to open this box, turn to 218.",
-          "targetId": "218"
+          "targetId": "218",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you prefer to leave it, you can examine the fortress door by turning to 52.",
-          "targetId": "52"
+          "targetId": "52",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2707,7 +3503,11 @@
       "choices": [
         {
           "text": "Make the necessary adjustments to your Action Chart and continue along the corridor by turning to 97.",
-          "targetId": "97"
+          "targetId": "97",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2731,15 +3531,27 @@
       "choices": [
         {
           "text": "If you wish to risk taking the sledge across the ice bridge, turn to 73.",
-          "targetId": "73"
+          "targetId": "73",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to unload the sledge and ferry the equipment across piece by piece, turn to 162.",
-          "targetId": "162"
+          "targetId": "162",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to leave the sledge here and continue on foot, turn to 223.",
-          "targetId": "223"
+          "targetId": "223",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2755,7 +3567,11 @@
       "choices": [
         {
           "text": "Turn to 56.",
-          "targetId": "56"
+          "targetId": "56",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2783,11 +3599,19 @@
       "choices": [
         {
           "text": "If you want to try to rescue Dyce, turn to 19.",
-          "targetId": "19"
+          "targetId": "19",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you feel it is too dangerous to try to rescue him, turn to 257.",
-          "targetId": "257"
+          "targetId": "257",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2803,11 +3627,19 @@
       "choices": [
         {
           "text": "If you wish to search the altar and alcove of this temple, turn to 274.",
-          "targetId": "274"
+          "targetId": "274",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to leave, you may exit via the northern archway. Turn to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2827,7 +3659,11 @@
       "choices": [
         {
           "text": "Turn to 325.",
-          "targetId": "325"
+          "targetId": "325",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2847,7 +3683,11 @@
       "choices": [
         {
           "text": "Turn to 173.",
-          "targetId": "173"
+          "targetId": "173",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2867,11 +3707,19 @@
       "choices": [
         {
           "text": "If you lose any ENDURANCE points at all during this combat, turn immediately to 66.",
-          "targetId": "66"
+          "targetId": "66",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win the combat without losing any ENDURANCE points, turn to 174.",
-          "targetId": "174"
+          "targetId": "174",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2887,7 +3735,11 @@
       "choices": [
         {
           "text": "Turn to 264.",
-          "targetId": "264"
+          "targetId": "264",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2907,15 +3759,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Camouflage, turn to 96.",
-          "targetId": "96"
+          "targetId": "96",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to run across the surface of the lake, turn to 322.",
-          "targetId": "322"
+          "targetId": "322",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to stand and fight the Kalkoth, turn to 207.",
-          "targetId": "207"
+          "targetId": "207",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2931,11 +3795,19 @@
       "choices": [
         {
           "text": "If you wish to investigate the door, turn to 246.",
-          "targetId": "246"
+          "targetId": "246",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to continue up the stairs, turn to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2951,11 +3823,19 @@
       "choices": [
         {
           "text": "If you wish to take this Helm and put it on, turn to 308.",
-          "targetId": "308"
+          "targetId": "308",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are still suspicious of its possible ill effects, leave it untouched and explore the stairs by turning to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -2979,15 +3859,27 @@
       "choices": [
         {
           "text": "If you wish to free him, turn to 170.",
-          "targetId": "170"
+          "targetId": "170",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have ever visited Ragadorn, you can ask him some simple questions about the city, to allay any suspicions you may have about who he claims to be, by turning to 11.",
-          "targetId": "11"
+          "targetId": "11",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you prefer to close the cell door and return to the main corridor, turn to 254.",
-          "targetId": "254"
+          "targetId": "254",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3011,7 +3903,11 @@
       "choices": [
         {
           "text": "Turn to 155.",
-          "targetId": "155"
+          "targetId": "155",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3027,11 +3923,19 @@
       "choices": [
         {
           "text": "If you wish to go north, turn to 198.",
-          "targetId": "198"
+          "targetId": "198",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to head south, turn to 69.",
-          "targetId": "69"
+          "targetId": "69",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3047,11 +3951,19 @@
       "choices": [
         {
           "text": "If you wish to press the buttons, turn to 227.",
-          "targetId": "227"
+          "targetId": "227",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not wish to take the risk of setting off a trap, you can leave the temple by turning to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3075,11 +3987,19 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of either Tracking or Animal Kinship, turn to 229.",
-          "targetId": "229"
+          "targetId": "229",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have these skills, turn to 88.",
-          "targetId": "88"
+          "targetId": "88",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3095,11 +4015,19 @@
       "choices": [
         {
           "text": "If you wish to try to attach your rope to the bowl and swing across, turn to 201.",
-          "targetId": "201"
+          "targetId": "201",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not wish to risk falling into the fissure, return along the passage and take the other route by turning to 297.",
-          "targetId": "297"
+          "targetId": "297",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3123,15 +4051,27 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20133, turn to 57.",
-          "targetId": "57"
+          "targetId": "57",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 4\u20136, turn to 188.",
-          "targetId": "188"
+          "targetId": "188",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 7\u20139, turn to 331.",
-          "targetId": "331"
+          "targetId": "331",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3151,7 +4091,11 @@
       "choices": [
         {
           "text": "Turn to 100.",
-          "targetId": "100"
+          "targetId": "100",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3186,7 +4130,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 28.",
-          "targetId": "28"
+          "targetId": "28",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3210,15 +4158,27 @@
       "choices": [
         {
           "text": "If you lose any ENDURANCE points during this combat, even when attempting to evade, turn immediately to 66.",
-          "targetId": "66"
+          "targetId": "66",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win the combat without losing any ENDURANCE points, turn to 25.",
-          "targetId": "25"
+          "targetId": "25",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "You may evade the fight by turning to 277.",
-          "targetId": "277"
+          "targetId": "277",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3234,11 +4194,19 @@
       "choices": [
         {
           "text": "If you possess a Red Potion of Laumspur4, turn to 116.",
-          "targetId": "116"
+          "targetId": "116",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this Potion, turn to 239.",
-          "targetId": "239"
+          "targetId": "239",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3254,7 +4222,11 @@
       "choices": [
         {
           "text": "Turn to 68.",
-          "targetId": "68"
+          "targetId": "68",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3270,11 +4242,19 @@
       "choices": [
         {
           "text": "If you now wish to wipe away the pentagram and free him, turn to 170.",
-          "targetId": "170"
+          "targetId": "170",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not wish to free him, close the cell door and return to the main corridor by turning to 254.",
-          "targetId": "254"
+          "targetId": "254",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3294,11 +4274,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20135, the overhanging rock collapses and seals off the cave. You can now make your way back to the other tunnel by turning to 284.",
-          "targetId": "284"
+          "targetId": "284",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 6\u20139, the rock does not fall and you must fight the Kalkoth. Turn to 32.",
-          "targetId": "32"
+          "targetId": "32",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3348,11 +4336,19 @@
       "choices": [
         {
           "text": "If you wish to ignore the skeleton and climb the stairs, turn to 36.",
-          "targetId": "36"
+          "targetId": "36",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to attack the skeleton, turn to 278.",
-          "targetId": "278"
+          "targetId": "278",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3376,23 +4372,43 @@
       "choices": [
         {
           "text": "If you possess the Sommerswerd, turn to 43.",
-          "targetId": "43"
+          "targetId": "43",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have the Kai Discipline of Mind Over Matter, turn to 121.",
-          "targetId": "121"
+          "targetId": "121",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 1\u20134, turn to 226.",
-          "targetId": "226"
+          "targetId": "226",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number is 5\u20139, turn to 266.",
-          "targetId": "266"
+          "targetId": "266",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number is 0, turn to 312.",
-          "targetId": "312"
+          "targetId": "312",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3412,11 +4428,19 @@
       "choices": [
         {
           "text": "If you lose any ENDURANCE points during the course of the combat, turn immediately to 66.",
-          "targetId": "66"
+          "targetId": "66",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win the combat without losing any ENDURANCE points, turn to 84.",
-          "targetId": "84"
+          "targetId": "84",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3451,11 +4475,19 @@
       "choices": [
         {
           "text": "If your total is now 0\u20134, turn to 286.",
-          "targetId": "286"
+          "targetId": "286",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 5\u201311, turn to 333.",
-          "targetId": "333"
+          "targetId": "333",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3479,19 +4511,35 @@
       "choices": [
         {
           "text": "If you possess the Sommerswerd, turn immediately to 120.",
-          "targetId": "120"
+          "targetId": "120",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you possess a Firesphere, turn to 310.",
-          "targetId": "310"
+          "targetId": "310",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to attack the swirling cyclone with a weapon, turn to 18.",
-          "targetId": "18"
+          "targetId": "18",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to try to escape into the distant archway, turn to 211.",
-          "targetId": "211"
+          "targetId": "211",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3511,11 +4559,19 @@
       "choices": [
         {
           "text": "If you have applied Baknar oil to your skin, turn to 209.",
-          "targetId": "209"
+          "targetId": "209",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have not, turn to 339.",
-          "targetId": "339"
+          "targetId": "339",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3535,11 +4591,19 @@
       "choices": [
         {
           "text": "If the number you have picked is equal to or less than the number that you have written down, turn to 319.",
-          "targetId": "319"
+          "targetId": "319",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you pick is greater than the number that you have written down, turn to 181.",
-          "targetId": "181"
+          "targetId": "181",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3578,11 +4642,19 @@
       "choices": [
         {
           "text": "If you wish to explore this new exit, turn to 145.",
-          "targetId": "145"
+          "targetId": "145",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to try to open the door by which you entered, turn to 242.",
-          "targetId": "242"
+          "targetId": "242",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3606,11 +4678,19 @@
       "choices": [
         {
           "text": "If your total is now \u22122\u20132, turn to 248.",
-          "targetId": "248"
+          "targetId": "248",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 3\u201310, turn to 191.",
-          "targetId": "191"
+          "targetId": "191",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3626,7 +4706,11 @@
       "choices": [
         {
           "text": "Now return to 10 and choose your next course of action.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3646,7 +4730,11 @@
       "choices": [
         {
           "text": "Restore 6 ENDURANCE points to your current total and turn to 301.",
-          "targetId": "301"
+          "targetId": "301",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3666,15 +4754,27 @@
       "choices": [
         {
           "text": "If you sustain a higher ENDURANCE point loss than the enemy in this one round of combat, turn to 165.",
-          "targetId": "165"
+          "targetId": "165",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the Ice Barbarian scout loses more ENDURANCE points than you in this one round of combat, turn to 271.",
-          "targetId": "271"
+          "targetId": "271",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you both lose exactly the same number of ENDURANCE points in this one round of combat, turn to 337.",
-          "targetId": "337"
+          "targetId": "337",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3690,11 +4790,19 @@
       "choices": [
         {
           "text": "If you now wish to wipe away the pentagram and free him, turn to 170.",
-          "targetId": "170"
+          "targetId": "170",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not want to free him now, close the cell door and return to the main corridor by turning to 254.",
-          "targetId": "254"
+          "targetId": "254",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3730,15 +4838,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Hunting, turn to 204.",
-          "targetId": "204"
+          "targetId": "204",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have the Kai Discipline of Animal Kinship, turn to 318.",
-          "targetId": "318"
+          "targetId": "318",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "Otherwise, leave the tent and attack the Baknar by turning to 78.",
-          "targetId": "78"
+          "targetId": "78",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3758,7 +4878,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 210.",
-          "targetId": "210"
+          "targetId": "210",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3782,11 +4906,19 @@
       "choices": [
         {
           "text": "If you wish to attempt to save Dyce, turn to 19.",
-          "targetId": "19"
+          "targetId": "19",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you feel there is no way you can save him, turn to 257.",
-          "targetId": "257"
+          "targetId": "257",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3802,11 +4934,19 @@
       "choices": [
         {
           "text": "If you wish to enter the room and investigate its contents, turn to 38.",
-          "targetId": "38"
+          "targetId": "38",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to continue along the east passage, turn to 237.",
-          "targetId": "237"
+          "targetId": "237",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3830,11 +4970,19 @@
       "choices": [
         {
           "text": "If you win the combat in five rounds or less, turn to 272.",
-          "targetId": "272"
+          "targetId": "272",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the combat takes longer than five rounds, turn to 324.",
-          "targetId": "324"
+          "targetId": "324",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3850,7 +4998,11 @@
       "choices": [
         {
           "text": "Turn to 68.",
-          "targetId": "68"
+          "targetId": "68",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3866,11 +5018,19 @@
       "choices": [
         {
           "text": "If you wish to open the door, turn to 111.",
-          "targetId": "111"
+          "targetId": "111",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to continue along the new tunnel, turn to 336.",
-          "targetId": "336"
+          "targetId": "336",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3894,11 +5054,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20136, turn to 85.",
-          "targetId": "85"
+          "targetId": "85",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 7\u20139, turn to 300.",
-          "targetId": "300"
+          "targetId": "300",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3918,7 +5086,11 @@
       "choices": [
         {
           "text": "Turn to 60.",
-          "targetId": "60"
+          "targetId": "60",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3934,11 +5106,19 @@
       "choices": [
         {
           "text": "If you possess a Blue Stone Triangle, turn to 41.",
-          "targetId": "41"
+          "targetId": "41",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not, turn to 265.",
-          "targetId": "265"
+          "targetId": "265",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3966,11 +5146,19 @@
       "choices": [
         {
           "text": "If you possess the Sommerswerd, turn to 304.",
-          "targetId": "304"
+          "targetId": "304",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not, turn to 175.",
-          "targetId": "175"
+          "targetId": "175",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -3986,11 +5174,19 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of either Sixth Sense or Weaponskill, turn to 311.",
-          "targetId": "311"
+          "targetId": "311",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess either Discipline, you become suspicious of this potion and decide to discard it. Return to 10 and decide your next course of action.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4010,7 +5206,11 @@
       "choices": [
         {
           "text": "Turn to 134.",
-          "targetId": "134"
+          "targetId": "134",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4038,15 +5238,27 @@
       "choices": [
         {
           "text": "If you possess an Effigy, turn immediately to 34.",
-          "targetId": "34"
+          "targetId": "34",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess an Effigy but do possess the Sommerswerd, turn to 164.",
-          "targetId": "164"
+          "targetId": "164",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have neither of the above, turn to 200.",
-          "targetId": "200"
+          "targetId": "200",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4062,7 +5274,11 @@
       "choices": [
         {
           "text": "Turn to 322.",
-          "targetId": "322"
+          "targetId": "322",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4101,11 +5317,19 @@
       "choices": [
         {
           "text": "If you wish to investigate the chamber, turn to 5.",
-          "targetId": "5"
+          "targetId": "5",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to ignore the chamber and continue, turn to 132.",
-          "targetId": "132"
+          "targetId": "132",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4121,7 +5345,11 @@
       "choices": [
         {
           "text": "Now return to 10 and choose your next course of action.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4141,7 +5369,11 @@
       "choices": [
         {
           "text": "Turn to 105.",
-          "targetId": "105"
+          "targetId": "105",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4165,11 +5397,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20134, turn to 39.",
-          "targetId": "39"
+          "targetId": "39",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 5\u20139, turn to 296.",
-          "targetId": "296"
+          "targetId": "296",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4201,11 +5441,19 @@
       "choices": [
         {
           "text": "If you lose any ENDURANCE points during this combat, turn immediately to 129.",
-          "targetId": "129"
+          "targetId": "129",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you kill the creature without losing any ENDURANCE points, turn to 70.",
-          "targetId": "70"
+          "targetId": "70",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4221,15 +5469,27 @@
       "choices": [
         {
           "text": "If you wish to attempt this ploy again, return to 152.",
-          "targetId": "152"
+          "targetId": "152",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have no more Gold Crowns or do not wish to attempt this ploy again, you can attack the guard by turning to 208.",
-          "targetId": "208"
+          "targetId": "208",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you prefer, you can go back along the corridor, past the junction, and explore the west corridor by turning to 189.",
-          "targetId": "189"
+          "targetId": "189",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4245,15 +5505,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Tracking, turn to 75.",
-          "targetId": "75"
+          "targetId": "75",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to take the right tunnel, turn to 114.",
-          "targetId": "114"
+          "targetId": "114",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to explore the left tunnel, turn to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4273,11 +5545,19 @@
       "choices": [
         {
           "text": "If your total is now 0\u20133, turn to 89.",
-          "targetId": "89"
+          "targetId": "89",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 4\u201311, turn to 215.",
-          "targetId": "215"
+          "targetId": "215",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4293,15 +5573,27 @@
       "choices": [
         {
           "text": "If you wish to search the corpses, turn to 298.",
-          "targetId": "298"
+          "targetId": "298",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to continue, you may leave this cavern by the tunnel in the far wall. Turn to 315.",
-          "targetId": "315"
+          "targetId": "315",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to retrace your steps and take the other tunnel, turn to 125.",
-          "targetId": "125"
+          "targetId": "125",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4321,11 +5613,19 @@
       "choices": [
         {
           "text": "If your total is now 0\u20134, turn to 22.",
-          "targetId": "22"
+          "targetId": "22",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 5\u201311, turn to 326.",
-          "targetId": "326"
+          "targetId": "326",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4345,7 +5645,11 @@
       "choices": [
         {
           "text": "Turn to 320.",
-          "targetId": "320"
+          "targetId": "320",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4361,11 +5665,19 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Mindshield, turn immediately to 258.",
-          "targetId": "258"
+          "targetId": "258",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this skill, turn to 93.",
-          "targetId": "93"
+          "targetId": "93",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4393,11 +5705,19 @@
       "choices": [
         {
           "text": "If you wish to unload the sledges and use them as a bridge, turn to 232.",
-          "targetId": "232"
+          "targetId": "232",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to jump across with the Kanu-dogs and then pull the sledges after you, turn to 346.",
-          "targetId": "346"
+          "targetId": "346",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4413,11 +5733,19 @@
       "choices": [
         {
           "text": "If you wish to pull the lever and enter, turn to 292.",
-          "targetId": "292"
+          "targetId": "292",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not wish to enter, you can return to the junction and take the east passage by turning to 97.",
-          "targetId": "97"
+          "targetId": "97",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4437,15 +5765,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of either Tracking or Sixth Sense, turn to 348.",
-          "targetId": "348"
+          "targetId": "348",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have either of these skills, you can look for shelter towards the north by turning to 27.",
-          "targetId": "27"
+          "targetId": "27",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you prefer, you can search towards the south by turning to 314.",
-          "targetId": "314"
+          "targetId": "314",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4465,7 +5805,11 @@
       "choices": [
         {
           "text": "Turn to 40.",
-          "targetId": "40"
+          "targetId": "40",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4476,11 +5820,19 @@
       "choices": [
         {
           "text": "If you possess a Glowing Crystal, turn to 267.",
-          "targetId": "267"
+          "targetId": "267",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not, turn to 44.",
-          "targetId": "44"
+          "targetId": "44",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4496,7 +5848,11 @@
       "choices": [
         {
           "text": "Turn to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4512,15 +5868,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Sixth Sense, turn to 127.",
-          "targetId": "127"
+          "targetId": "127",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to wear this splendid Helm, mark it on your Action Chart and turn to 308.",
-          "targetId": "308"
+          "targetId": "308",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to leave it in the stone chest, you may continue your exploration towards the stairs by turning to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4536,7 +5904,11 @@
       "choices": [
         {
           "text": "Turn to 21.",
-          "targetId": "21"
+          "targetId": "21",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4556,7 +5928,11 @@
       "choices": [
         {
           "text": "Turn to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4572,15 +5948,27 @@
       "choices": [
         {
           "text": "If you wish to creep past the sleeping creatures towards the tunnel, turn to 125.",
-          "targetId": "125"
+          "targetId": "125",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not want to take the risk of waking them, you can return the way you have just come and enter the other tunnel by turning to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to attack the sleeping creatures, you can do so by turning to 109.",
-          "targetId": "109"
+          "targetId": "109",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4615,11 +6003,19 @@
       "choices": [
         {
           "text": "If you wish to enter the cave, turn to 82.",
-          "targetId": "82"
+          "targetId": "82",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to return along the passage and take the other tunnel, turn to 284.",
-          "targetId": "284"
+          "targetId": "284",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4643,11 +6039,19 @@
       "choices": [
         {
           "text": "If you win the combat in seven rounds or less, turn to 272.",
-          "targetId": "272"
+          "targetId": "272",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win the combat in more than seven rounds, turn to 324.",
-          "targetId": "324"
+          "targetId": "324",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4667,11 +6071,19 @@
       "choices": [
         {
           "text": "If you wish to pull the lever and open the door, turn to 110.",
-          "targetId": "110"
+          "targetId": "110",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to continue along the passage, turn to 63.",
-          "targetId": "63"
+          "targetId": "63",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4687,11 +6099,19 @@
       "choices": [
         {
           "text": "If you wish to stand and fight them, turn to 263.",
-          "targetId": "263"
+          "targetId": "263",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to turn and run, turn to 277.",
-          "targetId": "277"
+          "targetId": "277",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4707,11 +6127,19 @@
       "choices": [
         {
           "text": "If you wish to open the door, pull the lever in the nearby wall and turn to 56.",
-          "targetId": "56"
+          "targetId": "56",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to ignore the old man, continue along the corridor towards the junction by turning to 276.",
-          "targetId": "276"
+          "targetId": "276",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4731,7 +6159,11 @@
       "choices": [
         {
           "text": "Turn to 134.",
-          "targetId": "134"
+          "targetId": "134",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4762,15 +6194,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Camouflage, turn to 74.",
-          "targetId": "74"
+          "targetId": "74",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have this skill, you can try to run for the north corridor and pray that the Ice Barbarian does not see you. Turn to 183.",
-          "targetId": "183"
+          "targetId": "183",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you prefer, you can attack and attempt to silence the Ice Barbarian before he can raise the alarm, by turning to 161.",
-          "targetId": "161"
+          "targetId": "161",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4786,11 +6230,19 @@
       "choices": [
         {
           "text": "If you wish to try to dive aside when the Kalkoth charges from out of the tunnel, turn to 80.",
-          "targetId": "80"
+          "targetId": "80",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to stand and fight it when it appears, turn to 253.",
-          "targetId": "253"
+          "targetId": "253",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4810,11 +6262,19 @@
       "choices": [
         {
           "text": "If you win the combat within four rounds, turn to 4.",
-          "targetId": "4"
+          "targetId": "4",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win the fight in more than four rounds, turn to 81.",
-          "targetId": "81"
+          "targetId": "81",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4830,7 +6290,11 @@
       "choices": [
         {
           "text": "Turn to 155.",
-          "targetId": "155"
+          "targetId": "155",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4846,15 +6310,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Sixth Sense, turn to 316.",
-          "targetId": "316"
+          "targetId": "316",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to take the Gold Bracelet, turn to 236. (Put it on your wrist and mark it on your Action Chart as a Special Item.)",
-          "targetId": "236"
+          "targetId": "236",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not wish to take the Bracelet, make your way quickly along the corridor towards a distant junction by turning to 215.",
-          "targetId": "215"
+          "targetId": "215",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4874,11 +6350,19 @@
       "choices": [
         {
           "text": "If your number is now \u22123\u20133, turn to 95.",
-          "targetId": "95"
+          "targetId": "95",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your number is now 4\u20139, turn to 196.",
-          "targetId": "196"
+          "targetId": "196",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4898,7 +6382,11 @@
       "choices": [
         {
           "text": "Turn to 238.",
-          "targetId": "238"
+          "targetId": "238",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4914,7 +6402,11 @@
       "choices": [
         {
           "text": "Turn to 252.",
-          "targetId": "252"
+          "targetId": "252",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4930,11 +6422,19 @@
       "choices": [
         {
           "text": "If you wish to escape from the Kalkoth, turn to 322.",
-          "targetId": "322"
+          "targetId": "322",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to fight it, turn to 123.",
-          "targetId": "123"
+          "targetId": "123",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4950,11 +6450,19 @@
       "choices": [
         {
           "text": "If you wish to investigate the door, turn to 13.",
-          "targetId": "13"
+          "targetId": "13",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to continue along the corridor towards the north, turn to 254.",
-          "targetId": "254"
+          "targetId": "254",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -4982,11 +6490,19 @@
       "choices": [
         {
           "text": "If you wish to fight the Ice Barbarian scout, turn to 158.",
-          "targetId": "158"
+          "targetId": "158",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to try to escape, turn to 149.",
-          "targetId": "149"
+          "targetId": "149",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5002,7 +6518,11 @@
       "choices": [
         {
           "text": "If you are still alive, turn to 154.",
-          "targetId": "154"
+          "targetId": "154",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5018,7 +6538,11 @@
       "choices": [
         {
           "text": "You can now examine the fortress door by turning to 52.",
-          "targetId": "52"
+          "targetId": "52",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5034,7 +6558,11 @@
       "choices": [
         {
           "text": "Turn to 349.",
-          "targetId": "349"
+          "targetId": "349",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5054,11 +6582,19 @@
       "choices": [
         {
           "text": "If you wish to crawl with Fenor to the rear of the sledge, turn to 146.",
-          "targetId": "146"
+          "targetId": "146",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to try to leap clear of the sledge onto the cracked ice, turn to 29.",
-          "targetId": "29"
+          "targetId": "29",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5082,15 +6618,27 @@
       "choices": [
         {
           "text": "If you wish to enter the room and investigate the contents, turn to 38.",
-          "targetId": "38"
+          "targetId": "38",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to pull the lever, turn to 163.",
-          "targetId": "163"
+          "targetId": "163",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to explore eastwards along the passage, turn to 237.",
-          "targetId": "237"
+          "targetId": "237",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5106,7 +6654,11 @@
       "choices": [
         {
           "text": "Turn to 330.",
-          "targetId": "330"
+          "targetId": "330",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5154,11 +6706,19 @@
       "choices": [
         {
           "text": "If you wish to ignore the Ice Barbarians and press on to Ikaya, turn to 327.",
-          "targetId": "327"
+          "targetId": "327",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to attack them and try to prevent them warning others, turn to 307.",
-          "targetId": "307"
+          "targetId": "307",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5174,11 +6734,19 @@
       "choices": [
         {
           "text": "If you wish to call to the man, turn to 67.",
-          "targetId": "67"
+          "targetId": "67",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to remain silent, leave the portal and continue on your way along the passage towards the stairs by turning to 166.",
-          "targetId": "166"
+          "targetId": "166",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5194,11 +6762,19 @@
       "choices": [
         {
           "text": "If you wish to attempt to break the seal, turn to 54.",
-          "targetId": "54"
+          "targetId": "54",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you are suspicious of the contents and do not wish to risk breaking the Vial, leave it and return to 10 to choose your next course of action.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5222,7 +6798,11 @@
       "choices": [
         {
           "text": "Turn to 325.",
-          "targetId": "325"
+          "targetId": "325",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5238,15 +6818,27 @@
       "choices": [
         {
           "text": "If you decide to press the left button and then the right, turn to 102.",
-          "targetId": "102"
+          "targetId": "102",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to press the right button and then the left, turn to 334.",
-          "targetId": "334"
+          "targetId": "334",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to press them both together, turn to 299.",
-          "targetId": "299"
+          "targetId": "299",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5266,7 +6858,11 @@
       "choices": [
         {
           "text": "Turn to 173.",
-          "targetId": "173"
+          "targetId": "173",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5282,11 +6878,19 @@
       "choices": [
         {
           "text": "If you possess a Firesphere, turn to 46.",
-          "targetId": "46"
+          "targetId": "46",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not, you must prepare to fight. Turn to 88.",
-          "targetId": "88"
+          "targetId": "88",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5306,7 +6910,11 @@
       "choices": [
         {
           "text": "Turn to 166.",
-          "targetId": "166"
+          "targetId": "166",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5322,11 +6930,19 @@
       "choices": [
         {
           "text": "If you take a Bracelet, turn to 187.",
-          "targetId": "187"
+          "targetId": "187",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to ignore the Bracelets and continue your exploration of Ikaya, turn to 63.",
-          "targetId": "63"
+          "targetId": "63",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5350,11 +6966,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20136, turn to 85.",
-          "targetId": "85"
+          "targetId": "85",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 7\u20139, turn to 300.",
-          "targetId": "300"
+          "targetId": "300",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5370,7 +6994,11 @@
       "choices": [
         {
           "text": "Now return to 10 and decide your next course of action.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5386,11 +7014,19 @@
       "choices": [
         {
           "text": "If you now wish to wipe away the outside of the pentagram and free him, turn to 170.",
-          "targetId": "170"
+          "targetId": "170",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not wish to free him, close the cell door and return to the main corridor by turning to 254.",
-          "targetId": "254"
+          "targetId": "254",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5414,11 +7050,19 @@
       "choices": [
         {
           "text": "If you wish to cross the icy hall and examine the stone door, turn to 52.",
-          "targetId": "52"
+          "targetId": "52",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to stop and search the bone-littered floor, turn to 115.",
-          "targetId": "115"
+          "targetId": "115",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5434,11 +7078,19 @@
       "choices": [
         {
           "text": "If you possess the Kai Discipline of Mindshield, turn immediately to 345.",
-          "targetId": "345"
+          "targetId": "345",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this Kai Discipline, turn to 9.",
-          "targetId": "9"
+          "targetId": "9",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5458,11 +7110,19 @@
       "choices": [
         {
           "text": "If you wish to take the east passage, turn to 92.",
-          "targetId": "92"
+          "targetId": "92",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to take the west passage, turn to 297.",
-          "targetId": "297"
+          "targetId": "297",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5486,7 +7146,11 @@
       "choices": [
         {
           "text": "Turn to 117.",
-          "targetId": "117"
+          "targetId": "117",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5521,7 +7185,11 @@
       "choices": [
         {
           "text": "Turn to 284.",
-          "targetId": "284"
+          "targetId": "284",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5541,7 +7209,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 186.",
-          "targetId": "186"
+          "targetId": "186",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5557,11 +7229,19 @@
       "choices": [
         {
           "text": "If you possess the Sommerswerd, turn to 42.",
-          "targetId": "42"
+          "targetId": "42",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess it, you can only leave this room via the passage in the north wall. Turn to 145.",
-          "targetId": "145"
+          "targetId": "145",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5577,7 +7257,11 @@
       "choices": [
         {
           "text": "Turn to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5593,11 +7277,19 @@
       "choices": [
         {
           "text": "If you wish to strike the statue with a weapon, turn to 150.",
-          "targetId": "150"
+          "targetId": "150",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess a weapon, or if you wish to leave the temple, head towards the northern archway by turning to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5617,11 +7309,19 @@
       "choices": [
         {
           "text": "If you wish to accept his offer, turn to 91.",
-          "targetId": "91"
+          "targetId": "91",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the thought of smelling like a vat of rancid cheese does not appeal to you, turn to 172.",
-          "targetId": "172"
+          "targetId": "172",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5637,11 +7337,19 @@
       "choices": [
         {
           "text": "If you wish to make a closer examination of the chest, turn to 45.",
-          "targetId": "45"
+          "targetId": "45",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to ignore the chamber and continue up the stairs instead, turn to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5661,11 +7369,19 @@
       "choices": [
         {
           "text": "If you possess a Rope, you can lower it to the floor and rescue the old man from the cell by turning to 118.",
-          "targetId": "118"
+          "targetId": "118",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have a Rope, or if you do not wish to rescue him, you can continue along the passage by turning to 30.",
-          "targetId": "30"
+          "targetId": "30",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5696,7 +7412,11 @@
       "choices": [
         {
           "text": "Take the north corridor by turning to 104.",
-          "targetId": "104"
+          "targetId": "104",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5712,11 +7432,19 @@
       "choices": [
         {
           "text": "If you have ever visited the Graveyard of the Ancients, turn to 77.",
-          "targetId": "77"
+          "targetId": "77",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have not, you are suspicious of this pungent liquid and quickly discard the broken glass. Return to 10 and choose your next course of action.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5740,7 +7468,11 @@
       "choices": [
         {
           "text": "Turn to 62.",
-          "targetId": "62"
+          "targetId": "62",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5772,7 +7504,11 @@
       "choices": [
         {
           "text": "Turn to 350.",
-          "targetId": "350"
+          "targetId": "350",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5803,11 +7539,19 @@
       "choices": [
         {
           "text": "If you wish to open the cell door, turn to 56.",
-          "targetId": "56"
+          "targetId": "56",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to ignore this old man and continue along the corridor, turn to 276.",
-          "targetId": "276"
+          "targetId": "276",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5823,11 +7567,19 @@
       "choices": [
         {
           "text": "If you wish to take the left tunnel, turn to 125.",
-          "targetId": "125"
+          "targetId": "125",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to take the right tunnel, turn to 184.",
-          "targetId": "184"
+          "targetId": "184",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5843,11 +7595,19 @@
       "choices": [
         {
           "text": "If you wish to prepare for combat, turn to 217.",
-          "targetId": "217"
+          "targetId": "217",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to press yourself into a corner of the chamber and take cover beneath your cloak, turn to 7.",
-          "targetId": "7"
+          "targetId": "7",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5875,11 +7635,19 @@
       "choices": [
         {
           "text": "If you wish to try to outrun the Ice Barbarians and press on to Ikaya, turn to 327.",
-          "targetId": "327"
+          "targetId": "327",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to attack them to prevent them raising the alarm, turn to 307.",
-          "targetId": "307"
+          "targetId": "307",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5899,7 +7667,11 @@
       "choices": [
         {
           "text": "If you are still alive, make the necessary adjustments to your Action Chart and turn to 63.",
-          "targetId": "63"
+          "targetId": "63",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5923,11 +7695,19 @@
       "choices": [
         {
           "text": "If you lose any ENDURANCE points during this combat, turn immediately to 129.",
-          "targetId": "129"
+          "targetId": "129",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you kill the creature without losing any ENDURANCE points, turn to 151.",
-          "targetId": "151"
+          "targetId": "151",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5947,7 +7727,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 210.",
-          "targetId": "210"
+          "targetId": "210",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5963,7 +7747,11 @@
       "choices": [
         {
           "text": "Turn to 290.",
-          "targetId": "290"
+          "targetId": "290",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -5983,15 +7771,27 @@
       "choices": [
         {
           "text": "If you possess the Kai Discipline of Sixth Sense, turn to 71.",
-          "targetId": "71"
+          "targetId": "71",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 0\u20136, turn to 320.",
-          "targetId": "320"
+          "targetId": "320",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 7\u20139, turn to 140.",
-          "targetId": "140"
+          "targetId": "140",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6019,15 +7819,27 @@
       "choices": [
         {
           "text": "If you lose any ENDURANCE points during the combat, even when attempting to evade, turn immediately to 66.",
-          "targetId": "66"
+          "targetId": "66",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "You can evade the fight at any time by turning to 277.",
-          "targetId": "277"
+          "targetId": "277",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you win the combat without losing any ENDURANCE points, turn to 25.",
-          "targetId": "25"
+          "targetId": "25",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6047,15 +7859,27 @@
       "choices": [
         {
           "text": "If you wish to cross the temple and advance towards the staircase, turn to 60.",
-          "targetId": "60"
+          "targetId": "60",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to cross the temple floor by stepping only on the quartz flagstones, turn to 168.",
-          "targetId": "168"
+          "targetId": "168",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to cross the temple by stepping only on the granite flagstones, turn to 244.",
-          "targetId": "244"
+          "targetId": "244",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6079,7 +7903,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 3.",
-          "targetId": "3"
+          "targetId": "3",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6095,7 +7923,11 @@
       "choices": [
         {
           "text": "Turn to 21.",
-          "targetId": "21"
+          "targetId": "21",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6115,7 +7947,11 @@
       "choices": [
         {
           "text": "Turn to 44.",
-          "targetId": "44"
+          "targetId": "44",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6131,11 +7967,19 @@
       "choices": [
         {
           "text": "If you have ever visited the Graveyard of the Ancients, turn to 177.",
-          "targetId": "177"
+          "targetId": "177",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have not, you quickly replace stopper of the Vial. The vapour is making you nauseous, and you decide against keeping this suspicious fluid. Return to 10 and choose your next course of action.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6151,11 +7995,19 @@
       "choices": [
         {
           "text": "If you wish to search for a way of climbing up and out through the fissures, turn to 335.",
-          "targetId": "335"
+          "targetId": "335",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to press on and look for an exit on the far side of the hall, turn to 182.",
-          "targetId": "182"
+          "targetId": "182",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6175,7 +8027,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 340.",
-          "targetId": "340"
+          "targetId": "340",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6195,11 +8051,19 @@
       "choices": [
         {
           "text": "If you wish to attack the Ice Barbarian scout before he fully regains his senses, turn to 241.",
-          "targetId": "241"
+          "targetId": "241",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to grab the child as a hostage and try to escape, turn to 262.",
-          "targetId": "262"
+          "targetId": "262",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6223,15 +8087,27 @@
       "choices": [
         {
           "text": "If you possess the Sommerswerd, turn to 213.",
-          "targetId": "213"
+          "targetId": "213",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 0\u20133, turn to 143.",
-          "targetId": "143"
+          "targetId": "143",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 4\u20139, turn to 58.",
-          "targetId": "58"
+          "targetId": "58",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6259,11 +8135,19 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Sixth Sense, turn to 35.",
-          "targetId": "35"
+          "targetId": "35",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this skill, turn to 112.",
-          "targetId": "112"
+          "targetId": "112",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6279,15 +8163,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Sixth Sense, turn to 131.",
-          "targetId": "131"
+          "targetId": "131",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to press the buttons, turn to 227.",
-          "targetId": "227"
+          "targetId": "227",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to leave the temple, turn to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6303,11 +8199,19 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Hunting, Tracking, or Animal Kinship, turn to 293.",
-          "targetId": "293"
+          "targetId": "293",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess any of the above skills, turn to 197.",
-          "targetId": "197"
+          "targetId": "197",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6323,15 +8227,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Hunting or Tracking, turn to 219.",
-          "targetId": "219"
+          "targetId": "219",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to head east, turn to 349.",
-          "targetId": "349"
+          "targetId": "349",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to go west, turn to 50.",
-          "targetId": "50"
+          "targetId": "50",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6347,11 +8263,19 @@
       "choices": [
         {
           "text": "If you possess a weapon, you may strike this outcrop and attempt to block the cave, by turning to 142.",
-          "targetId": "142"
+          "targetId": "142",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not, you will have to stand and fight the creatures as they emerge from the cave. Turn to 32.",
-          "targetId": "32"
+          "targetId": "32",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6367,7 +8291,11 @@
       "choices": [
         {
           "text": "Turn to 36.",
-          "targetId": "36"
+          "targetId": "36",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6383,7 +8311,11 @@
       "choices": [
         {
           "text": "Turn to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6399,7 +8331,11 @@
       "choices": [
         {
           "text": "Turn to 344.",
-          "targetId": "344"
+          "targetId": "344",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6419,7 +8355,11 @@
       "choices": [
         {
           "text": "Turn to 325.",
-          "targetId": "325"
+          "targetId": "325",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6435,11 +8375,19 @@
       "choices": [
         {
           "text": "At the top of the stairs, if you wish to go left (north), turn to 104.",
-          "targetId": "104"
+          "targetId": "104",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to go right (south), turn to 330.",
-          "targetId": "330"
+          "targetId": "330",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6459,15 +8407,27 @@
       "choices": [
         {
           "text": "If your total is now 0\u20134, turn to 53.",
-          "targetId": "53"
+          "targetId": "53",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 5\u20137, turn to 16.",
-          "targetId": "16"
+          "targetId": "16",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 8\u201312, turn to 113.",
-          "targetId": "113"
+          "targetId": "113",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6491,11 +8451,19 @@
       "choices": [
         {
           "text": "If your total score is now \u22122\u2013\u002B3, turn to 94.",
-          "targetId": "94"
+          "targetId": "94",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total score is now 4\u201311, turn to 176.",
-          "targetId": "176"
+          "targetId": "176",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6511,11 +8479,19 @@
       "choices": [
         {
           "text": "If you wish to escape, you must turn and run back down the stairs. Turn to 261.",
-          "targetId": "261"
+          "targetId": "261",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to stand and fight, turn to 343.",
-          "targetId": "343"
+          "targetId": "343",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6531,7 +8507,11 @@
       "choices": [
         {
           "text": "Turn to 68.",
-          "targetId": "68"
+          "targetId": "68",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6547,7 +8527,11 @@
       "choices": [
         {
           "text": "Turn to 161.",
-          "targetId": "161"
+          "targetId": "161",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6563,7 +8547,11 @@
       "choices": [
         {
           "text": "Turn to 167.",
-          "targetId": "167"
+          "targetId": "167",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6579,11 +8567,19 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Animal Kinship, or if you have reached the Kai rank of Aspirant (you are skilled in six Kai Disciplines) or above, turn to 156.",
-          "targetId": "156"
+          "targetId": "156",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess this Kai Discipline, or if you have not yet reached the required Kai rank, you are suspicious of the dank mouldy smell of this liquid. You quickly put the Vial down. Now return to 10 and choose your next course of action.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6599,15 +8595,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Sixth Sense and if you have reached the Kai rank of Guardian (you are skilled in seven Kai Disciplines), turn to 341.",
-          "targetId": "341"
+          "targetId": "341",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have the Kai Discipline of Sixth Sense but have not yet reached the rank of Guardian, turn to 124.",
-          "targetId": "124"
+          "targetId": "124",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have the Kai Discipline of Sixth Sense, you prepare yourself to fight and pass through the misty arch. Turn to 264.",
-          "targetId": "264"
+          "targetId": "264",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6635,11 +8643,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20134, turn to 103.",
-          "targetId": "103"
+          "targetId": "103",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 5\u20139, turn to 220.",
-          "targetId": "220"
+          "targetId": "220",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6667,11 +8683,19 @@
       "choices": [
         {
           "text": "If you wish to fight these creatures, turn to 83.",
-          "targetId": "83"
+          "targetId": "83",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to flee from this terrible place, turn to 130.",
-          "targetId": "130"
+          "targetId": "130",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6687,15 +8711,27 @@
       "choices": [
         {
           "text": "If you wish to creep past the sleeping Kalkoth, turn to 125.",
-          "targetId": "125"
+          "targetId": "125",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to retrace your steps and take the other tunnel heading north, turn to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to attack these sleeping creatures, turn to 109.",
-          "targetId": "109"
+          "targetId": "109",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6715,7 +8751,11 @@
       "choices": [
         {
           "text": "Turn to 106.",
-          "targetId": "106"
+          "targetId": "106",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6735,7 +8775,11 @@
       "choices": [
         {
           "text": "Return to the tunnel by turning to 132.",
-          "targetId": "132"
+          "targetId": "132",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6763,7 +8807,11 @@
       "choices": [
         {
           "text": "Turn to 173.",
-          "targetId": "173"
+          "targetId": "173",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6779,11 +8827,19 @@
       "choices": [
         {
           "text": "If you wish to pull the lever and open the door, turn to 317.",
-          "targetId": "317"
+          "targetId": "317",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to continue northwards, turn to 126.",
-          "targetId": "126"
+          "targetId": "126",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6799,11 +8855,19 @@
       "choices": [
         {
           "text": "You may leave the chamber by a tunnel in the far wall, by turning to 315.",
-          "targetId": "315"
+          "targetId": "315",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "Or you can retrace your route and take the other tunnel by turning to 125.",
-          "targetId": "125"
+          "targetId": "125",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6819,11 +8883,19 @@
       "choices": [
         {
           "text": "If you wish to try to activate the buttons again, turn to 65.",
-          "targetId": "65"
+          "targetId": "65",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to leave the temple, turn to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6847,11 +8919,19 @@
       "choices": [
         {
           "text": "If you wish to abandon the dogs and sledges, and cross the Myjavik Mountains on foot, turn to 12.",
-          "targetId": "12"
+          "targetId": "12",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to lose two days and trace your way back to the Viad Glacier, turn to 238.",
-          "targetId": "238"
+          "targetId": "238",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6871,19 +8951,35 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Camouflage, turn to 122.",
-          "targetId": "122"
+          "targetId": "122",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have the Kai Discipline of Mind Over Matter, turn to 228.",
-          "targetId": "228"
+          "targetId": "228",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have the Kai Discipline of Hunting, turn to 347.",
-          "targetId": "347"
+          "targetId": "347",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess any of the above Kai Disciplines, turn to 179.",
-          "targetId": "179"
+          "targetId": "179",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6903,15 +8999,27 @@
       "choices": [
         {
           "text": "If your total is now 0\u20131, turn to 37.",
-          "targetId": "37"
+          "targetId": "37",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 2\u20137, turn to 193.",
-          "targetId": "193"
+          "targetId": "193",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 8\u201311, turn to 243.",
-          "targetId": "243"
+          "targetId": "243",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6927,15 +9035,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Sixth Sense, turn to 127.",
-          "targetId": "127"
+          "targetId": "127",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to put this splendid Helm on your head, turn to 308.",
-          "targetId": "308"
+          "targetId": "308",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to leave the Helm where it is, you can explore the stairs by turning to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6955,7 +9075,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 20.",
-          "targetId": "20"
+          "targetId": "20",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6979,11 +9103,19 @@
       "choices": [
         {
           "text": "If you wish to accept his offer, turn to 8.",
-          "targetId": "8"
+          "targetId": "8",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the thought of smelling like a vat of rancid cheese does not appeal to you, turn to 281.",
-          "targetId": "281"
+          "targetId": "281",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -6999,11 +9131,19 @@
       "choices": [
         {
           "text": "If you wish to squeeze through the portal and drop into the corridor, turn to 206.",
-          "targetId": "206"
+          "targetId": "206",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to continue along the passage, turn to 6.",
-          "targetId": "6"
+          "targetId": "6",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7019,11 +9159,19 @@
       "choices": [
         {
           "text": "If you wish to press on to Ikaya and try to outrun the Ice Barbarians before they return with reinforcements, turn to 327.",
-          "targetId": "327"
+          "targetId": "327",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to follow the scouts westwards and find out more about their convoy, turn to 178.",
-          "targetId": "178"
+          "targetId": "178",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7039,7 +9187,11 @@
       "choices": [
         {
           "text": "Turn to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7067,7 +9219,11 @@
       "choices": [
         {
           "text": "Turn to 132.",
-          "targetId": "132"
+          "targetId": "132",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7083,11 +9239,19 @@
       "choices": [
         {
           "text": "If you wish to leave the temple, turn to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to search the altar and alcove, turn to 72.",
-          "targetId": "72"
+          "targetId": "72",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7103,7 +9267,11 @@
       "choices": [
         {
           "text": "Now return to 10 and choose your next course of action.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7134,7 +9302,11 @@
       "choices": [
         {
           "text": "Turn to 130.",
-          "targetId": "130"
+          "targetId": "130",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7150,7 +9322,11 @@
       "choices": [
         {
           "text": "Turn to 240.",
-          "targetId": "240"
+          "targetId": "240",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7166,11 +9342,19 @@
       "choices": [
         {
           "text": "If you wish to descend these steps, turn to 302.",
-          "targetId": "302"
+          "targetId": "302",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to retrace your route to the other tunnel entrance, turn to 125.",
-          "targetId": "125"
+          "targetId": "125",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7186,11 +9370,19 @@
       "choices": [
         {
           "text": "If you take the Bracelet, turn to 236.",
-          "targetId": "236"
+          "targetId": "236",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to leave it, make your way along the corridor towards the distant junction by turning to 215.",
-          "targetId": "215"
+          "targetId": "215",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7206,11 +9398,19 @@
       "choices": [
         {
           "text": "If you wish to examine these ancient potions, turn to 10.",
-          "targetId": "10"
+          "targetId": "10",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to leave the chamber and continue northwards, turn to 126.",
-          "targetId": "126"
+          "targetId": "126",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7230,7 +9430,11 @@
       "choices": [
         {
           "text": "Turn to 134.",
-          "targetId": "134"
+          "targetId": "134",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7246,7 +9450,11 @@
       "choices": [
         {
           "text": "Turn to 332.",
-          "targetId": "332"
+          "targetId": "332",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7270,11 +9478,19 @@
       "choices": [
         {
           "text": "If you wish to cut the equipment loose, free the Ice Barbarian child, and escape on the unloaded sledge, turn to 190.",
-          "targetId": "190"
+          "targetId": "190",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to cut loose the equipment but keep the boy with you as a hostage during your escape, turn to 33.",
-          "targetId": "33"
+          "targetId": "33",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7294,7 +9510,11 @@
       "choices": [
         {
           "text": "Turn to 235.",
-          "targetId": "235"
+          "targetId": "235",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7314,11 +9534,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20132, turn to 153.",
-          "targetId": "153"
+          "targetId": "153",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 3\u20139, turn to 59.",
-          "targetId": "59"
+          "targetId": "59",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7338,11 +9566,19 @@
       "choices": [
         {
           "text": "If your total is now 0\u20134, turn to 76.",
-          "targetId": "76"
+          "targetId": "76",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 5\u201312, turn to 2.",
-          "targetId": "2"
+          "targetId": "2",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7362,7 +9598,11 @@
       "choices": [
         {
           "text": "Turn to 61.",
-          "targetId": "61"
+          "targetId": "61",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7394,7 +9634,11 @@
       "choices": [
         {
           "text": "Turn to 216.",
-          "targetId": "216"
+          "targetId": "216",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7410,15 +9654,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Sixth Sense, turn to 127.",
-          "targetId": "127"
+          "targetId": "127",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to put this Helm on, turn to 308.",
-          "targetId": "308"
+          "targetId": "308",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you would rather leave it where it is, you can explore the stairs by turning to 323.",
-          "targetId": "323"
+          "targetId": "323",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7438,11 +9694,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20138, turn to 105.",
-          "targetId": "105"
+          "targetId": "105",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 9, turn to 144.",
-          "targetId": "144"
+          "targetId": "144",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7466,11 +9730,19 @@
       "choices": [
         {
           "text": "If you possess the Sommerswerd, turn to 99.",
-          "targetId": "99"
+          "targetId": "99",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not possess it, turn to 175.",
-          "targetId": "175"
+          "targetId": "175",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7486,15 +9758,27 @@
       "choices": [
         {
           "text": "If you have smeared Baknar oil into your skin, turn to 202.",
-          "targetId": "202"
+          "targetId": "202",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you have not applied Baknar oil to your skin, you can avoid the Kalkoth by retracing your route back to the entrance of the other tunnel, by turning to 284.",
-          "targetId": "284"
+          "targetId": "284",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to attack the creatures, you can turn to 138.",
-          "targetId": "138"
+          "targetId": "138",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7510,15 +9794,27 @@
       "choices": [
         {
           "text": "If you have a Rope, you can climb down and attempt to capture him by turning to 100.",
-          "targetId": "100"
+          "targetId": "100",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have a Rope, you can descend the spiral staircase by turning to 148.",
-          "targetId": "148"
+          "targetId": "148",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you prefer, you can investigate the door at the end of the balcony by turning to 61.",
-          "targetId": "61"
+          "targetId": "61",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7542,11 +9838,19 @@
       "choices": [
         {
           "text": "If the number you have picked is 0\u20134, turn to 62.",
-          "targetId": "62"
+          "targetId": "62",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If the number you have picked is 5\u20139, turn to 288.",
-          "targetId": "288"
+          "targetId": "288",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7562,15 +9866,27 @@
       "choices": [
         {
           "text": "If you have the Kai Discipline of Sixth Sense or Hunting, turn to 249.",
-          "targetId": "249"
+          "targetId": "249",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to head north, turn to 104.",
-          "targetId": "104"
+          "targetId": "104",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to go south, turn to 69.",
-          "targetId": "69"
+          "targetId": "69",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7586,7 +9902,11 @@
       "choices": [
         {
           "text": "Turn to 68.",
-          "targetId": "68"
+          "targetId": "68",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7606,11 +9926,19 @@
       "choices": [
         {
           "text": "If you wish to activate the buttons again, turn to 65.",
-          "targetId": "65"
+          "targetId": "65",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to leave the temple, turn to 306.",
-          "targetId": "306"
+          "targetId": "306",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7626,11 +9954,19 @@
       "choices": [
         {
           "text": "If you wish to risk your life and your hands, you can continue to climb by turning to 55.",
-          "targetId": "55"
+          "targetId": "55",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decide to abandon your climb, you can descend to the hall below and search for another exit by turning to 182.",
-          "targetId": "182"
+          "targetId": "182",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7646,11 +9982,19 @@
       "choices": [
         {
           "text": "If you wish to call to the old man, turn to 247.",
-          "targetId": "247"
+          "targetId": "247",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to continue along the passage, turn to 30.",
-          "targetId": "30"
+          "targetId": "30",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7666,7 +10010,11 @@
       "choices": [
         {
           "text": "Turn to 68.",
-          "targetId": "68"
+          "targetId": "68",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7682,11 +10030,19 @@
       "choices": [
         {
           "text": "If you wish to pursue the strange creature, turn to 87.",
-          "targetId": "87"
+          "targetId": "87",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you wish to search the bodies of the dead Ice Barbarians, turn to 26.",
-          "targetId": "26"
+          "targetId": "26",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7717,7 +10073,11 @@
       "choices": [
         {
           "text": "Turn to 301.",
-          "targetId": "301"
+          "targetId": "301",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7737,7 +10097,11 @@
       "choices": [
         {
           "text": "Turn to 264.",
-          "targetId": "264"
+          "targetId": "264",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7753,11 +10117,19 @@
       "choices": [
         {
           "text": "If you decide to take the east tunnel, turn to 199.",
-          "targetId": "199"
+          "targetId": "199",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you decided to take the north tunnel, turn to 284.",
-          "targetId": "284"
+          "targetId": "284",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7789,7 +10161,11 @@
       "choices": [
         {
           "text": "If you win the combat, turn to 28.",
-          "targetId": "28"
+          "targetId": "28",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7805,11 +10181,19 @@
       "choices": [
         {
           "text": "If you possess a Blue Stone Triangle, turn to 41.",
-          "targetId": "41"
+          "targetId": "41",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not, turn to 147.",
-          "targetId": "147"
+          "targetId": "147",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7825,7 +10209,11 @@
       "choices": [
         {
           "text": "Turn to 215.",
-          "targetId": "215"
+          "targetId": "215",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7845,11 +10233,19 @@
       "choices": [
         {
           "text": "If your total is now 0\u20133, turn to 195.",
-          "targetId": "195"
+          "targetId": "195",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If your total is now 4\u201311, turn to 232.",
-          "targetId": "232"
+          "targetId": "232",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7873,7 +10269,11 @@
       "choices": [
         {
           "text": "Turn to 173.",
-          "targetId": "173"
+          "targetId": "173",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7889,7 +10289,11 @@
       "choices": [
         {
           "text": "Turn to 314.",
-          "targetId": "314"
+          "targetId": "314",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },
@@ -7905,11 +10309,19 @@
       "choices": [
         {
           "text": "If you possess this Special Item, turn to 139.",
-          "targetId": "139"
+          "targetId": "139",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         },
         {
           "text": "If you do not have it, turn to 97.",
-          "targetId": "97"
+          "targetId": "97",
+          "requirements": [],
+          "effects": [],
+          "randomOutcomes": [],
+          "ruleIds": []
         }
       ]
     },

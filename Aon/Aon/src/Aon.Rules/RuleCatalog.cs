@@ -42,7 +42,8 @@ public sealed class RuleCatalog : IRuleCatalog
             stream,
             RuleCatalogDocumentContext.Default.RuleCatalogDocument);
 
-        return new RuleCatalog(document?.Rules ?? Array.Empty<RuleDefinition>());
+        // Fix: Convert List<RuleDefinition> to array for constructor
+        return new RuleCatalog(document?.Rules?.ToArray() ?? Array.Empty<RuleDefinition>());
     }
 
     public IReadOnlyList<RuleDefinition> Resolve(IEnumerable<string> ruleIds)

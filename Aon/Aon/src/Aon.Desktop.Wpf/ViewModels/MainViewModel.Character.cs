@@ -5,12 +5,14 @@ using System.Text.RegularExpressions;
 using Aon.Content;
 using Aon.Core;
 using Aon.Rules;
+using Aon.Core;
+using System.Text.RegularExpressions;
 
 namespace Aon.Desktop.Wpf.ViewModels;
 
 public sealed partial class MainViewModel
 {
-    private sealed class SeriesFilterOptionViewModel
+    public sealed class SeriesFilterOptionViewModel
     {
         public SeriesFilterOptionViewModel(string id, string name)
         {

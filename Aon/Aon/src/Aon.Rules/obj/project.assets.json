@@ -2,6 +2,16 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "Aon.Content/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Aon.Content.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Aon.Content.dll": {}
+        }
+      },
       "Aon.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -15,6 +25,11 @@
     }
   },
   "libraries": {
+    "Aon.Content/1.0.0": {
+      "type": "project",
+      "path": "../Aon.Content/Aon.Content.csproj",
+      "msbuildProject": "../Aon.Content/Aon.Content.csproj"
+    },
     "Aon.Core/1.0.0": {
       "type": "project",
       "path": "../Aon.Core/Aon.Core.csproj",
@@ -23,6 +38,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Aon.Content >= 1.0.0",
       "Aon.Core >= 1.0.0"
     ]
   },
@@ -59,6 +75,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "D:\\Repos\\Github\\Aon\\Aon\\Aon\\Aon\\src\\Aon.Content\\Aon.Content.csproj": {
+              "projectPath": "D:\\Repos\\Github\\Aon\\Aon\\Aon\\Aon\\src\\Aon.Content\\Aon.Content.csproj"
+            },
             "D:\\Repos\\Github\\Aon\\Aon\\Aon\\Aon\\src\\Aon.Core\\Aon.Core.csproj": {
               "projectPath": "D:\\Repos\\Github\\Aon\\Aon\\Aon\\Aon\\src\\Aon.Core\\Aon.Core.csproj"
             }
