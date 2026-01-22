@@ -511,7 +511,9 @@ public sealed partial class MainViewModel
                 foreach (var entry in block.Text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
                 {
                     var item = NormalizeItemText(entry);
-                    if (!string.IsNullOrWhiteSpace(item))
+                    if (!string.IsNullOrWhiteSpace(item)
+                        && LooksLikeItemName(item, block.Text)
+                        && IsLikelyItemPhrase(item))
                     {
                         AddSuggestion(items, item, InferItemCategory(item, block.Text));
                     }

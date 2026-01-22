@@ -174,9 +174,14 @@ public sealed partial class MainViewModel
             return false;
         }
 
-        return text.Contains("round", StringComparison.OrdinalIgnoreCase)
-            && text.Contains("add", StringComparison.OrdinalIgnoreCase)
-            && text.Contains("point", StringComparison.OrdinalIgnoreCase);
+        return Regex.IsMatch(
+            text,
+            "\\badd\\s+\\d+\\s+(?:extra\\s+)?points?\\s+(?:for|per)\\s+rounds?\\b",
+            RegexOptions.IgnoreCase)
+            || Regex.IsMatch(
+                text,
+                "\\brounds?\\s+to\\s+fire\\b",
+                RegexOptions.IgnoreCase);
     }
 
     private static IReadOnlyList<Choice> FilterChoicesByTotalScore(IEnumerable<Choice> choices, int totalScore)
@@ -288,12 +293,12 @@ public sealed partial class MainViewModel
 
         var modifierMatch = Regex.Match(
             text,
-            "\\badd to your current (?<skills>[^.]+?) skill total\\b",
+            "\\badd\\s+(?:it\\s+|this\\s+)?to your current (?<skills>[^.]+?) skill total\\b",
             RegexOptions.IgnoreCase);
         if (modifierMatch.Success)
         {
-            var initialSkillsSegment = modifierMatch.Groups["skills"].Value;
-            var total = GetSkillTotalFromSegment(initialSkillsSegment);
+            var skillsSegment = modifierMatch.Groups["skills"].Value;
+            var total = GetSkillTotalFromSegment(skillsSegment);
             if (total > 0)
             {
                 return total;
