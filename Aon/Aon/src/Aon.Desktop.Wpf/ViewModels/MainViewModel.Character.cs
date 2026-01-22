@@ -522,11 +522,13 @@ public sealed partial class MainViewModel
 
             foreach (Match match in Regex.Matches(
                 block.Text,
-                "\\b(?:it is|it was|you (?:find|found|discover|discovered|notice|noticed|spot|spotted|locate|located|pick up|take))\\s+(?:an?|the)\\s+(?<item>[^.]+)",
+                "\\b(?:you (?:find|found|discover|discovered|notice|noticed|spot|spotted|locate|located|recover|recovered|take|took|pick up|picked up|gain|gained|receive|received))\\s+(?:an?|the)\\s+(?<item>[^.]+)",
                 RegexOptions.IgnoreCase))
             {
                 var item = NormalizeItemText(match.Groups["item"].Value);
-                if (!string.IsNullOrWhiteSpace(item))
+                if (!string.IsNullOrWhiteSpace(item)
+                    && LooksLikeItemName(item, block.Text)
+                    && IsLikelyItemPhrase(item))
                 {
                     AddSuggestion(items, item, InferItemCategory(item, block.Text));
                 }
@@ -551,7 +553,7 @@ public sealed partial class MainViewModel
             {
                 foreach (var item in SplitItemList(match.Groups["items"].Value, block.Text))
                 {
-                    if (!string.IsNullOrWhiteSpace(item))
+                    if (!string.IsNullOrWhiteSpace(item) && LooksLikeItemName(item, block.Text))
                     {
                         AddSuggestion(items, item, InferItemCategory(item, block.Text));
                     }
@@ -629,6 +631,57 @@ public sealed partial class MainViewModel
         {
             items[key] = new ItemSuggestion(name, category);
         }
+    }
+
+    private static bool LooksLikeItemName(string item, string context)
+    {
+        if (Regex.IsMatch(item, "\\(\\d+\\)"))
+        {
+            return true;
+        }
+
+        if (ContainsItemKeyword(item))
+        {
+            return true;
+        }
+
+        if (Regex.IsMatch(item, "\\b[A-Z][A-Za-z]"))
+        {
+            return true;
+        }
+
+        return context.Contains("weapon", StringComparison.OrdinalIgnoreCase)
+            || context.Contains("Weapons List", StringComparison.OrdinalIgnoreCase)
+            || context.Contains("Backpack", StringComparison.OrdinalIgnoreCase)
+            || (context.Contains("item", StringComparison.OrdinalIgnoreCase)
+                && Regex.IsMatch(item, "\\b[A-Za-z]{3,}"));
+    }
+
+    private static bool ContainsItemKeyword(string item)
+    {
+        return Regex.IsMatch(
+            item,
+            "\\b(weapon|sword|axe|dagger|knife|pistol|rifle|gun|bow|arrow|spear|mace|club|staff|shield|helmet|armou?r|pack|backpack|satchel|bag|kit|medi-?kit|potion|meal|ration|food|ammo|bullet|bolt|canteen|water|map|key|rope|torch|lantern|gem|ring|amulet|scroll|herb|bomb|grenade|chest|box)\\b",
+            RegexOptions.IgnoreCase);
+    }
+
+    private static bool IsLikelyItemPhrase(string item)
+    {
+        var wordMatches = Regex.Matches(item, "[A-Za-z0-9]+");
+        if (wordMatches.Count == 0 || wordMatches.Count > 7)
+        {
+            return false;
+        }
+
+        if (ContainsItemKeyword(item) || Regex.IsMatch(item, "\\(\\d+\\)") || Regex.IsMatch(item, "\\b[A-Z][A-Za-z]"))
+        {
+            return true;
+        }
+
+        return !Regex.IsMatch(
+            item,
+            "\\b(sound|noise|cry|scream|shout|voice|song|silence|light|darkness|shadow|sight|smell|feeling|glow|heat|cold|movement)\\b",
+            RegexOptions.IgnoreCase);
     }
 
     private readonly record struct ItemSuggestion(string Name, string Category);
