@@ -124,6 +124,12 @@
                                     <TextBlock Text="Roll modifier:" VerticalAlignment="Center" Margin="0,0,8,0" />
                                     <TextBox Text="{Binding RollModifierText}" Width="60" />
                                 </StackPanel>
+                                <StackPanel Orientation="Horizontal"
+                                            Margin="0,0,0,8"
+                                            Visibility="{Binding IsRoundsToFireVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <TextBlock Text="Rounds to fire:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                                    <TextBox Text="{Binding RoundsToFireText}" Width="60" />
+                                </StackPanel>
                                 <CheckBox Content="Manual mode (show choices after roll)"
                                           IsChecked="{Binding IsManualRandomMode}"
                                           Margin="0,0,0,8" />
