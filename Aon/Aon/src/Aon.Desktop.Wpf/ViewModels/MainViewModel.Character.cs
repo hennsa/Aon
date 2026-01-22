@@ -5,8 +5,6 @@ using System.Text.RegularExpressions;
 using Aon.Content;
 using Aon.Core;
 using Aon.Rules;
-using Aon.Core;
-using System.Text.RegularExpressions;
 
 namespace Aon.Desktop.Wpf.ViewModels;
 

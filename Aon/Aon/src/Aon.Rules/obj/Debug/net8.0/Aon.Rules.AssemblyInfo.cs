@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Aon.Rules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8dd07d47a9531677f44f71701a7864204964897f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c68e5a593dcd4dc89747735a28318eea1e7de8a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Aon.Rules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Aon.Rules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
