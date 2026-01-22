@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Aon.Content;
+using Aon.Core;
 using Aon.Rules;
 
 namespace Aon.Desktop.Wpf.ViewModels;
@@ -435,6 +437,26 @@ public sealed partial class MainViewModel
             }));
         }
 
+        foreach (var suggestion in ExtractItemSuggestions(section))
+        {
+            if (_state.Character.Inventory.Items.Any(existing =>
+                    existing.Name.Equals(suggestion.Name, StringComparison.OrdinalIgnoreCase)
+                    && existing.Category.Equals(suggestion.Category, StringComparison.OrdinalIgnoreCase)))
+            {
+                continue;
+            }
+
+            var labelPrefix = suggestion.Category.Equals("weapon", StringComparison.OrdinalIgnoreCase)
+                ? "Add weapon"
+                : "Add item";
+            SuggestedActions.Add(new QuickActionViewModel($"{labelPrefix}: {suggestion.Name}", () =>
+            {
+                _state.Character.Inventory.Items.Add(new Item(suggestion.Name, suggestion.Category));
+                RefreshCharacterPanels();
+                _ = SaveProfileStateAsync();
+            }));
+        }
+
         OnPropertyChanged(nameof(HasSuggestedActions));
     }
 
@@ -471,4 +493,198 @@ public sealed partial class MainViewModel
             _ => null
         };
     }
+
+    private static IEnumerable<ItemSuggestion> ExtractItemSuggestions(BookSection section)
+    {
+        var items = new Dictionary<string, ItemSuggestion>(StringComparer.OrdinalIgnoreCase);
+
+        foreach (var block in section.Blocks)
+        {
+            if (string.IsNullOrWhiteSpace(block.Text))
+            {
+                continue;
+            }
+
+            if (string.Equals(block.Kind, "ul", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(block.Kind, "ol", StringComparison.OrdinalIgnoreCase))
+            {
+                foreach (var entry in block.Text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    var item = NormalizeItemText(entry);
+                    if (!string.IsNullOrWhiteSpace(item)
+                        && LooksLikeItemName(item, block.Text)
+                        && IsLikelyItemPhrase(item))
+                    {
+                        AddSuggestion(items, item, InferItemCategory(item, block.Text));
+                    }
+                }
+
+                continue;
+            }
+
+            foreach (Match match in Regex.Matches(
+                block.Text,
+                "\\b(?:you (?:find|found|discover|discovered|notice|noticed|spot|spotted|locate|located|recover|recovered|take|took|pick up|picked up|gain|gained|receive|received))\\s+(?:an?|the)\\s+(?<item>[^.]+)",
+                RegexOptions.IgnoreCase))
+            {
+                var item = NormalizeItemText(match.Groups["item"].Value);
+                if (!string.IsNullOrWhiteSpace(item)
+                    && LooksLikeItemName(item, block.Text)
+                    && IsLikelyItemPhrase(item))
+                {
+                    AddSuggestion(items, item, InferItemCategory(item, block.Text));
+                }
+            }
+
+            foreach (Match match in Regex.Matches(
+                block.Text,
+                "\\b(?<item>[A-Z][A-Za-z0-9'’\\- ]+\\(\\d+\\))",
+                RegexOptions.IgnoreCase))
+            {
+                var item = NormalizeItemText(match.Groups["item"].Value);
+                if (!string.IsNullOrWhiteSpace(item))
+                {
+                    AddSuggestion(items, item, "weapon");
+                }
+            }
+
+            foreach (Match match in Regex.Matches(
+                block.Text,
+                "\\bitems? you (?:find|found|discover|discovered|notice|noticed|spot|spotted|locate|located)[^.]*? are (?<items>[^.]+)",
+                RegexOptions.IgnoreCase))
+            {
+                foreach (var item in SplitItemList(match.Groups["items"].Value, block.Text))
+                {
+                    if (!string.IsNullOrWhiteSpace(item) && LooksLikeItemName(item, block.Text))
+                    {
+                        AddSuggestion(items, item, InferItemCategory(item, block.Text));
+                    }
+                }
+            }
+        }
+
+        return items.Values;
+    }
+
+    private static IEnumerable<string> SplitItemList(string text, string context)
+    {
+        var parts = text.Split(new[] { ",", " and " }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        foreach (var part in parts)
+        {
+            var item = NormalizeItemText(part);
+            if (!string.IsNullOrWhiteSpace(item))
+            {
+                yield return item;
+            }
+        }
+    }
+
+    private static string NormalizeItemText(string raw)
+    {
+        var trimmed = raw.Trim();
+        if (string.IsNullOrWhiteSpace(trimmed))
+        {
+            return string.Empty;
+        }
+
+        var hasWeaponBonus = Regex.IsMatch(trimmed, "\\(\\d+\\)");
+        trimmed = Regex.Replace(trimmed, "^\\d+\\.\\s*", string.Empty);
+        trimmed = Regex.Replace(trimmed, "^(?:a|an|the)\\s+", string.Empty, RegexOptions.IgnoreCase);
+
+        var separators = hasWeaponBonus
+            ? new[] { " with ", " containing ", " sufficient for ", " that ", " which " }
+            : new[] { " (", " with ", " containing ", " sufficient for ", " that ", " which " };
+        foreach (var separator in separators)
+        {
+            var index = trimmed.IndexOf(separator, StringComparison.OrdinalIgnoreCase);
+            if (index > 0)
+            {
+                trimmed = trimmed[..index];
+                break;
+            }
+        }
+
+        return trimmed.Trim().TrimEnd('.', ';', ':');
+    }
+
+    private static string InferItemCategory(string item, string context)
+    {
+        if (Regex.IsMatch(item, "\\(\\d+\\)"))
+        {
+            return "weapon";
+        }
+
+        if (context.Contains("Weapons List", StringComparison.OrdinalIgnoreCase)
+            || context.Contains("weapon", StringComparison.OrdinalIgnoreCase))
+        {
+            return "weapon";
+        }
+
+        return "general";
+    }
+
+    private static void AddSuggestion(
+        IDictionary<string, ItemSuggestion> items,
+        string name,
+        string category)
+    {
+        var key = $"{name}|{category}";
+        if (!items.ContainsKey(key))
+        {
+            items[key] = new ItemSuggestion(name, category);
+        }
+    }
+
+    private static bool LooksLikeItemName(string item, string context)
+    {
+        if (Regex.IsMatch(item, "\\(\\d+\\)"))
+        {
+            return true;
+        }
+
+        if (ContainsItemKeyword(item))
+        {
+            return true;
+        }
+
+        if (Regex.IsMatch(item, "\\b[A-Z][A-Za-z]"))
+        {
+            return true;
+        }
+
+        return context.Contains("weapon", StringComparison.OrdinalIgnoreCase)
+            || context.Contains("Weapons List", StringComparison.OrdinalIgnoreCase)
+            || context.Contains("Backpack", StringComparison.OrdinalIgnoreCase)
+            || (context.Contains("item", StringComparison.OrdinalIgnoreCase)
+                && Regex.IsMatch(item, "\\b[A-Za-z]{3,}"));
+    }
+
+    private static bool ContainsItemKeyword(string item)
+    {
+        return Regex.IsMatch(
+            item,
+            "\\b(weapon|sword|axe|dagger|knife|pistol|rifle|gun|bow|arrow|spear|mace|club|staff|shield|helmet|armou?r|pack|backpack|satchel|bag|kit|medi-?kit|potion|meal|ration|food|ammo|bullet|bolt|canteen|water|map|key|rope|torch|lantern|gem|ring|amulet|scroll|herb|bomb|grenade|chest|box)\\b",
+            RegexOptions.IgnoreCase);
+    }
+
+    private static bool IsLikelyItemPhrase(string item)
+    {
+        var wordMatches = Regex.Matches(item, "[A-Za-z0-9]+");
+        if (wordMatches.Count == 0 || wordMatches.Count > 7)
+        {
+            return false;
+        }
+
+        if (ContainsItemKeyword(item) || Regex.IsMatch(item, "\\(\\d+\\)") || Regex.IsMatch(item, "\\b[A-Z][A-Za-z]"))
+        {
+            return true;
+        }
+
+        return !Regex.IsMatch(
+            item,
+            "\\b(sound|noise|cry|scream|shout|voice|song|silence|light|darkness|shadow|sight|smell|feeling|glow|heat|cold|movement)\\b",
+            RegexOptions.IgnoreCase);
+    }
+
+    private readonly record struct ItemSuggestion(string Name, string Category);
 }
