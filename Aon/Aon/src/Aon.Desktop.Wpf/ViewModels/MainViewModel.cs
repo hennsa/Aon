@@ -50,6 +50,7 @@ public sealed partial class MainViewModel : ViewModelBase
     private string _randomNumberStatus = string.Empty;
     private string _rollHistoryText = string.Empty;
     private string _rollModifierText = "0";
+    private string _roundsToFireText = "1";
     private string _saveSlot = "default";
     private string _characterSetupHint = string.Empty;
     private string _selectedAvailableSkill = string.Empty;
@@ -68,6 +69,7 @@ public sealed partial class MainViewModel : ViewModelBase
     private int? _randomNumberResult;
     private Choice? _resolvedRandomChoice;
     private bool _isManualRandomMode;
+    private bool _isRoundsToFireVisible;
     private bool _isProfileReady;
     private bool _isUpdatingCharacters;
     private bool _isUpdatingProfiles;
@@ -93,6 +95,15 @@ public sealed partial class MainViewModel : ViewModelBase
 
         Choices = new ObservableCollection<ChoiceViewModel>();
         Books = new ObservableCollection<BookListItemViewModel>();
+        ItemCategories = new ObservableCollection<string>
+        {
+            "general",
+            "weapon",
+            "backpack",
+            "special",
+            "meal",
+            "ammo"
+        };
         _rollRandomNumberCommand = new RelayCommand(RollRandomNumber);
         _confirmRandomNumberCommand = new RelayCommand(ConfirmRandomNumber, () => _resolvedRandomChoice is not null);
         _showRandomNumberTableCommand = new RelayCommand(ShowRandomNumberTable);
@@ -157,6 +168,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public ObservableCollection<string> AvailableSkills { get; } = new();
     public ObservableCollection<string> CharacterSkills { get; } = new();
     public ObservableCollection<ItemEntryViewModel> InventoryItems { get; } = new();
+    public ObservableCollection<string> ItemCategories { get; } = new();
     public ObservableCollection<QuickActionViewModel> SuggestedActions { get; } = new();
     public RelayCommand RollRandomNumberCommand => _rollRandomNumberCommand;
     public RelayCommand ConfirmRandomNumberCommand => _confirmRandomNumberCommand;
@@ -553,6 +565,36 @@ public sealed partial class MainViewModel : ViewModelBase
             }
 
             _rollModifierText = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string RoundsToFireText
+    {
+        get => _roundsToFireText;
+        set
+        {
+            if (_roundsToFireText == value)
+            {
+                return;
+            }
+
+            _roundsToFireText = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public bool IsRoundsToFireVisible
+    {
+        get => _isRoundsToFireVisible;
+        private set
+        {
+            if (_isRoundsToFireVisible == value)
+            {
+                return;
+            }
+
+            _isRoundsToFireVisible = value;
             OnPropertyChanged();
         }
     }
