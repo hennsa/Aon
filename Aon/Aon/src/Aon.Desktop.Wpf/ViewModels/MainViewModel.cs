@@ -95,6 +95,15 @@ public sealed partial class MainViewModel : ViewModelBase
 
         Choices = new ObservableCollection<ChoiceViewModel>();
         Books = new ObservableCollection<BookListItemViewModel>();
+        ItemCategories = new ObservableCollection<string>
+        {
+            "general",
+            "weapon",
+            "backpack",
+            "special",
+            "meal",
+            "ammo"
+        };
         _rollRandomNumberCommand = new RelayCommand(RollRandomNumber);
         _confirmRandomNumberCommand = new RelayCommand(ConfirmRandomNumber, () => _resolvedRandomChoice is not null);
         _showRandomNumberTableCommand = new RelayCommand(ShowRandomNumberTable);
@@ -159,6 +168,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public ObservableCollection<string> AvailableSkills { get; } = new();
     public ObservableCollection<string> CharacterSkills { get; } = new();
     public ObservableCollection<ItemEntryViewModel> InventoryItems { get; } = new();
+    public ObservableCollection<string> ItemCategories { get; } = new();
     public ObservableCollection<QuickActionViewModel> SuggestedActions { get; } = new();
     public RelayCommand RollRandomNumberCommand => _rollRandomNumberCommand;
     public RelayCommand ConfirmRandomNumberCommand => _confirmRandomNumberCommand;
