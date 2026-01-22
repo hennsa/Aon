@@ -127,7 +127,25 @@ public sealed partial class MainViewModel
 
     private static bool RequiresRandomNumber(BookSection section)
     {
-        return section.Choices.Any(choice => ChoiceRollMetadata.FromChoice(choice).RequiresRoll);
+        return section.Choices.Any(choice => ChoiceRollMetadata.FromChoice(choice).RequiresRoll)
+            || RequiresRandomNumberFromText(section);
+    }
+
+    private static bool RequiresRandomNumberFromText(BookSection section)
+    {
+        if (section.Blocks.Count == 0)
+        {
+            return false;
+        }
+
+        var text = string.Join(" ", section.Blocks.Select(block => block.Text));
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return false;
+        }
+
+        return text.Contains("Random Number Table", StringComparison.OrdinalIgnoreCase)
+            || text.Contains("random number", StringComparison.OrdinalIgnoreCase);
     }
 
     private static string GetOutcomeTargetId(Choice choice, int roll)
