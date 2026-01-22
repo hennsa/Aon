@@ -317,6 +317,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "D:\\Repos\\Github\\Aon\\Aon\\Aon\\Aon\\src\\Aon.Content\\Aon.Content.csproj": {
+                "projectPath": "D:\\Repos\\Github\\Aon\\Aon\\Aon\\Aon\\src\\Aon.Content\\Aon.Content.csproj"
+              },
               "D:\\Repos\\Github\\Aon\\Aon\\Aon\\Aon\\src\\Aon.Core\\Aon.Core.csproj": {
                 "projectPath": "D:\\Repos\\Github\\Aon\\Aon\\Aon\\Aon\\src\\Aon.Core\\Aon.Core.csproj"
               }
