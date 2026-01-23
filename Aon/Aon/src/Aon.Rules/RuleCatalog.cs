@@ -68,6 +68,16 @@ public sealed class RuleCatalog : IRuleCatalog
         return resolved;
     }
 
+    public bool Contains(string ruleId)
+    {
+        if (string.IsNullOrWhiteSpace(ruleId))
+        {
+            return false;
+        }
+
+        return _rules.ContainsKey(ruleId.Trim());
+    }
+
     private static RuleCatalog LoadFromResource(string resourceFileName)
     {
         var assembly = typeof(RuleCatalog).Assembly;
