@@ -352,6 +352,19 @@ public sealed partial class MainViewModel
         _ = SaveProfileStateAsync();
     }
 
+    private void AddOrIncrementCounter(string name, int delta)
+    {
+        var existingKey = _state.Character.Inventory.Counters.Keys
+            .FirstOrDefault(key => key.Equals(name, StringComparison.OrdinalIgnoreCase));
+        if (existingKey is null)
+        {
+            _state.Character.Inventory.Counters[name] = delta;
+            return;
+        }
+
+        _state.Character.Inventory.Counters[existingKey] += delta;
+    }
+
     private void AdjustCoreSkill(string skillName, int delta)
     {
         if (!_state.Character.CoreSkills.TryGetValue(skillName, out var value))
@@ -439,9 +452,11 @@ public sealed partial class MainViewModel
 
         foreach (var suggestion in ExtractItemSuggestions(section))
         {
-            if (_state.Character.Inventory.Items.Any(existing =>
-                    existing.Name.Equals(suggestion.Name, StringComparison.OrdinalIgnoreCase)
-                    && existing.Category.Equals(suggestion.Category, StringComparison.OrdinalIgnoreCase)))
+            var hasItem = _state.Character.Inventory.Items.Any(existing =>
+                existing.Name.Equals(suggestion.Name, StringComparison.OrdinalIgnoreCase)
+                && existing.Category.Equals(suggestion.Category, StringComparison.OrdinalIgnoreCase));
+            var hasAmmo = suggestion.AmmoCount > 0 && !string.IsNullOrWhiteSpace(suggestion.AmmoCounterName);
+            if (hasItem && !hasAmmo)
             {
                 continue;
             }
@@ -449,9 +464,26 @@ public sealed partial class MainViewModel
             var labelPrefix = suggestion.Category.Equals("weapon", StringComparison.OrdinalIgnoreCase)
                 ? "Add weapon"
                 : "Add item";
-            SuggestedActions.Add(new QuickActionViewModel($"{labelPrefix}: {suggestion.Name}", () =>
+            var label = $"{labelPrefix}: {suggestion.Name}";
+            if (hasAmmo)
             {
-                _state.Character.Inventory.Items.Add(new Item(suggestion.Name, suggestion.Category));
+                label = hasItem
+                    ? $"Add ammo: +{suggestion.AmmoCount} {suggestion.AmmoCounterName}"
+                    : $"{label} (+{suggestion.AmmoCount} {suggestion.AmmoCounterName})";
+            }
+
+            SuggestedActions.Add(new QuickActionViewModel(label, () =>
+            {
+                if (!hasItem)
+                {
+                    _state.Character.Inventory.Items.Add(new Item(suggestion.Name, suggestion.Category));
+                }
+
+                if (hasAmmo && suggestion.AmmoCounterName is not null)
+                {
+                    AddOrIncrementCounter(suggestion.AmmoCounterName, suggestion.AmmoCount);
+                }
+
                 RefreshCharacterPanels();
                 _ = SaveProfileStateAsync();
             }));
@@ -510,6 +542,12 @@ public sealed partial class MainViewModel
             {
                 foreach (var entry in block.Text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
                 {
+                    if (TryParseWeaponWithAmmo(entry, out var weaponName, out var ammoName, out var ammoCount))
+                    {
+                        AddSuggestion(items, weaponName, "weapon", ammoName, ammoCount);
+                        continue;
+                    }
+
                     var item = NormalizeItemText(entry);
                     if (!string.IsNullOrWhiteSpace(item)
                         && LooksLikeItemName(item, block.Text)
@@ -626,12 +664,14 @@ public sealed partial class MainViewModel
     private static void AddSuggestion(
         IDictionary<string, ItemSuggestion> items,
         string name,
-        string category)
+        string category,
+        string? ammoCounterName = null,
+        int ammoCount = 0)
     {
-        var key = $"{name}|{category}";
+        var key = $"{name}|{category}|{ammoCounterName}|{ammoCount}";
         if (!items.ContainsKey(key))
         {
-            items[key] = new ItemSuggestion(name, category);
+            items[key] = new ItemSuggestion(name, category, ammoCounterName, ammoCount);
         }
     }
 
@@ -686,5 +726,85 @@ public sealed partial class MainViewModel
             RegexOptions.IgnoreCase);
     }
 
-    private readonly record struct ItemSuggestion(string Name, string Category);
+    private static bool TryParseWeaponWithAmmo(string raw, out string weaponName, out string ammoName, out int ammoCount)
+    {
+        weaponName = string.Empty;
+        ammoName = string.Empty;
+        ammoCount = 0;
+
+        var match = Regex.Match(
+            raw,
+            "^(?<weapon>[^.]+?)\\s+plus\\s+(?<count>[A-Za-z0-9-]+)\\s+rounds?\\s+of\\s+(?<ammo>[^.]+?)(?:\\s+ammunition)?\\s*$",
+            RegexOptions.IgnoreCase);
+        if (!match.Success)
+        {
+            return false;
+        }
+
+        if (!TryParseNumberToken(match.Groups["count"].Value, out ammoCount) || ammoCount <= 0)
+        {
+            return false;
+        }
+
+        weaponName = NormalizeItemText(match.Groups["weapon"].Value);
+        var rawAmmo = match.Groups["ammo"].Value.Trim();
+        ammoName = NormalizeAmmoText(rawAmmo);
+        if (!ammoName.EndsWith("ammunition", StringComparison.OrdinalIgnoreCase))
+        {
+            ammoName = $"{ammoName} ammunition";
+        }
+
+        return !string.IsNullOrWhiteSpace(weaponName) && !string.IsNullOrWhiteSpace(ammoName);
+    }
+
+    private static string NormalizeAmmoText(string raw)
+    {
+        return raw.Trim().TrimEnd('.', ';', ':');
+    }
+
+    private static bool TryParseNumberToken(string token, out int number)
+    {
+        number = 0;
+        if (int.TryParse(token, out number))
+        {
+            return true;
+        }
+
+        return token.ToLowerInvariant() switch
+        {
+            "one" => ReturnNumber(1, out number),
+            "two" => ReturnNumber(2, out number),
+            "three" => ReturnNumber(3, out number),
+            "four" => ReturnNumber(4, out number),
+            "five" => ReturnNumber(5, out number),
+            "six" => ReturnNumber(6, out number),
+            "seven" => ReturnNumber(7, out number),
+            "eight" => ReturnNumber(8, out number),
+            "nine" => ReturnNumber(9, out number),
+            "ten" => ReturnNumber(10, out number),
+            "eleven" => ReturnNumber(11, out number),
+            "twelve" => ReturnNumber(12, out number),
+            "thirteen" => ReturnNumber(13, out number),
+            "fourteen" => ReturnNumber(14, out number),
+            "fifteen" => ReturnNumber(15, out number),
+            "sixteen" => ReturnNumber(16, out number),
+            "seventeen" => ReturnNumber(17, out number),
+            "eighteen" => ReturnNumber(18, out number),
+            "nineteen" => ReturnNumber(19, out number),
+            "twenty" => ReturnNumber(20, out number),
+            _ => false
+        };
+    }
+
+    private static bool ReturnNumber(int value, out int number)
+    {
+        number = value;
+        return true;
+    }
+
+    private readonly record struct ItemSuggestion(
+        string Name,
+        string Category,
+        string? AmmoCounterName,
+        int AmmoCount);
 }

@@ -297,8 +297,8 @@ public sealed partial class MainViewModel
             RegexOptions.IgnoreCase);
         if (modifierMatch.Success)
         {
-            var initialSkillsSegment = modifierMatch.Groups["skills"].Value;
-            var total = GetSkillTotalFromSegment(initialSkillsSegment);
+            var skillsSegment = modifierMatch.Groups["skills"].Value;
+            var total = GetSkillTotalFromSegment(skillsSegment);
             if (total > 0)
             {
                 return total;
