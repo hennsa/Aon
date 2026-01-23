@@ -320,6 +320,10 @@ static ChoiceRuleMetadata ExtractChoiceMetadata(IElement element)
     metadata.AddEffects(effects);
     metadata.AddRuleIds(ruleIds);
     metadata.AddRandomOutcomes(randomOutcomes);
+    if (metadata.Requirements.Count == 0)
+    {
+        metadata.AddRequirements(Aon.Tools.BookImporter.ChoiceRequirementInference.InferChoiceRequirements(element));
+    }
 
     return metadata;
 }
@@ -643,6 +647,7 @@ sealed class ChoiceRuleMetadata
         }
     }
 }
+
 static class MetadataOptions
 {
     public static readonly JsonSerializerOptions Options = new JsonSerializerOptions
