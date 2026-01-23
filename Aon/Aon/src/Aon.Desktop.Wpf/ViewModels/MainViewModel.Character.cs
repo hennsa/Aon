@@ -10,7 +10,7 @@ namespace Aon.Desktop.Wpf.ViewModels;
 
 public sealed partial class MainViewModel
 {
-    private sealed class SeriesFilterOptionViewModel
+    public sealed class SeriesFilterOptionViewModel
     {
         public SeriesFilterOptionViewModel(string id, string name)
         {
