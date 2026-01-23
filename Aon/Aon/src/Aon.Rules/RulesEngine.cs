@@ -10,7 +10,9 @@ public sealed class RulesEngine : IRulesEngine
     private readonly CombatResolver _combatResolver;
     private readonly IRandomNumberGenerator _randomNumberGenerator;
     private readonly IConditionEvaluator _conditionEvaluator;
+    private readonly Func<string?, CombatTable> _combatTableLoader;
     private readonly Func<string?, IRuleCatalog> _catalogLoader;
+    private readonly ConcurrentDictionary<string, CombatTable> _combatTables = new(StringComparer.OrdinalIgnoreCase);
     private readonly ConcurrentDictionary<string, IRuleCatalog> _catalogs = new(StringComparer.OrdinalIgnoreCase);
 
     public RulesEngine()
@@ -19,6 +21,7 @@ public sealed class RulesEngine : IRulesEngine
             new CombatResolver(),
             new DefaultRandomNumberGenerator(),
             new ConditionEvaluator(),
+            CombatTable.Load,
             RuleCatalog.Load)
     {
     }
@@ -28,12 +31,14 @@ public sealed class RulesEngine : IRulesEngine
         CombatResolver combatResolver,
         IRandomNumberGenerator randomNumberGenerator,
         IConditionEvaluator conditionEvaluator,
+        Func<string?, CombatTable> combatTableLoader,
         Func<string?, IRuleCatalog> catalogLoader)
     {
         _randomNumberTable = randomNumberTable;
         _combatResolver = combatResolver;
         _randomNumberGenerator = randomNumberGenerator;
         _conditionEvaluator = conditionEvaluator;
+        _combatTableLoader = combatTableLoader ?? throw new ArgumentNullException(nameof(combatTableLoader));
         _catalogLoader = catalogLoader ?? throw new ArgumentNullException(nameof(catalogLoader));
     }
 
@@ -46,9 +51,11 @@ public sealed class RulesEngine : IRulesEngine
         Character player,
         int enemyCombatSkill,
         int enemyEndurance,
-        int randomNumber)
+        int randomNumber,
+        string? seriesId)
     {
-        return _combatResolver.ResolveRound(player, enemyCombatSkill, enemyEndurance, randomNumber);
+        var combatTable = GetCombatTable(seriesId);
+        return _combatResolver.ResolveRound(player, enemyCombatSkill, enemyEndurance, randomNumber, combatTable);
     }
 
     public ChoiceEvaluationResult EvaluateChoice(Choice choice, RuleContext context)
@@ -149,6 +156,12 @@ public sealed class RulesEngine : IRulesEngine
     {
         var key = string.IsNullOrWhiteSpace(seriesId) ? string.Empty : seriesId.Trim();
         return _catalogs.GetOrAdd(key, catalogKey => _catalogLoader(catalogKey));
+    }
+
+    private CombatTable GetCombatTable(string? seriesId)
+    {
+        var key = string.IsNullOrWhiteSpace(seriesId) ? string.Empty : seriesId.Trim();
+        return _combatTables.GetOrAdd(key, tableKey => _combatTableLoader(tableKey));
     }
 
     private static void ApplyStatDelta(Character character, string statName, int delta)

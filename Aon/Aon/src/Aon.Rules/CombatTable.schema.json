@@ -1,0 +1,48 @@
+{
+  "$id": "https://projectaon.org/schemas/CombatTable.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Aon Combat Table",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ratios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "min": {
+            "type": "integer"
+          },
+          "max": {
+            "type": "integer"
+          },
+          "rolls": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "roll": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "playerLoss": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "enemyLoss": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": ["roll", "playerLoss", "enemyLoss"]
+            }
+          }
+        },
+        "required": ["min", "max", "rolls"]
+      }
+    }
+  },
+  "required": ["ratios"]
+}
