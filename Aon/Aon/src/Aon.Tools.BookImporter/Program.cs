@@ -3,6 +3,7 @@ using System.Text.Json.Nodes;
 using AngleSharp;
 using AngleSharp.Dom;
 using Aon.Content;
+using Aon.Rules;
 using Json.Schema;
 using System.Text.RegularExpressions;
 
@@ -53,6 +54,8 @@ foreach (var file in Directory.EnumerateFiles(inputDirectory, "*.htm", SearchOpt
     var book = ExtractBook(document, bookId);
     var validationErrors = ValidateBook(book);
     validationErrors.AddRange(ValidateBookSchema(book, bookSchema, jsonOptions));
+    var ruleCatalog = RuleCatalog.Load(book.SeriesId);
+    var metadataWarnings = RuleMetadataValidator.ValidateBook(book, ruleCatalog);
 
     if (validationErrors.Count > 0)
     {
@@ -61,6 +64,15 @@ foreach (var file in Directory.EnumerateFiles(inputDirectory, "*.htm", SearchOpt
         foreach (var error in validationErrors)
         {
             Console.Error.WriteLine($"  - {error}");
+        }
+    }
+
+    if (metadataWarnings.Count > 0)
+    {
+        Console.Error.WriteLine($"Rule metadata warnings in {file}:");
+        foreach (var warning in metadataWarnings)
+        {
+            Console.Error.WriteLine($"  - {warning}");
         }
     }
 
