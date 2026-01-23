@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using Aon.Content;
 using Aon.Core;
 
@@ -9,7 +10,8 @@ public sealed class RulesEngine : IRulesEngine
     private readonly CombatResolver _combatResolver;
     private readonly IRandomNumberGenerator _randomNumberGenerator;
     private readonly IConditionEvaluator _conditionEvaluator;
-    private readonly IRuleCatalog _ruleCatalog;
+    private readonly Func<string?, IRuleCatalog> _catalogLoader;
+    private readonly ConcurrentDictionary<string, IRuleCatalog> _catalogs = new(StringComparer.OrdinalIgnoreCase);
 
     public RulesEngine()
         : this(
@@ -17,7 +19,7 @@ public sealed class RulesEngine : IRulesEngine
             new CombatResolver(),
             new DefaultRandomNumberGenerator(),
             new ConditionEvaluator(),
-            RuleCatalog.LoadDefault())
+            RuleCatalog.Load)
     {
     }
 
@@ -26,13 +28,13 @@ public sealed class RulesEngine : IRulesEngine
         CombatResolver combatResolver,
         IRandomNumberGenerator randomNumberGenerator,
         IConditionEvaluator conditionEvaluator,
-        IRuleCatalog ruleCatalog)
+        Func<string?, IRuleCatalog> catalogLoader)
     {
         _randomNumberTable = randomNumberTable;
         _combatResolver = combatResolver;
         _randomNumberGenerator = randomNumberGenerator;
         _conditionEvaluator = conditionEvaluator;
-        _ruleCatalog = ruleCatalog;
+        _catalogLoader = catalogLoader ?? throw new ArgumentNullException(nameof(catalogLoader));
     }
 
     public int RollRandomNumber()
@@ -54,7 +56,7 @@ public sealed class RulesEngine : IRulesEngine
         ArgumentNullException.ThrowIfNull(choice);
         ArgumentNullException.ThrowIfNull(context);
 
-        var rules = ResolveChoiceRules(choice);
+        var rules = ResolveChoiceRules(choice, context);
 
         var isAvailable = rules.Requirements.All(requirement => _conditionEvaluator.CanApply(requirement, context));
         var rollMetadata = ChoiceRollMetadata.FromChoice(choice);
@@ -62,9 +64,10 @@ public sealed class RulesEngine : IRulesEngine
         return new ChoiceEvaluationResult(isAvailable, rollMetadata);
     }
 
-    public ChoiceRuleSet ResolveChoiceRules(Choice choice)
+    public ChoiceRuleSet ResolveChoiceRules(Choice choice, RuleContext context)
     {
         ArgumentNullException.ThrowIfNull(choice);
+        ArgumentNullException.ThrowIfNull(context);
 
         var requirements = new List<Requirement>();
         var effects = new List<Effect>();
@@ -79,7 +82,8 @@ public sealed class RulesEngine : IRulesEngine
             effects.Add(EffectParser.Parse(effect));
         }
 
-        var resolvedRules = _ruleCatalog.Resolve(choice.RuleIds);
+        var catalog = GetCatalog(context.GameState.SeriesId);
+        var resolvedRules = catalog.Resolve(choice.RuleIds);
         foreach (var rule in resolvedRules)
         {
             foreach (var requirement in rule.Requirements)
@@ -127,6 +131,12 @@ public sealed class RulesEngine : IRulesEngine
                     break;
             }
         }
+    }
+
+    private IRuleCatalog GetCatalog(string? seriesId)
+    {
+        var key = string.IsNullOrWhiteSpace(seriesId) ? string.Empty : seriesId.Trim();
+        return _catalogs.GetOrAdd(key, catalogKey => _catalogLoader(catalogKey));
     }
 
     private static void ApplyStatDelta(Character character, string statName, int delta)

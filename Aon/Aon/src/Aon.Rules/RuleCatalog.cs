@@ -10,6 +10,7 @@ public interface IRuleCatalog
 
 public sealed class RuleCatalog : IRuleCatalog
 {
+    private const string DefaultCatalogFileName = "RulesCatalog.json";
     private readonly IReadOnlyDictionary<string, RuleDefinition> _rules;
 
     public RuleCatalog(IEnumerable<RuleDefinition> rules)
@@ -22,28 +23,25 @@ public sealed class RuleCatalog : IRuleCatalog
 
     public static RuleCatalog LoadDefault()
     {
-        var assembly = typeof(RuleCatalog).Assembly;
-        var resourceName = assembly
-            .GetManifestResourceNames()
-            .FirstOrDefault(name => name.EndsWith("RulesCatalog.json", StringComparison.OrdinalIgnoreCase));
+        return LoadFromResource(DefaultCatalogFileName);
+    }
 
-        if (resourceName is null)
+    public static RuleCatalog Load(string? pathOrSeriesKey)
+    {
+        if (string.IsNullOrWhiteSpace(pathOrSeriesKey))
         {
-            return new RuleCatalog(Array.Empty<RuleDefinition>());
+            return LoadDefault();
         }
 
-        using var stream = assembly.GetManifestResourceStream(resourceName);
-        if (stream is null)
+        var trimmed = pathOrSeriesKey.Trim();
+        if (File.Exists(trimmed))
         {
-            return new RuleCatalog(Array.Empty<RuleDefinition>());
+            using var fileStream = File.OpenRead(trimmed);
+            return LoadFromStream(fileStream);
         }
 
-        var document = JsonSerializer.Deserialize(
-            stream,
-            RuleCatalogDocumentContext.Default.RuleCatalogDocument);
-
-        // Fix: Convert List<RuleDefinition> to array for constructor
-        return new RuleCatalog(document?.Rules?.ToArray() ?? Array.Empty<RuleDefinition>());
+        var resourceFileName = ResolveCatalogFileName(trimmed) ?? trimmed;
+        return LoadFromResource(resourceFileName);
     }
 
     public IReadOnlyList<RuleDefinition> Resolve(IEnumerable<string> ruleIds)
@@ -68,6 +66,65 @@ public sealed class RuleCatalog : IRuleCatalog
         }
 
         return resolved;
+    }
+
+    private static RuleCatalog LoadFromResource(string resourceFileName)
+    {
+        var assembly = typeof(RuleCatalog).Assembly;
+        var resourceName = assembly
+            .GetManifestResourceNames()
+            .FirstOrDefault(name => name.EndsWith(resourceFileName, StringComparison.OrdinalIgnoreCase));
+
+        if (resourceName is null)
+        {
+            return new RuleCatalog(Array.Empty<RuleDefinition>());
+        }
+
+        using var stream = assembly.GetManifestResourceStream(resourceName);
+        if (stream is null)
+        {
+            return new RuleCatalog(Array.Empty<RuleDefinition>());
+        }
+
+        return LoadFromStream(stream);
+    }
+
+    private static RuleCatalog LoadFromStream(Stream stream)
+    {
+        var document = JsonSerializer.Deserialize(
+            stream,
+            RuleCatalogDocumentContext.Default.RuleCatalogDocument);
+
+        return new RuleCatalog(document?.Rules?.ToArray() ?? Array.Empty<RuleDefinition>());
+    }
+
+    private static string? ResolveCatalogFileName(string seriesKey)
+    {
+        if (string.IsNullOrWhiteSpace(seriesKey))
+        {
+            return null;
+        }
+
+        if (seriesKey.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+        {
+            return seriesKey;
+        }
+
+        var normalized = seriesKey
+            .Replace(" ", string.Empty, StringComparison.OrdinalIgnoreCase)
+            .ToLowerInvariant();
+
+        return normalized switch
+        {
+            "lw" => "RulesCatalog.LoneWolf.json",
+            "lonewolf" => "RulesCatalog.LoneWolf.json",
+            "gs" => "RulesCatalog.GreyStar.json",
+            "greystar" => "RulesCatalog.GreyStar.json",
+            "fw" => "RulesCatalog.FreewayWarrior.json",
+            "freewaywarrior" => "RulesCatalog.FreewayWarrior.json",
+            "default" => DefaultCatalogFileName,
+            _ => null
+        };
     }
 }
 

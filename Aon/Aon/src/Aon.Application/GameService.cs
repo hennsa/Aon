@@ -67,7 +67,7 @@ public sealed class GameService
             return null;
         }
 
-        var effects = _rulesEngine.ResolveChoiceRules(choice).Effects
+        var effects = _rulesEngine.ResolveChoiceRules(choice, context).Effects
             .Concat(randomOutcome.Effects)
             .ToList();
         _rulesEngine.ApplyEffects(effects, context);
@@ -123,11 +123,13 @@ public sealed class GameService
         return _rulesEngine.EvaluateChoice(choice, context);
     }
 
-    public ChoiceRuleSet ResolveChoiceRules(Choice choice)
+    public ChoiceRuleSet ResolveChoiceRules(GameState state, Choice choice)
     {
+        ArgumentNullException.ThrowIfNull(state);
         ArgumentNullException.ThrowIfNull(choice);
 
-        return _rulesEngine.ResolveChoiceRules(choice);
+        var context = new RuleContext(state);
+        return _rulesEngine.ResolveChoiceRules(choice, context);
     }
 
     public void ApplyEffects(GameState state, IEnumerable<Effect> effects)

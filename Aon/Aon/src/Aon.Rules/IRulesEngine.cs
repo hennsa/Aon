@@ -8,6 +8,6 @@ public interface IRulesEngine
     int RollRandomNumber();
     CombatResult ResolveCombatRound(Character player, int enemyCombatSkill, int enemyEndurance, int randomNumber);
     ChoiceEvaluationResult EvaluateChoice(Choice choice, RuleContext context);
-    ChoiceRuleSet ResolveChoiceRules(Choice choice);
+    ChoiceRuleSet ResolveChoiceRules(Choice choice, RuleContext context);
     void ApplyEffects(IEnumerable<Effect> effects, RuleContext context);
 }
