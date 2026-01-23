@@ -625,6 +625,15 @@ public sealed partial class MainViewModel
             return string.Empty;
         }
 
+        var actionChartMatch = Regex.Match(
+            trimmed,
+            "mark this on your Action Chart as (?:a|an) (?<item>[^;,)]+)",
+            RegexOptions.IgnoreCase);
+        if (actionChartMatch.Success)
+        {
+            return actionChartMatch.Groups["item"].Value.Trim().TrimEnd('.', ';', ':');
+        }
+
         var hasWeaponBonus = Regex.IsMatch(trimmed, "\\(\\d+\\)");
         trimmed = Regex.Replace(trimmed, "^\\d+\\.\\s*", string.Empty);
         trimmed = Regex.Replace(trimmed, "^(?:a|an|the)\\s+", string.Empty, RegexOptions.IgnoreCase);
