@@ -10,21 +10,16 @@
       "blocks": [],
       "choices": [
         {
-          "text": "Salvage the wreck.",
+          "text": "If you are a Gunner and have ammunition, fire a burst.",
           "targetId": "2",
           "requirements": [
-            "stat:Endurance:10",
-            "flag:met-painful:true"
+            "skill:Gunner",
+            "counter:ammunition:1"
           ],
-          "effects": [
-            "stat:Endurance:+2",
-            "item:add:Fuel:vehicle",
-            "counter:ammo:+2",
-            "flag:highway:cleared"
-          ],
+          "effects": [],
           "ruleIds": [
-            "fw:driving",
-            "fw:salvage"
+            "fw.gunner.bonus",
+            "fw.ammo.spend"
           ]
         }
       ]

@@ -1,3 +1,23 @@
 {
-  "rules": []
+  "rules": [
+    {
+      "id": "gs.elementalism.fire-combat",
+      "requirements": [
+        "skill:Elementalism"
+      ],
+      "effects": [
+        "combat:+1"
+      ]
+    },
+    {
+      "id": "gs.rations.consume",
+      "requirements": [
+        "counter:rations:1"
+      ],
+      "effects": [
+        "counter:rations:-1",
+        "endurance:heal:1"
+      ]
+    }
+  ]
 }

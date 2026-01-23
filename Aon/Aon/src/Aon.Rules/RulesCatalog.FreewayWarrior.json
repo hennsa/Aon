@@ -1,3 +1,22 @@
 {
-  "rules": []
+  "rules": [
+    {
+      "id": "fw.gunner.bonus",
+      "requirements": [
+        "skill:Gunner"
+      ],
+      "effects": [
+        "combat:+1"
+      ]
+    },
+    {
+      "id": "fw.ammo.spend",
+      "requirements": [
+        "counter:ammunition:1"
+      ],
+      "effects": [
+        "counter:ammunition:-1"
+      ]
+    }
+  ]
 }

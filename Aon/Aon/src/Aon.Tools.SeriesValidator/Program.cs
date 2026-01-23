@@ -289,19 +289,26 @@ internal sealed record EffectScenario(Character SeedCharacter, Action<GameState>
         var character = new Character
         {
             CombatSkill = 10,
-            Endurance = 20
+            Endurance = 20,
+            Inventory = new Inventory
+            {
+                Counters = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["meals"] = 0
+                }
+            }
         };
 
         void Assert(GameState state)
         {
-            if (state.Character.CombatSkill != 11)
+            if (state.Character.CombatSkill != 10)
             {
-                throw new InvalidOperationException("Expected Lone Wolf combat skill to increase to 11.");
+                throw new InvalidOperationException("Expected Lone Wolf combat skill to remain 10.");
             }
 
-            if (state.Character.Endurance != 22)
+            if (state.Character.Endurance != 20)
             {
-                throw new InvalidOperationException("Expected Lone Wolf endurance to increase to 22.");
+                throw new InvalidOperationException("Expected Lone Wolf endurance to remain 20.");
             }
 
             state.Character.Attributes.TryGetValue(Character.CombatSkillBonusAttribute, out var bonus);
@@ -310,19 +317,9 @@ internal sealed record EffectScenario(Character SeedCharacter, Action<GameState>
                 throw new InvalidOperationException("Expected Lone Wolf combat bonus to be 2.");
             }
 
-            if (!state.Flags.TryGetValue("mindblast", out var flagValue) || flagValue != "true")
+            if (!state.Character.Inventory.Counters.TryGetValue("meals", out var mealCount) || mealCount != 1)
             {
-                throw new InvalidOperationException("Expected Lone Wolf mindblast flag to be true.");
-            }
-
-            if (!state.Character.Inventory.Counters.TryGetValue("herb", out var herbCount) || herbCount != 0)
-            {
-                throw new InvalidOperationException("Expected Lone Wolf herb counter to resolve to 0.");
-            }
-
-            if (!state.Character.Inventory.Items.Any(item => item.Name == "Laumspur"))
-            {
-                throw new InvalidOperationException("Expected Lone Wolf inventory to include Laumspur.");
+                throw new InvalidOperationException("Expected Lone Wolf meals counter to resolve to 1.");
             }
         }
 
@@ -335,42 +332,31 @@ internal sealed record EffectScenario(Character SeedCharacter, Action<GameState>
         {
             CombatSkill = 11,
             Endurance = 15,
-            Attributes = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
+            Inventory = new Inventory
             {
-                ["Willpower"] = 4
+                Counters = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["rations"] = 2
+                }
             }
         };
 
         void Assert(GameState state)
         {
-            if (state.Character.Endurance != 15)
+            if (state.Character.Endurance != 16)
             {
-                throw new InvalidOperationException("Expected Grey Star endurance to resolve to 15.");
+                throw new InvalidOperationException("Expected Grey Star endurance to resolve to 16.");
             }
 
-            if (!state.Character.Attributes.TryGetValue("Willpower", out var willpower) || willpower != 5)
+            state.Character.Attributes.TryGetValue(Character.CombatSkillBonusAttribute, out var bonus);
+            if (bonus != 1)
             {
-                throw new InvalidOperationException("Expected Grey Star willpower to be 5.");
+                throw new InvalidOperationException("Expected Grey Star combat bonus to be 1.");
             }
 
-            if (!state.Flags.TryGetValue("spell", out var spellFlag) || spellFlag != "ready")
+            if (!state.Character.Inventory.Counters.TryGetValue("rations", out var rations) || rations != 1)
             {
-                throw new InvalidOperationException("Expected Grey Star spell flag to be ready.");
-            }
-
-            if (!state.Character.Inventory.Counters.TryGetValue("mana", out var mana) || mana != 1)
-            {
-                throw new InvalidOperationException("Expected Grey Star mana counter to resolve to 1.");
-            }
-
-            if (!state.Character.Inventory.Counters.TryGetValue("slot:backpack", out var slots) || slots != 1)
-            {
-                throw new InvalidOperationException("Expected Grey Star backpack slot to be 1.");
-            }
-
-            if (!state.Character.Inventory.Items.Any(item => item.Name == "Crystal"))
-            {
-                throw new InvalidOperationException("Expected Grey Star inventory to include Crystal.");
+                throw new InvalidOperationException("Expected Grey Star rations counter to resolve to 1.");
             }
         }
 
@@ -382,14 +368,21 @@ internal sealed record EffectScenario(Character SeedCharacter, Action<GameState>
         var character = new Character
         {
             CombatSkill = 9,
-            Endurance = 12
+            Endurance = 12,
+            Inventory = new Inventory
+            {
+                Counters = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
+                {
+                    ["ammunition"] = 3
+                }
+            }
         };
 
         void Assert(GameState state)
         {
-            if (state.Character.Endurance != 14)
+            if (state.Character.Endurance != 12)
             {
-                throw new InvalidOperationException("Expected Freeway Warrior endurance to resolve to 14.");
+                throw new InvalidOperationException("Expected Freeway Warrior endurance to resolve to 12.");
             }
 
             state.Character.Attributes.TryGetValue(Character.CombatSkillBonusAttribute, out var bonus);
@@ -398,24 +391,9 @@ internal sealed record EffectScenario(Character SeedCharacter, Action<GameState>
                 throw new InvalidOperationException("Expected Freeway Warrior combat bonus to be 1.");
             }
 
-            if (!state.Character.Disciplines.Contains("Gunplay", StringComparer.OrdinalIgnoreCase))
+            if (!state.Character.Inventory.Counters.TryGetValue("ammunition", out var ammo) || ammo != 2)
             {
-                throw new InvalidOperationException("Expected Freeway Warrior to gain Gunplay discipline.");
-            }
-
-            if (!state.Flags.TryGetValue("highway", out var highway) || highway != "cleared")
-            {
-                throw new InvalidOperationException("Expected Freeway Warrior highway flag to be cleared.");
-            }
-
-            if (!state.Character.Inventory.Counters.TryGetValue("ammo", out var ammo) || ammo != 3)
-            {
-                throw new InvalidOperationException("Expected Freeway Warrior ammo counter to resolve to 3.");
-            }
-
-            if (state.Character.Inventory.Items.Any(item => item.Name == "Fuel"))
-            {
-                throw new InvalidOperationException("Expected Freeway Warrior fuel to be removed.");
+                throw new InvalidOperationException("Expected Freeway Warrior ammunition counter to resolve to 2.");
             }
         }
 

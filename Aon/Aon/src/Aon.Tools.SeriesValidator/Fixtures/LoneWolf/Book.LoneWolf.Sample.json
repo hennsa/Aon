@@ -10,20 +10,16 @@
       "blocks": [],
       "choices": [
         {
-          "text": "Test your Kai disciplines.",
+          "text": "If you know the Kai Discipline of Hunting and carry the Sommerswerd, press on.",
           "targetId": "2",
           "requirements": [
-            "stat:CombatSkill:10",
-            "flag:met-raul:true"
+            "skill:Hunting",
+            "item:Sommerswerd"
           ],
-          "effects": [
-            "stat:CombatSkill:+1",
-            "item:add:Laumspur:herb",
-            "counter:herb:+1"
-          ],
+          "effects": [],
           "ruleIds": [
-            "lw:mindblast",
-            "lw:herb"
+            "lw.hunting.meal-skip",
+            "lw.sommerswerd.combat-bonus"
           ]
         }
       ]

@@ -241,6 +241,15 @@ Suggested slot names per series appear in the per-series sections below.
 ---
 
 ## Implementation Guidance (Follow-up Updates)
+- **Catalog/table assets & naming conventions**
+  - Series rule catalogs live in `Aon/src/Aon.Rules/RulesCatalog.<Series>.json`.
+  - Series combat tables live in `Aon/src/Aon.Rules/CombatTable.<Series>.json`.
+  - `<Series>` uses PascalCase series names: `LoneWolf`, `GreyStar`, `FreewayWarrior`.
+  - The loader accepts `SeriesId` (or series key) values that map as follows:
+    - `lw` or `lonewolf` → `RulesCatalog.LoneWolf.json` / `CombatTable.LoneWolf.json`
+    - `gs` or `greystar` → `RulesCatalog.GreyStar.json` / `CombatTable.GreyStar.json`
+    - `fw` or `freewaywarrior` → `RulesCatalog.FreewayWarrior.json` / `CombatTable.FreewayWarrior.json`
+    - `default` → `RulesCatalog.json` / `CombatTable.json`
 - **`RequirementParser`**
   - Ensure `skill`, `item`, `stat`, `flag`, `counter`, `combat`, and `slot` keys remain canonical.
   - Keep the `>=` and `:` forms for thresholds.
