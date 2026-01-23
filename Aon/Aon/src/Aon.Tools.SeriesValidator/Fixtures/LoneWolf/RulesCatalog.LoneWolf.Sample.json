@@ -1,0 +1,24 @@
+{
+  "rules": [
+    {
+      "id": "lw:mindblast",
+      "requirements": [
+        "skill:Mindblast"
+      ],
+      "effects": [
+        "combat:+2",
+        "flag:mindblast:true"
+      ]
+    },
+    {
+      "id": "lw:herb",
+      "requirements": [
+        "counter:herb>=1"
+      ],
+      "effects": [
+        "endurance:heal:2",
+        "counter:herb:-1"
+      ]
+    }
+  ]
+}

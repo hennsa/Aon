@@ -1,0 +1,33 @@
+{
+  "id": "fw-sample-1",
+  "seriesId": "FreewayWarrior",
+  "title": "Freeway Warrior Sample",
+  "frontMatter": [],
+  "sections": [
+    {
+      "id": "1",
+      "title": "Highway Clash",
+      "blocks": [],
+      "choices": [
+        {
+          "text": "Salvage the wreck.",
+          "targetId": "2",
+          "requirements": [
+            "stat:Endurance:10",
+            "flag:met-painful:true"
+          ],
+          "effects": [
+            "stat:Endurance:+2",
+            "item:add:Fuel:vehicle",
+            "counter:ammo:+2",
+            "flag:highway:cleared"
+          ],
+          "ruleIds": [
+            "fw:driving",
+            "fw:salvage"
+          ]
+        }
+      ]
+    }
+  ]
+}

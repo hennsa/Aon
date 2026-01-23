@@ -1,0 +1,33 @@
+{
+  "id": "gs-sample-1",
+  "seriesId": "GreyStar",
+  "title": "Grey Star Sample",
+  "frontMatter": [],
+  "sections": [
+    {
+      "id": "1",
+      "title": "Mystic Trial",
+      "blocks": [],
+      "choices": [
+        {
+          "text": "Focus your willpower.",
+          "targetId": "2",
+          "requirements": [
+            "skill:Alchemy",
+            "flag:met-luthen:true"
+          ],
+          "effects": [
+            "endurance:damage:1",
+            "item:add:Crystal:magic",
+            "counter:mana:+2",
+            "stat:Willpower:+1"
+          ],
+          "ruleIds": [
+            "gs:spellfocus",
+            "gs:mana"
+          ]
+        }
+      ]
+    }
+  ]
+}

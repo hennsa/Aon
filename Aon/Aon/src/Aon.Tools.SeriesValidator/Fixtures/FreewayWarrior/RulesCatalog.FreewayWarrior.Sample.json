@@ -1,0 +1,24 @@
+{
+  "rules": [
+    {
+      "id": "fw:driving",
+      "requirements": [
+        "skill:Driving"
+      ],
+      "effects": [
+        "combat:+1",
+        "discipline:Gunplay"
+      ]
+    },
+    {
+      "id": "fw:salvage",
+      "requirements": [
+        "item:Fuel"
+      ],
+      "effects": [
+        "item:remove:Fuel",
+        "counter:ammo:+1"
+      ]
+    }
+  ]
+}
