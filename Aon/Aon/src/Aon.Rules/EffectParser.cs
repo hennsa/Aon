@@ -26,6 +26,16 @@ public static class EffectParser
             return ParseStatEffect(raw, value);
         }
 
+        if (key.Equals("combat", StringComparison.OrdinalIgnoreCase))
+        {
+            return ParseCombatEffect(raw, value);
+        }
+
+        if (key.Equals("endurance", StringComparison.OrdinalIgnoreCase))
+        {
+            return ParseEnduranceEffect(raw, value);
+        }
+
         if (key.Equals("item", StringComparison.OrdinalIgnoreCase))
         {
             return ParseItemEffect(raw, value);
@@ -44,6 +54,11 @@ public static class EffectParser
         if (key.Equals("counter", StringComparison.OrdinalIgnoreCase))
         {
             return ParseCounterEffect(raw, value);
+        }
+
+        if (key.Equals("slot", StringComparison.OrdinalIgnoreCase))
+        {
+            return ParseSlotEffect(raw, value);
         }
 
         return new UnsupportedEffect(raw);
@@ -135,5 +150,59 @@ public static class EffectParser
 
         var isAbsolute = parts[1][0] != '+' && parts[1][0] != '-';
         return new UpdateCounterEffect(parts[0], parsed, isAbsolute, raw);
+    }
+
+    private static Effect ParseCombatEffect(string raw, string value)
+    {
+        if (!int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out var delta))
+        {
+            return new UnsupportedEffect(raw);
+        }
+
+        return new AdjustCombatModifierEffect(delta, raw);
+    }
+
+    private static Effect ParseEnduranceEffect(string raw, string value)
+    {
+        var parts = value.Split(':', 2, StringSplitOptions.TrimEntries);
+        if (parts.Length != 2)
+        {
+            return new UnsupportedEffect(raw);
+        }
+
+        if (!int.TryParse(parts[1], NumberStyles.Integer, CultureInfo.InvariantCulture, out var parsed))
+        {
+            return new UnsupportedEffect(raw);
+        }
+
+        var amount = Math.Abs(parsed);
+        if (parts[0].Equals("damage", StringComparison.OrdinalIgnoreCase))
+        {
+            return new EnduranceDamageEffect(amount, raw);
+        }
+
+        if (parts[0].Equals("heal", StringComparison.OrdinalIgnoreCase))
+        {
+            return new EnduranceHealEffect(amount, raw);
+        }
+
+        return new UnsupportedEffect(raw);
+    }
+
+    private static Effect ParseSlotEffect(string raw, string value)
+    {
+        var parts = value.Split(':', 2, StringSplitOptions.TrimEntries);
+        if (parts.Length != 2 || string.IsNullOrWhiteSpace(parts[0]))
+        {
+            return new UnsupportedEffect(raw);
+        }
+
+        if (!int.TryParse(parts[1], NumberStyles.Integer, CultureInfo.InvariantCulture, out var parsed))
+        {
+            return new UnsupportedEffect(raw);
+        }
+
+        var isAbsolute = parts[1][0] != '+' && parts[1][0] != '-';
+        return new UpdateSlotEffect(parts[0], parsed, isAbsolute, raw);
     }
 }

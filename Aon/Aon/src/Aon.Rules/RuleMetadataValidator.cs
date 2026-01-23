@@ -8,16 +8,23 @@ public static class RuleMetadataValidator
     {
         "skill",
         "item",
-        "stat"
+        "stat",
+        "flag",
+        "counter",
+        "combat",
+        "slot"
     };
 
     private static readonly HashSet<string> KnownEffectKeys = new(StringComparer.OrdinalIgnoreCase)
     {
         "stat",
+        "combat",
+        "endurance",
         "item",
         "flag",
         "discipline",
-        "counter"
+        "counter",
+        "slot"
     };
 
     public static List<string> ValidateBook(Book book, RuleCatalog catalog)
