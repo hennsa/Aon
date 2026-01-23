@@ -92,6 +92,7 @@ static Book ExtractBook(IDocument document, string fallbackId)
     return new Book
     {
         Id = fallbackId,
+        SeriesId = seriesId,
         Title = ReplaceCharacterTokens(seriesId, title ?? fallbackId),
         FrontMatter = frontMatterSections
             .Select(section => new FrontMatterSection

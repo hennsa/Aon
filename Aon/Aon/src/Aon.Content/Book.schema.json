@@ -6,12 +6,17 @@
   "additionalProperties": false,
   "required": [
     "id",
+    "seriesId",
     "title",
     "frontMatter",
     "sections"
   ],
   "properties": {
     "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seriesId": {
       "type": "string",
       "minLength": 1
     },
