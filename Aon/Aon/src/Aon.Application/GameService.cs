@@ -28,6 +28,7 @@ public sealed class GameService
         return new GameState
         {
             BookId = book.Id,
+            SeriesId = book.SeriesId,
             SectionId = firstSection
         };
     }

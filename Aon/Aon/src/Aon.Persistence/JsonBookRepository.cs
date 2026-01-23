@@ -33,6 +33,11 @@ public sealed class JsonBookRepository : IBookRepository
             throw new InvalidOperationException($"Unable to deserialize book data from {path}.");
         }
 
+        if (string.IsNullOrWhiteSpace(book.SeriesId))
+        {
+            throw new InvalidOperationException($"Book data from {path} is missing a seriesId.");
+        }
+
         return book;
     }
 }
