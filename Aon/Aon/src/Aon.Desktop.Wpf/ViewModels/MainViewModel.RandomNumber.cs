@@ -293,7 +293,7 @@ public sealed partial class MainViewModel
 
         var modifierMatch = Regex.Match(
             text,
-            "\\badd\\s+(?:it\\s+|this\\s+)?to your current (?<skills>[^.]+?) skill total\\b",
+            "\\badd\\s+(?:it\\s+|this\\s+|this\\s+number\\s+)?to\\s+(?:it\\s+)?your\\s+current\\s+(?<skills>[^.]+?)\\s+skill\\s+(?:total|totals|score|scores)\\b",
             RegexOptions.IgnoreCase);
         if (modifierMatch.Success)
         {
