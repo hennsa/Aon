@@ -18,6 +18,7 @@ public sealed partial class MainViewModel
         _resolvedRandomChoice = null;
         RandomNumberStatus = string.Empty;
         IsRandomNumberVisible = false;
+        IsRoundsToFireVisible = false;
         AreChoicesVisible = true;
         OnPropertyChanged(nameof(IsRandomNumberConfirmVisible));
         _confirmRandomNumberCommand.RaiseCanExecuteChanged();
@@ -32,6 +33,11 @@ public sealed partial class MainViewModel
         ResetRollHistory();
         RandomNumberStatus = "Roll a number from the Random Number Table (0–9).";
         RollModifierText = GetSuggestedRollModifier(section).ToString(CultureInfo.InvariantCulture);
+        IsRoundsToFireVisible = RequiresRoundsToFireInput(section);
+        if (IsRoundsToFireVisible)
+        {
+            RoundsToFireText = "1";
+        }
         IsRandomNumberVisible = true;
         AreChoicesVisible = false;
         Choices.Clear();
@@ -67,13 +73,15 @@ public sealed partial class MainViewModel
         var roll = _gameService.RollRandomNumber();
         TrackRoll(roll);
         var modifier = GetRollModifier();
-        var effectiveRoll = Math.Clamp(roll + modifier, 0, 9);
+        var roundsBonus = GetRoundsToFireBonus();
+        var totalScore = roll + modifier + roundsBonus;
+        var effectiveRoll = Math.Clamp(roll + modifier + roundsBonus, 0, 9);
         _randomNumberResult = effectiveRoll;
 
         if (IsManualRandomMode)
         {
             _resolvedRandomChoice = null;
-            RandomNumberStatus = BuildRollStatus(roll, modifier, effectiveRoll, "Select the correct outcome below.");
+            RandomNumberStatus = BuildRollStatus(roll, modifier, roundsBonus, effectiveRoll, $"Select the correct outcome below. Total score: {totalScore}.");
             ShowChoices(_pendingRandomChoices);
             OnPropertyChanged(nameof(IsRandomNumberConfirmVisible));
             _confirmRandomNumberCommand.RaiseCanExecuteChanged();
@@ -81,6 +89,10 @@ public sealed partial class MainViewModel
         }
 
         var matches = RollOutcomeResolver.ResolveChoices(_pendingRandomChoices, effectiveRoll);
+        if (matches.Count == 0)
+        {
+            matches = FilterChoicesByTotalScore(_pendingRandomChoices, totalScore);
+        }
 
         if (matches.Count == 1)
         {
@@ -89,19 +101,19 @@ public sealed partial class MainViewModel
             var suffix = string.IsNullOrWhiteSpace(targetId)
                 ? "This resolves your roll outcome."
                 : $"This directs you to section {targetId}.";
-            RandomNumberStatus = BuildRollStatus(roll, modifier, effectiveRoll, suffix);
+            RandomNumberStatus = BuildRollStatus(roll, modifier, roundsBonus, effectiveRoll, $"{suffix} Total score: {totalScore}.");
             AreChoicesVisible = false;
         }
         else if (matches.Count > 1)
         {
             _resolvedRandomChoice = null;
-            RandomNumberStatus = BuildRollStatus(roll, modifier, effectiveRoll, "Multiple outcomes match—choose the correct option below.");
+            RandomNumberStatus = BuildRollStatus(roll, modifier, roundsBonus, effectiveRoll, $"Multiple outcomes match—choose the correct option below. Total score: {totalScore}.");
             ShowChoices(matches);
         }
         else
         {
             _resolvedRandomChoice = null;
-            RandomNumberStatus = BuildRollStatus(roll, modifier, effectiveRoll, "Choose the correct option below.");
+            RandomNumberStatus = BuildRollStatus(roll, modifier, roundsBonus, effectiveRoll, $"Choose the correct option below. Total score: {totalScore}.");
             ShowChoices(_pendingRandomChoices);
         }
 
@@ -127,7 +139,83 @@ public sealed partial class MainViewModel
 
     private static bool RequiresRandomNumber(BookSection section)
     {
-        return section.Choices.Any(choice => ChoiceRollMetadata.FromChoice(choice).RequiresRoll);
+        return section.Choices.Any(choice => ChoiceRollMetadata.FromChoice(choice).RequiresRoll)
+            || RequiresRandomNumberFromText(section);
+    }
+
+    private static bool RequiresRandomNumberFromText(BookSection section)
+    {
+        if (section.Blocks.Count == 0)
+        {
+            return false;
+        }
+
+        var text = string.Join(" ", section.Blocks.Select(block => block.Text));
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return false;
+        }
+
+        return text.Contains("Random Number Table", StringComparison.OrdinalIgnoreCase)
+            || text.Contains("random number", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static bool RequiresRoundsToFireInput(BookSection section)
+    {
+        if (section.Blocks.Count == 0)
+        {
+            return false;
+        }
+
+        var text = string.Join(" ", section.Blocks.Select(block => block.Text));
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return false;
+        }
+
+        return Regex.IsMatch(
+            text,
+            "\\badd\\s+\\d+\\s+(?:extra\\s+)?points?\\s+(?:for|per)\\s+rounds?\\b",
+            RegexOptions.IgnoreCase)
+            || Regex.IsMatch(
+                text,
+                "\\brounds?\\s+to\\s+fire\\b",
+                RegexOptions.IgnoreCase);
+    }
+
+    private static IReadOnlyList<Choice> FilterChoicesByTotalScore(IEnumerable<Choice> choices, int totalScore)
+    {
+        var matches = new List<Choice>();
+        foreach (var choice in choices)
+        {
+            if (string.IsNullOrWhiteSpace(choice.Text))
+            {
+                continue;
+            }
+
+            var match = Regex.Match(
+                choice.Text,
+                "\\btotal score[^\\d]*(?<value>\\d+)\\b[^.]*?(?<comparison>or less|or more|or higher)\\b",
+                RegexOptions.IgnoreCase);
+            if (!match.Success || !int.TryParse(match.Groups["value"].Value, out var threshold))
+            {
+                continue;
+            }
+
+            var comparison = match.Groups["comparison"].Value;
+            if (comparison.Contains("less", StringComparison.OrdinalIgnoreCase) && totalScore <= threshold)
+            {
+                matches.Add(choice);
+            }
+            else if ((comparison.Contains("more", StringComparison.OrdinalIgnoreCase)
+                    || comparison.Contains("higher", StringComparison.OrdinalIgnoreCase))
+                && totalScore >= threshold)
+            {
+                matches.Add(choice);
+            }
+        }
+
+        return matches;
     }
 
     private static string GetOutcomeTargetId(Choice choice, int roll)
@@ -167,6 +255,28 @@ public sealed partial class MainViewModel
         return 0;
     }
 
+    private int GetRoundsToFireBonus()
+    {
+        if (!IsRoundsToFireVisible)
+        {
+            return 0;
+        }
+
+        var rounds = GetRoundsToFire();
+        return Math.Clamp(rounds, 1, 5);
+    }
+
+    private int GetRoundsToFire()
+    {
+        if (int.TryParse(RoundsToFireText, out var rounds))
+        {
+            return rounds;
+        }
+
+        RoundsToFireText = "1";
+        return 1;
+    }
+
     private int GetSuggestedRollModifier(BookSection section)
     {
         if (_state.Character.CoreSkills.Count == 0)
@@ -181,6 +291,20 @@ public sealed partial class MainViewModel
         }
 
         var modifierMatch = Regex.Match(
+            text,
+            "\\badd\\s+(?:it\\s+|this\\s+)?to your current (?<skills>[^.]+?) skill total\\b",
+            RegexOptions.IgnoreCase);
+        if (modifierMatch.Success)
+        {
+            var skillsSegment = modifierMatch.Groups["skills"].Value;
+            var total = GetSkillTotalFromSegment(skillsSegment);
+            if (total > 0)
+            {
+                return total;
+            }
+        }
+
+        modifierMatch = Regex.Match(
             text,
             "\\bif your current (?<skills>[^.]+?) points[^.]*?total (?<threshold>\\d+) or more, add (?<modifier>\\d+)\\b",
             RegexOptions.IgnoreCase);
@@ -205,6 +329,22 @@ public sealed partial class MainViewModel
         }
 
         var skillsSegment = modifierMatch.Groups["skills"].Value;
+        var sum = GetSkillTotalFromSegment(skillsSegment);
+        if (sum == 0)
+        {
+            return 0;
+        }
+
+        return sum >= threshold ? modifier : 0;
+    }
+
+    private int GetSkillTotalFromSegment(string skillsSegment)
+    {
+        if (string.IsNullOrWhiteSpace(skillsSegment))
+        {
+            return 0;
+        }
+
         var sum = 0;
         foreach (var entry in _state.Character.CoreSkills)
         {
@@ -214,19 +354,27 @@ public sealed partial class MainViewModel
             }
         }
 
-        if (sum == 0)
-        {
-            return 0;
-        }
-
-        return sum >= threshold ? modifier : 0;
+        return sum;
     }
 
-    private static string BuildRollStatus(int roll, int modifier, int effectiveRoll, string suffix)
+    private static string BuildRollStatus(int roll, int modifier, int roundsBonus, int effectiveRoll, string suffix)
     {
-        return modifier == 0
-            ? $"You rolled {roll}. {suffix}"
-            : $"You rolled {roll} + {modifier} = {effectiveRoll}. {suffix}";
+        if (modifier == 0 && roundsBonus == 0)
+        {
+            return $"You rolled {roll}. {suffix}";
+        }
+
+        if (roundsBonus == 0)
+        {
+            return $"You rolled {roll} + {modifier} = {effectiveRoll}. {suffix}";
+        }
+
+        if (modifier == 0)
+        {
+            return $"You rolled {roll} + {roundsBonus} = {effectiveRoll}. {suffix}";
+        }
+
+        return $"You rolled {roll} + {modifier} + {roundsBonus} = {effectiveRoll}. {suffix}";
     }
 
     private sealed record ProfileWizardResult(
