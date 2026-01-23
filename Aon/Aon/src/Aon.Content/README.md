@@ -25,6 +25,36 @@ Choices can optionally include rule metadata to drive downstream logic:
 
 Outcomes may specify a `targetId`, `effects`, or both, enabling roll-based branching to a new section or a direct effect application.
 
+### Supported requirement/effect tokens
+Rule metadata strings are parsed by `Aon.Rules`. Tokens follow the pattern `key:value` and are case-insensitive for the key.
+
+**Requirement tokens**
+- `skill:<name>`: requires a named discipline or series skill.
+- `item:<name>`: requires an inventory item (by name).
+- `stat:<name>:<min>` or `stat:<name>>=<min>`: requires a stat/attribute value at or above `min`.
+- `flag:<name>` or `flag:<name>:<value>`: requires a flag to exist, optionally matching a value.
+- `counter:<name>:<min>` or `counter:<name>>=<min>`: requires a counter to meet a minimum value.
+- `combat:>=<min>` or `combat:<min>`: requires a combat modifier bonus at or above `min`.
+- `slot:<slotName>:<min>` or `slot:<slotName>>=<min>`: requires a tracked slot count (e.g., weapon/armor).
+
+**Effect tokens**
+- `stat:<name>:<delta>`: add or remove a stat/attribute value.
+- `combat:<delta>`: add or remove combat modifier bonus (e.g., weapon bonuses).
+- `endurance:damage:<amount>`: deal endurance damage.
+- `endurance:heal:<amount>`: restore endurance.
+- `item:add:<name>:<category>` or `item:remove:<name>`: add/remove inventory items.
+- `flag:<name>` or `flag:<name>:<value>`: set a flag (defaults to `true`).
+- `discipline:<name>`: grant a discipline or series skill.
+- `counter:<name>:<value>`: set or adjust a counter (`+/-` values are relative; others are absolute).
+- `slot:<slotName>:<value>`: set or adjust a slot counter (`+/-` values are relative; others are absolute).
+
+**Series usage**
+- **Lone Wolf (`lw`)**: combat modifiers, endurance damage/heal, weapon/armor slots, plus series counters/flags (e.g., gold, Sommerswerd flags).
+- **Grey Star (`gs`)**: combat modifiers, endurance damage/heal, weapon/armor slots, plus series counters/flags (e.g., willpower pools, spell flags).
+- **Freeway Warrior (`fw`)**: combat modifiers, endurance damage/heal, weapon/armor slots, plus series counters/flags (e.g., ammo, Medi-kit units, vehicle flags).
+
+Series counters/flags are intentionally free-form; keep names consistent within a series when authoring metadata.
+
 ### Choice rule metadata markup (importer input)
 When authoring book source HTML for `Aon.Tools.BookImporter`, embed rule metadata on the choice element using data attributes.
 

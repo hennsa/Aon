@@ -112,6 +112,15 @@ public sealed class RulesEngine : IRulesEngine
                 case AdjustStatEffect stat:
                     ApplyStatDelta(context.Character, stat.StatName, stat.Delta);
                     break;
+                case AdjustCombatModifierEffect combat:
+                    ApplyCombatModifierDelta(context.Character, combat.Delta);
+                    break;
+                case EnduranceDamageEffect damage:
+                    context.Character.Endurance -= damage.Amount;
+                    break;
+                case EnduranceHealEffect heal:
+                    context.Character.Endurance += heal.Amount;
+                    break;
                 case AddItemEffect addItem:
                     context.Inventory.Items.Add(new Item(addItem.ItemName, addItem.Category));
                     break;
@@ -126,6 +135,9 @@ public sealed class RulesEngine : IRulesEngine
                     break;
                 case UpdateCounterEffect counter:
                     UpdateCounter(context.Inventory, counter);
+                    break;
+                case UpdateSlotEffect slot:
+                    UpdateSlot(context.Inventory, slot);
                     break;
                 case UnsupportedEffect:
                     break;
@@ -163,6 +175,12 @@ public sealed class RulesEngine : IRulesEngine
         character.Attributes[statName] = value + delta;
     }
 
+    private static void ApplyCombatModifierDelta(Character character, int delta)
+    {
+        character.Attributes.TryGetValue(Character.CombatSkillBonusAttribute, out var value);
+        character.Attributes[Character.CombatSkillBonusAttribute] = value + delta;
+    }
+
     private static void RemoveItem(Inventory inventory, string itemName)
     {
         var match = inventory.Items
@@ -191,5 +209,23 @@ public sealed class RulesEngine : IRulesEngine
 
         inventory.Counters.TryGetValue(effect.CounterName, out var current);
         inventory.Counters[effect.CounterName] = current + effect.Value;
+    }
+
+    private static void UpdateSlot(Inventory inventory, UpdateSlotEffect effect)
+    {
+        var slotKey = GetSlotKey(effect.SlotName);
+        if (effect.IsAbsolute)
+        {
+            inventory.Counters[slotKey] = effect.Value;
+            return;
+        }
+
+        inventory.Counters.TryGetValue(slotKey, out var current);
+        inventory.Counters[slotKey] = current + effect.Value;
+    }
+
+    private static string GetSlotKey(string slotName)
+    {
+        return $"slot:{slotName}";
     }
 }
