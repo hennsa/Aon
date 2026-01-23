@@ -1,6 +1,8 @@
 using System.Text.RegularExpressions;
 using AngleSharp.Dom;
 
+namespace Aon.Tools.BookImporter;
+
 static class ChoiceRequirementInference
 {
     private static readonly Regex PossessClauseRegex = new(
