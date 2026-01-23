@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Aon.Tools.BookImporter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4a5d26d926f341051c167fe549304ca2c0d7037")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1837b148822a5d24704a136a8076f9128928b67c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Aon.Tools.BookImporter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Aon.Tools.BookImporter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
