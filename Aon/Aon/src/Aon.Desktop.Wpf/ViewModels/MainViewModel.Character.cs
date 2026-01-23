@@ -423,7 +423,7 @@ public sealed partial class MainViewModel
                 continue;
             }
 
-            var rules = _gameService.ResolveChoiceRules(choice);
+            var rules = _gameService.ResolveChoiceRules(_state, choice);
             effects.AddRange(rules.Effects);
         }
 

@@ -9,6 +9,6 @@
     <ProjectReference Include="..\Aon.Content\Aon.Content.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="RulesCatalog.json" />
+    <EmbeddedResource Include="RulesCatalog*.json" />
   </ItemGroup>
 </Project>
