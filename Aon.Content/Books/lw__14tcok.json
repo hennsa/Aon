@@ -412,7 +412,9 @@
         {
           "text": "If you possess the Dagger of Vashna, a Jewelled Mace, or Helshezag, turn to 330.",
           "targetId": "330",
-          "requirements": [],
+          "requirements": [
+            "item:Dagger of Vashna"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -954,7 +956,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 6.",
           "targetId": "6",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1042,7 +1046,9 @@
         {
           "text": "If you have survived this wounding, turn to 196.",
           "targetId": "196",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1382,7 +1388,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 211.",
           "targetId": "211",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1478,7 +1486,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 162.",
           "targetId": "162",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2166,7 +2176,9 @@
         {
           "text": "If you possess the Disciplines of Kai-surge and Kai-alchemy, turn to 314.",
           "targetId": "314",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2661,7 +2673,9 @@
         {
           "text": "If you possess mastery of Grand Nexus, turn to 139.",
           "targetId": "139",
-          "requirements": [],
+          "requirements": [
+            "item:mastery of Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2873,7 +2887,9 @@
         {
           "text": "If you possess a Lantern, or a Torch and a Tinderbox, turn to 223.",
           "targetId": "223",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3161,7 +3177,9 @@
         {
           "text": "If you have survived this wounding, you must face the creature; turn to 39.",
           "targetId": "39",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3289,7 +3307,9 @@
         {
           "text": "If you have yet to reach this level of Kai Grand Mastery, turn to 232.",
           "targetId": "232",
-          "requirements": [],
+          "requirements": [
+            "item:yet to reach this level of Kai Grand Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3953,7 +3973,9 @@
         {
           "text": "If you possess some Oede, turn to 306.",
           "targetId": "306",
-          "requirements": [],
+          "requirements": [
+            "item:some Oede"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4707,7 +4729,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 233.",
           "targetId": "233",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4739,7 +4763,9 @@
         {
           "text": "If you possess a Statuette of Zagarna, turn to 336.",
           "targetId": "336",
-          "requirements": [],
+          "requirements": [
+            "item:Statuette of Zagarna"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5258,7 +5284,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 211.",
           "targetId": "211",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5618,7 +5646,9 @@
         {
           "text": "If you have not, turn to 86.",
           "targetId": "86",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5741,7 +5771,9 @@
         {
           "text": "If you have survived this psychic attack, turn to 229.",
           "targetId": "229",
-          "requirements": [],
+          "requirements": [
+            "item:survived this psychic attack"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5769,7 +5801,9 @@
         {
           "text": "If you possess a Lantern, or a Torch and a Tinderbox, turn to 223.",
           "targetId": "223",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5805,7 +5839,9 @@
         {
           "text": "If you possess mastery of Grand Nexus, turn to 139.",
           "targetId": "139",
-          "requirements": [],
+          "requirements": [
+            "item:mastery of Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6113,7 +6149,9 @@
         {
           "text": "If you possess a Statuette of Sl\u00FBtar, turn to 336.",
           "targetId": "336",
-          "requirements": [],
+          "requirements": [
+            "item:Statuette of Sl\u00FBtar"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6844,7 +6882,9 @@
         {
           "text": "If you possess the Grand Master Disciplines of Telegnosis and Grand Pathsmanship, turn to 93.",
           "targetId": "93",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7200,7 +7240,9 @@
         {
           "text": "If you possess either a Statuette of Sl\u00FBtar, the Dagger of Vashna, or Helshezag, turn to 61.",
           "targetId": "61",
-          "requirements": [],
+          "requirements": [
+            "item:either a Statuette of Sl\u00FBtar"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7228,7 +7270,9 @@
         {
           "text": "If you possess Kai-screen, turn to 184.",
           "targetId": "184",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7308,7 +7352,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 346.",
           "targetId": "346",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7428,7 +7474,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 205.",
           "targetId": "205",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8051,7 +8099,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 294.",
           "targetId": "294",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8183,7 +8233,9 @@
         {
           "text": "If you possess a Brass Key, turn to 141.",
           "targetId": "141",
-          "requirements": [],
+          "requirements": [
+            "item:Brass Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8749,7 +8801,9 @@
         {
           "text": "If you possess Kai-screen, turn to 21.",
           "targetId": "21",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9696,7 +9750,9 @@
         {
           "text": "If you have survived this grievous wounding, turn to 72.",
           "targetId": "72",
-          "requirements": [],
+          "requirements": [
+            "item:survived this grievous wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

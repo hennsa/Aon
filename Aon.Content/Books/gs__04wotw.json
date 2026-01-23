@@ -257,7 +257,9 @@
         {
           "text": "If you possess 3 WILLPOWER points, and wish to fill the Moonstone with your power and hurl its power against the wall, turn to 316.",
           "targetId": "316",
-          "requirements": [],
+          "requirements": [
+            "item:3 WILLPOWER points"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -505,7 +507,9 @@
         {
           "text": "If you have a Temeris Potion, you may use it to teleport without using any WILLPOWER points; turn to 39.",
           "targetId": "39",
-          "requirements": [],
+          "requirements": [
+            "item:Temeris Potion"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2971,7 +2975,9 @@
         {
           "text": "If you have recently drunk a Potion of Invulnerability, or if you have the protection of Thaumaturgy, turn to 118.",
           "targetId": "118",
-          "requirements": [],
+          "requirements": [
+            "item:recently drunk a Potion of Invulnerability"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5107,7 +5113,9 @@
         {
           "text": "If you possess 3 WILLPOWER points, and wish to fill the Moonstone with your power and hurl its power against the wall, turn to 316.",
           "targetId": "316",
-          "requirements": [],
+          "requirements": [
+            "item:3 WILLPOWER points"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5794,7 +5802,9 @@
         {
           "text": "If you have recently drunk a Potion of Invulnerability, or if you have the protection of the Higher Magick of Thaumaturgy, and you wish to stand and receive the charge of the demons, turn to 104.",
           "targetId": "104",
-          "requirements": [],
+          "requirements": [
+            "item:recently drunk a Potion of Invulnerability"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6170,7 +6180,9 @@
         {
           "text": "If you have recently drunk a Potion of Invulnerability, or if you have the protection of the Higher Magick of Thaumaturgy, turn to 104.",
           "targetId": "104",
-          "requirements": [],
+          "requirements": [
+            "item:recently drunk a Potion of Invulnerability"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6374,7 +6386,9 @@
         {
           "text": "If you have none of these Powers, or if you do not wish to use them, turn to 18.",
           "targetId": "18",
-          "requirements": [],
+          "requirements": [
+            "item:none of these Powers"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6618,7 +6632,9 @@
         {
           "text": "If you have the Magical Power of Alchemy, or if you are versed in the Higher Magick of Theurgy, turn to 241.",
           "targetId": "241",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8815,7 +8831,9 @@
         {
           "text": "If you have the Magical Power of Alchemy, turn to 336.",
           "targetId": "336",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8823,7 +8841,9 @@
         {
           "text": "If you have the Magical Power of Theurgy, turn to 331.",
           "targetId": "331",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Theurgy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9312,7 +9332,9 @@
         {
           "text": "If you have some Phinomel Pods, turn to 355.",
           "targetId": "355",
-          "requirements": [],
+          "requirements": [
+            "item:some Phinomel Pods"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9431,7 +9453,9 @@
         {
           "text": "If you have some Phinomel Pods, turn to 355.",
           "targetId": "355",
-          "requirements": [],
+          "requirements": [
+            "item:some Phinomel Pods"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

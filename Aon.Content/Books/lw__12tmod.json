@@ -1428,7 +1428,9 @@
         {
           "text": "If you have no Arrows, or if you choose to defend yourself with a hand weapon, turn to 268.",
           "targetId": "268",
-          "requirements": [],
+          "requirements": [
+            "item:no Arrows"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1556,7 +1558,9 @@
         {
           "text": "If you possess a Black Cube, turn to 40.",
           "targetId": "40",
-          "requirements": [],
+          "requirements": [
+            "item:Black Cube"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2739,7 +2743,9 @@
         {
           "text": "If you possess a Black Cube, turn to 40.",
           "targetId": "40",
-          "requirements": [],
+          "requirements": [
+            "item:Black Cube"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3778,7 +3784,9 @@
         {
           "text": "If you possess a Black Key, turn to 278.",
           "targetId": "278",
-          "requirements": [],
+          "requirements": [
+            "item:Black Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4085,7 +4093,9 @@
         {
           "text": "If you possess a Black Cube, turn to 40.",
           "targetId": "40",
-          "requirements": [],
+          "requirements": [
+            "item:Black Cube"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4517,7 +4527,9 @@
         {
           "text": "If you have completed the Lore-circle of Solaris, turn to 190.",
           "targetId": "190",
-          "requirements": [],
+          "requirements": [
+            "item:completed the Lore-circle of Solaris"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4525,7 +4537,9 @@
         {
           "text": "If you have not completed this Lore-circle of the Magnakai, turn to 56.",
           "targetId": "56",
-          "requirements": [],
+          "requirements": [
+            "item:not completed this Lore-circle of the Magnakai"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4841,7 +4855,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 282.",
           "targetId": "282",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5153,7 +5169,9 @@
         {
           "text": "If you have none of the above Special Items (or choose not to use them), you can draw a hand weapon: turn to 340.",
           "targetId": "340",
-          "requirements": [],
+          "requirements": [
+            "item:none of the above Special Items (or choose not to use them)"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5473,7 +5491,9 @@
         {
           "text": "If you have the Magnakai Discipline of Curing or have reached the Kai rank of Principalin or higher, turn to 145.",
           "targetId": "145",
-          "requirements": [],
+          "requirements": [
+            "item:or"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8857,7 +8877,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 214.",
           "targetId": "214",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8873,7 +8895,9 @@
         {
           "text": "If you possess none of these Special Items, turn to 3.",
           "targetId": "3",
-          "requirements": [],
+          "requirements": [
+            "item:none of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

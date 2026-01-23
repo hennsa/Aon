@@ -851,7 +851,9 @@
         {
           "text": "If you have the Magnakai Disciplines of Divination and Huntmastery, turn to 92.",
           "targetId": "92",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1187,7 +1189,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 341.",
           "targetId": "341",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1195,7 +1199,9 @@
         {
           "text": "If you possess the Ironheart Broadsword, turn to 204.",
           "targetId": "204",
-          "requirements": [],
+          "requirements": [
+            "item:Ironheart Broadsword"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1271,7 +1277,9 @@
         {
           "text": "If you have the Magnakai Disciplines of Divination and Huntmastery, turn to 92.",
           "targetId": "92",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1562,7 +1570,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3533,7 +3543,9 @@
         {
           "text": "If you have a Kalte Firesphere, a Lantern, or a Torch and Tinderbox, and wish to use any of them, turn to 61.",
           "targetId": "61",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4457,7 +4469,9 @@
         {
           "text": "If you have completed the Lore-circle of the Spirit, turn to 312.",
           "targetId": "312",
-          "requirements": [],
+          "requirements": [
+            "item:completed the Lore-circle of the Spirit"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4673,7 +4687,9 @@
         {
           "text": "If you possess a minimum of 4 Meals, turn to 12.",
           "targetId": "12",
-          "requirements": [],
+          "requirements": [
+            "item:minimum of 4 Meals"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5289,7 +5305,9 @@
         {
           "text": "If you have yet to reach this level of Magnakai training, turn to 336.",
           "targetId": "336",
-          "requirements": [],
+          "requirements": [
+            "item:yet to reach this level of Magnakai training"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6512,7 +6530,9 @@
         {
           "text": "If you possess some Laumspur, Laumwort, or Oede herb, turn to 277.",
           "targetId": "277",
-          "requirements": [],
+          "requirements": [
+            "item:some Laumspur"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7202,7 +7222,9 @@
         {
           "text": "If you possess a Kalte Firesphere, a Lantern, or a Torch and Tinderbox, and wish to illuminate this dark interior, turn to 177.",
           "targetId": "177",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7790,7 +7812,9 @@
         {
           "text": "If you possess a Silver Rod, turn to 39.",
           "targetId": "39",
-          "requirements": [],
+          "requirements": [
+            "item:Silver Rod"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8294,7 +8318,9 @@
         {
           "text": "If you have not already visited Baylon\u2019s Tomb, you may evade combat at any time by running towards it: turn to 166.",
           "targetId": "166",
-          "requirements": [],
+          "requirements": [
+            "item:not already visited Baylon\u2019s Tomb"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

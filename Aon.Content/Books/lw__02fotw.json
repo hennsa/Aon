@@ -1158,7 +1158,9 @@
         {
           "text": "If you have some Laumspur, turn to 145.",
           "targetId": "145",
-          "requirements": [],
+          "requirements": [
+            "item:some Laumspur"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1174,7 +1176,9 @@
         {
           "text": "If you have neither of the above, turn to 275.",
           "targetId": "275",
-          "requirements": [],
+          "requirements": [
+            "item:neither of the above"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1282,7 +1286,9 @@
         {
           "text": "If you have a ticket for the journey to Port Bax, turn to 346.",
           "targetId": "346",
-          "requirements": [],
+          "requirements": [
+            "item:ticket for the journey to Port Bax"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1617,7 +1623,9 @@
         {
           "text": "If you have a Magic Spear, turn to 338.",
           "targetId": "338",
-          "requirements": [],
+          "requirements": [
+            "item:Magic Spear"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1812,7 +1820,9 @@
         {
           "text": "If you have a Magic Spear, turn to 332.",
           "targetId": "332",
-          "requirements": [],
+          "requirements": [
+            "item:Magic Spear"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1896,7 +1906,9 @@
         {
           "text": "If you have collected the necessary documents on your quest, turn to 126.",
           "targetId": "126",
-          "requirements": [],
+          "requirements": [
+            "item:collected the necessary documents on your quest"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2120,7 +2132,9 @@
         {
           "text": "If you have a Crystal Star Pendant, turn to 219.",
           "targetId": "219",
-          "requirements": [],
+          "requirements": [
+            "item:Crystal Star Pendant"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4114,7 +4128,9 @@
         {
           "text": "If you have a Magic Spear, turn to 38.",
           "targetId": "38",
-          "requirements": [],
+          "requirements": [
+            "item:Magic Spear"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5793,7 +5809,9 @@
         {
           "text": "If you have no money, turn to 238.",
           "targetId": "238",
-          "requirements": [],
+          "requirements": [
+            "item:no money"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6072,7 +6090,9 @@
         {
           "text": "If you have enough gold to pay the toll, do so and continue on your journey by turning to 249.",
           "targetId": "249",
-          "requirements": [],
+          "requirements": [
+            "item:enough gold to pay the toll"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6080,7 +6100,9 @@
         {
           "text": "If you have no money, turn to 50.",
           "targetId": "50",
-          "requirements": [],
+          "requirements": [
+            "item:no money"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7400,7 +7422,9 @@
         {
           "text": "If you have lost all your Gold Crowns, turn to 169.",
           "targetId": "169",
-          "requirements": [],
+          "requirements": [
+            "item:lost all your Gold Crowns"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7408,7 +7432,9 @@
         {
           "text": "If you have winnings to collect, or if you wish to withdraw with what money you have left, leave the building and turn to 186.",
           "targetId": "186",
-          "requirements": [],
+          "requirements": [
+            "item:winnings to collect"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7656,7 +7682,9 @@
         {
           "text": "If you have a White Pass, turn to 170.",
           "targetId": "170",
-          "requirements": [],
+          "requirements": [
+            "item:White Pass"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7664,7 +7692,9 @@
         {
           "text": "If you have a Red Pass, turn to 202.",
           "targetId": "202",
-          "requirements": [],
+          "requirements": [
+            "item:Red Pass"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9200,7 +9230,9 @@
         {
           "text": "If you possess a Magic Spear but do not wish to give it to Rhygar, turn to 102.",
           "targetId": "102",
-          "requirements": [],
+          "requirements": [
+            "item:Magic Spear but do not wish to give it to Rhygar"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10106,7 +10138,9 @@
         {
           "text": "If you have ever been given a Crystal Star Pendant, turn immediately to 113.",
           "targetId": "113",
-          "requirements": [],
+          "requirements": [
+            "item:ever been given a Crystal Star Pendant"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10462,7 +10496,9 @@
         {
           "text": "If you have no money, turn to 50.",
           "targetId": "50",
-          "requirements": [],
+          "requirements": [
+            "item:no money"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10650,7 +10686,9 @@
         {
           "text": "If you have no money, turn to 205.",
           "targetId": "205",
-          "requirements": [],
+          "requirements": [
+            "item:no money"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

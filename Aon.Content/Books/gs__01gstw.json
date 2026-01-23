@@ -368,7 +368,9 @@
         {
           "text": "If you have the Kazim Stone, turn to 51.",
           "targetId": "51",
-          "requirements": [],
+          "requirements": [
+            "item:Kazim Stone"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -594,7 +596,9 @@
         {
           "text": "If you have the Medallion of the \u2018Redeemer\u2019 and the Vial of Pink Liquid, turn to 264.",
           "targetId": "264",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2378,7 +2382,9 @@
         {
           "text": "If you have a coil of Rope, turn to 194.",
           "targetId": "194",
-          "requirements": [],
+          "requirements": [
+            "item:coil of Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2606,7 +2612,9 @@
         {
           "text": "If you have no money to buy a drink, or if you would prefer to save it, turn to 105.",
           "targetId": "105",
-          "requirements": [],
+          "requirements": [
+            "item:no money to buy a drink"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4434,7 +4442,9 @@
         {
           "text": "If you have the Gaoler\u2019s Keys, turn to 286.",
           "targetId": "286",
-          "requirements": [],
+          "requirements": [
+            "item:Gaoler\u2019s Keys"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4921,7 +4931,9 @@
         {
           "text": "If you have the Magical Power of Alchemy, turn to 183.",
           "targetId": "183",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5073,7 +5085,9 @@
         {
           "text": "If you possess the Magical Power of Alchemy, turn to 193.",
           "targetId": "193",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5300,7 +5314,9 @@
         {
           "text": "If you have a prepared vial of Ezeran Acid, turn to 73.",
           "targetId": "73",
-          "requirements": [],
+          "requirements": [
+            "item:prepared vial of Ezeran Acid"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5830,7 +5846,9 @@
         {
           "text": "If you have been arrested at the Inn of the Laughing Moon, turn to 230.",
           "targetId": "230",
-          "requirements": [],
+          "requirements": [
+            "item:been arrested at the Inn of the Laughing Moon"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6573,7 +6591,9 @@
         {
           "text": "If you have already attempted the spell of Evocation, or if you wish to ignore the vision, turn to 172 and select another Magical Power.",
           "targetId": "172",
-          "requirements": [],
+          "requirements": [
+            "item:already attempted the spell of Evocation"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8776,7 +8796,9 @@
         {
           "text": "If you have the Power of Psychomancy, turn to 235.",
           "targetId": "235",
-          "requirements": [],
+          "requirements": [
+            "item:Power of Psychomancy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8964,7 +8986,9 @@
         {
           "text": "If you have the Amulet of the Shianti priest, turn to 346.",
           "targetId": "346",
-          "requirements": [],
+          "requirements": [
+            "item:Amulet of the Shianti priest"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

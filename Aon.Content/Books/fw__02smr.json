@@ -2644,7 +2644,9 @@
         {
           "text": "If you possess at least one Medi-kit unit, turn to 320.",
           "targetId": "320",
-          "requirements": [],
+          "requirements": [
+            "item:at least one Medi-kit unit"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2652,7 +2654,9 @@
         {
           "text": "If you have no Medi-kit units left, turn to 135.",
           "targetId": "135",
-          "requirements": [],
+          "requirements": [
+            "item:no Medi-kit units left"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3548,7 +3552,9 @@
         {
           "text": "If you possess a Signal Flare, turn to 294.",
           "targetId": "294",
-          "requirements": [],
+          "requirements": [
+            "item:Signal Flare"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3588,7 +3594,9 @@
         {
           "text": "If you possess a Bottle of Bourbon, turn to 161.",
           "targetId": "161",
-          "requirements": [],
+          "requirements": [
+            "item:Bottle of Bourbon"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4442,7 +4450,9 @@
         {
           "text": "If you possess no 9mm rounds whatsoever, or if you do not wish to give any that you have to Kate, turn to 301.",
           "targetId": "301",
-          "requirements": [],
+          "requirements": [
+            "item:no 9mm rounds whatsoever"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4618,7 +4628,9 @@
         {
           "text": "If you possess a Fire Extinguisher, turn to 47.",
           "targetId": "47",
-          "requirements": [],
+          "requirements": [
+            "item:Fire Extinguisher"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6179,7 +6191,9 @@
         {
           "text": "If you possess a CB Radio, turn to 220.",
           "targetId": "220",
-          "requirements": [],
+          "requirements": [
+            "item:CB Radio"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7486,7 +7500,9 @@
         {
           "text": "If you have survived the shooting, turn to 332.",
           "targetId": "332",
-          "requirements": [],
+          "requirements": [
+            "item:survived the shooting"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7653,7 +7669,9 @@
         {
           "text": "If you possess a CB Radio, turn to 30.",
           "targetId": "30",
-          "requirements": [],
+          "requirements": [
+            "item:CB Radio"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8123,7 +8141,9 @@
         {
           "text": "If you possess Bolt Cutters, turn to 123.",
           "targetId": "123",
-          "requirements": [],
+          "requirements": [
+            "item:Bolt Cutters"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9175,7 +9195,9 @@
         {
           "text": "If you possess a CB Radio, turn to 220.",
           "targetId": "220",
-          "requirements": [],
+          "requirements": [
+            "item:CB Radio"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9599,7 +9621,9 @@
         {
           "text": "If you possess a Bottle of Bourbon, turn to 102.",
           "targetId": "102",
-          "requirements": [],
+          "requirements": [
+            "item:Bottle of Bourbon"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10514,7 +10538,9 @@
         {
           "text": "If you possess a Leviathan Missile, turn to 120.",
           "targetId": "120",
-          "requirements": [],
+          "requirements": [
+            "item:Leviathan Missile"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10570,7 +10596,9 @@
         {
           "text": "If you possess none of these items, or if you do not wish to use them, turn to 225.",
           "targetId": "225",
-          "requirements": [],
+          "requirements": [
+            "item:none of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

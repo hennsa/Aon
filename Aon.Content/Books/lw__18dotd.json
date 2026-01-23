@@ -156,7 +156,9 @@
         {
           "text": "If you possess a Silver Seal, turn to 283.",
           "targetId": "283",
-          "requirements": [],
+          "requirements": [
+            "item:Silver Seal"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -488,7 +490,9 @@
         {
           "text": "If you possess Kai-screen, turn to 221.",
           "targetId": "221",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -751,7 +755,9 @@
         {
           "text": "If you possess neither of these items, turn to 128.",
           "targetId": "128",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -791,7 +797,9 @@
         {
           "text": "If you possess Kai-screen, turn to 221.",
           "targetId": "221",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1403,7 +1411,9 @@
         {
           "text": "If you possess Telegnosis, turn to 252.",
           "targetId": "252",
-          "requirements": [],
+          "requirements": [
+            "item:Telegnosis"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1750,7 +1760,9 @@
         {
           "text": "If you have ever visited Varetta before in a previous {{characterName}} adventure, turn to 284.",
           "targetId": "284",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited Varetta before in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1758,7 +1770,9 @@
         {
           "text": "If you have never visited this city before, turn to 62.",
           "targetId": "62",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this city before"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2014,7 +2028,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 321.",
           "targetId": "321",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2022,7 +2038,9 @@
         {
           "text": "If you possess a Platinum Amulet, turn to 208.",
           "targetId": "208",
-          "requirements": [],
+          "requirements": [
+            "item:Platinum Amulet"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2030,7 +2048,9 @@
         {
           "text": "If you possess a Talisman of Ishir, turn to 18.",
           "targetId": "18",
-          "requirements": [],
+          "requirements": [
+            "item:Talisman of Ishir"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2386,7 +2406,9 @@
         {
           "text": "If you have sufficient cash to pay the blacksmith (20 Lune = 5 Gold Crowns), turn to 234.",
           "targetId": "234",
-          "requirements": [],
+          "requirements": [
+            "item:sufficient cash to pay the blacksmith (20 Lune = 5 Gold Crowns)"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2890,7 +2912,9 @@
         {
           "text": "If you have ever visited a hut on Raider\u2019s Road, the city of Tahou, or Lake Vorndarol (in previous {{characterName}} adventures), turn to 348.",
           "targetId": "348",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited a hut on Raider\u2019s Road"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2898,7 +2922,9 @@
         {
           "text": "If you have never visited any of these places, turn to 184.",
           "targetId": "184",
-          "requirements": [],
+          "requirements": [
+            "item:never visited any of these places"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3614,7 +3640,9 @@
         {
           "text": "If you have ever visited a hut on Raider\u2019s Road, the city of Tahou, or Lake Vorndarol (in previous {{characterName}} adventures), turn to 348.",
           "targetId": "348",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited a hut on Raider\u2019s Road"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3622,7 +3650,9 @@
         {
           "text": "If you have never visited any of these places, turn to 184.",
           "targetId": "184",
-          "requirements": [],
+          "requirements": [
+            "item:never visited any of these places"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3718,7 +3748,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 47.",
           "targetId": "47",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3829,7 +3861,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 101.",
           "targetId": "101",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3881,7 +3915,9 @@
         {
           "text": "If you have ever visited the Palmyrion military post at Stonewatch in a previous {{characterName}} adventure, turn to 204.",
           "targetId": "204",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the Palmyrion military post at Stonewatch in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3889,7 +3925,9 @@
         {
           "text": "If you have not, turn to 84.",
           "targetId": "84",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3909,7 +3947,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 46.",
           "targetId": "46",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3981,7 +4021,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 47.",
           "targetId": "47",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4197,7 +4239,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 79.",
           "targetId": "79",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4205,7 +4249,9 @@
         {
           "text": "If you possess Kai-surge, turn to 254.",
           "targetId": "254",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-surge"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4409,7 +4455,9 @@
         {
           "text": "If you possess sufficient Gold Crowns to stay here for the night, turn to 103.",
           "targetId": "103",
-          "requirements": [],
+          "requirements": [
+            "item:sufficient Gold Crowns to stay here for the night"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5541,7 +5589,9 @@
         {
           "text": "If you have not, turn to 48.",
           "targetId": "48",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5889,7 +5939,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 262.",
           "targetId": "262",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6109,7 +6161,9 @@
         {
           "text": "If you possess a Silver Seal, turn to 283.",
           "targetId": "283",
-          "requirements": [],
+          "requirements": [
+            "item:Silver Seal"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6149,7 +6203,9 @@
         {
           "text": "If you have ever visited a hut on Raider\u2019s Road, the city of Tahou, or Lake Vorndarol (in previous {{characterName}} adventures), turn to 348.",
           "targetId": "348",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited a hut on Raider\u2019s Road"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6157,7 +6213,9 @@
         {
           "text": "If you have never visited any of these places, turn to 184.",
           "targetId": "184",
-          "requirements": [],
+          "requirements": [
+            "item:never visited any of these places"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6557,7 +6615,9 @@
         {
           "text": "If you possess Kai-screen, turn to 39.",
           "targetId": "39",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7008,7 +7068,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 260.",
           "targetId": "260",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7594,7 +7656,9 @@
         {
           "text": "If you have visited neither of these places, turn to 205.",
           "targetId": "205",
-          "requirements": [],
+          "requirements": [
+            "item:visited neither of these places"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8840,7 +8904,9 @@
         {
           "text": "If you possess Kai-screen, turn to 39.",
           "targetId": "39",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8880,7 +8946,9 @@
         {
           "text": "If you have ever visited these places, turn to 67.",
           "targetId": "67",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited these places"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9088,7 +9156,9 @@
         {
           "text": "If you possess a Platinum Amulet, turn to 106.",
           "targetId": "106",
-          "requirements": [],
+          "requirements": [
+            "item:Platinum Amulet"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9412,7 +9482,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 47.",
           "targetId": "47",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9792,7 +9864,9 @@
         {
           "text": "If you have ever visited a hut on Raider\u2019s Road, the city of Tahou, or Lake Vorndarol (in previous {{characterName}} adventures), turn to 348.",
           "targetId": "348",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited a hut on Raider\u2019s Road"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9800,7 +9874,9 @@
         {
           "text": "If you have never visited any of these places, turn to 184.",
           "targetId": "184",
-          "requirements": [],
+          "requirements": [
+            "item:never visited any of these places"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10020,7 +10096,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 98.",
           "targetId": "98",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10312,7 +10390,9 @@
         {
           "text": "If you have survived your visit to Nursha, turn to 193.",
           "targetId": "193",
-          "requirements": [],
+          "requirements": [
+            "item:survived your visit to Nursha"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10452,7 +10532,9 @@
         {
           "text": "If you possess Kai-screen, turn to 221.",
           "targetId": "221",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10695,7 +10777,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 2.",
           "targetId": "2",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

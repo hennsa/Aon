@@ -241,7 +241,9 @@
         {
           "text": "If you have the Magical Power of Alchemy, turn to 45.",
           "targetId": "45",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -348,7 +350,9 @@
         {
           "text": "If you possess this Special Item, turn to 238.",
           "targetId": "238",
-          "requirements": [],
+          "requirements": [
+            "item:this Special Item"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1775,7 +1779,9 @@
         {
           "text": "If you have survived the initial blast of the Kazim Stone, turn to 141.",
           "targetId": "141",
-          "requirements": [],
+          "requirements": [
+            "item:survived the initial blast of the Kazim Stone"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2297,7 +2303,9 @@
         {
           "text": "If you have the Magical Power of Alchemy, turn to 121.",
           "targetId": "121",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2705,7 +2713,9 @@
         {
           "text": "If you have a Rope, turn to 157.",
           "targetId": "157",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3202,7 +3212,9 @@
         {
           "text": "If you possess insufficient WILLPOWER points to use any of these powers, turn to 242.",
           "targetId": "242",
-          "requirements": [],
+          "requirements": [
+            "item:insufficient WILLPOWER points to use any of these powers"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3913,7 +3925,9 @@
         {
           "text": "If you have the Magical Power of Alchemy, turn to 216.",
           "targetId": "216",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4023,7 +4037,9 @@
         {
           "text": "If you have the Magical Power of Sorcery, turn to 282.",
           "targetId": "282",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Sorcery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4778,7 +4794,9 @@
         {
           "text": "If you possess the Magical Power of Prophecy an wish to foresee the outcome of your predicament, turn to 128.",
           "targetId": "128",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Prophecy an wish to foresee the outcome of your predicament"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5050,7 +5068,9 @@
         {
           "text": "If you have the Magical Power of Alchemy, turn to 121.",
           "targetId": "121",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5444,7 +5464,9 @@
         {
           "text": "If you possess the Magical Power of Sorcery and wish to form a Shield of Sorcery around you, turn to 199.",
           "targetId": "199",
-          "requirements": [],
+          "requirements": [
+            "item:Shield of Sorcery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5640,7 +5662,9 @@
         {
           "text": "If you have a Rope, turn to 164.",
           "targetId": "164",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6413,7 +6437,9 @@
         {
           "text": "If you have enough food, turn to 195.",
           "targetId": "195",
-          "requirements": [],
+          "requirements": [
+            "item:enough food"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6676,7 +6702,9 @@
         {
           "text": "If you possess the Black Rod, turn to 96.",
           "targetId": "96",
-          "requirements": [],
+          "requirements": [
+            "item:Black Rod"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7459,7 +7487,9 @@
         {
           "text": "If you have the Chaksu Pipes, turn to 101.",
           "targetId": "101",
-          "requirements": [],
+          "requirements": [
+            "item:Chaksu Pipes"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

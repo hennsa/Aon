@@ -162,7 +162,9 @@
         {
           "text": "If you have the spell Silence and wish to use it, turn to 74.",
           "targetId": "74",
-          "requirements": [],
+          "requirements": [
+            "item:Silence"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -529,7 +531,9 @@
         {
           "text": "If you have the spell Lightning Hand and wish to use it, turn to 2.",
           "targetId": "2",
-          "requirements": [],
+          "requirements": [
+            "item:Lightning Hand"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -633,7 +637,9 @@
         {
           "text": "If you have the spell Mind Charm and wish to use it, turn to 75.",
           "targetId": "75",
-          "requirements": [],
+          "requirements": [
+            "item:Mind Charm"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -665,7 +671,9 @@
         {
           "text": "If you possess the spell Invisible Shield and wish to use it, turn to 41.",
           "targetId": "41",
-          "requirements": [],
+          "requirements": [
+            "item:Invisible Shield"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -673,7 +681,9 @@
         {
           "text": "If you possess the spell Counterspell and wish to use it, turn to 58.",
           "targetId": "58",
-          "requirements": [],
+          "requirements": [
+            "item:Counterspell"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -681,7 +691,9 @@
         {
           "text": "If you have neither of these spells, turn to 72.",
           "targetId": "72",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these spells"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -909,7 +921,9 @@
         {
           "text": "If you have the spell Net and wish to use it, turn to 26.",
           "targetId": "26",
-          "requirements": [],
+          "requirements": [
+            "item:Net"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -965,7 +979,9 @@
         {
           "text": "If you have the spell Levitation and wish to use it, turn to 78.",
           "targetId": "78",
-          "requirements": [],
+          "requirements": [
+            "item:Levitation"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1021,7 +1037,9 @@
         {
           "text": "If you have the spell Lightning Hand and wish to use it, turn to 60.",
           "targetId": "60",
-          "requirements": [],
+          "requirements": [
+            "item:Lightning Hand"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1049,7 +1067,9 @@
         {
           "text": "If you have the spell Counterspell and wish to use it, turn to 58.",
           "targetId": "58",
-          "requirements": [],
+          "requirements": [
+            "item:Counterspell"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1189,7 +1209,9 @@
         {
           "text": "If you possess the spell Invisible Shield, turn to 13.",
           "targetId": "13",
-          "requirements": [],
+          "requirements": [
+            "item:Invisible Shield"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1273,7 +1295,9 @@
         {
           "text": "If you have the spell Levitation and you wish to use it, turn to 27.",
           "targetId": "27",
-          "requirements": [],
+          "requirements": [
+            "item:Levitation"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1329,7 +1353,9 @@
         {
           "text": "If you have the spell Levitation, turn to 25.",
           "targetId": "25",
-          "requirements": [],
+          "requirements": [
+            "item:Levitation"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1357,7 +1383,9 @@
         {
           "text": "If you have the spell Mind Charm and wish to use it, turn to 77.",
           "targetId": "77",
-          "requirements": [],
+          "requirements": [
+            "item:Mind Charm"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1393,7 +1421,9 @@
         {
           "text": "If you have the spell Lightning Hand and wish to use it, turn to 56.",
           "targetId": "56",
-          "requirements": [],
+          "requirements": [
+            "item:Lightning Hand"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1529,7 +1559,9 @@
         {
           "text": "If you have a Silver Warhammer, turn to 64.",
           "targetId": "64",
-          "requirements": [],
+          "requirements": [
+            "item:Silver Warhammer"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1557,7 +1589,9 @@
         {
           "text": "If you have the spell Sense Evil and if you wish to use it, turn to 20.",
           "targetId": "20",
-          "requirements": [],
+          "requirements": [
+            "item:Sense Evil"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1665,7 +1699,9 @@
         {
           "text": "If you have the spell Net and wish to use it, turn to 8.",
           "targetId": "8",
-          "requirements": [],
+          "requirements": [
+            "item:Net"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1736,7 +1772,9 @@
         {
           "text": "If you have the spell Lightning Hand and wish to use it, turn to 2.",
           "targetId": "2",
-          "requirements": [],
+          "requirements": [
+            "item:Lightning Hand"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2066,7 +2104,9 @@
         {
           "text": "If you have the spell Mind Charm and wish to use it, turn to 71.",
           "targetId": "71",
-          "requirements": [],
+          "requirements": [
+            "item:Mind Charm"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2074,7 +2114,9 @@
         {
           "text": "If you have the spell Sense Evil and wish to use it, turn to 17.",
           "targetId": "17",
-          "requirements": [],
+          "requirements": [
+            "item:Sense Evil"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2174,7 +2216,9 @@
         {
           "text": "If you have the spell Sense Evil and wish to use it, turn to 30.",
           "targetId": "30",
-          "requirements": [],
+          "requirements": [
+            "item:Sense Evil"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

@@ -548,7 +548,9 @@
         {
           "text": "If you possess a Kalte Firesphere, a Lantern, or a Torch and Tinderbox, turn to 61.",
           "targetId": "61",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1087,7 +1089,9 @@
         {
           "text": "If you have a Silver Whistle, turn to 347.",
           "targetId": "347",
-          "requirements": [],
+          "requirements": [
+            "item:Silver Whistle"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1315,7 +1319,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 174.",
           "targetId": "174",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1862,7 +1868,9 @@
         {
           "text": "If you possess some Sabito, turn to 230.",
           "targetId": "230",
-          "requirements": [],
+          "requirements": [
+            "item:some Sabito"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2033,7 +2041,9 @@
         {
           "text": "If you have a sword, turn to 252.",
           "targetId": "252",
-          "requirements": [],
+          "requirements": [
+            "item:sword"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2971,7 +2981,9 @@
         {
           "text": "If you have any Fireseeds, turn to 10.",
           "targetId": "10",
-          "requirements": [],
+          "requirements": [
+            "item:any Fireseeds"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2979,7 +2991,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 317.",
           "targetId": "317",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2987,7 +3001,9 @@
         {
           "text": "If you have neither of these Special Items, turn to 331.",
           "targetId": "331",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3007,7 +3023,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 174.",
           "targetId": "174",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3282,7 +3300,9 @@
         {
           "text": "If you have a Kalte Firesphere, turn to 145.",
           "targetId": "145",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3290,7 +3310,9 @@
         {
           "text": "If you have none of the above items, turn to 292.",
           "targetId": "292",
-          "requirements": [],
+          "requirements": [
+            "item:none of the above items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4337,7 +4359,9 @@
         {
           "text": "If you have completed the Lore-circle of the Spirit, turn to 25.",
           "targetId": "25",
-          "requirements": [],
+          "requirements": [
+            "item:completed the Lore-circle of the Spirit"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4413,7 +4437,9 @@
         {
           "text": "If you have any Fireseeds, turn to 10.",
           "targetId": "10",
-          "requirements": [],
+          "requirements": [
+            "item:any Fireseeds"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4421,7 +4447,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 317.",
           "targetId": "317",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4429,7 +4457,9 @@
         {
           "text": "If you have neither of these Special Items, turn to 331.",
           "targetId": "331",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4633,7 +4663,9 @@
         {
           "text": "If you have a Rope, turn to 310.",
           "targetId": "310",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4641,7 +4673,9 @@
         {
           "text": "If you have neither mastery of Nexus nor a Rope, turn to 211.",
           "targetId": "211",
-          "requirements": [],
+          "requirements": [
+            "item:neither mastery of Nexus nor a Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4769,7 +4803,9 @@
         {
           "text": "If you have a Rope, turn to 310.",
           "targetId": "310",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5087,7 +5123,9 @@
         {
           "text": "If you have neither a Bow nor mastery of Animal Control, turn to 301.",
           "targetId": "301",
-          "requirements": [],
+          "requirements": [
+            "item:neither a Bow nor mastery of Animal Control"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5139,7 +5177,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 335.",
           "targetId": "335",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5363,7 +5403,9 @@
         {
           "text": "If you have a Silver Whistle, turn to 347.",
           "targetId": "347",
-          "requirements": [],
+          "requirements": [
+            "item:Silver Whistle"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5727,7 +5769,9 @@
         {
           "text": "If you possess some Sabito, turn to 230.",
           "targetId": "230",
-          "requirements": [],
+          "requirements": [
+            "item:some Sabito"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6422,7 +6466,9 @@
         {
           "text": "If you have a Rope, turn to 310.",
           "targetId": "310",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6642,7 +6688,9 @@
         {
           "text": "If you have completed the Lore-circle of Solaris, turn to 244.",
           "targetId": "244",
-          "requirements": [],
+          "requirements": [
+            "item:completed the Lore-circle of Solaris"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7896,7 +7944,9 @@
         {
           "text": "If you have a Kalte Firesphere, a Lantern, or a Torch and Tinderbox, turn to 289.",
           "targetId": "289",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8004,7 +8054,9 @@
         {
           "text": "If you have neither of these items, turn to 304.",
           "targetId": "304",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8247,7 +8299,9 @@
         {
           "text": "If you have a Skeleton Key, turn to 207.",
           "targetId": "207",
-          "requirements": [],
+          "requirements": [
+            "item:Skeleton Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8346,7 +8400,9 @@
         {
           "text": "If you have a Gold Key, turn to 333.",
           "targetId": "333",
-          "requirements": [],
+          "requirements": [
+            "item:Gold Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10502,7 +10558,9 @@
         {
           "text": "If you have a Kalte Firesphere, a Lantern, or a Torch and Tinderbox, turn to 49.",
           "targetId": "49",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10510,7 +10568,9 @@
         {
           "text": "If you have none of these items, turn to 277.",
           "targetId": "277",
-          "requirements": [],
+          "requirements": [
+            "item:none of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

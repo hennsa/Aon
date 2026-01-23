@@ -3742,7 +3742,9 @@
         {
           "text": "If you have a prepared Vial of Ezeran Acid, turn to 312.",
           "targetId": "312",
-          "requirements": [],
+          "requirements": [
+            "item:prepared Vial of Ezeran Acid"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4192,7 +4194,9 @@
         {
           "text": "If you possess the Eagle Key of the Crystal Tower, or if you have given it to Tanith to carry, turn to 82.",
           "targetId": "82",
-          "requirements": [],
+          "requirements": [
+            "item:Eagle Key of the Crystal Tower"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4200,7 +4204,9 @@
         {
           "text": "If you possess the Wolf Key, or if you have given it to Tanith to carry, turn to 141.",
           "targetId": "141",
-          "requirements": [],
+          "requirements": [
+            "item:Wolf Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4208,7 +4214,9 @@
         {
           "text": "If you possess the Dragon Key, or if you have given it to Tanith to carry, turn to 35.",
           "targetId": "35",
-          "requirements": [],
+          "requirements": [
+            "item:Dragon Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5581,7 +5589,9 @@
         {
           "text": "If you have the Magical Power of Enchantment, turn to 156.",
           "targetId": "156",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Enchantment"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6256,7 +6266,9 @@
         {
           "text": "If you have the Magical Power of Prophecy, turn to 5.",
           "targetId": "5",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Prophecy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6567,7 +6579,9 @@
         {
           "text": "If you have the Keys to the Crystal Tower, turn to 231.",
           "targetId": "231",
-          "requirements": [],
+          "requirements": [
+            "item:Keys to the Crystal Tower"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6583,7 +6597,9 @@
         {
           "text": "If you have neither of these, turn to 83.",
           "targetId": "83",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6943,7 +6959,9 @@
         {
           "text": "If you have the Magical Power of Alchemy, turn to 177.",
           "targetId": "177",
-          "requirements": [],
+          "requirements": [
+            "item:Magical Power of Alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9488,7 +9506,9 @@
         {
           "text": "If you have not beaten the wolf after three rounds of combat, turn to 287.",
           "targetId": "287",
-          "requirements": [],
+          "requirements": [
+            "item:not beaten the wolf after three rounds of combat"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10315,7 +10335,9 @@
         {
           "text": "If you have not defeated the Elessi after three rounds of combat, but still have the greater ENDURANCE points total, and wish to cease fighting, turn to 99.",
           "targetId": "99",
-          "requirements": [],
+          "requirements": [
+            "item:not defeated the Elessi after three rounds of combat"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

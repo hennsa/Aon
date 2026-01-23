@@ -304,7 +304,9 @@
         {
           "text": "If you have no money, or if you do not wish to pay, turn to 208.",
           "targetId": "208",
-          "requirements": [],
+          "requirements": [
+            "item:no money"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -460,7 +462,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 85.",
           "targetId": "85",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -794,7 +798,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 158.",
           "targetId": "158",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1430,7 +1436,9 @@
         {
           "text": "If you possess Kai-screen, turn to 199.",
           "targetId": "199",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1582,7 +1590,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1922,7 +1932,9 @@
         {
           "text": "If you possess Herbmastery, turn to 317.",
           "targetId": "317",
-          "requirements": [],
+          "requirements": [
+            "item:Herbmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2006,7 +2018,9 @@
         {
           "text": "If you possess Elementalism, turn to 226.",
           "targetId": "226",
-          "requirements": [],
+          "requirements": [
+            "item:Elementalism"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2122,7 +2136,9 @@
         {
           "text": "If you have survived this grievous injury, you can continue by turning to 132.",
           "targetId": "132",
-          "requirements": [],
+          "requirements": [
+            "item:survived this grievous injury"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2322,7 +2338,9 @@
         {
           "text": "If you possess 7 Gold Crowns, turn to 253.",
           "targetId": "253",
-          "requirements": [],
+          "requirements": [
+            "item:7 Gold Crowns"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2422,7 +2440,9 @@
         {
           "text": "If you possess Cowana herb, turn to 243.",
           "targetId": "243",
-          "requirements": [],
+          "requirements": [
+            "item:Cowana herb"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2606,7 +2626,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2674,7 +2696,9 @@
         {
           "text": "If you possess an Iron Skull, turn to 237.",
           "targetId": "237",
-          "requirements": [],
+          "requirements": [
+            "item:Iron Skull"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2766,7 +2790,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 153.",
           "targetId": "153",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3350,7 +3376,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 85.",
           "targetId": "85",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3550,7 +3578,9 @@
         {
           "text": "If you possess Grand Pathsmanship and Telegnosis, turn to 288.",
           "targetId": "288",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3734,7 +3764,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 215.",
           "targetId": "215",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4966,7 +4998,9 @@
         {
           "text": "If you possess Kai-screen, turn to 202.",
           "targetId": "202",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5046,7 +5080,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5386,7 +5422,9 @@
         {
           "text": "If you possess Grand Huntmastery and Telegnosis, turn to 316.",
           "targetId": "316",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5734,7 +5772,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 158.",
           "targetId": "158",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5866,7 +5906,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 22.",
           "targetId": "22",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6198,7 +6240,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 158.",
           "targetId": "158",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6586,7 +6630,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6782,7 +6828,9 @@
         {
           "text": "If you possess Herbmastery, turn to 317.",
           "targetId": "317",
-          "requirements": [],
+          "requirements": [
+            "item:Herbmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7034,7 +7082,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 85.",
           "targetId": "85",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7706,7 +7756,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 85.",
           "targetId": "85",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8674,7 +8726,9 @@
         {
           "text": "If you possess Kai-alchemy and wish to use the Brotherhood Spell Mind Charm to make Kol turn back to Bir Rabalou, turn to 46.",
           "targetId": "46",
-          "requirements": [],
+          "requirements": [
+            "item:Mind Charm"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9090,7 +9144,9 @@
         {
           "text": "If you possess Temujun\u2019s Ring, turn to 118.",
           "targetId": "118",
-          "requirements": [],
+          "requirements": [
+            "item:Temujun\u2019s Ring"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9333,7 +9389,9 @@
         {
           "text": "If you possess an Iron Skull, a Kutyan Emerald, or a Siyen Crown, and you wish to sell one or more of these Special Items to the old magician, turn to 54.",
           "targetId": "54",
-          "requirements": [],
+          "requirements": [
+            "item:Iron Skull"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9816,7 +9874,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10072,7 +10132,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 158.",
           "targetId": "158",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10292,7 +10354,9 @@
         {
           "text": "If you have survived this terrible injury, you may continue by turning to 132.",
           "targetId": "132",
-          "requirements": [],
+          "requirements": [
+            "item:survived this terrible injury"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

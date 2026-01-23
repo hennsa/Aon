@@ -120,7 +120,9 @@
         {
           "text": "If you have ever visited the city of Caeno (in a previous {{characterName}} New Order adventure), turn to 165.",
           "targetId": "165",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the city of Caeno (in a previous Lone Wolf New Order adventure)"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -128,7 +130,9 @@
         {
           "text": "If you have never visited the city of Caeno, turn to 299.",
           "targetId": "299",
-          "requirements": [],
+          "requirements": [
+            "item:never visited the city of Caeno"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -600,7 +604,9 @@
         {
           "text": "If you possess Kai-surge, turn to 172.",
           "targetId": "172",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-surge"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -780,7 +786,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 228.",
           "targetId": "228",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1535,7 +1543,9 @@
         {
           "text": "If you possess Sadanzo\u2019s Seal, turn to 252.",
           "targetId": "252",
-          "requirements": [],
+          "requirements": [
+            "item:Sadanzo\u2019s Seal"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1611,7 +1621,9 @@
         {
           "text": "If you possess a Riverboat Ticket, turn to 153.",
           "targetId": "153",
-          "requirements": [],
+          "requirements": [
+            "item:Riverboat Ticket"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1715,7 +1727,9 @@
         {
           "text": "If you have survived this grievous wounding, turn to 69.",
           "targetId": "69",
-          "requirements": [],
+          "requirements": [
+            "item:survived this grievous wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1935,7 +1949,9 @@
         {
           "text": "If you possess a Stone Dagger, turn to 36.",
           "targetId": "36",
-          "requirements": [],
+          "requirements": [
+            "item:Stone Dagger"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2331,7 +2347,9 @@
         {
           "text": "If you have survived this injury, you may continue by turning to 295.",
           "targetId": "295",
-          "requirements": [],
+          "requirements": [
+            "item:survived this injury"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3895,7 +3913,9 @@
         {
           "text": "If you possess Sadanzo\u2019s Seal, turn to 264.",
           "targetId": "264",
-          "requirements": [],
+          "requirements": [
+            "item:Sadanzo\u2019s Seal"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3955,7 +3975,9 @@
         {
           "text": "If you possess Sadanzo\u2019s Scroll, turn to 83.",
           "targetId": "83",
-          "requirements": [],
+          "requirements": [
+            "item:Sadanzo\u2019s Scroll"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5086,7 +5108,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 66.",
           "targetId": "66",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5118,7 +5142,9 @@
         {
           "text": "If you possess 40 Lune (or its equivalent, which is 10 Gold Crowns) and wish to pay this toll collector, turn to 221.",
           "targetId": "221",
-          "requirements": [],
+          "requirements": [
+            "item:40 Lune (or its equivalent"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5318,7 +5344,9 @@
         {
           "text": "If you possess any Torqs, turn to 236.",
           "targetId": "236",
-          "requirements": [],
+          "requirements": [
+            "item:any Torqs"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5393,7 +5421,9 @@
         {
           "text": "If you possess Magi-magic, turn to 216.",
           "targetId": "216",
-          "requirements": [],
+          "requirements": [
+            "item:Magi-magic"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5577,7 +5607,9 @@
         {
           "text": "If you possess Grand Pathsmanship and Telegnosis, turn to 349.",
           "targetId": "349",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5969,7 +6001,9 @@
         {
           "text": "If you possess a Tehda Key, turn to 136.",
           "targetId": "136",
-          "requirements": [],
+          "requirements": [
+            "item:Tehda Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6185,7 +6219,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 214.",
           "targetId": "214",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6281,7 +6317,9 @@
         {
           "text": "If you possess Kai-surge, turn to 172.",
           "targetId": "172",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-surge"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6441,7 +6479,9 @@
         {
           "text": "If you have survived this mental wounding, you may continue by turning to 237.",
           "targetId": "237",
-          "requirements": [],
+          "requirements": [
+            "item:survived this mental wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7544,7 +7584,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 228.",
           "targetId": "228",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8048,7 +8090,9 @@
         {
           "text": "If you possess Sadanzo\u2019s Scroll, turn to 61.",
           "targetId": "61",
-          "requirements": [],
+          "requirements": [
+            "item:Sadanzo\u2019s Scroll"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8652,7 +8696,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 228.",
           "targetId": "228",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8740,7 +8786,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 336.",
           "targetId": "336",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8844,7 +8892,9 @@
         {
           "text": "If you possess a Golden Hunting Horn, turn to 164.",
           "targetId": "164",
-          "requirements": [],
+          "requirements": [
+            "item:Golden Hunting Horn"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9340,7 +9390,9 @@
         {
           "text": "If you possess Sadanzo\u2019s Scroll, turn to 126.",
           "targetId": "126",
-          "requirements": [],
+          "requirements": [
+            "item:Sadanzo\u2019s Scroll"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9544,7 +9596,9 @@
         {
           "text": "If you possess Kai-screen, turn to 218.",
           "targetId": "218",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9892,7 +9946,9 @@
         {
           "text": "If you have survived this wounding, you can continue by turning to 342.",
           "targetId": "342",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10016,7 +10072,9 @@
         {
           "text": "If you possess Kai-surge, turn to 172.",
           "targetId": "172",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-surge"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

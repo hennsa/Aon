@@ -727,7 +727,9 @@
         {
           "text": "If you possess a Brass Key, turn to 282.",
           "targetId": "282",
-          "requirements": [],
+          "requirements": [
+            "item:Brass Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -891,7 +893,9 @@
         {
           "text": "If you possess a Firesphere, turn to 168.",
           "targetId": "168",
-          "requirements": [],
+          "requirements": [
+            "item:Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1746,7 +1750,9 @@
         {
           "text": "If you possess Captain D\u2019Val\u2019s Sword, turn to 327.",
           "targetId": "327",
-          "requirements": [],
+          "requirements": [
+            "item:Captain D\u2019Val\u2019s Sword"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2046,7 +2052,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 292.",
           "targetId": "292",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2154,7 +2162,9 @@
         {
           "text": "If you possess an Onyx Medallion, turn to 305.",
           "targetId": "305",
-          "requirements": [],
+          "requirements": [
+            "item:Onyx Medallion"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2242,7 +2252,9 @@
         {
           "text": "If you possess a Flask of Holy Water, turn to 283.",
           "targetId": "283",
-          "requirements": [],
+          "requirements": [
+            "item:Flask of Holy Water"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3380,7 +3392,9 @@
         {
           "text": "If you have yet to reach this level of Kai training, you can launch a surprise attack on the bandits and turn to 14.",
           "targetId": "14",
-          "requirements": [],
+          "requirements": [
+            "item:yet to reach this level of Kai training"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3564,7 +3578,9 @@
         {
           "text": "If you possess an Iron Key, you may open the door by turning to 308.",
           "targetId": "308",
-          "requirements": [],
+          "requirements": [
+            "item:Iron Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5055,7 +5071,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 34.",
           "targetId": "34",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5195,7 +5213,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 275.",
           "targetId": "275",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6240,7 +6260,9 @@
         {
           "text": "If you have yet to reach this level of Kai training, turn to 43.",
           "targetId": "43",
-          "requirements": [],
+          "requirements": [
+            "item:yet to reach this level of Kai training"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7547,7 +7569,9 @@
         {
           "text": "If you have yet to reach this level of training, turn to 135.",
           "targetId": "135",
-          "requirements": [],
+          "requirements": [
+            "item:yet to reach this level of training"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7687,7 +7711,9 @@
         {
           "text": "If you possess an Onyx Medallion, turn to 305.",
           "targetId": "305",
-          "requirements": [],
+          "requirements": [
+            "item:Onyx Medallion"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8005,7 +8031,9 @@
         {
           "text": "If you possess a Firesphere, turn to 168.",
           "targetId": "168",
-          "requirements": [],
+          "requirements": [
+            "item:Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8013,7 +8041,9 @@
         {
           "text": "If you have neither of these items, you can continue your way forward in darkness and turn to 246.",
           "targetId": "246",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8137,7 +8167,9 @@
         {
           "text": "If you possess a Flask of Holy Water, turn to 283.",
           "targetId": "283",
-          "requirements": [],
+          "requirements": [
+            "item:Flask of Holy Water"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8297,7 +8329,9 @@
         {
           "text": "If you possess Captain D\u2019Val\u2019s sword, turn to 327.",
           "targetId": "327",
-          "requirements": [],
+          "requirements": [
+            "item:Captain D\u2019Val\u2019s sword"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8768,7 +8802,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 122.",
           "targetId": "122",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9392,7 +9428,9 @@
         {
           "text": "If you possess a Scroll, turn to 279.",
           "targetId": "279",
-          "requirements": [],
+          "requirements": [
+            "item:Scroll"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10086,7 +10124,9 @@
         {
           "text": "If you have not yet reached this level of Kai training, turn to 43.",
           "targetId": "43",
-          "requirements": [],
+          "requirements": [
+            "item:not yet reached this level of Kai training"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

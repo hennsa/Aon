@@ -128,7 +128,9 @@
         {
           "text": "If you possess a Platinum Amulet, turn to 166.",
           "targetId": "166",
-          "requirements": [],
+          "requirements": [
+            "item:Platinum Amulet"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -383,7 +385,9 @@
         {
           "text": "If you possess Kai-screen, turn to 325.",
           "targetId": "325",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1279,7 +1283,9 @@
         {
           "text": "If you possess Assimilance, turn to 208.",
           "targetId": "208",
-          "requirements": [],
+          "requirements": [
+            "item:Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1363,7 +1369,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 164.",
           "targetId": "164",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1894,7 +1902,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 339.",
           "targetId": "339",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1930,7 +1940,9 @@
         {
           "text": "If you possess Assimilance, turn to 208.",
           "targetId": "208",
-          "requirements": [],
+          "requirements": [
+            "item:Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2528,7 +2540,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 346.",
           "targetId": "346",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2872,7 +2886,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 113.",
           "targetId": "113",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2880,7 +2896,9 @@
         {
           "text": "If you possess the Power Spike, turn to 296.",
           "targetId": "296",
-          "requirements": [],
+          "requirements": [
+            "item:Power Spike"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2888,7 +2906,9 @@
         {
           "text": "If you possess neither of these Special Items, turn to 215.",
           "targetId": "215",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3016,7 +3036,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 229.",
           "targetId": "229",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3124,7 +3146,9 @@
         {
           "text": "If you possess a Green Gem, turn to 349.",
           "targetId": "349",
-          "requirements": [],
+          "requirements": [
+            "item:Green Gem"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3299,7 +3323,9 @@
         {
           "text": "If you possess Grand Huntmastery, turn to 272.",
           "targetId": "272",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Huntmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3603,7 +3629,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 160.",
           "targetId": "160",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3819,7 +3847,9 @@
         {
           "text": "If you possess Kai-screen, turn to 325.",
           "targetId": "325",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4218,7 +4248,9 @@
         {
           "text": "If you have yet to attain this level of Kai Mastery, turn to 49.",
           "targetId": "49",
-          "requirements": [],
+          "requirements": [
+            "item:yet to attain this level of Kai Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4378,7 +4410,9 @@
         {
           "text": "If you possess Telegnosis, turn to 286.",
           "targetId": "286",
-          "requirements": [],
+          "requirements": [
+            "item:Telegnosis"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4630,7 +4664,9 @@
         {
           "text": "If you have ever been to the Isle of Ghosts in a previous {{characterName}} adventure, turn to 311.",
           "targetId": "311",
-          "requirements": [],
+          "requirements": [
+            "item:ever been to the Isle of Ghosts in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4638,7 +4674,9 @@
         {
           "text": "If you have not, turn to 80.",
           "targetId": "80",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4662,7 +4700,9 @@
         {
           "text": "If you have ever been to the Plane of Darkness before in a previous {{characterName}} adventure,11 turn to 205.",
           "targetId": "205",
-          "requirements": [],
+          "requirements": [
+            "item:ever been to the Plane of Darkness before in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4670,7 +4710,9 @@
         {
           "text": "If you have not, turn to 227.",
           "targetId": "227",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4970,7 +5012,9 @@
         {
           "text": "If you have ever been to the Isle of Ghosts in a previous {{characterName}} adventure, turn to 311.",
           "targetId": "311",
-          "requirements": [],
+          "requirements": [
+            "item:ever been to the Isle of Ghosts in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4978,7 +5022,9 @@
         {
           "text": "If you have not, turn to 80.",
           "targetId": "80",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5050,7 +5096,9 @@
         {
           "text": "If you possess Assimilance, turn to 208.",
           "targetId": "208",
-          "requirements": [],
+          "requirements": [
+            "item:Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6188,7 +6236,9 @@
         {
           "text": "If you possess an Onyx Key, turn to 192.",
           "targetId": "192",
-          "requirements": [],
+          "requirements": [
+            "item:Onyx Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6388,7 +6438,9 @@
         {
           "text": "If you possess Assimilance, turn to 347.",
           "targetId": "347",
-          "requirements": [],
+          "requirements": [
+            "item:Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7030,7 +7082,9 @@
         {
           "text": "If you possess Assimilance, turn to 347.",
           "targetId": "347",
-          "requirements": [],
+          "requirements": [
+            "item:Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7613,7 +7667,9 @@
         {
           "text": "If you possess Assimilance, turn to 208.",
           "targetId": "208",
-          "requirements": [],
+          "requirements": [
+            "item:Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7809,7 +7865,9 @@
         {
           "text": "If you possess Kai-surge but have yet to attain this level of Kai Mastery, turn to 216.",
           "targetId": "216",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-surge but have yet to attain this level of Kai Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8000,7 +8058,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 160.",
           "targetId": "160",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8192,7 +8252,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 202.",
           "targetId": "202",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9055,7 +9117,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 341.",
           "targetId": "341",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9511,7 +9575,9 @@
         {
           "text": "If you possess some Sabito, turn to 13.",
           "targetId": "13",
-          "requirements": [],
+          "requirements": [
+            "item:some Sabito"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10312,7 +10378,9 @@
         {
           "text": "If you possess a Korlinium Scabbard, turn to 101.",
           "targetId": "101",
-          "requirements": [],
+          "requirements": [
+            "item:Korlinium Scabbard"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10632,7 +10700,9 @@
         {
           "text": "If you have ever been to the Isle of Ghosts in a previous {{characterName}} adventure, turn to 311.",
           "targetId": "311",
-          "requirements": [],
+          "requirements": [
+            "item:ever been to the Isle of Ghosts in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10640,7 +10710,9 @@
         {
           "text": "If you have not, turn to 80.",
           "targetId": "80",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

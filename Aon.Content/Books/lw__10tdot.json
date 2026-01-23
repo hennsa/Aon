@@ -276,7 +276,9 @@
         {
           "text": "If you have ever visited the land of Talestria in a previous {{characterName}} adventure, turn to 45.",
           "targetId": "45",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the land of Talestria in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -328,7 +330,9 @@
         {
           "text": "If you have completed the Lore-circle of the Spirit, turn to 46.",
           "targetId": "46",
-          "requirements": [],
+          "requirements": [
+            "item:completed the Lore-circle of the Spirit"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -412,7 +416,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 113.",
           "targetId": "113",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2079,7 +2085,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 133.",
           "targetId": "133",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2087,7 +2095,9 @@
         {
           "text": "If you possess a Bullwhip, turn to 168.",
           "targetId": "168",
-          "requirements": [],
+          "requirements": [
+            "item:Bullwhip"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2095,7 +2105,9 @@
         {
           "text": "If you possess neither of these Special Items, turn to 74.",
           "targetId": "74",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2139,7 +2151,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 113.",
           "targetId": "113",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2362,7 +2376,9 @@
         {
           "text": "If you have visited the Danarg in a previous {{characterName}} adventure, turn to 260.",
           "targetId": "260",
-          "requirements": [],
+          "requirements": [
+            "item:visited the Danarg in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2701,7 +2717,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 133.",
           "targetId": "133",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2737,7 +2755,9 @@
         {
           "text": "If you have completed the Lore-circle of Solaris, turn to 13.",
           "targetId": "13",
-          "requirements": [],
+          "requirements": [
+            "item:completed the Lore-circle of Solaris"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3828,7 +3848,9 @@
         {
           "text": "If you possess a Dagger, turn to 142.",
           "targetId": "142",
-          "requirements": [],
+          "requirements": [
+            "item:Dagger"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3956,7 +3978,9 @@
         {
           "text": "If you possess a Bullwhip, turn to 214.",
           "targetId": "214",
-          "requirements": [],
+          "requirements": [
+            "item:Bullwhip"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4180,7 +4204,9 @@
         {
           "text": "If you have visited the Danarg in a previous {{characterName}} adventure, turn to 260.",
           "targetId": "260",
-          "requirements": [],
+          "requirements": [
+            "item:visited the Danarg in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4320,7 +4346,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 286.",
           "targetId": "286",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4880,7 +4908,9 @@
         {
           "text": "If you possess a Bullwhip, turn to 214.",
           "targetId": "214",
-          "requirements": [],
+          "requirements": [
+            "item:Bullwhip"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5088,7 +5118,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 286.",
           "targetId": "286",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5236,7 +5268,9 @@
         {
           "text": "If you have ever visited the land of Talestria in a previous {{characterName}} adventure, turn to 45.",
           "targetId": "45",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the land of Talestria in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5827,7 +5861,9 @@
         {
           "text": "If you have travelled the Stornlands of Central Magnamund in a previous {{characterName}} adventure, turn to 104.",
           "targetId": "104",
-          "requirements": [],
+          "requirements": [
+            "item:travelled the Stornlands of Central Magnamund in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5835,7 +5871,9 @@
         {
           "text": "If you have never been to the Stornlands, turn to 263.",
           "targetId": "263",
-          "requirements": [],
+          "requirements": [
+            "item:never been to the Stornlands"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6082,7 +6120,9 @@
         {
           "text": "If you possess another weapon, you can attempt to cut the amulet from around his neck; turn to 128.",
           "targetId": "128",
-          "requirements": [],
+          "requirements": [
+            "item:another weapon"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6341,7 +6381,9 @@
         {
           "text": "If you have visited the Danarg in a previous {{characterName}} adventure, turn to 260.",
           "targetId": "260",
-          "requirements": [],
+          "requirements": [
+            "item:visited the Danarg in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6461,7 +6503,9 @@
         {
           "text": "If you possess a Bullwhip, turn to 185.",
           "targetId": "185",
-          "requirements": [],
+          "requirements": [
+            "item:Bullwhip"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6601,7 +6645,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 133.",
           "targetId": "133",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6609,7 +6655,9 @@
         {
           "text": "If you possess a Bullwhip, turn to 168.",
           "targetId": "168",
-          "requirements": [],
+          "requirements": [
+            "item:Bullwhip"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6617,7 +6665,9 @@
         {
           "text": "If you possess neither of these Special Items, turn to 74.",
           "targetId": "74",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7116,7 +7166,9 @@
         {
           "text": "If you possess some Oede herb, swallow it to neutralize the venom and turn to 205.",
           "targetId": "205",
-          "requirements": [],
+          "requirements": [
+            "item:some Oede herb"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7372,7 +7424,9 @@
         {
           "text": "If you possess a Bullwhip, turn to 168.",
           "targetId": "168",
-          "requirements": [],
+          "requirements": [
+            "item:Bullwhip"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7380,7 +7434,9 @@
         {
           "text": "If you possess a Kalte Firesphere, a Torch and Tinderbox, or a Lantern, turn to 248.",
           "targetId": "248",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7388,7 +7444,9 @@
         {
           "text": "If you possess none of these items, turn to 24.",
           "targetId": "24",
-          "requirements": [],
+          "requirements": [
+            "item:none of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7815,7 +7873,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 113.",
           "targetId": "113",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8195,7 +8255,9 @@
         {
           "text": "If you have a Black Key, turn to 80.",
           "targetId": "80",
-          "requirements": [],
+          "requirements": [
+            "item:Black Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8203,7 +8265,9 @@
         {
           "text": "If you have a Skeleton Key, turn to 219.",
           "targetId": "219",
-          "requirements": [],
+          "requirements": [
+            "item:Skeleton Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8211,7 +8275,9 @@
         {
           "text": "If you possess neither of these Special Items, turn to 130.",
           "targetId": "130",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8547,7 +8613,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 252.",
           "targetId": "252",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8783,7 +8851,9 @@
         {
           "text": "If you have travelled the Stornlands of Central Magnamund in a previous {{characterName}} adventure, turn to 65.",
           "targetId": "65",
-          "requirements": [],
+          "requirements": [
+            "item:travelled the Stornlands of Central Magnamund in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8791,7 +8861,9 @@
         {
           "text": "If you have never been to the Stornlands, turn to 222.",
           "targetId": "222",
-          "requirements": [],
+          "requirements": [
+            "item:never been to the Stornlands"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9363,7 +9435,9 @@
         {
           "text": "If you have visited the Danarg in a previous {{characterName}} adventure, turn to 260.",
           "targetId": "260",
-          "requirements": [],
+          "requirements": [
+            "item:visited the Danarg in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9371,7 +9445,9 @@
         {
           "text": "If you have not, turn to 114.",
           "targetId": "114",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

@@ -1030,7 +1030,9 @@
         {
           "text": "If you have never examined one of these tokens before, you may look at this one; turn to 283.",
           "targetId": "283",
-          "requirements": [],
+          "requirements": [
+            "item:never examined one of these tokens before"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1949,7 +1951,9 @@
         {
           "text": "If you have a Fireseed, turn to 16.",
           "targetId": "16",
-          "requirements": [],
+          "requirements": [
+            "item:Fireseed"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1957,7 +1961,9 @@
         {
           "text": "If you have a Psychic Ring, turn to 214.",
           "targetId": "214",
-          "requirements": [],
+          "requirements": [
+            "item:Psychic Ring"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1965,7 +1971,9 @@
         {
           "text": "If you possess neither of these Special Items, turn to 277.",
           "targetId": "277",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2600,7 +2608,9 @@
         {
           "text": "If you have survived the jump, you enter the tower; turn to 131.",
           "targetId": "131",
-          "requirements": [],
+          "requirements": [
+            "item:survived the jump"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2736,7 +2746,9 @@
         {
           "text": "If you have a Kalte Firesphere, a Torch and Tinderbox, or a Lantern, turn to 194.",
           "targetId": "194",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3140,7 +3152,9 @@
         {
           "text": "If you have never examined one of these tokens before, you may look at this one; turn to 283.",
           "targetId": "283",
-          "requirements": [],
+          "requirements": [
+            "item:never examined one of these tokens before"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3866,7 +3880,9 @@
         {
           "text": "If you have a Mirror, turn to 237.",
           "targetId": "237",
-          "requirements": [],
+          "requirements": [
+            "item:Mirror"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3974,7 +3990,9 @@
         {
           "text": "If you have a Mirror, turn to 237.",
           "targetId": "237",
-          "requirements": [],
+          "requirements": [
+            "item:Mirror"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4270,7 +4288,9 @@
         {
           "text": "If you have never visited either of these places, turn to 54.",
           "targetId": "54",
-          "requirements": [],
+          "requirements": [
+            "item:never visited either of these places"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4362,7 +4382,9 @@
         {
           "text": "If you have enough money to pay for a room (twelve Lune equals three Gold Crowns), do so and turn to 34.",
           "targetId": "34",
-          "requirements": [],
+          "requirements": [
+            "item:enough money to pay for a room (twelve Lune equals three Gold Crowns)"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5089,7 +5111,9 @@
         {
           "text": "If you have a Kalte Firesphere, a Lantern, or a Torch and Tinderbox, turn to 33.",
           "targetId": "33",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5153,7 +5177,9 @@
         {
           "text": "If you have a Rope, turn to 7.",
           "targetId": "7",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5233,7 +5259,9 @@
         {
           "text": "If you have completed the Lore-circle of the Spirit, turn to 281.",
           "targetId": "281",
-          "requirements": [],
+          "requirements": [
+            "item:completed the Lore-circle of the Spirit"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5241,7 +5269,9 @@
         {
           "text": "If you have yet to complete this Lore-circle, you can investigate the shadow; turn to 122.",
           "targetId": "122",
-          "requirements": [],
+          "requirements": [
+            "item:yet to complete this Lore-circle"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5880,7 +5910,9 @@
         {
           "text": "If you have a Kalte Firesphere, a Lantern, or a Torch and Tinderbox, turn to 14.",
           "targetId": "14",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5888,7 +5920,9 @@
         {
           "text": "If you possess none of these items, turn to 327.",
           "targetId": "327",
-          "requirements": [],
+          "requirements": [
+            "item:none of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6156,7 +6190,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 336.",
           "targetId": "336",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6244,7 +6280,9 @@
         {
           "text": "If you possess a Psychic Ring, turn to 188.",
           "targetId": "188",
-          "requirements": [],
+          "requirements": [
+            "item:Psychic Ring"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6252,7 +6290,9 @@
         {
           "text": "If you possess the Dagger of Vashna, turn to 79.",
           "targetId": "79",
-          "requirements": [],
+          "requirements": [
+            "item:Dagger of Vashna"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6260,7 +6300,9 @@
         {
           "text": "If you have neither of these Special Items, turn to 20.",
           "targetId": "20",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6295,7 +6337,9 @@
         {
           "text": "If you have ever escaped from the South Gate tower, turn to 164.",
           "targetId": "164",
-          "requirements": [],
+          "requirements": [
+            "item:ever escaped from the South Gate tower"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7687,7 +7731,9 @@
         {
           "text": "If you have the Sommerswerd, turn to 48.",
           "targetId": "48",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8359,7 +8405,9 @@
         {
           "text": "If you possess a Kalte Firesphere, a Lantern, or a Torch and Tinderbox, turn to 219.",
           "targetId": "219",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8563,7 +8611,9 @@
         {
           "text": "If you possess some Sabito, turn to 25.",
           "targetId": "25",
-          "requirements": [],
+          "requirements": [
+            "item:some Sabito"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9047,7 +9097,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 27.",
           "targetId": "27",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9223,7 +9275,9 @@
         {
           "text": "If you have a Kalte Firesphere, a Lantern, or a Torch and Tinderbox, turn to 33.",
           "targetId": "33",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9547,7 +9601,9 @@
         {
           "text": "If you have never visited either of these places, turn to 263.",
           "targetId": "263",
-          "requirements": [],
+          "requirements": [
+            "item:never visited either of these places"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9567,7 +9623,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 295.",
           "targetId": "295",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10230,7 +10288,9 @@
         {
           "text": "If you have a Kalte Firesphere, a Lantern, or a Torch and Tinderbox, turn to 33.",
           "targetId": "33",
-          "requirements": [],
+          "requirements": [
+            "item:Kalte Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

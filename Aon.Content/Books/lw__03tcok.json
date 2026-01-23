@@ -954,7 +954,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 43.",
           "targetId": "43",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1445,7 +1447,9 @@
         {
           "text": "If you possess a Potion of Black Graveweed, turn to 79.",
           "targetId": "79",
-          "requirements": [],
+          "requirements": [
+            "item:Potion of Black Graveweed"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1453,7 +1457,9 @@
         {
           "text": "If you possess a Potion of Green Gallowbrush, turn to 157.",
           "targetId": "157",
-          "requirements": [],
+          "requirements": [
+            "item:Potion of Green Gallowbrush"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1481,7 +1487,9 @@
         {
           "text": "If you possess an Ornate Silver Key, turn to 303.",
           "targetId": "303",
-          "requirements": [],
+          "requirements": [
+            "item:Ornate Silver Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1621,7 +1629,9 @@
         {
           "text": "If you possess this Special Item, turn to 139.",
           "targetId": "139",
-          "requirements": [],
+          "requirements": [
+            "item:this Special Item"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2070,7 +2080,9 @@
         {
           "text": "If you have a Rope, you can lower it through the portal and help the man to climb out of his cell by turning to 328.",
           "targetId": "328",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2162,7 +2174,9 @@
         {
           "text": "If you have coated yourself with Baknar oil, turn to 209.",
           "targetId": "209",
-          "requirements": [],
+          "requirements": [
+            "item:coated yourself with Baknar oil"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2170,7 +2184,9 @@
         {
           "text": "If you have not applied this oil to your skin, turn to 339.",
           "targetId": "339",
-          "requirements": [],
+          "requirements": [
+            "item:not applied this oil to your skin"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2806,7 +2822,9 @@
         {
           "text": "If you have a Rope, turn to 133.",
           "targetId": "133",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2924,7 +2942,9 @@
         {
           "text": "If you possess a Diamond, turn to 24.",
           "targetId": "24",
-          "requirements": [],
+          "requirements": [
+            "item:Diamond"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3132,7 +3152,9 @@
         {
           "text": "If you possess a Blue Stone Disc, turn to 135.",
           "targetId": "135",
-          "requirements": [],
+          "requirements": [
+            "item:Blue Stone Disc"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3240,7 +3262,9 @@
         {
           "text": "If you have smeared Baknar oil into your skin, turn to 202.",
           "targetId": "202",
-          "requirements": [],
+          "requirements": [
+            "item:smeared Baknar oil into your skin"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3248,7 +3272,9 @@
         {
           "text": "If you have not coated yourself with Baknar oil, you can avoid the Kalkoth by retracing your steps back to the other tunnel. Turn to 284.",
           "targetId": "284",
-          "requirements": [],
+          "requirements": [
+            "item:not coated yourself with Baknar oil"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3868,7 +3894,9 @@
         {
           "text": "If you have ever visited Ragadorn, you can ask him some simple questions about the city, to allay any suspicions you may have about who he claims to be, by turning to 11.",
           "targetId": "11",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited Ragadorn"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4195,7 +4223,9 @@
         {
           "text": "If you possess a Red Potion of Laumspur4, turn to 116.",
           "targetId": "116",
-          "requirements": [],
+          "requirements": [
+            "item:Red Potion of Laumspur4"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4373,7 +4403,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 43.",
           "targetId": "43",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4512,7 +4544,9 @@
         {
           "text": "If you possess the Sommerswerd, turn immediately to 120.",
           "targetId": "120",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4520,7 +4554,9 @@
         {
           "text": "If you possess a Firesphere, turn to 310.",
           "targetId": "310",
-          "requirements": [],
+          "requirements": [
+            "item:Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4560,7 +4596,9 @@
         {
           "text": "If you have applied Baknar oil to your skin, turn to 209.",
           "targetId": "209",
-          "requirements": [],
+          "requirements": [
+            "item:applied Baknar oil to your skin"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4568,7 +4606,9 @@
         {
           "text": "If you have not, turn to 339.",
           "targetId": "339",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5107,7 +5147,9 @@
         {
           "text": "If you possess a Blue Stone Triangle, turn to 41.",
           "targetId": "41",
-          "requirements": [],
+          "requirements": [
+            "item:Blue Stone Triangle"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5147,7 +5189,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 304.",
           "targetId": "304",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5239,7 +5283,9 @@
         {
           "text": "If you possess an Effigy, turn immediately to 34.",
           "targetId": "34",
-          "requirements": [],
+          "requirements": [
+            "item:Effigy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5255,7 +5301,9 @@
         {
           "text": "If you have neither of the above, turn to 200.",
           "targetId": "200",
-          "requirements": [],
+          "requirements": [
+            "item:neither of the above"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5821,7 +5869,9 @@
         {
           "text": "If you possess a Glowing Crystal, turn to 267.",
           "targetId": "267",
-          "requirements": [],
+          "requirements": [
+            "item:Glowing Crystal"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6879,7 +6929,9 @@
         {
           "text": "If you possess a Firesphere, turn to 46.",
           "targetId": "46",
-          "requirements": [],
+          "requirements": [
+            "item:Firesphere"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7230,7 +7282,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 42.",
           "targetId": "42",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7370,7 +7424,9 @@
         {
           "text": "If you possess a Rope, you can lower it to the floor and rescue the old man from the cell by turning to 118.",
           "targetId": "118",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7433,7 +7489,9 @@
         {
           "text": "If you have ever visited the Graveyard of the Ancients, turn to 77.",
           "targetId": "77",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the Graveyard of the Ancients"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7441,7 +7499,9 @@
         {
           "text": "If you have not, you are suspicious of this pungent liquid and quickly discard the broken glass. Return to 10 and choose your next course of action.",
           "targetId": "10",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7968,7 +8028,9 @@
         {
           "text": "If you have ever visited the Graveyard of the Ancients, turn to 177.",
           "targetId": "177",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the Graveyard of the Ancients"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7976,7 +8038,9 @@
         {
           "text": "If you have not, you quickly replace stopper of the Vial. The vapour is making you nauseous, and you decide against keeping this suspicious fluid. Return to 10 and choose your next course of action.",
           "targetId": "10",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8088,7 +8152,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 213.",
           "targetId": "213",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8264,7 +8330,9 @@
         {
           "text": "If you possess a weapon, you may strike this outcrop and attempt to block the cave, by turning to 142.",
           "targetId": "142",
-          "requirements": [],
+          "requirements": [
+            "item:weapon"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9731,7 +9799,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 99.",
           "targetId": "99",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9759,7 +9829,9 @@
         {
           "text": "If you have smeared Baknar oil into your skin, turn to 202.",
           "targetId": "202",
-          "requirements": [],
+          "requirements": [
+            "item:smeared Baknar oil into your skin"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9767,7 +9839,9 @@
         {
           "text": "If you have not applied Baknar oil to your skin, you can avoid the Kalkoth by retracing your route back to the entrance of the other tunnel, by turning to 284.",
           "targetId": "284",
-          "requirements": [],
+          "requirements": [
+            "item:not applied Baknar oil to your skin"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9795,7 +9869,9 @@
         {
           "text": "If you have a Rope, you can climb down and attempt to capture him by turning to 100.",
           "targetId": "100",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10182,7 +10258,9 @@
         {
           "text": "If you possess a Blue Stone Triangle, turn to 41.",
           "targetId": "41",
-          "requirements": [],
+          "requirements": [
+            "item:Blue Stone Triangle"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10310,7 +10388,9 @@
         {
           "text": "If you possess this Special Item, turn to 139.",
           "targetId": "139",
-          "requirements": [],
+          "requirements": [
+            "item:this Special Item"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

@@ -874,7 +874,9 @@
         {
           "text": "If you have run out of ammunition, or if you choose not to fire a second round, turn to 64.",
           "targetId": "64",
-          "requirements": [],
+          "requirements": [
+            "item:run out of ammunition"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -954,7 +956,9 @@
         {
           "text": "If you possess either a File or a Flexible Saw, turn to 346.",
           "targetId": "346",
-          "requirements": [],
+          "requirements": [
+            "item:File"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -962,7 +966,9 @@
         {
           "text": "If you possess neither of these items, turn to 294.",
           "targetId": "294",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1401,7 +1407,9 @@
         {
           "text": "If you possess some Binoculars, turn to 339.",
           "targetId": "339",
-          "requirements": [],
+          "requirements": [
+            "item:Binoculars"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1572,7 +1580,9 @@
         {
           "text": "If you possess a missile weapon, turn to 130.",
           "targetId": "130",
-          "requirements": [],
+          "requirements": [
+            "item:missile weapon"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2003,7 +2013,9 @@
         {
           "text": "If you possess a CB Radio, turn to 116.",
           "targetId": "116",
-          "requirements": [],
+          "requirements": [
+            "item:CB Radio"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2107,7 +2119,9 @@
         {
           "text": "If you possess a missile weapon, turn to 135.",
           "targetId": "135",
-          "requirements": [],
+          "requirements": [
+            "item:missile weapon"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2159,7 +2173,9 @@
         {
           "text": "If you possess a missile weapon, turn to 292.",
           "targetId": "292",
-          "requirements": [],
+          "requirements": [
+            "item:missile weapon"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2271,7 +2287,9 @@
         {
           "text": "If you possess a CB Radio, turn to 253.",
           "targetId": "253",
-          "requirements": [],
+          "requirements": [
+            "item:CB Radio"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2323,7 +2341,9 @@
         {
           "text": "If you possess a Pistol,3 turn to 287.",
           "targetId": "287",
-          "requirements": [],
+          "requirements": [
+            "item:Pistol"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2862,7 +2882,9 @@
         {
           "text": "If you possess a Rope, turn to 181.",
           "targetId": "181",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3022,7 +3044,9 @@
         {
           "text": "If you possess an HE Grenade, turn to 276.",
           "targetId": "276",
-          "requirements": [],
+          "requirements": [
+            "item:HE Grenade"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3062,7 +3086,9 @@
         {
           "text": "If you possess a CB Radio, turn to 304.",
           "targetId": "304",
-          "requirements": [],
+          "requirements": [
+            "item:CB Radio"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3549,7 +3575,9 @@
         {
           "text": "If you possess a missile weapon, turn to 143.",
           "targetId": "143",
-          "requirements": [],
+          "requirements": [
+            "item:missile weapon"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5198,7 +5226,9 @@
         {
           "text": "If you possess a pair of Goggles, turn to 223.",
           "targetId": "223",
-          "requirements": [],
+          "requirements": [
+            "item:Goggles"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6038,7 +6068,9 @@
         {
           "text": "If you possess a Telescope or Binoculars, turn to 34.",
           "targetId": "34",
-          "requirements": [],
+          "requirements": [
+            "item:Telescope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6046,7 +6078,9 @@
         {
           "text": "If you possess neither of these items, turn to 147.",
           "targetId": "147",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6206,7 +6240,9 @@
         {
           "text": "If you possess a missile weapon, turn to 130.",
           "targetId": "130",
-          "requirements": [],
+          "requirements": [
+            "item:missile weapon"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6694,7 +6730,9 @@
         {
           "text": "If you possess a Fire Extinguisher, turn to 59.",
           "targetId": "59",
-          "requirements": [],
+          "requirements": [
+            "item:Fire Extinguisher"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7102,7 +7140,9 @@
         {
           "text": "If you possess enough food for three Meals, turn to 133.",
           "targetId": "133",
-          "requirements": [],
+          "requirements": [
+            "item:enough food for three Meals"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7186,7 +7226,9 @@
         {
           "text": "If you possess a Solar Torch, turn to 24.",
           "targetId": "24",
-          "requirements": [],
+          "requirements": [
+            "item:Solar Torch"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7305,7 +7347,9 @@
         {
           "text": "If you possess a Flexible Saw, turn to 186.",
           "targetId": "186",
-          "requirements": [],
+          "requirements": [
+            "item:Flexible Saw"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7313,7 +7357,9 @@
         {
           "text": "If you possess a Signal Flare, turn to 13.",
           "targetId": "13",
-          "requirements": [],
+          "requirements": [
+            "item:Signal Flare"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7321,7 +7367,9 @@
         {
           "text": "If you possess neither of these items, turn to 55.",
           "targetId": "55",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7532,7 +7580,9 @@
         {
           "text": "If you possess a Shotgun, turn to 37.",
           "targetId": "37",
-          "requirements": [],
+          "requirements": [
+            "item:Shotgun"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7560,7 +7610,9 @@
         {
           "text": "If you possess a CB Radio, turn to 116.",
           "targetId": "116",
-          "requirements": [],
+          "requirements": [
+            "item:CB Radio"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8007,7 +8059,9 @@
         {
           "text": "If you possess a missile weapon, turn to 132.",
           "targetId": "132",
-          "requirements": [],
+          "requirements": [
+            "item:missile weapon"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9844,7 +9898,9 @@
         {
           "text": "If you have run out of ammunition, or if you choose not to fire a second round, turn to 64.",
           "targetId": "64",
-          "requirements": [],
+          "requirements": [
+            "item:run out of ammunition"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10695,7 +10751,9 @@
         {
           "text": "If you possess Binoculars or a Telescope, turn to 11.",
           "targetId": "11",
-          "requirements": [],
+          "requirements": [
+            "item:Binoculars"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10703,7 +10761,9 @@
         {
           "text": "If you possess neither of these items, turn to 33.",
           "targetId": "33",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

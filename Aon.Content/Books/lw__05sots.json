@@ -3741,7 +3741,9 @@
         {
           "text": "If you possess the Gaoler\u2019s Keys, turn to 136.",
           "targetId": "136",
-          "requirements": [],
+          "requirements": [
+            "item:Gaoler\u2019s Keys"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6437,7 +6439,9 @@
         {
           "text": "If you possess some Oede herb, you may give it to the poor vaxeler by turning to 321.",
           "targetId": "321",
-          "requirements": [],
+          "requirements": [
+            "item:some Oede herb"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6553,7 +6557,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 349.",
           "targetId": "349",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6625,7 +6631,9 @@
         {
           "text": "If you possess a Copper Key, turn to 246.",
           "targetId": "246",
-          "requirements": [],
+          "requirements": [
+            "item:Copper Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6809,7 +6817,9 @@
         {
           "text": "If you have ever been given a Crystal Star Pendant, turn to 336.",
           "targetId": "336",
-          "requirements": [],
+          "requirements": [
+            "item:ever been given a Crystal Star Pendant"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6913,7 +6923,9 @@
         {
           "text": "If you possess an Onyx Medallion, turn to 319.",
           "targetId": "319",
-          "requirements": [],
+          "requirements": [
+            "item:Onyx Medallion"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7379,7 +7391,9 @@
         {
           "text": "If you possess a Tincture of Graveweed, turn to 260.5",
           "targetId": "260",
-          "requirements": [],
+          "requirements": [
+            "item:Tincture of Graveweed"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8112,7 +8126,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 315.",
           "targetId": "315",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8844,7 +8860,9 @@
         {
           "text": "If you have ever been given a Crystal Star Pendant, turn to 399.",
           "targetId": "399",
-          "requirements": [],
+          "requirements": [
+            "item:ever been given a Crystal Star Pendant"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8884,7 +8902,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 311.",
           "targetId": "311",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9183,7 +9203,9 @@
         {
           "text": "If you possess a Black Crystal Cube, turn to 229.",
           "targetId": "229",
-          "requirements": [],
+          "requirements": [
+            "item:Black Crystal Cube"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10086,7 +10108,9 @@
         {
           "text": "If you possess a Rope, you can attempt to climb down to the gardens below. Turn to 305.",
           "targetId": "305",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10213,7 +10237,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 258.",
           "targetId": "258",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -11712,7 +11738,9 @@
         {
           "text": "If you possess a Black Crystal Cube, turn to 229.",
           "targetId": "229",
-          "requirements": [],
+          "requirements": [
+            "item:Black Crystal Cube"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -11776,7 +11804,9 @@
         {
           "text": "If you have ever been given a Crystal Star Pendant, turn to 399.",
           "targetId": "399",
-          "requirements": [],
+          "requirements": [
+            "item:ever been given a Crystal Star Pendant"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -12171,7 +12201,9 @@
         {
           "text": "If you possess a Prism, turn to 233.",
           "targetId": "233",
-          "requirements": [],
+          "requirements": [
+            "item:Prism"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -12179,7 +12211,9 @@
         {
           "text": "If you possess a Blue Stone Triangle, turn to 245.",
           "targetId": "245",
-          "requirements": [],
+          "requirements": [
+            "item:Blue Stone Triangle"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -12187,7 +12221,9 @@
         {
           "text": "If you have neither of these items, turn to 298.",
           "targetId": "298",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

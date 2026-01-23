@@ -132,7 +132,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 97.",
           "targetId": "97",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -284,7 +286,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 257.",
           "targetId": "257",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -312,7 +316,9 @@
         {
           "text": "If you possess Grand Mastery of Assimilance, turn to 154.",
           "targetId": "154",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Mastery of Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -504,7 +510,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 88.",
           "targetId": "88",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -608,7 +616,9 @@
         {
           "text": "If you possess some Baylon\u2019s Bough Fungi, turn to 277.",
           "targetId": "277",
-          "requirements": [],
+          "requirements": [
+            "item:some Baylon\u2019s Bough Fungi"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -700,7 +710,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 339.",
           "targetId": "339",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1267,7 +1279,9 @@
         {
           "text": "If you possess Deliverance, turn to 76.",
           "targetId": "76",
-          "requirements": [],
+          "requirements": [
+            "item:Deliverance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2545,7 +2559,9 @@
         {
           "text": "If you possess Telegnosis, turn to 67.",
           "targetId": "67",
-          "requirements": [],
+          "requirements": [
+            "item:Telegnosis"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2725,7 +2741,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 7.",
           "targetId": "7",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2765,7 +2783,9 @@
         {
           "text": "If you possess Grand Huntmastery, turn to 342.",
           "targetId": "342",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Huntmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3033,7 +3053,9 @@
         {
           "text": "If you possess a Map of Mogaruith, turn to 341.",
           "targetId": "341",
-          "requirements": [],
+          "requirements": [
+            "item:Map of Mogaruith"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3041,7 +3063,9 @@
         {
           "text": "If you possess a Gold Key, turn to 234.",
           "targetId": "234",
-          "requirements": [],
+          "requirements": [
+            "item:Gold Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3049,7 +3073,9 @@
         {
           "text": "If you have neither of these Special Items, turn to 179.",
           "targetId": "179",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3536,7 +3562,9 @@
         {
           "text": "If you possess Assimilance, turn to 195.",
           "targetId": "195",
-          "requirements": [],
+          "requirements": [
+            "item:Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3740,7 +3768,9 @@
         {
           "text": "If you possess Kai-screen, turn to 44.",
           "targetId": "44",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3776,7 +3806,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 249.",
           "targetId": "249",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4475,7 +4507,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 56.",
           "targetId": "56",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4527,7 +4561,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 324.",
           "targetId": "324",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4875,7 +4911,9 @@
         {
           "text": "If you possess Grand Mastery of Assimilance, turn to 124.",
           "targetId": "124",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Mastery of Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4939,7 +4977,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 19.",
           "targetId": "19",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5079,7 +5119,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 322.",
           "targetId": "322",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5127,7 +5169,9 @@
         {
           "text": "If you possess a Cener Mask and a Cener Robe, turn to 292.",
           "targetId": "292",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5255,7 +5299,9 @@
         {
           "text": "If you possess Telegnosis, turn to 67.",
           "targetId": "67",
-          "requirements": [],
+          "requirements": [
+            "item:Telegnosis"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5466,7 +5512,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 257.",
           "targetId": "257",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5694,7 +5742,9 @@
         {
           "text": "If you possess Telegnosis, turn to 67.",
           "targetId": "67",
-          "requirements": [],
+          "requirements": [
+            "item:Telegnosis"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6006,7 +6056,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 203.",
           "targetId": "203",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6146,7 +6198,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 326.",
           "targetId": "326",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6322,7 +6376,9 @@
         {
           "text": "If you possess Telegnosis, turn to 67.",
           "targetId": "67",
-          "requirements": [],
+          "requirements": [
+            "item:Telegnosis"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6782,7 +6838,9 @@
         {
           "text": "If you possess Kai-screen, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7118,7 +7176,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 61.",
           "targetId": "61",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7709,7 +7769,9 @@
         {
           "text": "If you possess Grand Mastery of Telegnosis, turn to 173.",
           "targetId": "173",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Mastery of Telegnosis"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8133,7 +8195,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 58.",
           "targetId": "58",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8593,7 +8657,9 @@
         {
           "text": "If you possess Kai-screen, turn to 211.",
           "targetId": "211",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8793,7 +8859,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 339.",
           "targetId": "339",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8985,7 +9053,9 @@
         {
           "text": "If you possess neither (or only one) of these items, turn to 304.",
           "targetId": "304",
-          "requirements": [],
+          "requirements": [
+            "item:neither (or only one) of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9085,7 +9155,9 @@
         {
           "text": "If you possess Grand Huntmastery, turn to 49.",
           "targetId": "49",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Huntmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9133,7 +9205,9 @@
         {
           "text": "If you have never been to either of these locations, turn to 247.",
           "targetId": "247",
-          "requirements": [],
+          "requirements": [
+            "item:never been to either of these locations"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9177,7 +9251,9 @@
         {
           "text": "If you possess Kai-screen, turn to 44.",
           "targetId": "44",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9237,7 +9313,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 324.",
           "targetId": "324",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9273,7 +9351,9 @@
         {
           "text": "If you possess Kai-screen, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9309,7 +9389,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 199.",
           "targetId": "199",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9612,7 +9694,9 @@
         {
           "text": "If you possess the Grand Mastery of Kai-screen, turn to 236.",
           "targetId": "236",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Mastery of Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10144,7 +10228,9 @@
         {
           "text": "If you have survived this wounding, turn to 54.",
           "targetId": "54",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -11095,7 +11181,9 @@
         {
           "text": "If you possess a Copper Key, turn to 102.",
           "targetId": "102",
-          "requirements": [],
+          "requirements": [
+            "item:Copper Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -11135,7 +11223,9 @@
         {
           "text": "If you possess Kai-screen, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

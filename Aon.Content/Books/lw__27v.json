@@ -1889,7 +1889,9 @@
         {
           "text": "If you possess Astrology, turn to 257.",
           "targetId": "257",
-          "requirements": [],
+          "requirements": [
+            "item:Astrology"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1921,7 +1923,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 247.",
           "targetId": "247",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2665,7 +2669,9 @@
         {
           "text": "If you possess a Red Key, turn to 166.",
           "targetId": "166",
-          "requirements": [],
+          "requirements": [
+            "item:Red Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3033,7 +3039,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 224.",
           "targetId": "224",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3125,7 +3133,9 @@
         {
           "text": "If you possess Herbmastery, turn to 205.",
           "targetId": "205",
-          "requirements": [],
+          "requirements": [
+            "item:Herbmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3213,7 +3223,9 @@
         {
           "text": "If you possess the Kai Weapon \u2018Magnara\u2019, turn to 325.",
           "targetId": "325",
-          "requirements": [],
+          "requirements": [
+            "item:Kai Weapon \u2018Magnara\u2019"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3529,7 +3541,9 @@
         {
           "text": "If you possess some Poghlam, turn to 175.",
           "targetId": "175",
-          "requirements": [],
+          "requirements": [
+            "item:some Poghlam"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4104,7 +4118,9 @@
         {
           "text": "If you possess Deliverance, turn to 171.",
           "targetId": "171",
-          "requirements": [],
+          "requirements": [
+            "item:Deliverance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4286,7 +4302,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 329.",
           "targetId": "329",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4366,7 +4384,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 237.",
           "targetId": "237",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4766,7 +4786,9 @@
         {
           "text": "If you have no Ren but you are willing to pay the equivalent price in Gold Crowns (20 Ren = 2 Gold Crowns), turn to 133.",
           "targetId": "133",
-          "requirements": [],
+          "requirements": [
+            "item:no Ren but you are willing to pay the equivalent price in Gold Crowns (20 Ren = 2 Gold Crowns)"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5060,7 +5082,9 @@
         {
           "text": "If you possess Kai-screen, turn to 32.",
           "targetId": "32",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5308,7 +5332,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 27.",
           "targetId": "27",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5767,7 +5793,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 120.",
           "targetId": "120",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5899,7 +5927,9 @@
         {
           "text": "If you possess Astrology, turn to 332.",
           "targetId": "332",
-          "requirements": [],
+          "requirements": [
+            "item:Astrology"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6083,7 +6113,9 @@
         {
           "text": "If you possess a Gold Talisman, turn to 87.",
           "targetId": "87",
-          "requirements": [],
+          "requirements": [
+            "item:Gold Talisman"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6091,7 +6123,9 @@
         {
           "text": "If you possess neither of these items, turn to 55.",
           "targetId": "55",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6131,7 +6165,9 @@
         {
           "text": "If you have survived this wounding, turn to 269.",
           "targetId": "269",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6247,7 +6283,9 @@
         {
           "text": "If you possess Deliverance, turn to 10.",
           "targetId": "10",
-          "requirements": [],
+          "requirements": [
+            "item:Deliverance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6347,7 +6385,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 247.",
           "targetId": "247",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6779,7 +6819,9 @@
         {
           "text": "If you possess Herbmastery, turn to 305.",
           "targetId": "305",
-          "requirements": [],
+          "requirements": [
+            "item:Herbmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7075,7 +7117,9 @@
         {
           "text": "If you possess Assimilance, turn to 119.",
           "targetId": "119",
-          "requirements": [],
+          "requirements": [
+            "item:Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7143,7 +7187,9 @@
         {
           "text": "If you possess none of the above, or if you choose not to use any of them, turn to 282.",
           "targetId": "282",
-          "requirements": [],
+          "requirements": [
+            "item:none of the above"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7935,7 +7981,9 @@
         {
           "text": "If you have survived this wounding, you can continue by turning to 104.",
           "targetId": "104",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8339,7 +8387,9 @@
         {
           "text": "If you have survived this wounding, turn to 43.",
           "targetId": "43",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9065,7 +9115,9 @@
         {
           "text": "If you possess Astrology, turn to 257.",
           "targetId": "257",
-          "requirements": [],
+          "requirements": [
+            "item:Astrology"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

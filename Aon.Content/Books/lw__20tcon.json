@@ -172,7 +172,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 92.",
           "targetId": "92",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -599,7 +601,9 @@
         {
           "text": "If you possess Kai-screen, turn to 249.",
           "targetId": "249",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -898,7 +902,9 @@
         {
           "text": "If you possess a Korlinium Scabbard, turn to 258.",
           "targetId": "258",
-          "requirements": [],
+          "requirements": [
+            "item:Korlinium Scabbard"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -982,7 +988,9 @@
         {
           "text": "If you possess neither of these Special Items, turn to 6.",
           "targetId": "6",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1158,7 +1166,9 @@
         {
           "text": "If you possess neither of these Special Items, turn to 261.",
           "targetId": "261",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1350,7 +1360,9 @@
         {
           "text": "If you possess any Gold Crowns, turn to 109.",
           "targetId": "109",
-          "requirements": [],
+          "requirements": [
+            "item:any Gold Crowns"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1358,7 +1370,9 @@
         {
           "text": "If you have no Gold Crowns, turn to 65.",
           "targetId": "65",
-          "requirements": [],
+          "requirements": [
+            "item:no Gold Crowns"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1542,7 +1556,9 @@
         {
           "text": "If you have ever been to the city of Torgar in a previous {{characterName}} adventure, turn to 127.",
           "targetId": "127",
-          "requirements": [],
+          "requirements": [
+            "item:ever been to the city of Torgar in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1550,7 +1566,9 @@
         {
           "text": "If you have never visited this city, turn to 91.",
           "targetId": "91",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this city"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1578,7 +1596,9 @@
         {
           "text": "If you have ever visited the Palmyrion town of Scade in a previous {{characterName}} adventure, turn to 125.",
           "targetId": "125",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the Palmyrion town of Scade in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1586,7 +1606,9 @@
         {
           "text": "If you have never visited this town, turn to 215.",
           "targetId": "215",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this town"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1662,7 +1684,9 @@
         {
           "text": "If you possess a Platinum Amulet, turn to 180.",
           "targetId": "180",
-          "requirements": [],
+          "requirements": [
+            "item:Platinum Amulet"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1988,7 +2012,9 @@
         {
           "text": "If you possess Shamath\u2019s Potion, turn to 315.",
           "targetId": "315",
-          "requirements": [],
+          "requirements": [
+            "item:Shamath\u2019s Potion"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2084,7 +2110,9 @@
         {
           "text": "If you have ever visited the icy realm of Ixia in a previous {{characterName}} adventure, turn to 97.",
           "targetId": "97",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the icy realm of Ixia in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2092,7 +2120,9 @@
         {
           "text": "If you have not, turn to 301.",
           "targetId": "301",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2152,7 +2182,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 208.",
           "targetId": "208",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2252,7 +2284,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 121.",
           "targetId": "121",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2260,7 +2294,9 @@
         {
           "text": "If you possess Skarn-Ska, turn to 211.",
           "targetId": "211",
-          "requirements": [],
+          "requirements": [
+            "item:Skarn-Ska"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2624,7 +2660,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 121.",
           "targetId": "121",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2632,7 +2670,9 @@
         {
           "text": "If you possess Skarn-Ska, turn to 211.",
           "targetId": "211",
-          "requirements": [],
+          "requirements": [
+            "item:Skarn-Ska"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2804,7 +2844,9 @@
         {
           "text": "If you have ever visited the city of Tahou in a previous {{characterName}} adventure, turn to 194.",
           "targetId": "194",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the city of Tahou in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2812,7 +2854,9 @@
         {
           "text": "If you have never visited this city, turn to 339.",
           "targetId": "339",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this city"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3107,7 +3151,9 @@
         {
           "text": "If you possess Kai-screen, turn to 242.",
           "targetId": "242",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3147,7 +3193,9 @@
         {
           "text": "If you possess neither of these Special Items, turn to 147.",
           "targetId": "147",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3203,7 +3251,9 @@
         {
           "text": "If you possess Grand Huntmastery, turn to 113.",
           "targetId": "113",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Huntmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3579,7 +3629,9 @@
         {
           "text": "If you have ever been to the Ruins of Maaken in a previous {{characterName}} adventure, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:ever been to the Ruins of Maaken in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3587,7 +3639,9 @@
         {
           "text": "If you have never visited this place, turn to 252.",
           "targetId": "252",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this place"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3735,7 +3789,9 @@
         {
           "text": "If you have survived this psychic wounding, you can continue by turning to 290.",
           "targetId": "290",
-          "requirements": [],
+          "requirements": [
+            "item:survived this psychic wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4253,7 +4309,9 @@
         {
           "text": "If you possess neither of these Special Items, turn to 147.",
           "targetId": "147",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4812,7 +4870,9 @@
         {
           "text": "If you have ever visited the city of Helgor in a previous {{characterName}} adventure, turn to 84.",
           "targetId": "84",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the city of Helgor in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4820,7 +4880,9 @@
         {
           "text": "If you have never visited this place, turn to 124.",
           "targetId": "124",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this place"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5398,7 +5460,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 137.",
           "targetId": "137",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5790,7 +5854,9 @@
         {
           "text": "If you have survived this psychic wounding, you can continue by turning to 290.",
           "targetId": "290",
-          "requirements": [],
+          "requirements": [
+            "item:survived this psychic wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5861,7 +5927,9 @@
         {
           "text": "If you possess a Dagger, turn to 164.",
           "targetId": "164",
-          "requirements": [],
+          "requirements": [
+            "item:Dagger"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5869,7 +5937,9 @@
         {
           "text": "If you possess an Arrow, turn to 244.",
           "targetId": "244",
-          "requirements": [],
+          "requirements": [
+            "item:Arrow"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5877,7 +5947,9 @@
         {
           "text": "If you possess neither of these Weapons, turn to 199.",
           "targetId": "199",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Weapons"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5905,7 +5977,9 @@
         {
           "text": "If you have ever been to the Ruins of Maaken in a previous {{characterName}} adventure, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:ever been to the Ruins of Maaken in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5913,7 +5987,9 @@
         {
           "text": "If you have never visited this place, turn to 252.",
           "targetId": "252",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this place"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6165,7 +6241,9 @@
         {
           "text": "If you possess Telegnosis, turn to 104.",
           "targetId": "104",
-          "requirements": [],
+          "requirements": [
+            "item:Telegnosis"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6408,7 +6486,9 @@
         {
           "text": "If you have ever visited Mogaruith in a previous {{characterName}} adventure, turn to 265.",
           "targetId": "265",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited Mogaruith in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6416,7 +6496,9 @@
         {
           "text": "If you have never visited this place, turn to 41.",
           "targetId": "41",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this place"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6672,7 +6754,9 @@
         {
           "text": "If you have ever visited Yanis, the Shining City, in a previous {{characterName}} adventure, turn to 176.",
           "targetId": "176",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited Yanis"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6680,7 +6764,9 @@
         {
           "text": "If you have never visited this place, turn to 47.",
           "targetId": "47",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this place"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6720,7 +6806,9 @@
         {
           "text": "If you possess a Blue Diamond, turn to 295.",
           "targetId": "295",
-          "requirements": [],
+          "requirements": [
+            "item:Blue Diamond"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6808,7 +6896,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 27.",
           "targetId": "27",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6848,7 +6938,9 @@
         {
           "text": "If you possess neither of these Special Items, turn to 147.",
           "targetId": "147",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7191,7 +7283,9 @@
         {
           "text": "If you have ever been to the Ruins of Maaken in a previous {{characterName}} adventure, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:ever been to the Ruins of Maaken in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7199,7 +7293,9 @@
         {
           "text": "If you have never visited this place, turn to 252.",
           "targetId": "252",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this place"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7223,7 +7319,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 121.",
           "targetId": "121",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7231,7 +7329,9 @@
         {
           "text": "If you possess Skarn-Ska, turn to 211.",
           "targetId": "211",
-          "requirements": [],
+          "requirements": [
+            "item:Skarn-Ska"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7402,7 +7502,9 @@
         {
           "text": "If you have ever encountered Demoness Shamath in a previous {{characterName}} adventure, turn to 22.",
           "targetId": "22",
-          "requirements": [],
+          "requirements": [
+            "item:ever encountered Demoness Shamath in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7410,7 +7512,9 @@
         {
           "text": "If you have never encountered this being before, turn to 227.",
           "targetId": "227",
-          "requirements": [],
+          "requirements": [
+            "item:never encountered this being before"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7546,7 +7650,9 @@
         {
           "text": "If you have ever visited the Isle of Khor in a previous {{characterName}} adventure, turn to 79.",
           "targetId": "79",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the Isle of Khor in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7554,7 +7660,9 @@
         {
           "text": "If you have never visited this place, turn to 207.",
           "targetId": "207",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this place"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7762,7 +7870,9 @@
         {
           "text": "If you possess an edged Weapon (e.g. a Sword or an Axe) and wish to use it to cut a path through this undergrowth, turn to 304.",
           "targetId": "304",
-          "requirements": [],
+          "requirements": [
+            "item:edged Weapon (e"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7858,7 +7968,9 @@
         {
           "text": "If you possess a Platinum Amulet, turn to 53.",
           "targetId": "53",
-          "requirements": [],
+          "requirements": [
+            "item:Platinum Amulet"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7954,7 +8066,9 @@
         {
           "text": "If you possess an edged Weapon (e.g. a Sword or an Axe), turn to 61.",
           "targetId": "61",
-          "requirements": [],
+          "requirements": [
+            "item:edged Weapon (e"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7962,7 +8076,9 @@
         {
           "text": "If you possess a non-edged Weapon (e.g. a Quarterstaff or a Mace), turn to 345.",
           "targetId": "345",
-          "requirements": [],
+          "requirements": [
+            "item:non-edged Weapon (e"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8077,7 +8193,9 @@
         {
           "text": "If you possess any Gold Crowns, turn to 109.",
           "targetId": "109",
-          "requirements": [],
+          "requirements": [
+            "item:any Gold Crowns"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8085,7 +8203,9 @@
         {
           "text": "If you have no Gold Crowns, turn to 65.",
           "targetId": "65",
-          "requirements": [],
+          "requirements": [
+            "item:no Gold Crowns"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8181,7 +8301,9 @@
         {
           "text": "If you possess some Muntaag Honey, turn to 159.",
           "targetId": "159",
-          "requirements": [],
+          "requirements": [
+            "item:some Muntaag Honey"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8213,7 +8335,9 @@
         {
           "text": "If you have ever been to the Ruins of Maaken in a previous {{characterName}} adventure, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:ever been to the Ruins of Maaken in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8221,7 +8345,9 @@
         {
           "text": "If you have never visited this place, turn to 252.",
           "targetId": "252",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this place"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8313,7 +8439,9 @@
         {
           "text": "If you possess Shamath\u2019s Potion, turn to 256.",
           "targetId": "256",
-          "requirements": [],
+          "requirements": [
+            "item:Shamath\u2019s Potion"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8401,7 +8529,9 @@
         {
           "text": "If you have ever visited Lake Vorndarol in a previous {{characterName}} adventure, turn to 302.",
           "targetId": "302",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited Lake Vorndarol in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8409,7 +8539,9 @@
         {
           "text": "If you have never visited this place, turn to 183.",
           "targetId": "183",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this place"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8429,7 +8561,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 281.",
           "targetId": "281",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8437,7 +8571,9 @@
         {
           "text": "If you possess Deliverance, turn to 48.",
           "targetId": "48",
-          "requirements": [],
+          "requirements": [
+            "item:Deliverance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8485,7 +8621,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 131.",
           "targetId": "131",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8553,7 +8691,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 337.",
           "targetId": "337",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8589,7 +8729,9 @@
         {
           "text": "If you have ever visited the Palmyrion town of Scade in a previous {{characterName}} adventure, turn to 125.",
           "targetId": "125",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the Palmyrion town of Scade in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8597,7 +8739,9 @@
         {
           "text": "If you have never visited this town, turn to 215.",
           "targetId": "215",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this town"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8721,7 +8865,9 @@
         {
           "text": "If you have ever been to the Ruins of Maaken in a previous {{characterName}} adventure, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:ever been to the Ruins of Maaken in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8729,7 +8875,9 @@
         {
           "text": "If you have never visited this place, turn to 252.",
           "targetId": "252",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this place"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8781,7 +8929,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 80.",
           "targetId": "80",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8809,7 +8959,9 @@
         {
           "text": "If you have survived your unexpected return to the crater, you may continue your adventure by turning to 17.",
           "targetId": "17",
-          "requirements": [],
+          "requirements": [
+            "item:survived your unexpected return to the crater"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9000,7 +9152,9 @@
         {
           "text": "If you possess neither of these Special Items, turn to 147.",
           "targetId": "147",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Special Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9227,7 +9381,9 @@
         {
           "text": "If you possess Kai-screen, turn to 21.",
           "targetId": "21",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9287,7 +9443,9 @@
         {
           "text": "If you have ever visited the Palmyrion town of Scade in a previous {{characterName}} adventure, turn to 125.",
           "targetId": "125",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the Palmyrion town of Scade in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9295,7 +9453,9 @@
         {
           "text": "If you have never visited this town, turn to 215.",
           "targetId": "215",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this town"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9811,7 +9971,9 @@
         {
           "text": "If you possess Kai-screen, turn to 249.",
           "targetId": "249",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10114,7 +10276,9 @@
         {
           "text": "If you possess a Blue Diamond, turn to 157.",
           "targetId": "157",
-          "requirements": [],
+          "requirements": [
+            "item:Blue Diamond"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10421,7 +10585,9 @@
         {
           "text": "If you possess a Platinum Amulet, turn to 53.",
           "targetId": "53",
-          "requirements": [],
+          "requirements": [
+            "item:Platinum Amulet"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10473,7 +10639,9 @@
         {
           "text": "If you have ever visited Mogaruith, Kaag, or Helgor in a previous {{characterName}} adventure, turn to 18.",
           "targetId": "18",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited Mogaruith"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10481,7 +10649,9 @@
         {
           "text": "If you have never visited any of these places, turn to 320.",
           "targetId": "320",
-          "requirements": [],
+          "requirements": [
+            "item:never visited any of these places"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10604,7 +10774,9 @@
         {
           "text": "If you have ever been to the Ruins of Maaken in a previous {{characterName}} adventure, turn to 107.",
           "targetId": "107",
-          "requirements": [],
+          "requirements": [
+            "item:ever been to the Ruins of Maaken in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10612,7 +10784,9 @@
         {
           "text": "If you have never visited this place, turn to 252.",
           "targetId": "252",
-          "requirements": [],
+          "requirements": [
+            "item:never visited this place"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

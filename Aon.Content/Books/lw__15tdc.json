@@ -452,7 +452,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 308.",
           "targetId": "308",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -848,7 +850,9 @@
         {
           "text": "If you have not taken part in this battle, turn to 123.",
           "targetId": "123",
-          "requirements": [],
+          "requirements": [
+            "item:not taken part in this battle"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -972,7 +976,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 340.",
           "targetId": "340",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1208,7 +1214,9 @@
         {
           "text": "If you possess a Rope, turn to 211.",
           "targetId": "211",
-          "requirements": [],
+          "requirements": [
+            "item:Rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1304,7 +1312,9 @@
         {
           "text": "If you possess Grand Huntmastery, turn to 196.",
           "targetId": "196",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Huntmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1360,7 +1370,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 271.",
           "targetId": "271",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2480,7 +2492,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 102.",
           "targetId": "102",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2556,7 +2570,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 202.",
           "targetId": "202",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2719,7 +2735,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 136.",
           "targetId": "136",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2995,7 +3013,9 @@
         {
           "text": "If you possess Magi-magic, turn to 110.",
           "targetId": "110",
-          "requirements": [],
+          "requirements": [
+            "item:Magi-magic"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3163,7 +3183,9 @@
         {
           "text": "If you have Assimilance, turn to 223.",
           "targetId": "223",
-          "requirements": [],
+          "requirements": [
+            "item:Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3379,7 +3401,9 @@
         {
           "text": "If you possess Animal Mastery and have reached the rank of Kai Grand Guardian or higher, turn to 129.",
           "targetId": "129",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3431,7 +3455,9 @@
         {
           "text": "If you possess a Green Key, turn to 304.",
           "targetId": "304",
-          "requirements": [],
+          "requirements": [
+            "item:Green Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4278,7 +4304,9 @@
         {
           "text": "If you possess Magi-magic, turn to 110.",
           "targetId": "110",
-          "requirements": [],
+          "requirements": [
+            "item:Magi-magic"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4922,7 +4950,9 @@
         {
           "text": "If you possess Kai-alchemy but have yet to reach this level of Kai Mastery, turn to 86.",
           "targetId": "86",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy but have yet to reach this level of Kai Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4966,7 +4996,9 @@
         {
           "text": "If you possess Assimilance and you have reached the rank of Kai Grand Guardian or higher, turn to 19.",
           "targetId": "19",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5366,7 +5398,9 @@
         {
           "text": "If you possess Animal Mastery and have reached the rank of Kai Grand Guardian (or higher), turn to 227.",
           "targetId": "227",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5418,7 +5452,9 @@
         {
           "text": "If you possess Grand Pathsmanship and have reached the rank of Sun Knight, turn to 240.",
           "targetId": "240",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5777,7 +5813,9 @@
         {
           "text": "If you possess a Meal, turn to 68.",
           "targetId": "68",
-          "requirements": [],
+          "requirements": [
+            "item:Meal"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5921,7 +5959,9 @@
         {
           "text": "If you possess Grand Pathsmanship and have reached the Kai rank of Sun Knight, turn to 55.",
           "targetId": "55",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6245,7 +6285,9 @@
         {
           "text": "If you possess a Signet Ring, turn to 169.",
           "targetId": "169",
-          "requirements": [],
+          "requirements": [
+            "item:Signet Ring"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6464,7 +6506,9 @@
         {
           "text": "If you possess a Green Key, turn to 304.",
           "targetId": "304",
-          "requirements": [],
+          "requirements": [
+            "item:Green Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6716,7 +6760,9 @@
         {
           "text": "If you possess a Silver Rod, turn to 27.",
           "targetId": "27",
-          "requirements": [],
+          "requirements": [
+            "item:Silver Rod"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6807,7 +6853,9 @@
         {
           "text": "If you have yet to reach this level of Kai Grand Mastership, turn to 204.",
           "targetId": "204",
-          "requirements": [],
+          "requirements": [
+            "item:yet to reach this level of Kai Grand Mastership"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7075,7 +7123,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 340.",
           "targetId": "340",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7143,7 +7193,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 104.",
           "targetId": "104",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7263,7 +7315,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 109.",
           "targetId": "109",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7911,7 +7965,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 48.",
           "targetId": "48",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7955,7 +8011,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 168.",
           "targetId": "168",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8491,7 +8549,9 @@
         {
           "text": "If you possess Kai-surge and have reached the rank of Kai Grand Guardian or higher, turn to 190.",
           "targetId": "190",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8802,7 +8862,9 @@
         {
           "text": "If you possess Kai-alchemy,13 turn to 207.",
           "targetId": "207",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8830,7 +8892,9 @@
         {
           "text": "If you possess Kai-alchemy and have reached the rank of Sun Knight, turn to 167.",
           "targetId": "167",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8866,7 +8930,9 @@
         {
           "text": "If you possess neither of these substances, turn to 233.",
           "targetId": "233",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these substances"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8958,7 +9024,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 232.",
           "targetId": "232",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9126,7 +9194,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 173.",
           "targetId": "173",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9230,7 +9300,9 @@
         {
           "text": "If you possess Grand Huntmastery, turn to 196.",
           "targetId": "196",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Huntmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

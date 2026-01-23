@@ -680,7 +680,9 @@
         {
           "text": "If you have survived this injury, turn to 281.",
           "targetId": "281",
-          "requirements": [],
+          "requirements": [
+            "item:survived this injury"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1203,7 +1205,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 246.",
           "targetId": "246",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1419,7 +1423,9 @@
         {
           "text": "If you have survived this wounding, turn to 19.",
           "targetId": "19",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1683,7 +1689,9 @@
         {
           "text": "If you possess Astrology, turn to 289.",
           "targetId": "289",
-          "requirements": [],
+          "requirements": [
+            "item:Astrology"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1963,7 +1971,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 220.",
           "targetId": "220",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2167,7 +2177,9 @@
         {
           "text": "If you have survived this painful wounding, turn to 10.",
           "targetId": "10",
-          "requirements": [],
+          "requirements": [
+            "item:survived this painful wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2263,7 +2275,9 @@
         {
           "text": "If you possess Herbmastery, turn to 32.",
           "targetId": "32",
-          "requirements": [],
+          "requirements": [
+            "item:Herbmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2774,7 +2788,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 246.",
           "targetId": "246",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2894,7 +2910,9 @@
         {
           "text": "If you possess Kai-screen, turn to 294.",
           "targetId": "294",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3422,7 +3440,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 246.",
           "targetId": "246",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4838,7 +4858,9 @@
         {
           "text": "If you possess some Sabito Root, turn to 102.",
           "targetId": "102",
-          "requirements": [],
+          "requirements": [
+            "item:some Sabito Root"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5626,7 +5648,9 @@
         {
           "text": "If you possess Laumspur, turn to 297.",
           "targetId": "297",
-          "requirements": [],
+          "requirements": [
+            "item:Laumspur"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5634,7 +5658,9 @@
         {
           "text": "If you possess a Potion of Klorva, turn to 120.",
           "targetId": "120",
-          "requirements": [],
+          "requirements": [
+            "item:Potion of Klorva"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5642,7 +5668,9 @@
         {
           "text": "If you possess neither of these potions, turn to 90.",
           "targetId": "90",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these potions"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5838,7 +5866,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 246.",
           "targetId": "246",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6282,7 +6312,9 @@
         {
           "text": "If you have survived your wounding, turn to 281.",
           "targetId": "281",
-          "requirements": [],
+          "requirements": [
+            "item:survived your wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6673,7 +6705,9 @@
         {
           "text": "If you possess a Kirusami (Chai Spear) and wish to use it, turn to 213.",
           "targetId": "213",
-          "requirements": [],
+          "requirements": [
+            "item:Kirusami"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6997,7 +7031,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 220.",
           "targetId": "220",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7129,7 +7165,9 @@
         {
           "text": "If you have yet to attain either of these levels of Kai Mastery, or if you do not possess this Special Item, turn instead to 5.",
           "targetId": "5",
-          "requirements": [],
+          "requirements": [
+            "item:yet to attain either of these levels of Kai Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7377,7 +7415,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 272.",
           "targetId": "272",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7481,7 +7521,9 @@
         {
           "text": "If you possess Astrology, turn to 248.",
           "targetId": "248",
-          "requirements": [],
+          "requirements": [
+            "item:Astrology"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8360,7 +8402,9 @@
         {
           "text": "If you have yet to attain this level of Kai Mastery, turn to 104.",
           "targetId": "104",
-          "requirements": [],
+          "requirements": [
+            "item:yet to attain this level of Kai Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

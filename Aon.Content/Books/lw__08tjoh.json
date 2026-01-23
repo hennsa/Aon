@@ -1841,7 +1841,9 @@
         {
           "text": "If you possess the Sommerswerd,7 turn to 308.",
           "targetId": "308",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3463,7 +3465,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 30.",
           "targetId": "30",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3970,7 +3974,9 @@
         {
           "text": "If you have met Jako, turn to 329.",
           "targetId": "329",
-          "requirements": [],
+          "requirements": [
+            "item:met Jako"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3978,7 +3984,9 @@
         {
           "text": "If you have not, turn to 193.",
           "targetId": "193",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5082,7 +5090,9 @@
         {
           "text": "If you possess the Silver Bow of Duadon, turn to 304.",
           "targetId": "304",
-          "requirements": [],
+          "requirements": [
+            "item:Silver Bow of Duadon"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5662,7 +5672,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 287.",
           "targetId": "287",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5826,7 +5838,9 @@
         {
           "text": "If you have a Lantern, a Torch and Tinderbox, or a Kalte Firesphere, turn to 283.",
           "targetId": "283",
-          "requirements": [],
+          "requirements": [
+            "item:Lantern"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5834,7 +5848,9 @@
         {
           "text": "If you have none of these items, you can advance in the dark by turning to 118.",
           "targetId": "118",
-          "requirements": [],
+          "requirements": [
+            "item:none of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6137,7 +6153,9 @@
         {
           "text": "If you have a Map of Tharro, you may consult it before choosing any of the following options: turn to 22.",
           "targetId": "22",
-          "requirements": [],
+          "requirements": [
+            "item:Map of Tharro"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7666,7 +7684,9 @@
         {
           "text": "If you have a Meal in your Backpack, turn to 34.",
           "targetId": "34",
-          "requirements": [],
+          "requirements": [
+            "item:Meal in your Backpack"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7702,7 +7722,9 @@
         {
           "text": "If you possess any Laumspur, Rendalim\u2019s Elixir, or Oede herb, turn to 349.",
           "targetId": "349",
-          "requirements": [],
+          "requirements": [
+            "item:any Laumspur"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7897,7 +7919,9 @@
         {
           "text": "If you have any Laumspur, Rendalim\u2019s Elixir, or Oede herb, turn to 178.",
           "targetId": "178",
-          "requirements": [],
+          "requirements": [
+            "item:any Laumspur"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8105,7 +8129,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 8.",
           "targetId": "8",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8560,7 +8586,9 @@
         {
           "text": "If you have a dagger, turn to 97.",
           "targetId": "97",
-          "requirements": [],
+          "requirements": [
+            "item:dagger"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8999,7 +9027,9 @@
         {
           "text": "If you have a Bow and two Arrows, and wish to use them, turn to 164.",
           "targetId": "164",
-          "requirements": [],
+          "requirements": [
+            "item:two"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9331,7 +9361,9 @@
         {
           "text": "If you have any Laumspur, Rendalim\u2019s Elixir, or Oede herb, turn to 331.",
           "targetId": "331",
-          "requirements": [],
+          "requirements": [
+            "item:any Laumspur"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10254,7 +10286,9 @@
         {
           "text": "If you possess a Lodestone, turn to 29.",
           "targetId": "29",
-          "requirements": [],
+          "requirements": [
+            "item:Lodestone"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

@@ -1032,7 +1032,9 @@
         {
           "text": "If you have survived this psychic attack, turn to 145.",
           "targetId": "145",
-          "requirements": [],
+          "requirements": [
+            "item:survived this psychic attack"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1196,7 +1198,9 @@
         {
           "text": "If you possess a potion of Tazheng, turn to 84.",
           "targetId": "84",
-          "requirements": [],
+          "requirements": [
+            "item:potion of Tazheng"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1784,7 +1788,9 @@
         {
           "text": "If you have survived this wounding, turn to 257.",
           "targetId": "257",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1976,7 +1982,9 @@
         {
           "text": "If you possess Assimilance, turn to 322.",
           "targetId": "322",
-          "requirements": [],
+          "requirements": [
+            "item:Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2328,7 +2336,9 @@
         {
           "text": "If you possess Kai-screen, turn to 25.",
           "targetId": "25",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3116,7 +3126,9 @@
         {
           "text": "If you have at least 1 Gold Crown in your Belt Pouch, you decide it would be best to pay the guard the night toll rather than be turned away from Dwala. Deduct 1 Gold Crown and turn to 190.",
           "targetId": "190",
-          "requirements": [],
+          "requirements": [
+            "item:at least 1 Gold Crown in your Belt Pouch"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3124,7 +3136,9 @@
         {
           "text": "If you have no money, turn to 57.",
           "targetId": "57",
-          "requirements": [],
+          "requirements": [
+            "item:no money"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3384,7 +3398,9 @@
         {
           "text": "If you possess Kai Grand Mastery of Kai-surge, turn to 298.",
           "targetId": "298",
-          "requirements": [],
+          "requirements": [
+            "item:Kai Grand Mastery of Kai-surge"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3596,7 +3612,9 @@
         {
           "text": "If you possess Kai-screen, turn to 275.",
           "targetId": "275",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4452,7 +4470,9 @@
         {
           "text": "If you have survived this minor wounding, turn to 327.",
           "targetId": "327",
-          "requirements": [],
+          "requirements": [
+            "item:survived this minor wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4472,7 +4492,9 @@
         {
           "text": "If you possess Anseng\u2019s Kirusami, turn to 321.",
           "targetId": "321",
-          "requirements": [],
+          "requirements": [
+            "item:Kirusami"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4768,7 +4790,9 @@
         {
           "text": "If you possess Anseng\u2019s Kirusami, turn to 342.",
           "targetId": "342",
-          "requirements": [],
+          "requirements": [
+            "item:Kirusami"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4944,7 +4968,9 @@
         {
           "text": "If you have survived this magical attack, turn to 162.",
           "targetId": "162",
-          "requirements": [],
+          "requirements": [
+            "item:survived this magical attack"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5132,7 +5158,9 @@
         {
           "text": "If you have survived this sudden energy drain, turn to 309.",
           "targetId": "309",
-          "requirements": [],
+          "requirements": [
+            "item:survived this sudden energy drain"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5180,7 +5208,9 @@
         {
           "text": "If you possess a Bow, turn to 74.",
           "targetId": "74",
-          "requirements": [],
+          "requirements": [
+            "item:Bow"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5256,7 +5286,9 @@
         {
           "text": "If you possess a Durenese Consulate Pass, turn to 231.",
           "targetId": "231",
-          "requirements": [],
+          "requirements": [
+            "item:Durenese Consulate Pass"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5424,7 +5456,9 @@
         {
           "text": "If you possess Anseng\u2019s Kirusami, turn to 188.",
           "targetId": "188",
-          "requirements": [],
+          "requirements": [
+            "item:Kirusami"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6056,7 +6090,9 @@
         {
           "text": "If you possess the Samor Queen, turn to 128.",
           "targetId": "128",
-          "requirements": [],
+          "requirements": [
+            "item:Samor Queen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7092,7 +7128,9 @@
         {
           "text": "If you have survived this wounding, turn to 327.",
           "targetId": "327",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7236,7 +7274,9 @@
         {
           "text": "If you have survived this magical attack, turn to 162.",
           "targetId": "162",
-          "requirements": [],
+          "requirements": [
+            "item:survived this magical attack"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7288,7 +7328,9 @@
         {
           "text": "If you possess a Durenese Consulate Pass, turn to 231.",
           "targetId": "231",
-          "requirements": [],
+          "requirements": [
+            "item:Durenese Consulate Pass"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7504,7 +7546,9 @@
         {
           "text": "If you have arrived at this location from the eastern tree-line, turn to 204.",
           "targetId": "204",
-          "requirements": [],
+          "requirements": [
+            "item:arrived at this location from the eastern tree-line"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7512,7 +7556,9 @@
         {
           "text": "If you have arrived here from the halted refugee column, after having chosen to go west (section 239), turn to 332.",
           "targetId": "332",
-          "requirements": [],
+          "requirements": [
+            "item:arrived here from the halted refugee column"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9323,7 +9369,9 @@
         {
           "text": "If you possess Kai-screen, turn to 25.",
           "targetId": "25",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9523,7 +9571,9 @@
         {
           "text": "If you have visited the Ferry House Inn on the quayside in Valus, turn to 62.",
           "targetId": "62",
-          "requirements": [],
+          "requirements": [
+            "item:visited the Ferry House Inn on the quayside in Valus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9531,7 +9581,9 @@
         {
           "text": "If you have not, turn to 314.",
           "targetId": "314",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9747,7 +9799,9 @@
         {
           "text": "If you possess a Durenese Consulate Pass, turn to 231.",
           "targetId": "231",
-          "requirements": [],
+          "requirements": [
+            "item:Durenese Consulate Pass"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10167,7 +10221,9 @@
         {
           "text": "If you have ever visited Gazad Helkona, a fortress-city in the Darklands, in a previous New Order adventure, turn to 273.",
           "targetId": "273",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited Gazad Helkona"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10175,7 +10231,9 @@
         {
           "text": "If you have never visited Gazad Helkona, turn to 69.",
           "targetId": "69",
-          "requirements": [],
+          "requirements": [
+            "item:never visited Gazad Helkona"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10819,7 +10877,9 @@
         {
           "text": "If you have ever visited the town of Javai in a previous {{characterName}} adventure, turn to 44.",
           "targetId": "44",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the town of Javai in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -11239,7 +11299,9 @@
         {
           "text": "If you have survived this wounding, turn to 257.",
           "targetId": "257",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -11339,7 +11401,9 @@
         {
           "text": "If you possess Tincture of Sabito Root, turn to 232.",
           "targetId": "232",
-          "requirements": [],
+          "requirements": [
+            "item:Tincture of Sabito Root"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

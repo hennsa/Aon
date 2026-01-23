@@ -216,7 +216,9 @@
         {
           "text": "If you possess sufficient ammunition for one round of fire, turn to 181.",
           "targetId": "181",
-          "requirements": [],
+          "requirements": [
+            "item:sufficient ammunition for one round of fire"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1771,7 +1773,9 @@
         {
           "text": "If you possess neither of these items, or if you choose not to use them, turn to 38.",
           "targetId": "38",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2334,7 +2338,9 @@
         {
           "text": "If you have insufficient ammunition, or if you choose not to fire at the assassin, turn to 241.",
           "targetId": "241",
-          "requirements": [],
+          "requirements": [
+            "item:insufficient ammunition"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2585,7 +2591,9 @@
         {
           "text": "If you possess neither of these Backpack Items, turn to 232.",
           "targetId": "232",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these Backpack Items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2745,7 +2753,9 @@
         {
           "text": "If you have sufficient ammunition to be able to fire your gun, turn to 295.",
           "targetId": "295",
-          "requirements": [],
+          "requirements": [
+            "item:sufficient ammunition to be able to fire your gun"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2753,7 +2763,9 @@
         {
           "text": "If you have insufficient ammunition to be able to fire, turn to 261.",
           "targetId": "261",
-          "requirements": [],
+          "requirements": [
+            "item:insufficient ammunition to be able to fire"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2937,7 +2949,9 @@
         {
           "text": "If you possess some Engine Oil, turn to 154.",
           "targetId": "154",
-          "requirements": [],
+          "requirements": [
+            "item:some Engine Oil"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3097,7 +3111,9 @@
         {
           "text": "If you have insufficient ammunition, or if you do not wish to fire at him, turn to 335.",
           "targetId": "335",
-          "requirements": [],
+          "requirements": [
+            "item:insufficient ammunition"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3505,7 +3521,9 @@
         {
           "text": "If you possess a Plastic Tube, turn to 269.",
           "targetId": "269",
-          "requirements": [],
+          "requirements": [
+            "item:Plastic Tube"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5544,7 +5562,9 @@
         {
           "text": "If you have insufficient ammunition, or if you choose not to fire at the assassin, turn to 304.",
           "targetId": "304",
-          "requirements": [],
+          "requirements": [
+            "item:insufficient ammunition"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6946,7 +6966,9 @@
         {
           "text": "If you possess a Solar Regulator, turn to 106.",
           "targetId": "106",
-          "requirements": [],
+          "requirements": [
+            "item:Solar Regulator"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8211,7 +8233,9 @@
         {
           "text": "If you possess a HE Grenade, turn to 191.",
           "targetId": "191",
-          "requirements": [],
+          "requirements": [
+            "item:HE Grenade"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8219,7 +8243,9 @@
         {
           "text": "If you possess a Signal Flare, turn to 338.",
           "targetId": "338",
-          "requirements": [],
+          "requirements": [
+            "item:Signal Flare"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8227,7 +8253,9 @@
         {
           "text": "If you possess neither of these items, turn to 56.",
           "targetId": "56",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8971,7 +8999,9 @@
         {
           "text": "If you possess a CB Radio, turn to 102.",
           "targetId": "102",
-          "requirements": [],
+          "requirements": [
+            "item:CB Radio"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9079,7 +9109,9 @@
         {
           "text": "If you possess neither of these items, turn to 6.",
           "targetId": "6",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9878,7 +9910,9 @@
         {
           "text": "If you possess a Solar Regulator, turn to 106.",
           "targetId": "106",
-          "requirements": [],
+          "requirements": [
+            "item:Solar Regulator"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10138,7 +10172,9 @@
         {
           "text": "If you have insufficient ammunition, or if you do not wish to fire at him, turn to 335.",
           "targetId": "335",
-          "requirements": [],
+          "requirements": [
+            "item:insufficient ammunition"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10448,7 +10484,9 @@
         {
           "text": "If you possess neither of these items, turn to 203.",
           "targetId": "203",
-          "requirements": [],
+          "requirements": [
+            "item:neither of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10896,7 +10934,9 @@
         {
           "text": "If you have sufficient ammunition for one round of fire, turn to 181.",
           "targetId": "181",
-          "requirements": [],
+          "requirements": [
+            "item:sufficient ammunition for one round of fire"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

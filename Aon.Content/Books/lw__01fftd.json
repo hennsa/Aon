@@ -140,7 +140,9 @@
         {
           "text": "If you have picked a number 0\u20134, turn to 343.",
           "targetId": "343",
-          "requirements": [],
+          "requirements": [
+            "item:picked a number 0\u20134"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -148,7 +150,9 @@
         {
           "text": "If you have picked a number 5\u20139, turn to 276.",
           "targetId": "276",
-          "requirements": [],
+          "requirements": [
+            "item:picked a number 5\u20139"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -312,7 +316,9 @@
         {
           "text": "If you have picked a number that is 0\u20132, turn to 108.",
           "targetId": "108",
-          "requirements": [],
+          "requirements": [
+            "item:picked a number that is 0\u20132"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -360,7 +366,9 @@
         {
           "text": "If you possess a Vordak Gem, turn to 236.",
           "targetId": "236",
-          "requirements": [],
+          "requirements": [
+            "item:Vordak Gem"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -800,7 +808,9 @@
         {
           "text": "If you have picked a number 0\u20134, turn to 181.",
           "targetId": "181",
-          "requirements": [],
+          "requirements": [
+            "item:picked a number 0\u20134"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -808,7 +818,9 @@
         {
           "text": "If you have picked a number 5\u20139, turn to 145.",
           "targetId": "145",
-          "requirements": [],
+          "requirements": [
+            "item:picked a number 5\u20139"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1460,7 +1472,9 @@
         {
           "text": "If you have picked a number that is 0\u20134, turn to 277.",
           "targetId": "277",
-          "requirements": [],
+          "requirements": [
+            "item:picked a number that is 0\u20134"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1600,7 +1614,9 @@
         {
           "text": "If you have chosen a number that is 0\u20134, turn to 339.",
           "targetId": "339",
-          "requirements": [],
+          "requirements": [
+            "item:chosen a number that is 0\u20134"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2737,7 +2753,9 @@
         {
           "text": "If you have picked 0\u20131, turn to 53.",
           "targetId": "53",
-          "requirements": [],
+          "requirements": [
+            "item:picked 0\u20131"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5102,7 +5120,9 @@
         {
           "text": "If you have a Silver Key, you may try to open the door by turning to 158.",
           "targetId": "158",
-          "requirements": [],
+          "requirements": [
+            "item:Silver Key"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6899,7 +6919,9 @@
         {
           "text": "If you have picked a number 0\u20134, then you have passed undetected. Turn to 265.",
           "targetId": "265",
-          "requirements": [],
+          "requirements": [
+            "item:picked a number 0\u20134"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6907,7 +6929,9 @@
         {
           "text": "If you have picked a number 5\u20139, then you are not so lucky! Turn to 72.",
           "targetId": "72",
-          "requirements": [],
+          "requirements": [
+            "item:picked a number 5\u20139"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8901,7 +8925,9 @@
         {
           "text": "If you have picked a number that is 0\u20136, turn to 341.",
           "targetId": "341",
-          "requirements": [],
+          "requirements": [
+            "item:picked a number that is 0\u20136"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

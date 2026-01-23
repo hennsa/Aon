@@ -296,7 +296,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 281.",
           "targetId": "281",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -432,7 +434,9 @@
         {
           "text": "If you have ever visited the city of Varetta, the city of Tahou, or a hut on the Ruanon Pike in a previous {{characterName}} adventure, turn to 220.",
           "targetId": "220",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the city of Varetta"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -440,7 +444,9 @@
         {
           "text": "If you have never visited any of these places, turn to 53.",
           "targetId": "53",
-          "requirements": [],
+          "requirements": [
+            "item:never visited any of these places"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -732,7 +738,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 294.",
           "targetId": "294",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -920,7 +928,9 @@
         {
           "text": "If you have survived this wounding, turn to 239.",
           "targetId": "239",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -952,7 +962,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 135.",
           "targetId": "135",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1104,7 +1116,9 @@
         {
           "text": "If you possess Helshezag\u2014the sword of Darklord Kraagensk\u00FBl, turn to 94.",
           "targetId": "94",
-          "requirements": [],
+          "requirements": [
+            "item:Helshezag\u2014the sword of Darklord Kraagensk\u00FBl"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1543,7 +1557,9 @@
         {
           "text": "If you possess the Dagger of Vashna, turn to 273.",
           "targetId": "273",
-          "requirements": [],
+          "requirements": [
+            "item:Dagger of Vashna"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2391,7 +2407,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 57.",
           "targetId": "57",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2815,7 +2833,9 @@
         {
           "text": "If you possess Grand Pathsmanship,10 turn to 243.",
           "targetId": "243",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3154,7 +3174,9 @@
         {
           "text": "If you have ever visited the city of Aarnak in a previous {{characterName}} adventure, turn to 315.",
           "targetId": "315",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the city of Aarnak in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3162,7 +3184,9 @@
         {
           "text": "If you have never been to Aarnak, turn to 202.",
           "targetId": "202",
-          "requirements": [],
+          "requirements": [
+            "item:never been to Aarnak"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3993,7 +4017,9 @@
         {
           "text": "If you possess Kai-alchemy and wish to use the spell of Mind Charm, turn to 212.",
           "targetId": "212",
-          "requirements": [],
+          "requirements": [
+            "item:Mind Charm"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4216,7 +4242,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 118.",
           "targetId": "118",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4779,7 +4807,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 176.",
           "targetId": "176",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4919,7 +4949,9 @@
         {
           "text": "If you possess Kai-alchemy and wish to use the spell of Mind Charm, turn to 212.",
           "targetId": "212",
-          "requirements": [],
+          "requirements": [
+            "item:Mind Charm"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5067,7 +5099,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 102.",
           "targetId": "102",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5123,7 +5157,9 @@
         {
           "text": "If you possess Telegnosis, turn to 221.",
           "targetId": "221",
-          "requirements": [],
+          "requirements": [
+            "item:Telegnosis"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5279,7 +5315,9 @@
         {
           "text": "If you possess a Black Amulet, turn to 234.",
           "targetId": "234",
-          "requirements": [],
+          "requirements": [
+            "item:Black Amulet"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5311,7 +5349,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 58.",
           "targetId": "58",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5387,7 +5427,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 170.",
           "targetId": "170",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5699,7 +5741,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 57.",
           "targetId": "57",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6031,7 +6075,9 @@
         {
           "text": "If you possess the Dagger of Vashna, turn to 20.",
           "targetId": "20",
-          "requirements": [],
+          "requirements": [
+            "item:Dagger of Vashna"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6039,7 +6085,9 @@
         {
           "text": "If you possess Helshezag, turn to 81.",
           "targetId": "81",
-          "requirements": [],
+          "requirements": [
+            "item:Helshezag"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6427,7 +6475,9 @@
         {
           "text": "If you possess a Black Token, turn to 349.",
           "targetId": "349",
-          "requirements": [],
+          "requirements": [
+            "item:Black Token"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6455,7 +6505,9 @@
         {
           "text": "If you possess a Runic Disc, turn to 255.",
           "targetId": "255",
-          "requirements": [],
+          "requirements": [
+            "item:Runic Disc"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6599,7 +6651,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 166.",
           "targetId": "166",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6799,7 +6853,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 302.",
           "targetId": "302",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7107,7 +7163,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 57.",
           "targetId": "57",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7151,7 +7209,9 @@
         {
           "text": "If you possess Kai-alchemy and wish to use the spell of Mind Charm, turn to 212.",
           "targetId": "212",
-          "requirements": [],
+          "requirements": [
+            "item:Mind Charm"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7183,7 +7243,9 @@
         {
           "text": "If you possess Kai-screen, turn to 68.",
           "targetId": "68",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7215,7 +7277,9 @@
         {
           "text": "If you possess a Runic Disc, turn to 55.",
           "targetId": "55",
-          "requirements": [],
+          "requirements": [
+            "item:Runic Disc"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7279,7 +7343,9 @@
         {
           "text": "If you possess Kai-screen, turn to 126.",
           "targetId": "126",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7411,7 +7477,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 102.",
           "targetId": "102",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7459,7 +7527,9 @@
         {
           "text": "If you have never been to these city-fortresses, turn to 295.",
           "targetId": "295",
-          "requirements": [],
+          "requirements": [
+            "item:never been to these city-fortresses"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7747,7 +7817,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 321.",
           "targetId": "321",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7899,7 +7971,9 @@
         {
           "text": "If you possess Kai-screen, turn to 78.",
           "targetId": "78",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8303,7 +8377,9 @@
         {
           "text": "If you have ever visited the city of Varetta, the city of Tahou, or a hut on the Ruanon Pike in a previous {{characterName}} adventure, turn to 220.",
           "targetId": "220",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the city of Varetta"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8311,7 +8387,9 @@
         {
           "text": "If you have never visited any of these places, turn to 53.",
           "targetId": "53",
-          "requirements": [],
+          "requirements": [
+            "item:never visited any of these places"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8799,7 +8877,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 166.",
           "targetId": "166",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9414,7 +9494,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 102.",
           "targetId": "102",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10073,7 +10155,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 281.",
           "targetId": "281",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10369,7 +10453,9 @@
         {
           "text": "If you possess Kai-alchemy and wish to use the spell Mind Charm, turn to 212.",
           "targetId": "212",
-          "requirements": [],
+          "requirements": [
+            "item:Mind Charm"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

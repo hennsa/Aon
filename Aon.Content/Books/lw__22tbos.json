@@ -615,7 +615,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 72.",
           "targetId": "72",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1609,7 +1611,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 127.",
           "targetId": "127",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2409,7 +2413,9 @@
         {
           "text": "If you have ever visited the city of Bisutan in a previous {{characterName}} New Order adventure, turn to 322.",
           "targetId": "322",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the city of Bisutan in a previous Lone Wolf New Order adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2417,7 +2423,9 @@
         {
           "text": "If you have not, turn to 43.",
           "targetId": "43",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4473,7 +4481,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 292.",
           "targetId": "292",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4589,7 +4599,9 @@
         {
           "text": "If you possess Assimilance, turn to 335.",
           "targetId": "335",
-          "requirements": [],
+          "requirements": [
+            "item:Assimilance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4709,7 +4721,9 @@
         {
           "text": "If you possess Elementalism, turn to 117.",
           "targetId": "117",
-          "requirements": [],
+          "requirements": [
+            "item:Elementalism"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5203,7 +5217,9 @@
         {
           "text": "If you have ever visited the city of Barrakeesh in a previous {{characterName}} New Order adventure, turn to 39.",
           "targetId": "39",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited the city of Barrakeesh in a previous Lone Wolf New Order adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5211,7 +5227,9 @@
         {
           "text": "If you have not, turn to 253.",
           "targetId": "253",
-          "requirements": [],
+          "requirements": [
+            "item:not"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5319,7 +5337,9 @@
         {
           "text": "If you possess a Blanket, turn to 216.",
           "targetId": "216",
-          "requirements": [],
+          "requirements": [
+            "item:Blanket"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5479,7 +5499,9 @@
         {
           "text": "If you possess Elementalism, turn to 318.",
           "targetId": "318",
-          "requirements": [],
+          "requirements": [
+            "item:Elementalism"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6139,7 +6161,9 @@
         {
           "text": "If you have survived your wounding, turn to 243.",
           "targetId": "243",
-          "requirements": [],
+          "requirements": [
+            "item:survived your wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6479,7 +6503,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 17.",
           "targetId": "17",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6547,7 +6573,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 75.",
           "targetId": "75",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6743,7 +6771,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 279.",
           "targetId": "279",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8482,7 +8512,9 @@
         {
           "text": "If you possess and wish to sell any of the above items, make the appropriate adjustments to your Action Chart and then turn to 232.",
           "targetId": "232",
-          "requirements": [],
+          "requirements": [
+            "item:and wish to sell any of the above items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8546,7 +8578,9 @@
         {
           "text": "If you possess the Siyen Crown, turn to 333.",
           "targetId": "333",
-          "requirements": [],
+          "requirements": [
+            "item:Siyen Crown"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8694,7 +8728,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 336.",
           "targetId": "336",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8790,7 +8826,9 @@
         {
           "text": "If you possess Herbmastery, turn to 104.",
           "targetId": "104",
-          "requirements": [],
+          "requirements": [
+            "item:Herbmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8994,7 +9032,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 273.",
           "targetId": "273",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9022,7 +9062,9 @@
         {
           "text": "If you have survived this wounding, make the necessary adjustment to your Action Chart and continue by turning to 280.",
           "targetId": "280",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9576,7 +9618,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 75.",
           "targetId": "75",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10175,7 +10219,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 127.",
           "targetId": "127",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10451,7 +10497,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 263.",
           "targetId": "263",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

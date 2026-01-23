@@ -848,7 +848,9 @@
         {
           "text": "If you have a rope, you can attempt to retrieve the warhammer by turning to 101.",
           "targetId": "101",
-          "requirements": [],
+          "requirements": [
+            "item:rope"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2590,7 +2592,9 @@
         {
           "text": "If you have a Bow, turn to 178.",
           "targetId": "178",
-          "requirements": [],
+          "requirements": [
+            "item:Bow"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2885,7 +2889,9 @@
         {
           "text": "If you possess a Cess, turn to 49.",
           "targetId": "49",
-          "requirements": [],
+          "requirements": [
+            "item:Cess"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3824,7 +3830,9 @@
         {
           "text": "If you have ever visited a hut on Raider\u2019s Road in a previous {{characterName}} adventure, turn to 233.",
           "targetId": "233",
-          "requirements": [],
+          "requirements": [
+            "item:ever visited a hut on Raider\u2019s Road in a previous Lone Wolf adventure"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3832,7 +3840,9 @@
         {
           "text": "If you have never been to this place, turn to 6.",
           "targetId": "6",
-          "requirements": [],
+          "requirements": [
+            "item:never been to this place"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4218,7 +4228,9 @@
         {
           "text": "If you have a Bow, turn to 340.",
           "targetId": "340",
-          "requirements": [],
+          "requirements": [
+            "item:Bow"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4522,7 +4534,9 @@
         {
           "text": "If you have ever been to the buried temple of Maaken, turn to 294.",
           "targetId": "294",
-          "requirements": [],
+          "requirements": [
+            "item:ever been to the buried temple of Maaken"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4590,7 +4604,9 @@
         {
           "text": "If you have a Bow, turn to 178.",
           "targetId": "178",
-          "requirements": [],
+          "requirements": [
+            "item:Bow"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4865,7 +4881,9 @@
         {
           "text": "If you have a Bow, turn to 198.",
           "targetId": "198",
-          "requirements": [],
+          "requirements": [
+            "item:Bow"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5593,7 +5611,9 @@
         {
           "text": "If you possess a Silver Brooch, turn to 31.",
           "targetId": "31",
-          "requirements": [],
+          "requirements": [
+            "item:Silver Brooch"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6256,7 +6276,9 @@
         {
           "text": "If you have a Map of Varetta, turn to 17.",
           "targetId": "17",
-          "requirements": [],
+          "requirements": [
+            "item:Map of Varetta"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6467,7 +6489,9 @@
         {
           "text": "If you possess a Bow, turn to 301.",
           "targetId": "301",
-          "requirements": [],
+          "requirements": [
+            "item:Bow"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7410,7 +7434,9 @@
         {
           "text": "If you have a Map of Tekaro, turn to 235.",
           "targetId": "235",
-          "requirements": [],
+          "requirements": [
+            "item:Map of Tekaro"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8245,7 +8271,9 @@
         {
           "text": "If you have a Bow, turn to 198.",
           "targetId": "198",
-          "requirements": [],
+          "requirements": [
+            "item:Bow"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8781,7 +8809,9 @@
         {
           "text": "If you possess the Sommerswerd, turn to 321.",
           "targetId": "321",
-          "requirements": [],
+          "requirements": [
+            "item:Sommerswerd"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8917,7 +8947,9 @@
         {
           "text": "If you have no Gold Crowns, or if you decide to refuse these men their demand and fight them, turn to 282.",
           "targetId": "282",
-          "requirements": [],
+          "requirements": [
+            "item:no Gold Crowns"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9364,7 +9396,9 @@
         {
           "text": "If you have no Gold Crowns, or if you decide to refuse these men their demand and fight them, turn to 282.",
           "targetId": "282",
-          "requirements": [],
+          "requirements": [
+            "item:no Gold Crowns"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10150,7 +10184,9 @@
         {
           "text": "If you have not completed this Lore-circle, turn to 44.",
           "targetId": "44",
-          "requirements": [],
+          "requirements": [
+            "item:not completed this Lore-circle"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

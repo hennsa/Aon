@@ -640,7 +640,9 @@
         {
           "text": "If you possess a Solar Torch, a Box of Matches, or a Cigarette Lighter, turn to 190.",
           "targetId": "190",
-          "requirements": [],
+          "requirements": [
+            "item:Solar Torch"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1802,7 +1804,9 @@
         {
           "text": "If you possess some Plastic Tube, turn to 211.",
           "targetId": "211",
-          "requirements": [],
+          "requirements": [
+            "item:some Plastic Tube"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3027,7 +3031,9 @@
         {
           "text": "If you possess Binoculars, a Telescope, or a Combat Viewer, turn to 49.",
           "targetId": "49",
-          "requirements": [],
+          "requirements": [
+            "item:Binoculars"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3589,7 +3595,9 @@
         {
           "text": "If you possess Binoculars, a Telescope, or a Combat Viewer, turn to 276.",
           "targetId": "276",
-          "requirements": [],
+          "requirements": [
+            "item:Binoculars"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4201,7 +4209,9 @@
         {
           "text": "If you have survived this grievous wounding, turn to 229.",
           "targetId": "229",
-          "requirements": [],
+          "requirements": [
+            "item:survived this grievous wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5493,7 +5503,9 @@
         {
           "text": "If you possess some Plastic Tube, turn to 211.",
           "targetId": "211",
-          "requirements": [],
+          "requirements": [
+            "item:some Plastic Tube"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5801,7 +5813,9 @@
         {
           "text": "If you possess a Combat Viewer, turn to 39.",
           "targetId": "39",
-          "requirements": [],
+          "requirements": [
+            "item:Combat Viewer"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6152,7 +6166,9 @@
         {
           "text": "If you have none of these items, or if you do not wish to make use of them, turn to 89.",
           "targetId": "89",
-          "requirements": [],
+          "requirements": [
+            "item:none of these items"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6463,7 +6479,9 @@
         {
           "text": "If you possess a Rifle, turn to 36.",
           "targetId": "36",
-          "requirements": [],
+          "requirements": [
+            "item:Rifle"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6638,7 +6656,9 @@
         {
           "text": "If you possess a Fire Extinguisher, turn to 118.",
           "targetId": "118",
-          "requirements": [],
+          "requirements": [
+            "item:Fire Extinguisher"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9134,7 +9154,9 @@
         {
           "text": "If you possess a Combat Viewer, turn to 67.",
           "targetId": "67",
-          "requirements": [],
+          "requirements": [
+            "item:Combat Viewer"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9529,7 +9551,9 @@
         {
           "text": "If you possess Binoculars, a Telescope, or a Combat Viewer, turn to 251.",
           "targetId": "251",
-          "requirements": [],
+          "requirements": [
+            "item:Binoculars"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10213,7 +10237,9 @@
         {
           "text": "If you possess a CB Radio, turn to 43.",
           "targetId": "43",
-          "requirements": [],
+          "requirements": [
+            "item:CB Radio"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []

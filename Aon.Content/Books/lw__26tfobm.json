@@ -584,7 +584,9 @@
         {
           "text": "If you possess Deliverance, turn to 54.",
           "targetId": "54",
-          "requirements": [],
+          "requirements": [
+            "item:Deliverance"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -612,7 +614,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 76.",
           "targetId": "76",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1052,7 +1056,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 223.",
           "targetId": "223",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1120,7 +1126,9 @@
         {
           "text": "If you possess a Bow and Magi-magic, and have reached the rank of Kai Grand Guardian (or higher), turn to 259.",
           "targetId": "259",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1144,7 +1152,9 @@
         {
           "text": "If you possess none of the above, or if you decide not to use any of them, turn instead to 45.",
           "targetId": "45",
-          "requirements": [],
+          "requirements": [
+            "item:none of the above"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1228,7 +1238,9 @@
         {
           "text": "If you possess Telegnosis, turn to 157.",
           "targetId": "157",
-          "requirements": [],
+          "requirements": [
+            "item:Telegnosis"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1436,7 +1448,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 182.",
           "targetId": "182",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1500,7 +1514,9 @@
         {
           "text": "If you have survived your wounds, turn to 336.",
           "targetId": "336",
-          "requirements": [],
+          "requirements": [
+            "item:survived your wounds"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1604,7 +1620,9 @@
         {
           "text": "If you have survived your close encounter with Zaxx, you can leave the passage and continue along the main tunnel by turning to 220.",
           "targetId": "220",
-          "requirements": [],
+          "requirements": [
+            "item:survived your close encounter with Zaxx"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1680,7 +1698,9 @@
         {
           "text": "If you possess a Tinderbox, turn to 23.",
           "targetId": "23",
-          "requirements": [],
+          "requirements": [
+            "item:Tinderbox"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -1752,7 +1772,9 @@
         {
           "text": "If you possess a Bronze Disc, turn to 21.",
           "targetId": "21",
-          "requirements": [],
+          "requirements": [
+            "item:Bronze Disc"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -2968,7 +2990,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 76.",
           "targetId": "76",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3008,7 +3032,9 @@
         {
           "text": "If you possess a Jug of Vinegar, turn to 187.",
           "targetId": "187",
-          "requirements": [],
+          "requirements": [
+            "item:Jug of Vinegar"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -3923,7 +3949,9 @@
         {
           "text": "If you have survived this grievous wounding, turn to 336.",
           "targetId": "336",
-          "requirements": [],
+          "requirements": [
+            "item:survived this grievous wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -4487,7 +4515,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 169.",
           "targetId": "169",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -5418,7 +5448,9 @@
         {
           "text": "If you possess Kai-screen, turn to 32.",
           "targetId": "32",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6110,7 +6142,9 @@
         {
           "text": "If you have survived your impact with this treacherous reef, turn to 349.",
           "targetId": "349",
-          "requirements": [],
+          "requirements": [
+            "item:survived your impact with this treacherous reef"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6226,7 +6260,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 147.",
           "targetId": "147",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6298,7 +6334,9 @@
         {
           "text": "If you have yet to attain this level of Kai Mastery, turn to 221.",
           "targetId": "221",
-          "requirements": [],
+          "requirements": [
+            "item:yet to attain this level of Kai Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6926,7 +6964,9 @@
         {
           "text": "If you possess a Bow and Magi-magic, and have reached the rank of Kai Grand Guardian (or higher), turn to 164.",
           "targetId": "164",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -6950,7 +6990,9 @@
         {
           "text": "If you possess none of the above, or if you decide not to use any of them, turn instead to 293.",
           "targetId": "293",
-          "requirements": [],
+          "requirements": [
+            "item:none of the above"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7218,7 +7260,9 @@
         {
           "text": "If you have survived this serious wounding, turn to 279.",
           "targetId": "279",
-          "requirements": [],
+          "requirements": [
+            "item:survived this serious wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7334,7 +7378,9 @@
         {
           "text": "If you possess a Bow and Magi-magic, and have reached the rank of Kai Grand Guardian or higher, turn to 337.",
           "targetId": "337",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7450,7 +7496,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 140.",
           "targetId": "140",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7577,7 +7625,9 @@
         {
           "text": "If you possess a Bow and Magi-magic, and have reached the rank of Kai Grand Guardian (or higher), turn to 164.",
           "targetId": "164",
-          "requirements": [],
+          "requirements": [
+            "item:and"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7601,7 +7651,9 @@
         {
           "text": "If you possess none of the above, or if you decide not to use any of them, turn instead to 293.",
           "targetId": "293",
-          "requirements": [],
+          "requirements": [
+            "item:none of the above"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7833,7 +7885,9 @@
         {
           "text": "If you possess a Bronze Disc, turn to 21.",
           "targetId": "21",
-          "requirements": [],
+          "requirements": [
+            "item:Bronze Disc"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -7901,7 +7955,9 @@
         {
           "text": "If you have survived this wounding, turn to 336.",
           "targetId": "336",
-          "requirements": [],
+          "requirements": [
+            "item:survived this wounding"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8013,7 +8069,9 @@
         {
           "text": "If you possess Animal Mastery, turn to 169.",
           "targetId": "169",
-          "requirements": [],
+          "requirements": [
+            "item:Animal Mastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8137,7 +8195,9 @@
         {
           "text": "If you possess Telegnosis, turn to 53.",
           "targetId": "53",
-          "requirements": [],
+          "requirements": [
+            "item:Telegnosis"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8760,7 +8820,9 @@
         {
           "text": "If you possess Herbmastery, turn to 206.",
           "targetId": "206",
-          "requirements": [],
+          "requirements": [
+            "item:Herbmastery"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8928,7 +8990,9 @@
         {
           "text": "If you possess a musical instrument, turn to 145.",
           "targetId": "145",
-          "requirements": [],
+          "requirements": [
+            "item:musical instrument"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -8980,7 +9044,9 @@
         {
           "text": "If you possess Kai-alchemy, turn to 76.",
           "targetId": "76",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-alchemy"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -9392,7 +9458,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 223.",
           "targetId": "223",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10095,7 +10163,9 @@
         {
           "text": "If you possess Kai-screen, turn to 32.",
           "targetId": "32",
-          "requirements": [],
+          "requirements": [
+            "item:Kai-screen"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10147,7 +10217,9 @@
         {
           "text": "If you possess Grand Pathsmanship, turn to 223.",
           "targetId": "223",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Pathsmanship"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
@@ -10399,7 +10471,9 @@
         {
           "text": "If you possess Grand Nexus, turn to 227.",
           "targetId": "227",
-          "requirements": [],
+          "requirements": [
+            "item:Grand Nexus"
+          ],
           "effects": [],
           "randomOutcomes": [],
           "ruleIds": []
