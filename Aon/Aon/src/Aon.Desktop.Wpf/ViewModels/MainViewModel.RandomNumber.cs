@@ -329,8 +329,8 @@ public sealed partial class MainViewModel
             return 0;
         }
 
-        var skillsSegment = modifierMatch.Groups["skills"].Value;
-        var sum = GetSkillTotalFromSegment(skillsSegment);
+        var thresholdSkillsSegment = modifierMatch.Groups["skills"].Value;
+        var sum = GetSkillTotalFromSegment(thresholdSkillsSegment);
         if (sum == 0)
         {
             return 0;
