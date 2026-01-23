@@ -1,0 +1,24 @@
+{
+  "rules": [
+    {
+      "id": "gs:spellfocus",
+      "requirements": [
+        "stat:Willpower:5"
+      ],
+      "effects": [
+        "slot:backpack:+1",
+        "flag:spell:ready"
+      ]
+    },
+    {
+      "id": "gs:mana",
+      "requirements": [
+        "counter:mana>=1"
+      ],
+      "effects": [
+        "endurance:heal:1",
+        "counter:mana:-1"
+      ]
+    }
+  ]
+}

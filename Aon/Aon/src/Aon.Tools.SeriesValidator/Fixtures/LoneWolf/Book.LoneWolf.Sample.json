@@ -1,0 +1,32 @@
+{
+  "id": "lw-sample-1",
+  "seriesId": "LoneWolf",
+  "title": "Lone Wolf Sample",
+  "frontMatter": [],
+  "sections": [
+    {
+      "id": "1",
+      "title": "Sample Encounter",
+      "blocks": [],
+      "choices": [
+        {
+          "text": "Test your Kai disciplines.",
+          "targetId": "2",
+          "requirements": [
+            "stat:CombatSkill:10",
+            "flag:met-raul:true"
+          ],
+          "effects": [
+            "stat:CombatSkill:+1",
+            "item:add:Laumspur:herb",
+            "counter:herb:+1"
+          ],
+          "ruleIds": [
+            "lw:mindblast",
+            "lw:herb"
+          ]
+        }
+      ]
+    }
+  ]
+}
