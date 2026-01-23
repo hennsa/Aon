@@ -150,8 +150,9 @@ public sealed class GameService
         Character player,
         int enemyCombatSkill,
         int enemyEndurance,
-        int randomNumber)
+        int randomNumber,
+        string? seriesId)
     {
-        return _rulesEngine.ResolveCombatRound(player, enemyCombatSkill, enemyEndurance, randomNumber);
+        return _rulesEngine.ResolveCombatRound(player, enemyCombatSkill, enemyEndurance, randomNumber, seriesId);
     }
 }

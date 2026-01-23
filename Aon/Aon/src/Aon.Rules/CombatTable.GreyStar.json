@@ -1,0 +1,463 @@
+{
+  "ratios": [
+    {
+      "min": -999,
+      "max": -20,
+      "rolls": [
+        {
+          "roll": 0,
+          "playerLoss": 6,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 1,
+          "playerLoss": 7,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 2,
+          "playerLoss": 6,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 3,
+          "playerLoss": 7,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 4,
+          "playerLoss": 6,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 5,
+          "playerLoss": 7,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 6,
+          "playerLoss": 6,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 7,
+          "playerLoss": 7,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 8,
+          "playerLoss": 6,
+          "enemyLoss": 0
+        }
+      ]
+    },
+    {
+      "min": -19,
+      "max": -15,
+      "rolls": [
+        {
+          "roll": 0,
+          "playerLoss": 5,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 1,
+          "playerLoss": 6,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 2,
+          "playerLoss": 5,
+          "enemyLoss": 1
+        },
+        {
+          "roll": 3,
+          "playerLoss": 6,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 4,
+          "playerLoss": 5,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 5,
+          "playerLoss": 6,
+          "enemyLoss": 1
+        },
+        {
+          "roll": 6,
+          "playerLoss": 5,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 7,
+          "playerLoss": 6,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 8,
+          "playerLoss": 5,
+          "enemyLoss": 1
+        }
+      ]
+    },
+    {
+      "min": -14,
+      "max": -10,
+      "rolls": [
+        {
+          "roll": 0,
+          "playerLoss": 4,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 1,
+          "playerLoss": 5,
+          "enemyLoss": 1
+        },
+        {
+          "roll": 2,
+          "playerLoss": 4,
+          "enemyLoss": 2
+        },
+        {
+          "roll": 3,
+          "playerLoss": 5,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 4,
+          "playerLoss": 4,
+          "enemyLoss": 1
+        },
+        {
+          "roll": 5,
+          "playerLoss": 5,
+          "enemyLoss": 2
+        },
+        {
+          "roll": 6,
+          "playerLoss": 4,
+          "enemyLoss": 0
+        },
+        {
+          "roll": 7,
+          "playerLoss": 5,
+          "enemyLoss": 1
+        },
+        {
+          "roll": 8,
+          "playerLoss": 4,
+          "enemyLoss": 2
+        }
+      ]
+    },
+    {
+      "min": -9,
+      "max": -5,
+      "rolls": [
+        {
+          "roll": 0,
+          "playerLoss": 3,
+          "enemyLoss": 1
+        },
+        {
+          "roll": 1,
+          "playerLoss": 4,
+          "enemyLoss": 2
+        },
+        {
+          "roll": 2,
+          "playerLoss": 3,
+          "enemyLoss": 3
+        },
+        {
+          "roll": 3,
+          "playerLoss": 4,
+          "enemyLoss": 1
+        },
+        {
+          "roll": 4,
+          "playerLoss": 3,
+          "enemyLoss": 2
+        },
+        {
+          "roll": 5,
+          "playerLoss": 4,
+          "enemyLoss": 3
+        },
+        {
+          "roll": 6,
+          "playerLoss": 3,
+          "enemyLoss": 1
+        },
+        {
+          "roll": 7,
+          "playerLoss": 4,
+          "enemyLoss": 2
+        },
+        {
+          "roll": 8,
+          "playerLoss": 3,
+          "enemyLoss": 3
+        }
+      ]
+    },
+    {
+      "min": -4,
+      "max": 4,
+      "rolls": [
+        {
+          "roll": 0,
+          "playerLoss": 2,
+          "enemyLoss": 2
+        },
+        {
+          "roll": 1,
+          "playerLoss": 3,
+          "enemyLoss": 3
+        },
+        {
+          "roll": 2,
+          "playerLoss": 2,
+          "enemyLoss": 4
+        },
+        {
+          "roll": 3,
+          "playerLoss": 3,
+          "enemyLoss": 2
+        },
+        {
+          "roll": 4,
+          "playerLoss": 2,
+          "enemyLoss": 3
+        },
+        {
+          "roll": 5,
+          "playerLoss": 3,
+          "enemyLoss": 4
+        },
+        {
+          "roll": 6,
+          "playerLoss": 2,
+          "enemyLoss": 2
+        },
+        {
+          "roll": 7,
+          "playerLoss": 3,
+          "enemyLoss": 3
+        },
+        {
+          "roll": 8,
+          "playerLoss": 2,
+          "enemyLoss": 4
+        }
+      ]
+    },
+    {
+      "min": 5,
+      "max": 9,
+      "rolls": [
+        {
+          "roll": 0,
+          "playerLoss": 1,
+          "enemyLoss": 3
+        },
+        {
+          "roll": 1,
+          "playerLoss": 2,
+          "enemyLoss": 4
+        },
+        {
+          "roll": 2,
+          "playerLoss": 1,
+          "enemyLoss": 5
+        },
+        {
+          "roll": 3,
+          "playerLoss": 2,
+          "enemyLoss": 3
+        },
+        {
+          "roll": 4,
+          "playerLoss": 1,
+          "enemyLoss": 4
+        },
+        {
+          "roll": 5,
+          "playerLoss": 2,
+          "enemyLoss": 5
+        },
+        {
+          "roll": 6,
+          "playerLoss": 1,
+          "enemyLoss": 3
+        },
+        {
+          "roll": 7,
+          "playerLoss": 2,
+          "enemyLoss": 4
+        },
+        {
+          "roll": 8,
+          "playerLoss": 1,
+          "enemyLoss": 5
+        }
+      ]
+    },
+    {
+      "min": 10,
+      "max": 14,
+      "rolls": [
+        {
+          "roll": 0,
+          "playerLoss": 0,
+          "enemyLoss": 4
+        },
+        {
+          "roll": 1,
+          "playerLoss": 1,
+          "enemyLoss": 5
+        },
+        {
+          "roll": 2,
+          "playerLoss": 0,
+          "enemyLoss": 6
+        },
+        {
+          "roll": 3,
+          "playerLoss": 1,
+          "enemyLoss": 4
+        },
+        {
+          "roll": 4,
+          "playerLoss": 0,
+          "enemyLoss": 5
+        },
+        {
+          "roll": 5,
+          "playerLoss": 1,
+          "enemyLoss": 6
+        },
+        {
+          "roll": 6,
+          "playerLoss": 0,
+          "enemyLoss": 4
+        },
+        {
+          "roll": 7,
+          "playerLoss": 1,
+          "enemyLoss": 5
+        },
+        {
+          "roll": 8,
+          "playerLoss": 0,
+          "enemyLoss": 6
+        }
+      ]
+    },
+    {
+      "min": 15,
+      "max": 19,
+      "rolls": [
+        {
+          "roll": 0,
+          "playerLoss": 0,
+          "enemyLoss": 5
+        },
+        {
+          "roll": 1,
+          "playerLoss": 0,
+          "enemyLoss": 6
+        },
+        {
+          "roll": 2,
+          "playerLoss": 0,
+          "enemyLoss": 7
+        },
+        {
+          "roll": 3,
+          "playerLoss": 0,
+          "enemyLoss": 5
+        },
+        {
+          "roll": 4,
+          "playerLoss": 0,
+          "enemyLoss": 6
+        },
+        {
+          "roll": 5,
+          "playerLoss": 0,
+          "enemyLoss": 7
+        },
+        {
+          "roll": 6,
+          "playerLoss": 0,
+          "enemyLoss": 5
+        },
+        {
+          "roll": 7,
+          "playerLoss": 0,
+          "enemyLoss": 6
+        },
+        {
+          "roll": 8,
+          "playerLoss": 0,
+          "enemyLoss": 7
+        }
+      ]
+    },
+    {
+      "min": 20,
+      "max": 999,
+      "rolls": [
+        {
+          "roll": 0,
+          "playerLoss": 0,
+          "enemyLoss": 6
+        },
+        {
+          "roll": 1,
+          "playerLoss": 0,
+          "enemyLoss": 7
+        },
+        {
+          "roll": 2,
+          "playerLoss": 0,
+          "enemyLoss": 8
+        },
+        {
+          "roll": 3,
+          "playerLoss": 0,
+          "enemyLoss": 6
+        },
+        {
+          "roll": 4,
+          "playerLoss": 0,
+          "enemyLoss": 7
+        },
+        {
+          "roll": 5,
+          "playerLoss": 0,
+          "enemyLoss": 8
+        },
+        {
+          "roll": 6,
+          "playerLoss": 0,
+          "enemyLoss": 6
+        },
+        {
+          "roll": 7,
+          "playerLoss": 0,
+          "enemyLoss": 7
+        },
+        {
+          "roll": 8,
+          "playerLoss": 0,
+          "enemyLoss": 8
+        }
+      ]
+    }
+  ]
+}
