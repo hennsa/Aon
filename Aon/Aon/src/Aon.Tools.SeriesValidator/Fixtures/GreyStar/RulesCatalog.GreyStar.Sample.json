@@ -1,23 +1,22 @@
 {
   "rules": [
     {
-      "id": "gs:spellfocus",
+      "id": "gs.elementalism.fire-combat",
       "requirements": [
-        "stat:Willpower:5"
+        "skill:Elementalism"
       ],
       "effects": [
-        "slot:backpack:+1",
-        "flag:spell:ready"
+        "combat:+1"
       ]
     },
     {
-      "id": "gs:mana",
+      "id": "gs.rations.consume",
       "requirements": [
-        "counter:mana>=1"
+        "counter:rations:1"
       ],
       "effects": [
-        "endurance:heal:1",
-        "counter:mana:-1"
+        "counter:rations:-1",
+        "endurance:heal:1"
       ]
     }
   ]

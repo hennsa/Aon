@@ -1,23 +1,21 @@
 {
   "rules": [
     {
-      "id": "fw:driving",
+      "id": "fw.gunner.bonus",
       "requirements": [
-        "skill:Driving"
+        "skill:Gunner"
       ],
       "effects": [
-        "combat:+1",
-        "discipline:Gunplay"
+        "combat:+1"
       ]
     },
     {
-      "id": "fw:salvage",
+      "id": "fw.ammo.spend",
       "requirements": [
-        "item:Fuel"
+        "counter:ammunition:1"
       ],
       "effects": [
-        "item:remove:Fuel",
-        "counter:ammo:+1"
+        "counter:ammunition:-1"
       ]
     }
   ]

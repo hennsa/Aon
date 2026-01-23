@@ -1,23 +1,21 @@
 {
   "rules": [
     {
-      "id": "lw:mindblast",
+      "id": "lw.hunting.meal-skip",
       "requirements": [
-        "skill:Mindblast"
+        "skill:Hunting"
       ],
       "effects": [
-        "combat:+2",
-        "flag:mindblast:true"
+        "counter:meals:+1"
       ]
     },
     {
-      "id": "lw:herb",
+      "id": "lw.sommerswerd.combat-bonus",
       "requirements": [
-        "counter:herb>=1"
+        "item:Sommerswerd"
       ],
       "effects": [
-        "endurance:heal:2",
-        "counter:herb:-1"
+        "combat:+2"
       ]
     }
   ]

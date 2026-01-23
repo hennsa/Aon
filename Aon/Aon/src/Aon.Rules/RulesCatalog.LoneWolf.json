@@ -1,3 +1,22 @@
 {
-  "rules": []
+  "rules": [
+    {
+      "id": "lw.hunting.meal-skip",
+      "requirements": [
+        "skill:Hunting"
+      ],
+      "effects": [
+        "counter:meals:+1"
+      ]
+    },
+    {
+      "id": "lw.sommerswerd.combat-bonus",
+      "requirements": [
+        "item:Sommerswerd"
+      ],
+      "effects": [
+        "combat:+2"
+      ]
+    }
+  ]
 }
