@@ -45,8 +45,12 @@ public static class RuleMetadataValidator
         return warnings;
     }
 
-    private static IEnumerable<string> ValidateChoice(string sectionId, Choice choice, RuleCatalog catalog)
+    public static List<string> ValidateChoice(string sectionId, Choice choice, RuleCatalog catalog)
     {
+        ArgumentException.ThrowIfNullOrWhiteSpace(sectionId);
+        ArgumentNullException.ThrowIfNull(choice);
+        ArgumentNullException.ThrowIfNull(catalog);
+
         var warnings = new List<string>();
         var choiceLabel = $"{sectionId} -> {choice.TargetId}";
 
