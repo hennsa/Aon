@@ -59,7 +59,7 @@ public sealed partial class MainViewModel
             {
                 choiceText = $"{choiceText} (Unavailable)";
             }
-            var warnings = _ruleCatalog is null
+            IEnumerable<string> warnings = _ruleCatalog is null
                 ? Array.Empty<string>()
                 : RuleMetadataValidator.ValidateChoice(_state.SectionId, choice, _ruleCatalog);
             Choices.Add(new ChoiceViewModel(
@@ -146,7 +146,7 @@ public sealed partial class MainViewModel
     private void ShowRandomNumberTable()
     {
         const string tableText = "0  1  2  3  4  5  6  7  8  9";
-        MessageBox.Show($"Random Number Table\n\n{tableText}", "Random Number Table", MessageBoxButton.OK, MessageBoxImage.Information);
+        System.Windows.MessageBox.Show($"Random Number Table\n\n{tableText}", "Random Number Table", MessageBoxButton.OK, MessageBoxImage.Information);
     }
 
     private static bool RequiresRandomNumber(BookSection section)

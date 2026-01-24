@@ -34,7 +34,7 @@ public sealed partial class MainViewModel
         }
         else if (_currentCharacterState is null)
         {
-            var shouldUseExisting = MessageBox.Show(
+            var shouldUseExisting = System.Windows.MessageBox.Show(
                 $"Use existing {_currentProfile.Name} character? Select 'No' to choose a different character.",
                 "Profile Setup",
                 MessageBoxButton.YesNo,
@@ -356,7 +356,7 @@ public sealed partial class MainViewModel
 
         if (selectedSeriesState.Characters.ContainsKey(characterName))
         {
-            var confirm = MessageBox.Show(
+            var confirm = System.Windows.MessageBox.Show(
                 $"A character named '{characterName}' already exists for this profile. Continuing will reset their progress. Continue?",
                 "Overwrite Character",
                 MessageBoxButton.YesNo,
@@ -432,7 +432,7 @@ public sealed partial class MainViewModel
 
     private void StartNewProfile()
     {
-        var result = MessageBox.Show(
+        var result = System.Windows.MessageBox.Show(
             "Starting a new profile will unload your current character and clear the story text. Continue?",
             "New Profile",
             MessageBoxButton.YesNo,
@@ -640,7 +640,7 @@ public sealed partial class MainViewModel
         var initialSeriesId = SelectedCharacterSeries?.Id ?? _state.SeriesId;
         if (string.IsNullOrWhiteSpace(initialSeriesId))
         {
-            MessageBox.Show("Select a series before creating a character.", "Character Setup", MessageBoxButton.OK, MessageBoxImage.Information);
+            System.Windows.MessageBox.Show("Select a series before creating a character.", "Character Setup", MessageBoxButton.OK, MessageBoxImage.Information);
             return;
         }
         var existingProfile = SelectedProfile?.Profile ?? _state.Profile;

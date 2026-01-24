@@ -23,7 +23,7 @@ public sealed partial class MainViewModel
         await _gameService.SaveGameAsync(slot, _state);
         LoadSaveSlots();
         SaveSlot = slot;
-        MessageBox.Show($"Saved to slot '{slot}'.", "Save Game", MessageBoxButton.OK, MessageBoxImage.Information);
+        System.Windows.MessageBox.Show($"Saved to slot '{slot}'.", "Save Game", MessageBoxButton.OK, MessageBoxImage.Information);
     }
 
     private async Task SaveProfileStateAsync()
@@ -49,7 +49,7 @@ public sealed partial class MainViewModel
 
     private void DeleteAllProfiles()
     {
-        var confirm = MessageBox.Show(
+        var confirm = System.Windows.MessageBox.Show(
             "Delete all saved profiles? This will remove all save files and cannot be undone.",
             "Delete Profiles",
             MessageBoxButton.YesNo,
@@ -86,7 +86,7 @@ public sealed partial class MainViewModel
         var loaded = await _gameService.LoadGameAsync(slot);
         if (loaded is null)
         {
-            MessageBox.Show($"No save found for slot '{slot}'.", "Load Game", MessageBoxButton.OK, MessageBoxImage.Information);
+            System.Windows.MessageBox.Show($"No save found for slot '{slot}'.", "Load Game", MessageBoxButton.OK, MessageBoxImage.Information);
             return;
         }
 
@@ -94,7 +94,7 @@ public sealed partial class MainViewModel
             && !string.IsNullOrWhiteSpace(loaded.SeriesId)
             && !string.Equals(loaded.SeriesId, _state.SeriesId, StringComparison.OrdinalIgnoreCase))
         {
-            MessageBox.Show("This save belongs to a different series and cannot be loaded for this book.", "Load Game", MessageBoxButton.OK, MessageBoxImage.Warning);
+            System.Windows.MessageBox.Show("This save belongs to a different series and cannot be loaded for this book.", "Load Game", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 

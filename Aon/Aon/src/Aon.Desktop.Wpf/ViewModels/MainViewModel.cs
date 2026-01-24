@@ -750,7 +750,7 @@ public sealed partial class MainViewModel : ViewModelBase
                 return;
             }
 
-            var confirm = MessageBox.Show(
+            var confirm = System.Windows.MessageBox.Show(
                 "Switching characters will save the current character and update the book view. Continue?",
                 "Switch Character",
                 MessageBoxButton.YesNo,

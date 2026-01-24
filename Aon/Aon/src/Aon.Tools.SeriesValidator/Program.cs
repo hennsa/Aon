@@ -106,10 +106,11 @@ public static class Program
         var tableOutcome = CombatTable.Load(fixture.SeriesId)
             .Resolve(player.CombatSkill - fixture.CombatScenario.EnemyCombatSkill, fixture.CombatScenario.RandomNumber);
 
-        if (combatResult.PlayerLoss != tableOutcome.PlayerLoss || combatResult.EnemyLoss != tableOutcome.EnemyLoss)
+        if (combatResult.PlayerEnduranceLoss != tableOutcome.PlayerLoss
+            || combatResult.EnemyEnduranceLoss != tableOutcome.EnemyLoss)
         {
             throw new InvalidOperationException(
-                $"Combat outcome mismatch. Expected {tableOutcome.PlayerLoss}/{tableOutcome.EnemyLoss} but got {combatResult.PlayerLoss}/{combatResult.EnemyLoss}.");
+                $"Combat outcome mismatch. Expected {tableOutcome.PlayerLoss}/{tableOutcome.EnemyLoss} but got {combatResult.PlayerEnduranceLoss}/{combatResult.EnemyEnduranceLoss}.");
         }
     }
 
