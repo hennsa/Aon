@@ -1,4 +1,6 @@
 using System;
+using System.Text.RegularExpressions;
+using Aon.Content;
 using Aon.Core;
 using Aon.Rules;
 
@@ -6,6 +8,9 @@ namespace Aon.Desktop.Wpf.ViewModels;
 
 public sealed partial class MainViewModel
 {
+    private static readonly Regex EnemyStatsRegex = new(
+        "(?:CLOSE\\s+)?COMBAT\\s+SKILL\\s*[:]?\\s*(?<skill>\\d+)\\s*(?:,|;)?\\s*.*?ENDURANCE\\s*[:]?\\s*(?<endurance>\\d+)",
+        RegexOptions.IgnoreCase | RegexOptions.Singleline);
     private int _enemyCombatSkill;
     private int _enemyEndurance;
     private int _combatRoll;
@@ -14,6 +19,9 @@ public sealed partial class MainViewModel
     private int _combatEnemyLoss;
     private bool _combatPlayerDefeated;
     private bool _combatEnemyDefeated;
+    private bool _isCombatVisible;
+    private bool _isEnemyStatsLocked;
+    private bool _suppressCombatRefresh;
     private string _combatOutcomeSummary = "Enter enemy stats and a roll to resolve the combat round.";
 
     public int EnemyCombatSkill
@@ -160,6 +168,36 @@ public sealed partial class MainViewModel
         ? "Default Combat Table"
         : $"{ResolveSeriesName(_state.SeriesId)} Combat Table";
 
+    public bool IsCombatVisible
+    {
+        get => _isCombatVisible;
+        private set
+        {
+            if (_isCombatVisible == value)
+            {
+                return;
+            }
+
+            _isCombatVisible = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public bool IsEnemyStatsLocked
+    {
+        get => _isEnemyStatsLocked;
+        private set
+        {
+            if (_isEnemyStatsLocked == value)
+            {
+                return;
+            }
+
+            _isEnemyStatsLocked = value;
+            OnPropertyChanged();
+        }
+    }
+
     public int PlayerCombatSkill => _state.Character.CombatSkill;
     public int PlayerEffectiveCombatSkill => _state.Character.GetEffectiveCombatSkill();
     public int PlayerEndurance => _state.Character.Endurance;
@@ -171,7 +209,32 @@ public sealed partial class MainViewModel
 
     private void RollCombatNumber()
     {
-        CombatRoll = _gameService.RollRandomNumber();
+        if (!IsProfileReady)
+        {
+            return;
+        }
+
+        if (!IsCombatVisible)
+        {
+            CombatOutcomeSummary = "No combat is active for this section.";
+            return;
+        }
+
+        if (EnemyCombatSkill <= 0 || EnemyEndurance <= 0)
+        {
+            CombatOutcomeSummary = "Enter enemy combat skill and endurance to resolve the round.";
+            return;
+        }
+
+        if (_state.Character.Endurance <= 0)
+        {
+            CombatOutcomeSummary = "The player has already been defeated.";
+            CombatPlayerDefeated = true;
+            return;
+        }
+
+        var roll = _gameService.RollRandomNumber();
+        ResolveCombatRound(roll);
     }
 
     private void RefreshCombatSeriesStats()
@@ -193,6 +256,11 @@ public sealed partial class MainViewModel
 
     private void RefreshCombatOutcome()
     {
+        if (_suppressCombatRefresh)
+        {
+            return;
+        }
+
         if (!IsProfileReady)
         {
             CombatOutcomeSummary = "Select a profile and character to resolve combat.";
@@ -239,5 +307,120 @@ public sealed partial class MainViewModel
         CombatOutcomeSummary = $"{CombatTableLabel}: {rollNote}. Combat ratio {combatRatio}. "
             + $"Player loses {playerLoss} Endurance; enemy loses {enemyLoss}. "
             + $"Player defeated: {CombatPlayerDefeatedLabel}. Enemy defeated: {CombatEnemyDefeatedLabel}.";
+    }
+
+    private void ResolveCombatRound(int roll)
+    {
+        var clampedRoll = Math.Clamp(roll, 0, 9);
+        var effectiveCombatSkill = _state.Character.GetEffectiveCombatSkill();
+        var combatRatio = effectiveCombatSkill - EnemyCombatSkill;
+        var combatTable = CombatTable.Load(_state.SeriesId);
+        var outcome = combatTable.Resolve(combatRatio, clampedRoll);
+        var playerLoss = outcome.PlayerLoss;
+        var enemyLoss = outcome.EnemyLoss;
+
+        _suppressCombatRefresh = true;
+        try
+        {
+            _combatRoll = clampedRoll;
+            OnPropertyChanged(nameof(CombatRoll));
+            CombatRatio = combatRatio;
+            CombatPlayerLoss = playerLoss;
+            CombatEnemyLoss = enemyLoss;
+            _state.Character.Endurance = Math.Max(0, _state.Character.Endurance - playerLoss);
+            EnemyEndurance = Math.Max(0, EnemyEndurance - enemyLoss);
+            CombatPlayerDefeated = _state.Character.Endurance <= 0;
+            CombatEnemyDefeated = EnemyEndurance <= 0;
+            RefreshCharacterPanels();
+        }
+        finally
+        {
+            _suppressCombatRefresh = false;
+        }
+
+        CombatOutcomeSummary = $"{CombatTableLabel}: roll {clampedRoll}. Combat ratio {combatRatio}. "
+            + $"Player loses {playerLoss} Endurance (remaining {_state.Character.Endurance}); "
+            + $"enemy loses {enemyLoss} (remaining {EnemyEndurance}). "
+            + $"Player defeated: {CombatPlayerDefeatedLabel}. Enemy defeated: {CombatEnemyDefeatedLabel}.";
+
+        _ = SaveProfileStateAsync();
+    }
+
+    private void UpdateCombatContext(BookSection section)
+    {
+        if (!IsProfileReady)
+        {
+            ClearCombatContext();
+            return;
+        }
+
+        if (TryExtractEnemyStats(section, out var enemyCombatSkill, out var enemyEndurance))
+        {
+            IsCombatVisible = true;
+            IsEnemyStatsLocked = true;
+            _suppressCombatRefresh = true;
+            try
+            {
+                EnemyCombatSkill = enemyCombatSkill;
+                EnemyEndurance = enemyEndurance;
+                CombatRoll = 0;
+            }
+            finally
+            {
+                _suppressCombatRefresh = false;
+            }
+            CombatOutcomeSummary = "Roll to resolve the combat round.";
+            return;
+        }
+
+        ClearCombatContext();
+    }
+
+    private void ClearCombatContext()
+    {
+        IsCombatVisible = false;
+        IsEnemyStatsLocked = false;
+        _suppressCombatRefresh = true;
+        try
+        {
+            EnemyCombatSkill = 0;
+            EnemyEndurance = 0;
+            CombatRoll = 0;
+        }
+        finally
+        {
+            _suppressCombatRefresh = false;
+        }
+        CombatOutcomeSummary = "Enter enemy stats and a roll to resolve the combat round.";
+    }
+
+    private static bool TryExtractEnemyStats(BookSection section, out int combatSkill, out int endurance)
+    {
+        combatSkill = 0;
+        endurance = 0;
+
+        foreach (var block in section.Blocks)
+        {
+            if (string.IsNullOrWhiteSpace(block.Text))
+            {
+                continue;
+            }
+
+            var match = EnemyStatsRegex.Match(block.Text);
+            if (!match.Success)
+            {
+                continue;
+            }
+
+            if (int.TryParse(match.Groups["skill"].Value, out combatSkill)
+                && int.TryParse(match.Groups["endurance"].Value, out endurance))
+            {
+                return combatSkill > 0 && endurance > 0;
+            }
+        }
+
+        combatSkill = 0;
+        endurance = 0;
+        return false;
     }
 }
