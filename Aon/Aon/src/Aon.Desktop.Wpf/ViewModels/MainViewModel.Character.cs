@@ -98,6 +98,11 @@ public sealed partial class MainViewModel
         OnPropertyChanged(nameof(ActiveCharacterLabel));
         OnPropertyChanged(nameof(BonusSkillPoints));
         OnPropertyChanged(nameof(HasBonusSkillPoints));
+        OnPropertyChanged(nameof(PlayerCombatSkill));
+        OnPropertyChanged(nameof(PlayerEffectiveCombatSkill));
+        OnPropertyChanged(nameof(PlayerEndurance));
+        OnPropertyChanged(nameof(CombatSkillBonus));
+        RefreshCombatOutcome();
     }
 
     private void UpdateCharacterOptions(SeriesProfileState seriesState)
