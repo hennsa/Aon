@@ -16,6 +16,7 @@ public sealed partial class MainViewModel
     {
         _pendingRandomChoices.Clear();
         _randomNumberResult = null;
+        _randomNumberTotalScore = null;
         _resolvedRandomChoice = null;
         RandomNumberStatus = string.Empty;
         IsRandomNumberVisible = false;
@@ -30,6 +31,7 @@ public sealed partial class MainViewModel
         _pendingRandomChoices.Clear();
         _pendingRandomChoices.AddRange(section.Choices);
         _randomNumberResult = null;
+        _randomNumberTotalScore = null;
         _resolvedRandomChoice = null;
         ResetRollHistory();
         RandomNumberStatus = "Roll a number from the Random Number Table (0–9).";
@@ -53,7 +55,8 @@ public sealed partial class MainViewModel
         {
             var command = new RelayCommand(() => _ = ApplyChoiceAsync(choice));
             var evaluation = _gameService.EvaluateChoice(_state, choice);
-            var isEnabled = evaluation.IsAvailable;
+            var isEnabled = evaluation.IsAvailable
+                && IsChoiceAvailableForRoll(choice, _randomNumberResult, _randomNumberTotalScore);
             var choiceText = ReplaceCharacterTokens(choice.Text);
             if (!isEnabled)
             {
@@ -87,6 +90,7 @@ public sealed partial class MainViewModel
         var modifier = GetRollModifier();
         var roundsBonus = GetRoundsToFireBonus();
         var totalScore = roll + modifier + roundsBonus;
+        _randomNumberTotalScore = totalScore;
         var effectiveRoll = Math.Clamp(roll + modifier + roundsBonus, 0, 9);
         _randomNumberResult = effectiveRoll;
 
@@ -205,29 +209,92 @@ public sealed partial class MainViewModel
                 continue;
             }
 
-            var match = Regex.Match(
-                choice.Text,
-                "\\btotal score[^\\d]*(?<value>\\d+)\\b[^.]*?(?<comparison>or less|or more|or higher)\\b",
-                RegexOptions.IgnoreCase);
-            if (!match.Success || !int.TryParse(match.Groups["value"].Value, out var threshold))
+            if (!TryGetTotalScoreBounds(choice.Text, out var minimum, out var maximum))
             {
                 continue;
             }
 
-            var comparison = match.Groups["comparison"].Value;
-            if (comparison.Contains("less", StringComparison.OrdinalIgnoreCase) && totalScore <= threshold)
-            {
-                matches.Add(choice);
-            }
-            else if ((comparison.Contains("more", StringComparison.OrdinalIgnoreCase)
-                    || comparison.Contains("higher", StringComparison.OrdinalIgnoreCase))
-                && totalScore >= threshold)
+            if (totalScore >= minimum && totalScore <= maximum)
             {
                 matches.Add(choice);
             }
         }
 
         return matches;
+    }
+
+    private static bool TryGetTotalScoreBounds(string choiceText, out int minimum, out int maximum)
+    {
+        minimum = int.MinValue;
+        maximum = int.MaxValue;
+
+        if (string.IsNullOrWhiteSpace(choiceText))
+        {
+            return false;
+        }
+
+        var rangeMatch = Regex.Match(
+            choiceText,
+            "\\btotal(?:\\s+score)?\\s+is\\s+now\\s+(?<min>\\d+)\\s*[–-]\\s*(?<max>\\d+)\\b",
+            RegexOptions.IgnoreCase);
+        if (rangeMatch.Success
+            && int.TryParse(rangeMatch.Groups["min"].Value, out var rangeMin)
+            && int.TryParse(rangeMatch.Groups["max"].Value, out var rangeMax))
+        {
+            minimum = Math.Min(rangeMin, rangeMax);
+            maximum = Math.Max(rangeMin, rangeMax);
+            return true;
+        }
+
+        var comparisonMatch = Regex.Match(
+            choiceText,
+            "\\btotal(?:\\s+score)?\\s+(?:is\\s+now\\s+)?(?<value>\\d+)\\b[^.]*?(?<comparison>or less|or more|or higher)\\b",
+            RegexOptions.IgnoreCase);
+        if (!comparisonMatch.Success
+            || !int.TryParse(comparisonMatch.Groups["value"].Value, out var threshold))
+        {
+            return false;
+        }
+
+        var comparison = comparisonMatch.Groups["comparison"].Value;
+        if (comparison.Contains("less", StringComparison.OrdinalIgnoreCase))
+        {
+            maximum = threshold;
+            return true;
+        }
+
+        if (comparison.Contains("more", StringComparison.OrdinalIgnoreCase)
+            || comparison.Contains("higher", StringComparison.OrdinalIgnoreCase))
+        {
+            minimum = threshold;
+            return true;
+        }
+
+        return false;
+    }
+
+    private static bool IsChoiceAvailableForRoll(Choice choice, int? roll, int? totalScore)
+    {
+        if (roll is null && totalScore is null)
+        {
+            return true;
+        }
+
+        if (roll is not null)
+        {
+            var metadata = ChoiceRollMetadata.FromChoice(choice);
+            if (metadata.RequiresRoll && RollOutcomeResolver.ResolveOutcomes(metadata, roll.Value).Count == 0)
+            {
+                return false;
+            }
+        }
+
+        if (totalScore is not null && TryGetTotalScoreBounds(choice.Text, out var minimum, out var maximum))
+        {
+            return totalScore.Value >= minimum && totalScore.Value <= maximum;
+        }
+
+        return true;
     }
 
     private static string GetOutcomeTargetId(Choice choice, int roll)
@@ -304,7 +371,7 @@ public sealed partial class MainViewModel
 
         var modifierMatch = Regex.Match(
             text,
-            "\\badd\\s+(?:it\\s+|this\\s+|this\\s+number\\s+)?to\\s+(?:it\\s+)?your\\s+current\\s+(?<skills>[^.]+?)\\s+skill\\s+(?:total|totals|score|scores)\\b",
+            "\\badd\\s+(?:it\\s+|this\\s+|this\\s+number\\s+)?to\\s+(?:it\\s+)?your\\s+(?:current\\s+)?(?<skills>[^.]+?)\\s+skill\\s+(?:total|totals|score|scores)\\b",
             RegexOptions.IgnoreCase);
         if (modifierMatch.Success)
         {
