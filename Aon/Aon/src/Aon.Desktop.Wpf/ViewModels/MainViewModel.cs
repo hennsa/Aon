@@ -163,7 +163,9 @@ public sealed partial class MainViewModel : ViewModelBase
     public ObservableCollection<StatEntryViewModel> CoreStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> CoreSkills { get; } = new();
     public ObservableCollection<StatEntryViewModel> AttributeStats { get; } = new();
+    public ObservableCollection<StatEntryViewModel> SeriesStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> InventoryCounters { get; } = new();
+    public ObservableCollection<FlagEntryViewModel> FlagEntries { get; } = new();
     public ObservableCollection<string> SaveSlots { get; } = new();
     public ObservableCollection<string> AvailableSkills { get; } = new();
     public ObservableCollection<string> CharacterSkills { get; } = new();
@@ -187,6 +189,10 @@ public sealed partial class MainViewModel : ViewModelBase
     public RelayCommand AddCounterCommand => _addCounterCommand;
     public bool HasCoreSkills => CoreSkills.Count > 0;
     public bool HasAvailableSkills => AvailableSkills.Count > 0;
+    public bool HasAttributeStats => AttributeStats.Count > 0;
+    public bool HasSeriesStats => SeriesStats.Count > 0;
+    public bool HasInventoryCounters => InventoryCounters.Count > 0;
+    public bool HasFlags => FlagEntries.Count > 0;
     public bool CanCreateCharacter => SelectedProfile is not null;
     public bool IsProfileSelected => SelectedProfile is not null;
     public bool IsCharacterSeriesSelected => SelectedCharacterSeries is not null;

@@ -495,7 +495,9 @@ public sealed partial class MainViewModel
         CoreStats.Clear();
         CoreSkills.Clear();
         AttributeStats.Clear();
+        SeriesStats.Clear();
         InventoryCounters.Clear();
+        FlagEntries.Clear();
         InventoryItems.Clear();
         Characters.Clear();
         SelectedCharacter = null;
@@ -504,6 +506,10 @@ public sealed partial class MainViewModel
         IsProfileReady = false;
         OnPropertyChanged(nameof(HasCoreSkills));
         OnPropertyChanged(nameof(HasAvailableSkills));
+        OnPropertyChanged(nameof(HasAttributeStats));
+        OnPropertyChanged(nameof(HasSeriesStats));
+        OnPropertyChanged(nameof(HasInventoryCounters));
+        OnPropertyChanged(nameof(HasFlags));
         UpdateBookProgressIndicators();
         LoadProfiles();
     }
