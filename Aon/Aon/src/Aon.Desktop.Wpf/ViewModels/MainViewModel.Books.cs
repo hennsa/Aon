@@ -272,6 +272,7 @@ public sealed partial class MainViewModel
             Blocks.Add(new ContentBlockViewModel(block.Kind, ReplaceCharacterTokens(block.Text)));
         }
 
+        UpdateCombatContext(section);
         UpdateSuggestedActions(section);
         ResetRandomNumberState();
         RecordBookProgress();
@@ -320,6 +321,7 @@ public sealed partial class MainViewModel
         var command = new RelayCommand(continueAction);
         Choices.Add(new ChoiceViewModel("Continue", command, true));
         ResetSuggestedActions();
+        ClearCombatContext();
         ResetRandomNumberState();
         AreChoicesVisible = true;
     }

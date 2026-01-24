@@ -256,6 +256,10 @@ public sealed partial class MainViewModel : ViewModelBase
             OnPropertyChanged(nameof(ActiveCharacterLabel));
             _newCharacterCommand.RaiseCanExecuteChanged();
             _rollCombatNumberCommand.RaiseCanExecuteChanged();
+            if (!value)
+            {
+                ClearCombatContext();
+            }
             RefreshCombatOutcome();
         }
     }

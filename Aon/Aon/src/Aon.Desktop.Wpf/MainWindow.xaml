@@ -192,7 +192,7 @@
                                 BorderThickness="1"
                                 BorderBrush="#22000000"
                                 CornerRadius="6"
-                                Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                Visibility="{Binding IsCombatVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
                             <StackPanel>
                                 <TextBlock Text="Combat Resolver" FontWeight="SemiBold" />
                                 <TextBlock Text="{Binding CombatTableLabel}"
@@ -223,9 +223,9 @@
                                 <TextBlock Text="Enemy Stats" FontWeight="SemiBold" Margin="0,12,0,4" />
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
                                     <TextBlock Text="Combat Skill:" VerticalAlignment="Center" Margin="0,0,8,0" />
-                                    <TextBox Text="{Binding EnemyCombatSkill}" Width="80" />
+                                    <TextBox Text="{Binding EnemyCombatSkill}" Width="80" IsReadOnly="{Binding IsEnemyStatsLocked}" />
                                     <TextBlock Text="Endurance:" VerticalAlignment="Center" Margin="16,0,8,0" />
-                                    <TextBox Text="{Binding EnemyEndurance}" Width="80" />
+                                    <TextBox Text="{Binding EnemyEndurance}" Width="80" IsReadOnly="{Binding IsEnemyStatsLocked}" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                                     <TextBlock Text="Roll:" VerticalAlignment="Center" Margin="0,0,8,0" />
