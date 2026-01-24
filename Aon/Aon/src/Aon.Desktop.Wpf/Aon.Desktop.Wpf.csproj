@@ -4,6 +4,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
     <OutputType>WinExe</OutputType>
   </PropertyGroup>
 
@@ -13,5 +14,6 @@
     </Content>
     <ProjectReference Include="..\Aon.Application\Aon.Application.csproj" />
     <ProjectReference Include="..\Aon.Persistence\Aon.Persistence.csproj" />
+    <ProjectReference Include="..\Aon.Tools.BookImporter\Aon.Tools.BookImporter.csproj" />
   </ItemGroup>
 </Project>

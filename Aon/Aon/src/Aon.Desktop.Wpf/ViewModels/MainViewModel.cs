@@ -122,6 +122,9 @@ public sealed partial class MainViewModel : ViewModelBase
         _addItemCommand = new RelayCommand(AddItem, () => !string.IsNullOrWhiteSpace(NewItemName));
         _removeItemCommand = new RelayCommand(RemoveItem, () => SelectedInventoryItem is not null);
         _addCounterCommand = new RelayCommand(AddCounter, () => !string.IsNullOrWhiteSpace(CounterNameInput));
+        _browseImportInputCommand = new RelayCommand(() => SelectImportDirectory(true), () => !IsImporting);
+        _browseImportOutputCommand = new RelayCommand(() => SelectImportDirectory(false), () => !IsImporting);
+        _runImportCommand = new RelayCommand(() => _ = RunImportAsync(), CanRunImport);
         LoadBooks(booksDirectory);
         LoadSaveSlots();
         LoadProfiles();

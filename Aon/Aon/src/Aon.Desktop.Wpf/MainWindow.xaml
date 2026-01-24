@@ -618,5 +618,95 @@
                 </ListView>
             </Grid>
         </TabItem>
+
+        <TabItem Header="Importer">
+            <Grid Margin="16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Book Importer" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,12" />
+
+                <Grid Grid.Row="1" Margin="0,0,0,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Input folder:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                    <TextBox Grid.Column="1" Text="{Binding ImportInputDirectory}" Margin="0,0,8,0" />
+                    <Button Grid.Column="2" Content="Browse" Command="{Binding BrowseImportInputCommand}" />
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="0,0,0,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Output folder:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                    <TextBox Grid.Column="1" Text="{Binding ImportOutputDirectory}" Margin="0,0,8,0" />
+                    <Button Grid.Column="2" Content="Browse" Command="{Binding BrowseImportOutputCommand}" />
+                </Grid>
+
+                <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,12">
+                    <Button Content="Run Import" Command="{Binding RunImportCommand}" Margin="0,0,12,0" />
+                    <TextBlock Text="{Binding ImportStatus}" VerticalAlignment="Center" Foreground="#666666" />
+                </StackPanel>
+
+                <ProgressBar Grid.Row="4"
+                             Height="10"
+                             Value="{Binding ImportProgressValue}"
+                             Maximum="{Binding ImportProgressMaximum}"
+                             Margin="0,0,0,12" />
+
+                <ScrollViewer Grid.Row="5" VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <Border Padding="12"
+                                Margin="0,0,0,12"
+                                BorderThickness="1"
+                                BorderBrush="#FFEF9A9A"
+                                Background="#20EF9A9A"
+                                CornerRadius="6"
+                                Visibility="{Binding HasImportErrors, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <StackPanel>
+                                <TextBlock Text="Validation Errors" FontWeight="SemiBold" />
+                                <ItemsControl ItemsSource="{Binding ImportErrors}" Margin="0,6,0,0">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="0,0,0,4" />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Padding="12"
+                                Margin="0,0,0,12"
+                                BorderThickness="1"
+                                BorderBrush="#FFFFC107"
+                                Background="#20FFC107"
+                                CornerRadius="6"
+                                Visibility="{Binding HasImportWarnings, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <StackPanel>
+                                <TextBlock Text="Import Warnings" FontWeight="SemiBold" />
+                                <ItemsControl ItemsSource="{Binding ImportWarnings}" Margin="0,6,0,0">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="0,0,0,4" />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </TabItem>
     </TabControl>
 </Window>
