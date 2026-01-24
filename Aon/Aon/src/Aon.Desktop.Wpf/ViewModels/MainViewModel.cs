@@ -69,6 +69,7 @@ public sealed partial class MainViewModel : ViewModelBase
     private bool _isRandomNumberVisible;
     private bool _areChoicesVisible = true;
     private int? _randomNumberResult;
+    private int? _randomNumberTotalScore;
     private Choice? _resolvedRandomChoice;
     private bool _isManualRandomMode;
     private bool _isRoundsToFireVisible;
