@@ -36,6 +36,7 @@ public sealed partial class MainViewModel : ViewModelBase
     private readonly RelayCommand _addItemCommand;
     private readonly RelayCommand _removeItemCommand;
     private readonly RelayCommand _addCounterCommand;
+    private readonly RelayCommand _rollCombatNumberCommand;
     private readonly List<Choice> _pendingRandomChoices = new();
     private readonly Queue<int> _recentRolls = new();
     private readonly string _saveDirectory;
@@ -107,6 +108,7 @@ public sealed partial class MainViewModel : ViewModelBase
         _rollRandomNumberCommand = new RelayCommand(RollRandomNumber);
         _confirmRandomNumberCommand = new RelayCommand(ConfirmRandomNumber, () => _resolvedRandomChoice is not null);
         _showRandomNumberTableCommand = new RelayCommand(ShowRandomNumberTable);
+        _rollCombatNumberCommand = new RelayCommand(RollCombatNumber, () => IsProfileReady);
         _saveGameCommand = new RelayCommand(() => _ = SaveGameAsync());
         _loadGameCommand = new RelayCommand(() => _ = LoadGameAsync());
         _newSaveSlotCommand = new RelayCommand(CreateNewSaveSlot);
@@ -164,6 +166,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public ObservableCollection<StatEntryViewModel> CoreSkills { get; } = new();
     public ObservableCollection<StatEntryViewModel> AttributeStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> SeriesStats { get; } = new();
+    public ObservableCollection<StatEntryViewModel> CombatSeriesStats { get; } = new();
     public ObservableCollection<StatEntryViewModel> InventoryCounters { get; } = new();
     public ObservableCollection<FlagEntryViewModel> FlagEntries { get; } = new();
     public ObservableCollection<string> SaveSlots { get; } = new();
@@ -191,6 +194,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public bool HasAvailableSkills => AvailableSkills.Count > 0;
     public bool HasAttributeStats => AttributeStats.Count > 0;
     public bool HasSeriesStats => SeriesStats.Count > 0;
+    public bool HasCombatSeriesStats => CombatSeriesStats.Count > 0;
     public bool HasInventoryCounters => InventoryCounters.Count > 0;
     public bool HasFlags => FlagEntries.Count > 0;
     public bool CanCreateCharacter => SelectedProfile is not null;
@@ -246,6 +250,8 @@ public sealed partial class MainViewModel : ViewModelBase
             OnPropertyChanged(nameof(ActiveProfileLabel));
             OnPropertyChanged(nameof(ActiveCharacterLabel));
             _newCharacterCommand.RaiseCanExecuteChanged();
+            _rollCombatNumberCommand.RaiseCanExecuteChanged();
+            RefreshCombatOutcome();
         }
     }
 
@@ -257,6 +263,8 @@ public sealed partial class MainViewModel : ViewModelBase
         OnPropertyChanged(nameof(SeriesContextTooltip));
         OnPropertyChanged(nameof(HasSeriesContext));
         OnPropertyChanged(nameof(InventoryLabel));
+        OnPropertyChanged(nameof(CombatTableLabel));
+        RefreshCombatOutcome();
     }
 
     private static string GetSeriesContextSummary(string seriesId)

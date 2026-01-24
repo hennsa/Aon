@@ -187,6 +187,62 @@
                                 </StackPanel>
                             </StackPanel>
                         </Border>
+                        <Border Margin="0,0,0,12"
+                                Padding="12"
+                                BorderThickness="1"
+                                BorderBrush="#22000000"
+                                CornerRadius="6"
+                                Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <StackPanel>
+                                <TextBlock Text="Combat Resolver" FontWeight="SemiBold" />
+                                <TextBlock Text="{Binding CombatTableLabel}"
+                                           Foreground="#666666"
+                                           Margin="0,4,0,8" />
+                                <TextBlock Text="Player Stats" FontWeight="SemiBold" Margin="0,0,0,4" />
+                                <StackPanel>
+                                    <TextBlock Text="{Binding PlayerCombatSkill, StringFormat=Combat Skill: {0}}" />
+                                    <TextBlock Text="{Binding PlayerEffectiveCombatSkill, StringFormat=Effective Combat Skill: {0}}" />
+                                    <TextBlock Text="{Binding CombatSkillBonus, StringFormat=Combat Modifier: {0}}" />
+                                    <TextBlock Text="{Binding PlayerEndurance, StringFormat=Endurance: {0}}" />
+                                </StackPanel>
+                                <StackPanel Margin="0,8,0,0"
+                                            Visibility="{Binding HasCombatSeriesStats, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <TextBlock Text="Series Combat Status" FontWeight="SemiBold" Margin="0,4,0,4" />
+                                    <ItemsControl ItemsSource="{Binding CombatSeriesStats}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextWrapping="Wrap">
+                                                    <Run Text="{Binding Label}" />
+                                                    <Run Text=": " />
+                                                    <Run Text="{Binding Value}" />
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                                <TextBlock Text="Enemy Stats" FontWeight="SemiBold" Margin="0,12,0,4" />
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                                    <TextBlock Text="Combat Skill:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                                    <TextBox Text="{Binding EnemyCombatSkill}" Width="80" />
+                                    <TextBlock Text="Endurance:" VerticalAlignment="Center" Margin="16,0,8,0" />
+                                    <TextBox Text="{Binding EnemyEndurance}" Width="80" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                    <TextBlock Text="Roll:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                                    <TextBox Text="{Binding CombatRoll}" Width="60" Margin="0,0,8,0" />
+                                    <Button Content="Roll" Command="{Binding RollCombatNumberCommand}" />
+                                </StackPanel>
+                                <TextBlock Text="Outcome" FontWeight="SemiBold" Margin="0,0,0,4" />
+                                <StackPanel>
+                                    <TextBlock Text="{Binding CombatRatio, StringFormat=Combat Ratio: {0}}" />
+                                    <TextBlock Text="{Binding CombatPlayerLoss, StringFormat=Player Loss: {0}}" />
+                                    <TextBlock Text="{Binding CombatEnemyLoss, StringFormat=Enemy Loss: {0}}" />
+                                    <TextBlock Text="{Binding CombatPlayerDefeatedLabel, StringFormat=Player Defeated: {0}}" />
+                                    <TextBlock Text="{Binding CombatEnemyDefeatedLabel, StringFormat=Enemy Defeated: {0}}" />
+                                    <TextBlock Text="{Binding CombatOutcomeSummary}" TextWrapping="Wrap" Margin="0,6,0,0" Foreground="#444444" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
                 </ScrollViewer>
 
