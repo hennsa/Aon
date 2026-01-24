@@ -106,6 +106,7 @@ public sealed partial class MainViewModel
         EnsureProfileContainer();
         _state.SeriesId = string.Empty;
         _currentCharacterState = null;
+        NotifySeriesContextChanged();
         OnPropertyChanged(nameof(InventoryLabel));
         IsProfileReady = false;
         CharacterSetupHint = "Select an existing character or create a new one to begin.";
@@ -215,6 +216,7 @@ public sealed partial class MainViewModel
         _state.Profile.SeriesStates[wizardResult.SeriesId] = wizardResult.SeriesState;
         _state.SeriesId = wizardResult.SeriesId;
         _currentProfile = ResolveSeriesProfile(wizardResult.SeriesId);
+        NotifySeriesContextChanged();
         _currentCharacterState = wizardResult.CharacterState;
         if (wizardResult.CharacterState is not null)
         {
@@ -478,6 +480,7 @@ public sealed partial class MainViewModel
         _state.Profile = new PlayerProfile();
         _currentProfile = SeriesProfiles.LoneWolf;
         _currentCharacterState = null;
+        NotifySeriesContextChanged();
 
         BookTitle = "Aon Companion";
         SectionTitle = "Select a book";
@@ -529,6 +532,7 @@ public sealed partial class MainViewModel
 
             _state.SeriesId = seriesId;
             _currentProfile = ResolveSeriesProfile(seriesId);
+            NotifySeriesContextChanged();
             var seriesState = EnsureSeriesState(_state.Profile, seriesId);
             seriesState.ActiveCharacterName = option.Name;
 
@@ -591,6 +595,7 @@ public sealed partial class MainViewModel
         EnsureProfileContainer();
         _state.SeriesId = seriesId;
         _currentProfile = ResolveSeriesProfile(seriesId);
+        NotifySeriesContextChanged();
         _currentCharacterState = option.CharacterState;
         _state.Character = option.CharacterState.Character;
         EnsureSeriesDefaults(_state.Character);
