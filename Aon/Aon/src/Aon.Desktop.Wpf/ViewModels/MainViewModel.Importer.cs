@@ -162,13 +162,13 @@ public sealed partial class MainViewModel
     {
         if (string.IsNullOrWhiteSpace(ImportInputDirectory) || !Directory.Exists(ImportInputDirectory))
         {
-            MessageBox.Show("Select a valid input directory before running the import.", "Book Importer", MessageBoxButton.OK, MessageBoxImage.Warning);
+            System.Windows.MessageBox.Show("Select a valid input directory before running the import.", "Book Importer", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
         if (string.IsNullOrWhiteSpace(ImportOutputDirectory))
         {
-            MessageBox.Show("Select an output directory before running the import.", "Book Importer", MessageBoxButton.OK, MessageBoxImage.Warning);
+            System.Windows.MessageBox.Show("Select an output directory before running the import.", "Book Importer", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
