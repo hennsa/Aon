@@ -52,16 +52,17 @@ public sealed partial class MainViewModel
         foreach (var choice in choices)
         {
             var command = new RelayCommand(() => _ = ApplyChoiceAsync(choice));
-            var isEnabled = IsChoiceAvailable(choice);
-            Choices.Add(new ChoiceViewModel(ReplaceCharacterTokens(choice.Text), command, isEnabled));
+            var evaluation = _gameService.EvaluateChoice(_state, choice);
+            var isEnabled = evaluation.IsAvailable;
+            var choiceText = ReplaceCharacterTokens(choice.Text);
+            if (!isEnabled)
+            {
+                choiceText = $"{choiceText} (Unavailable)";
+            }
+            Choices.Add(new ChoiceViewModel(choiceText, command, isEnabled));
         }
 
         AreChoicesVisible = Choices.Count > 0;
-    }
-
-    private bool IsChoiceAvailable(Choice choice)
-    {
-        return _gameService.EvaluateChoice(_state, choice).IsAvailable;
     }
 
     private void RollRandomNumber()

@@ -170,6 +170,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public ObservableCollection<ItemEntryViewModel> InventoryItems { get; } = new();
     public ObservableCollection<string> ItemCategories { get; } = new();
     public ObservableCollection<QuickActionViewModel> SuggestedActions { get; } = new();
+    public ObservableCollection<string> RuleWarnings { get; } = new();
     public RelayCommand RollRandomNumberCommand => _rollRandomNumberCommand;
     public RelayCommand ConfirmRandomNumberCommand => _confirmRandomNumberCommand;
     public RelayCommand ShowRandomNumberTableCommand => _showRandomNumberTableCommand;
@@ -193,6 +194,7 @@ public sealed partial class MainViewModel : ViewModelBase
     public bool IsDev => _isDev;
     public bool HasSelectedProfileAndSeries => SelectedProfile is not null && SelectedCharacterSeries is not null;
     public bool HasSuggestedActions => SuggestedActions.Count > 0;
+    public bool HasRuleWarnings => RuleWarnings.Count > 0;
     public string InventoryLabel => _currentProfile.InventoryLabel;
     public string SeriesId => _state.SeriesId;
     public string SeriesDisplayName => string.IsNullOrWhiteSpace(_state.SeriesId)
@@ -210,6 +212,17 @@ public sealed partial class MainViewModel : ViewModelBase
     {
         SuggestedActions.Clear();
         OnPropertyChanged(nameof(HasSuggestedActions));
+    }
+
+    private void SetRuleWarnings(IEnumerable<string> warnings)
+    {
+        RuleWarnings.Clear();
+        foreach (var warning in warnings)
+        {
+            RuleWarnings.Add(warning);
+        }
+
+        OnPropertyChanged(nameof(HasRuleWarnings));
     }
     public bool IsProfileReady
     {

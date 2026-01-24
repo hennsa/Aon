@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Aon.Content;
 using Aon.Core;
+using Aon.Rules;
 
 namespace Aon.Desktop.Wpf.ViewModels;
 
@@ -182,6 +183,7 @@ public sealed partial class MainViewModel
         _state.SeriesId = seriesId;
         NotifySeriesContextChanged();
         BookTitle = _book.Title;
+        SetRuleWarnings(RuleMetadataValidator.ValidateBook(_book, RuleCatalog.Load(seriesId)));
         var firstSection = _book.Sections.FirstOrDefault();
         var savedSectionId = GetSavedSectionId(_book.Id);
         _state.SectionId = string.IsNullOrWhiteSpace(savedSectionId)
@@ -235,6 +237,7 @@ public sealed partial class MainViewModel
         Choices.Clear();
         ResetRandomNumberState();
         ResetSuggestedActions();
+        SetRuleWarnings(Array.Empty<string>());
         AreChoicesVisible = false;
         SelectedBook = null;
         UpdateBookProgressIndicators();

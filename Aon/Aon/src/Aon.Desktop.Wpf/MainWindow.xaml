@@ -95,6 +95,24 @@
                 <ScrollViewer Grid.Row="3" Grid.Column="0" VerticalScrollBarVisibility="Auto"
                               Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <StackPanel>
+                        <Border Margin="0,0,0,12"
+                                Padding="12"
+                                BorderThickness="1"
+                                BorderBrush="#FFFFC107"
+                                Background="#20FFC107"
+                                CornerRadius="6"
+                                Visibility="{Binding HasRuleWarnings, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <StackPanel>
+                                <TextBlock Text="Rule validation warnings" FontWeight="SemiBold" />
+                                <ItemsControl ItemsSource="{Binding RuleWarnings}" Margin="0,6,0,0">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="0,0,0,4" />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Border>
                         <ItemsControl ItemsSource="{Binding Blocks}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
