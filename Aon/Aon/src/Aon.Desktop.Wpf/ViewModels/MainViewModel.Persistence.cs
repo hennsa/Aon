@@ -143,7 +143,9 @@ public sealed partial class MainViewModel
         _state.SectionId = loaded.SectionId;
         _state.SeriesId = loaded.SeriesId;
         _state.Profile = loaded.Profile ?? new PlayerProfile();
+        _currentProfile = ResolveSeriesProfile(_state.SeriesId);
         EnsureProfileContainer();
+        NotifySeriesContextChanged();
         LoadProfiles(false);
 
         if (!string.IsNullOrWhiteSpace(_state.SeriesId))
@@ -180,7 +182,6 @@ public sealed partial class MainViewModel
         }
 
         _state.Character = loaded.Character;
-        _currentProfile = ResolveSeriesProfile(_state.SeriesId);
         if (!string.IsNullOrWhiteSpace(_state.SeriesId))
         {
             var seriesState = EnsureSeriesState(_state.Profile, _state.SeriesId);

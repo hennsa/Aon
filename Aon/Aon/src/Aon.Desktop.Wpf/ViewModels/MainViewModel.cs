@@ -194,6 +194,17 @@ public sealed partial class MainViewModel : ViewModelBase
     public bool HasSelectedProfileAndSeries => SelectedProfile is not null && SelectedCharacterSeries is not null;
     public bool HasSuggestedActions => SuggestedActions.Count > 0;
     public string InventoryLabel => _currentProfile.InventoryLabel;
+    public string SeriesId => _state.SeriesId;
+    public string SeriesDisplayName => string.IsNullOrWhiteSpace(_state.SeriesId)
+        ? "No series selected"
+        : _currentProfile.Name;
+    public string SeriesContextSummary => string.IsNullOrWhiteSpace(_state.SeriesId)
+        ? "Select a book to see series-specific rules and mechanics."
+        : GetSeriesContextSummary(_state.SeriesId);
+    public string SeriesContextTooltip => string.IsNullOrWhiteSpace(_state.SeriesId)
+        ? "Series rules appear once a book is selected."
+        : GetSeriesContextTooltip(_state.SeriesId);
+    public bool HasSeriesContext => !string.IsNullOrWhiteSpace(_state.SeriesId);
 
     private void ResetSuggestedActions()
     {
@@ -217,6 +228,38 @@ public sealed partial class MainViewModel : ViewModelBase
             OnPropertyChanged(nameof(ActiveCharacterLabel));
             _newCharacterCommand.RaiseCanExecuteChanged();
         }
+    }
+
+    private void NotifySeriesContextChanged()
+    {
+        OnPropertyChanged(nameof(SeriesId));
+        OnPropertyChanged(nameof(SeriesDisplayName));
+        OnPropertyChanged(nameof(SeriesContextSummary));
+        OnPropertyChanged(nameof(SeriesContextTooltip));
+        OnPropertyChanged(nameof(HasSeriesContext));
+        OnPropertyChanged(nameof(InventoryLabel));
+    }
+
+    private static string GetSeriesContextSummary(string seriesId)
+    {
+        return seriesId.Trim().ToLowerInvariant() switch
+        {
+            "lw" => "Kai Disciplines and the Combat Results Table drive encounters.",
+            "gs" => "Sorcery disciplines and Willpower shape Grey Star encounters.",
+            "fw" => "Driving/Shooting core skills plus Fuel/Bullets track survival.",
+            _ => "Series-specific rules apply for this book."
+        };
+    }
+
+    private static string GetSeriesContextTooltip(string seriesId)
+    {
+        return seriesId.Trim().ToLowerInvariant() switch
+        {
+            "lw" => "Lone Wolf: use Kai Disciplines, track Combat Skill & Endurance, and reference the Combat Results Table.",
+            "gs" => "Grey Star: sorcery disciplines consume Willpower; combat and rewards follow Grey Star rules.",
+            "fw" => "Freeway Warrior: driving actions, shooting checks, Fuel, and Bullets are core resources.",
+            _ => "Rules vary by series; consult the book's front matter for specifics."
+        };
     }
 
     public ProfileOptionViewModel? SelectedProfile

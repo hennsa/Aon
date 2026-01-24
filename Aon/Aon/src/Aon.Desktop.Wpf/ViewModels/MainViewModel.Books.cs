@@ -180,6 +180,7 @@ public sealed partial class MainViewModel
         _book = book;
         _state.BookId = _book.Id;
         _state.SeriesId = seriesId;
+        NotifySeriesContextChanged();
         BookTitle = _book.Title;
         var firstSection = _book.Sections.FirstOrDefault();
         var savedSectionId = GetSavedSectionId(_book.Id);
@@ -227,6 +228,7 @@ public sealed partial class MainViewModel
         _state.BookId = string.Empty;
         _state.SeriesId = string.Empty;
         _state.SectionId = string.Empty;
+        NotifySeriesContextChanged();
         BookTitle = "Aon Companion";
         SectionTitle = "Select a book";
         Blocks.Clear();

@@ -70,8 +70,25 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding BookTitle}" FontSize="22" FontWeight="SemiBold"
-                           Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <StackPanel Grid.Row="1" Grid.Column="0"
+                            Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <TextBlock Text="{Binding BookTitle}" FontSize="22" FontWeight="SemiBold" />
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,6,0,0"
+                                Visibility="{Binding HasSeriesContext, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <TextBlock Text="Series:" FontWeight="SemiBold" Margin="0,0,6,0" />
+                        <TextBlock Text="{Binding SeriesDisplayName}" />
+                        <TextBlock Text=" (" />
+                        <TextBlock Text="{Binding SeriesId}" />
+                        <TextBlock Text=")" />
+                    </StackPanel>
+                    <TextBlock Text="{Binding SeriesContextSummary}"
+                               ToolTip="{Binding SeriesContextTooltip}"
+                               Foreground="#666666"
+                               TextWrapping="Wrap"
+                               Margin="0,4,0,0"
+                               Visibility="{Binding HasSeriesContext, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                </StackPanel>
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding SectionTitle}" FontSize="16" Margin="0,8,0,16"
                            Visibility="{Binding IsProfileReady, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
