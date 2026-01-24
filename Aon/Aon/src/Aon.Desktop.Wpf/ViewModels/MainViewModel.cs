@@ -41,6 +41,7 @@ public sealed partial class MainViewModel : ViewModelBase
     private readonly Queue<int> _recentRolls = new();
     private readonly string _saveDirectory;
     private readonly bool _isDev;
+    private RuleCatalog? _ruleCatalog;
     private const string CharacterNameToken = "{{characterName}}";
     private ISeriesProfile _currentProfile = SeriesProfiles.LoneWolf;
     private CharacterProfileState? _currentCharacterState;
@@ -77,6 +78,7 @@ public sealed partial class MainViewModel : ViewModelBase
     private bool _isSwitchingCharacter;
     private bool _lastWizardCreatedNewCharacter;
     private string? _lastWizardSeriesId;
+    private bool _showChoiceDetails;
 
     public MainViewModel()
     {
@@ -588,6 +590,21 @@ public sealed partial class MainViewModel : ViewModelBase
             }
 
             _areChoicesVisible = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public bool ShowChoiceDetails
+    {
+        get => _showChoiceDetails;
+        set
+        {
+            if (_showChoiceDetails == value)
+            {
+                return;
+            }
+
+            _showChoiceDetails = value;
             OnPropertyChanged();
         }
     }

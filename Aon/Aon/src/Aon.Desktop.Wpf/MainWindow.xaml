@@ -269,16 +269,53 @@
                             BorderThickness="0,1,0,0"
                             BorderBrush="#22000000"
                             Visibility="{Binding AreChoicesVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-                        <ItemsControl ItemsSource="{Binding Choices}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Button Content="{Binding Text}"
-                                            Command="{Binding Command}"
-                                            IsEnabled="{Binding IsEnabled}"
-                                            Margin="0,4,0,0" />
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                        <StackPanel>
+                            <CheckBox Content="Show choice details"
+                                      IsChecked="{Binding ShowChoiceDetails}"
+                                      Margin="0,0,0,6" />
+                            <ItemsControl ItemsSource="{Binding Choices}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Margin="0,4,0,0">
+                                            <Button Content="{Binding Text}"
+                                                    Command="{Binding Command}"
+                                                    IsEnabled="{Binding IsEnabled}" />
+                                            <Border Margin="12,6,0,0"
+                                                    Padding="8"
+                                                    BorderThickness="1"
+                                                    BorderBrush="#22000000"
+                                                    Background="#11000000"
+                                                    CornerRadius="4"
+                                                    Visibility="{Binding DataContext.ShowChoiceDetails, RelativeSource={RelativeSource AncestorType=ItemsControl}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding RequirementsDisplay, StringFormat=Requirements: {0}}"
+                                                               TextWrapping="Wrap" />
+                                                    <TextBlock Text="{Binding EffectsDisplay, StringFormat=Effects: {0}}"
+                                                               TextWrapping="Wrap"
+                                                               Margin="0,4,0,0" />
+                                                    <TextBlock Text="{Binding RuleIdsDisplay, StringFormat=Rule IDs: {0}}"
+                                                               TextWrapping="Wrap"
+                                                               Margin="0,4,0,0" />
+                                                    <StackPanel Margin="0,6,0,0"
+                                                                Visibility="{Binding HasValidationWarnings, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                        <TextBlock Text="Validation warnings"
+                                                                   FontWeight="SemiBold"
+                                                                   Foreground="#B45309" />
+                                                        <ItemsControl ItemsSource="{Binding ValidationWarnings}" Margin="0,4,0,0">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="0,0,0,4" />
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </Border>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
                     </Border>
                 </StackPanel>
 

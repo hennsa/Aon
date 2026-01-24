@@ -59,7 +59,17 @@ public sealed partial class MainViewModel
             {
                 choiceText = $"{choiceText} (Unavailable)";
             }
-            Choices.Add(new ChoiceViewModel(choiceText, command, isEnabled));
+            var warnings = _ruleCatalog is null
+                ? Array.Empty<string>()
+                : RuleMetadataValidator.ValidateChoice(_state.SectionId, choice, _ruleCatalog);
+            Choices.Add(new ChoiceViewModel(
+                choiceText,
+                command,
+                isEnabled,
+                choice.Requirements,
+                choice.Effects,
+                choice.RuleIds,
+                warnings));
         }
 
         AreChoicesVisible = Choices.Count > 0;

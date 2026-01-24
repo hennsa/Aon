@@ -183,7 +183,8 @@ public sealed partial class MainViewModel
         _state.SeriesId = seriesId;
         NotifySeriesContextChanged();
         BookTitle = _book.Title;
-        SetRuleWarnings(RuleMetadataValidator.ValidateBook(_book, RuleCatalog.Load(seriesId)));
+        _ruleCatalog = RuleCatalog.Load(seriesId);
+        SetRuleWarnings(RuleMetadataValidator.ValidateBook(_book, _ruleCatalog));
         var firstSection = _book.Sections.FirstOrDefault();
         var savedSectionId = GetSavedSectionId(_book.Id);
         _state.SectionId = string.IsNullOrWhiteSpace(savedSectionId)
@@ -230,6 +231,7 @@ public sealed partial class MainViewModel
         _state.BookId = string.Empty;
         _state.SeriesId = string.Empty;
         _state.SectionId = string.Empty;
+        _ruleCatalog = null;
         NotifySeriesContextChanged();
         BookTitle = "Aon Companion";
         SectionTitle = "Select a book";
