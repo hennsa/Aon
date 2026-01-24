@@ -16,6 +16,12 @@
                 <TextBlock Text="{Binding Value}" Width="60" HorizontalAlignment="Right" />
             </StackPanel>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:FlagEntryViewModel}">
+            <StackPanel Orientation="Horizontal" Margin="2">
+                <TextBlock Text="{Binding Label}" Width="160" Margin="0,0,8,0" />
+                <TextBlock Text="{Binding Value}" Width="140" TextWrapping="Wrap" />
+            </StackPanel>
+        </DataTemplate>
     </Window.Resources>
     <TabControl Margin="12" SelectedIndex="{Binding ActiveTabIndex}">
         <TabItem Header="Book &amp; Series">
@@ -313,6 +319,40 @@
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
 
+                                <StackPanel Visibility="{Binding HasSeriesStats, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <TextBlock Text="Series Stats" FontWeight="SemiBold" />
+                                    <ItemsControl ItemsSource="{Binding SeriesStats}" Margin="0,4,0,12">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run Text="{Binding Label}" />
+                                                        <Run Text=": " />
+                                                        <Run Text="{Binding Value}" />
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+
+                                <StackPanel Visibility="{Binding HasFlags, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <TextBlock Text="Flags" FontWeight="SemiBold" />
+                                    <ItemsControl ItemsSource="{Binding FlagEntries}" Margin="0,4,0,12">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run Text="{Binding Label}" />
+                                                        <Run Text=": " />
+                                                        <Run Text="{Binding Value}" />
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+
                                 <StackPanel Visibility="{Binding HasAvailableSkills, Converter={StaticResource BooleanToVisibilityConverter}}">
                                     <TextBlock Text="Disciplines &amp; Skills" FontWeight="SemiBold" Margin="0,12,0,0" />
                                     <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
@@ -330,12 +370,13 @@
                                     <Button Content="Remove Selected Skill" Command="{Binding RemoveSkillCommand}" Margin="0,0,0,12" />
                                 </StackPanel>
 
-                                <TextBlock Text="{Binding InventoryLabel}" FontWeight="SemiBold" />
+                                <TextBlock Text="Inventory Counters" FontWeight="SemiBold" />
                                 <StackPanel Orientation="Horizontal" Margin="0,4,0,6">
                                     <TextBox Text="{Binding CounterNameInput}" Width="120" Margin="0,0,8,0" />
-                                    <Button Content="Add Item" Command="{Binding AddCounterCommand}" />
+                                    <Button Content="Add Counter" Command="{Binding AddCounterCommand}" />
                                 </StackPanel>
-                                <ItemsControl ItemsSource="{Binding InventoryCounters}" Margin="0,4,0,0">
+                                <ItemsControl ItemsSource="{Binding InventoryCounters}" Margin="0,4,0,0"
+                                              Visibility="{Binding HasInventoryCounters, Converter={StaticResource BooleanToVisibilityConverter}}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
@@ -348,7 +389,7 @@
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
 
-                                <TextBlock Text="Items" FontWeight="SemiBold" Margin="0,12,0,4" />
+                                <TextBlock Text="{Binding InventoryLabel}" FontWeight="SemiBold" Margin="0,12,0,4" />
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
                                     <TextBox Text="{Binding NewItemName}" Width="140" Margin="0,0,8,0" />
                                     <ComboBox ItemsSource="{Binding ItemCategories}"

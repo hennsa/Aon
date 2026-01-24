@@ -41,10 +41,26 @@ public sealed partial class MainViewModel
         OnPropertyChanged(nameof(HasCoreSkills));
 
         AttributeStats.Clear();
+        SeriesStats.Clear();
+        var seriesStatKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            Character.CombatSkillBonusAttribute,
+            "CoreSkillPoolTotal",
+            "Willpower"
+        };
         foreach (var entry in _state.Character.Attributes.OrderBy(item => item.Key, StringComparer.OrdinalIgnoreCase))
         {
-            AttributeStats.Add(new StatEntryViewModel(entry.Key, entry.Value));
+            if (seriesStatKeys.Contains(entry.Key))
+            {
+                SeriesStats.Add(new StatEntryViewModel(entry.Key, entry.Value));
+            }
+            else
+            {
+                AttributeStats.Add(new StatEntryViewModel(entry.Key, entry.Value));
+            }
         }
+        OnPropertyChanged(nameof(HasAttributeStats));
+        OnPropertyChanged(nameof(HasSeriesStats));
 
         InventoryCounters.Clear();
         foreach (var entry in _state.Character.Inventory.Counters.OrderBy(item => item.Key, StringComparer.OrdinalIgnoreCase))
@@ -55,6 +71,14 @@ public sealed partial class MainViewModel
                 () => AdjustCounter(entry.Key, 1),
                 () => AdjustCounter(entry.Key, -1)));
         }
+        OnPropertyChanged(nameof(HasInventoryCounters));
+
+        FlagEntries.Clear();
+        foreach (var entry in _state.Flags.OrderBy(item => item.Key, StringComparer.OrdinalIgnoreCase))
+        {
+            FlagEntries.Add(new FlagEntryViewModel(entry.Key, entry.Value));
+        }
+        OnPropertyChanged(nameof(HasFlags));
 
         CharacterSkills.Clear();
         foreach (var skill in _state.Character.Disciplines.OrderBy(skill => skill, StringComparer.OrdinalIgnoreCase))
